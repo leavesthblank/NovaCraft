@@ -16,12 +16,12 @@ public class NewEntityAIArrowAttack extends EntityAIBase
     private int maxRangedAttackTime;
     private float field_96562_i;
     private float field_82642_h;
-    private static final String __OBFID = "CL_00001609";
-    
+
+
     public NewEntityAIArrowAttack(final IRangedAttackMob p_i1649_1_, final double p_i1649_2_, final int p_i1649_4_, final float p_i1649_5_) {
         this(p_i1649_1_, p_i1649_2_, p_i1649_4_, p_i1649_4_, p_i1649_5_);
     }
-    
+
     public NewEntityAIArrowAttack(final IRangedAttackMob p_i1650_1_, final double p_i1650_2_, final int p_i1650_4_, final int p_i1650_5_, final float p_i1650_6_) {
         this.rangedAttackTime = -1;
         if (!(p_i1650_1_ instanceof EntityLivingBase)) {
@@ -36,7 +36,7 @@ public class NewEntityAIArrowAttack extends EntityAIBase
         this.field_82642_h = p_i1650_6_ * p_i1650_6_;
         this.setMutexBits(3);
     }
-    
+
     public boolean shouldExecute() {
         final EntityLivingBase entitylivingbase = this.entityHost.getAttackTarget();
         if (entitylivingbase == null) {
@@ -48,17 +48,17 @@ public class NewEntityAIArrowAttack extends EntityAIBase
         this.attackTarget = entitylivingbase;
         return true;
     }
-    
+
     public boolean continueExecuting() {
         return this.shouldExecute() || !this.entityHost.getNavigator().noPath();
     }
-    
+
     public void resetTask() {
         this.attackTarget = null;
         this.field_75318_f = 0;
         this.rangedAttackTime = -1;
     }
-    
+
     public void updateTask() {
         final double d0 = this.entityHost.getDistanceSq(this.attackTarget.posX, this.attackTarget.boundingBox.minY, this.attackTarget.posZ);
         final boolean flag = this.entityHost.getEntitySenses().canSee((Entity)this.attackTarget);

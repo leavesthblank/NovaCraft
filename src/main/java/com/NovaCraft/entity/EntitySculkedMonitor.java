@@ -27,12 +27,12 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntitySculkedMonitor extends EntityMob
-{	
+{
 	public int timeUntilShoot;
 	public int courseChangeCooldown;
 	public double waypointX, waypointY, waypointZ;
 	public int prevAttackCounter;
-	public int attackCounter;	
+	public int attackCounter;
 	private final float base;
 
     public EntitySculkedMonitor(World p_i1743_1_)
@@ -56,7 +56,7 @@ public class EntitySculkedMonitor extends EntityMob
     public void onUpdate()
     {
         super.onUpdate();
-        
+
         if (!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL)
         {
             this.setDead();
@@ -66,12 +66,12 @@ public class EntitySculkedMonitor extends EntityMob
         {
             this.setBesideClimbableBlock(this.isCollidedHorizontally);
         }
-        
+
         if (this.entityToAttack != null) {
             this.attackEntity(this.entityToAttack, this.getDistanceToEntity(this.entityToAttack));
         }
     }
-    
+
     @Override
 	public boolean attackEntityAsMob(final Entity entity) {
 		final boolean flag = super.attackEntityAsMob(entity);
@@ -92,12 +92,12 @@ public class EntitySculkedMonitor extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.100000011920929D);
         this.setHealth(120);
     }
-    
+
     public boolean canBreatheUnderwater()
     {
         return true;
     }
-    
+
     public int getTotalArmorValue()
     {
         return 8;
@@ -125,11 +125,11 @@ public class EntitySculkedMonitor extends EntityMob
     protected String getHurtSound() {
         return "nova_craft:blazing_serpent.hurt";
     }
-    
+
     protected String getDeathSound() {
         return "nova_craft:blazing_serpent.hurt";
     }
-    
+
     protected String getLivingSound() {
     	return null;
     }
@@ -164,7 +164,7 @@ public class EntitySculkedMonitor extends EntityMob
                 super.attackEntity(p_70785_1_, p_70785_2_);
             }
         }
-        
+
         if (p_70785_1_ instanceof EntityLivingBase) {
 			if (p_70785_2_ < 10.0f) {
                 final double d = p_70785_1_.posX - this.posX;
@@ -189,24 +189,24 @@ public class EntitySculkedMonitor extends EntityMob
             }
         }
     }
-    
+
     @Override
    	protected void updateEntityActionState()
    	{
-   	
+
    		if (!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL)
    		{
    			this.setDead();
    		}
-                                   
+
    		this.despawnEntity();
    		this.prevAttackCounter = this.attackCounter;
    		double d0 = this.waypointX - this.posX;
    		double d1 = this.waypointY - this.posY;
    		double d2 = this.waypointZ - this.posZ;
    		double d3 = d0 * d0 + d1 * d1 + d2 * d2;
-   		
-   		
+
+
    		if (d3 < 1.0D || d3 > 3600.0D)
    		{
    			this.waypointX = this.posX + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
@@ -262,7 +262,7 @@ public class EntitySculkedMonitor extends EntityMob
    					this.playSound("nova_craft:overworld_lizard.hurt", 1F, this.base);
 
    					EntitySculkedMonitorProjectile projectile = new EntitySculkedMonitorProjectile(this.worldObj, this, x, y, z);
-   			            
+
    					Vec3 lookVector = this.getLook(1.0F);
 
    					projectile.posX = this.posX + lookVector.xCoord * 4D;
@@ -278,11 +278,11 @@ public class EntitySculkedMonitor extends EntityMob
    				}
    			} else if (this.attackCounter > 0) {
    				this.attackCounter--;
-   					}           
-   			
+   					}
+
    		}
    	}
-       
+
     private boolean isCourseTraversable(double p_70790_1_, double p_70790_3_, double p_70790_5_, double p_70790_7_)
    	{
    		double d4 = (this.waypointX - this.posX) / p_70790_7_;
@@ -302,7 +302,7 @@ public class EntitySculkedMonitor extends EntityMob
 
    		return true;
    	}
-    
+
     public void shootTarget(final EntityLivingBase target) {
         if (this.worldObj.difficultySetting.getDifficultyId() == 0) {
             return;
@@ -317,7 +317,7 @@ public class EntitySculkedMonitor extends EntityMob
             this.worldObj.spawnEntityInWorld(projectile);
         }
     }
-    
+
     /**
      * Called when the mob's health reaches 0.
      */
@@ -328,9 +328,9 @@ public class EntitySculkedMonitor extends EntityMob
         if (p_70645_1_.getEntity() instanceof EntityPlayer)
         {
             EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
-            
+
             entityplayer.triggerAchievement(AchievementsNovaCraft.lost_to_the_ages);
-            
+
         }
     }
 
@@ -346,7 +346,7 @@ public class EntitySculkedMonitor extends EntityMob
     protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
     {
         super.dropFewItems(p_70628_1_, p_70628_2_);
-        
+
         if (p_70628_1_ && (this.rand.nextInt(5) == 0 || this.rand.nextInt(1 + p_70628_2_) > 0))
         {
             this.dropItem(NovaCraftItems.sculk_dweller_heart, 1);
@@ -416,7 +416,7 @@ public class EntitySculkedMonitor extends EntityMob
     public static class GroupData implements IEntityLivingData
         {
             public int field_111105_a;
-            private static final String __OBFID = "CL_00001700";
+
 
             public void func_111104_a(Random p_111104_1_)
             {

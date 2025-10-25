@@ -13,7 +13,7 @@ public class EntityDarkLichenParticleTwo extends EntityFX
     private double portalPosX;
     private double portalPosY;
     private double portalPosZ;
-    private static final String __OBFID = "CL_00000921";
+
 
     public EntityDarkLichenParticleTwo(World p_i1222_1_, double p_i1222_2_, double p_i1222_4_, double p_i1222_6_, double p_i1222_8_, double p_i1222_10_, double p_i1222_12_)
     {

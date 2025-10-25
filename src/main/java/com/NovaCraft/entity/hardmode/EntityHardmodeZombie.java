@@ -90,10 +90,10 @@ public class EntityHardmodeZombie extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.3D);
         this.setHealth(60);
     }
-    
+
     @Override
 	protected void addRandomArmor()
-	{		
+	{
 		int rand = (int)(1 + Math.random() * 8);
 		switch (rand)
         {
@@ -279,25 +279,25 @@ public class EntityHardmodeZombie extends EntityMob
 
             int i = MathHelper.floor_double(this.posX);
             int j = MathHelper.floor_double(this.posY);
-            int k = MathHelper.floor_double(this.posZ);           
+            int k = MathHelper.floor_double(this.posZ);
 
             return true;
         }
     }
-    
+
     /**
      * Called when the mob's health reaches 0.
      */
     public void onDeath(DamageSource p_70645_1_)
     {
         super.onDeath(p_70645_1_);
-        
+
         if (p_70645_1_.getEntity() instanceof EntityPlayer)
         {
             EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
-            
+
             entityplayer.triggerAchievement(AchievementsNovaCraft.a_new_encounter);
-            
+
         }
     }
 
@@ -330,16 +330,16 @@ public class EntityHardmodeZombie extends EntityMob
                 p_70652_1_.setFire(2 * i);
             }
         }
-        
+
         if (p_70652_1_ instanceof EntityPlayer) {
-			
+
         	p_70652_1_.attackEntityFrom(DamageSource.generic, 14.0f);
-        	p_70652_1_.attackEntityFrom(DamageSource.magic, 6.0F);            
+        	p_70652_1_.attackEntityFrom(DamageSource.magic, 6.0F);
         }
 
         return flag;
     }
-    
+
     public void onCollideWithPlayer(final EntityPlayer player) {
         super.onCollideWithPlayer(player);
         if (!player.capabilities.isCreativeMode && !this.worldObj.isRemote && this.getEntitySenses().canSee((Entity)player) && this.getDistanceToEntity((Entity)player) <= 1.8f && player.boundingBox.maxY >= this.boundingBox.minY && player.boundingBox.minY <= this.boundingBox.maxY && this.attackTime <= 0 && this.attackEntityAsMob((player))) {
@@ -533,7 +533,7 @@ public class EntityHardmodeZombie extends EntityMob
         }
 
         if (this.rand.nextFloat() < f * 0.05F)
-        {          
+        {
             this.getEntityAttribute(SharedMonsterAttributes.maxHealth).applyModifier(new AttributeModifier("Leader zombie bonus", this.rand.nextDouble() * 3.0D + 1.0D, 2));
             this.func_146070_a(true);
         }
@@ -679,7 +679,7 @@ public class EntityHardmodeZombie extends EntityMob
     {
         public boolean field_142048_a;
         public boolean field_142046_b;
-        private static final String __OBFID = "CL_00001704";
+
 
         private GroupData(boolean p_i2348_2_, boolean p_i2348_3_)
         {

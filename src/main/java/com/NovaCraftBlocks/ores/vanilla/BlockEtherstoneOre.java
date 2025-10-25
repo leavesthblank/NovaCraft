@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 public class BlockEtherstoneOre extends Block
 {
-    private static final String __OBFID = "CL_00000282";
+
 
     public BlockEtherstoneOre()
     {
@@ -80,7 +80,7 @@ public class BlockEtherstoneOre extends Block
         if (this.getItemDropped(p_149690_5_, rand, p_149690_7_) != Item.getItemFromBlock(this))
         {
             int j1 = 0;
-            
+
              if (this == NovaCraftBlocks.etherstone_coal)
             {
                 j1 = MathHelper.getRandomIntegerInRange(rand, 2, 4);
@@ -97,7 +97,7 @@ public class BlockEtherstoneOre extends Block
             return j1;
         }
         return 0;
-    }    
-   
+    }
+
 }
 

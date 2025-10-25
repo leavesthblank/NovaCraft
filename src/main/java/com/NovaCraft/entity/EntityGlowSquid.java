@@ -40,7 +40,7 @@ public class EntityGlowSquid extends EntityWaterMob
     private float randomMotionVecX;
     private float randomMotionVecY;
     private float randomMotionVecZ;
-    private static final String __OBFID = "CL_00001651";
+
 
     public EntityGlowSquid(World p_i1693_1_)
     {
@@ -54,7 +54,7 @@ public class EntityGlowSquid extends EntityWaterMob
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(10.0D);
     }
-    
+
     /**
      * Returns the sound this mob makes while it's alive.
      */
@@ -91,7 +91,7 @@ public class EntityGlowSquid extends EntityWaterMob
     {
         return Item.getItemById(0);
     }
-    
+
     @SideOnly(Side.CLIENT)
     public int getBrightnessForRender(float p_70070_1_)
     {
@@ -127,7 +127,7 @@ public class EntityGlowSquid extends EntityWaterMob
         {
             this.entityDropItem(new ItemStack(NovaCraftItems.glow_ink_sac), 0.0F);
         }
-        
+
         for (int k = 0; k < j; ++k)
         {
             this.entityDropItem(new ItemStack(NovaCraftItems.raw_glow_squid), 0.0F);
@@ -219,20 +219,20 @@ public class EntityGlowSquid extends EntityWaterMob
 
             this.squidPitch = (float)((double)this.squidPitch + (double)(-90.0F - this.squidPitch) * 0.02D);
         }
-              
+
     }
-    
+
     @SideOnly(Side.CLIENT)
     public void onEntityUpdate() {
     	super.onEntityUpdate();
     	if (this.worldObj.isRemote) {
     	int k;
         if (Configs.enableGlowSquidParticles) {
-        	
+
         	if (net.minecraft.client.Minecraft.getMinecraft().gameSettings.particleSetting == 2) {
     			return;
     		}
-        	
+
         	for (k = 0; k < 1; ++k)
         	{
         		ParticleHandler.GLOWSQUID.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
@@ -275,7 +275,7 @@ public class EntityGlowSquid extends EntityWaterMob
     {
         return this.posY > 30.0D && this.posY < 48.0D && super.getCanSpawnHere();
     }
-    
+
     public EntityGlowSquid createChild(EntityAgeable p_90011_1_)
     {
         return new EntityGlowSquid(this.worldObj);
@@ -289,6 +289,6 @@ public class EntityGlowSquid extends EntityWaterMob
     {
         return p_70877_1_ != null && p_70877_1_.getItem() == Items.fish;
     }
-    
-    
+
+
 }

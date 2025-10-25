@@ -17,7 +17,7 @@ public class GlowSquidModel extends ModelBase
     ModelRenderer squidBody;
     /** The squid's tentacles */
     ModelRenderer[] squidTentacles = new ModelRenderer[8];
-    private static final String __OBFID = "CL_00000861";
+
 
     public GlowSquidModel()
     {
@@ -63,15 +63,15 @@ public class GlowSquidModel extends ModelBase
      */
     public void render(Entity p_78088_1_, float p_78088_2_, float p_78088_3_, float p_78088_4_, float p_78088_5_, float p_78088_6_, float p_78088_7_)
     {
-    	
+
     	EntityGlowSquid squid = ((EntityGlowSquid) p_78088_1_);
     	if(squid.isChild()) {
-    	
+
     	GL11.glScalef(1.0F / 2.0F, 1.0F / 2.0F, 1.0F / 2.0F);
 		GL11.glTranslatef(0.0F, 24.0F * p_78088_7_, 0.0F);
-    	
+
     	}
-    	
+
         this.setRotationAngles(p_78088_2_, p_78088_3_, p_78088_4_, p_78088_5_, p_78088_6_, p_78088_7_, p_78088_1_);
         this.squidBody.render(p_78088_7_);
 
@@ -79,6 +79,6 @@ public class GlowSquidModel extends ModelBase
         {
             this.squidTentacles[i].render(p_78088_7_);
         }
-        
+
     }
 }

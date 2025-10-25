@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 
 public class EntityIonizatiorProjectile extends EntityFireball
 {
-    private static final String __OBFID = "CL_00001721";
+
 
     public EntityIonizatiorProjectile(World p_i1770_1_)
     {
@@ -42,7 +42,7 @@ public class EntityIonizatiorProjectile extends EntityFireball
         super(p_i1772_1_, p_i1772_2_, p_i1772_4_, p_i1772_6_, p_i1772_8_, p_i1772_10_, p_i1772_12_);
         this.setSize(0.3125F, 0.3125F);
     }
-    
+
     @SideOnly(Side.CLIENT)
     public void onEntityUpdate() {
     	super.onEntityUpdate();
@@ -65,14 +65,14 @@ public class EntityIonizatiorProjectile extends EntityFireball
         if (!this.worldObj.isRemote)
         {
             if (p_70227_1_.entityHit != null)
-            {              
+            {
                 if (p_70227_1_.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 2.0F))
                 {
                     p_70227_1_.entityHit.setFire(15);
-                	}           	
-                
+                	}
+
                 //p_70227_1_.entityHit.attackEntityFrom(DamageSource.magic, 3.0F);
-                
+
                 List<?> entityList = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(0.0D, 4.0D, 0.0D));
                 for (int ammount = 0; ammount < entityList.size(); ++ammount) {
                     Entity entity = (Entity) entityList.get(ammount);
@@ -88,7 +88,7 @@ public class EntityIonizatiorProjectile extends EntityFireball
                 	}
                     	}
                     }
-                	
+
                 }
             }
             else
@@ -123,7 +123,7 @@ public class EntityIonizatiorProjectile extends EntityFireball
                     this.worldObj.setBlock(i, j, k, NovaCraftBlocks.deepfire);
                 }
             }
-            
+
             if (p_70227_1_.entityHit instanceof EntityPlayerMP) {
 				((EntityPlayerMP) p_70227_1_.entityHit).playerNetServerHandler.sendPacket(new S12PacketEntityVelocity(p_70227_1_.entityHit));
 			}

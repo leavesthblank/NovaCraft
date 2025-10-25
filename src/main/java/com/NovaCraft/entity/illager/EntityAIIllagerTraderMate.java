@@ -13,14 +13,14 @@ public class EntityAIIllagerTraderMate extends EntityAIBase
     private World worldObj;
     private int matingTimeout;
     Village villageObj;
-    private static final String __OBFID = "CL_00001594";
-    
+
+
     public EntityAIIllagerTraderMate(final EntityIllagerTrader p_i1634_1_) {
         this.villagerObj = p_i1634_1_;
         this.worldObj = p_i1634_1_.worldObj;
         this.setMutexBits(3);
     }
-    
+
     public boolean shouldExecute() {
         if (this.villagerObj.getGrowingAge() != 0) {
             return false;
@@ -42,22 +42,22 @@ public class EntityAIIllagerTraderMate extends EntityAIBase
         this.mate = (EntityIllagerTrader)entity;
         return this.mate.getGrowingAge() == 0;
     }
-    
+
     public void startExecuting() {
         this.matingTimeout = 600;
         this.villagerObj.setMating(true);
     }
-    
+
     public void resetTask() {
         this.villageObj = null;
         this.mate = null;
         this.villagerObj.setMating(false);
     }
-    
+
     public boolean continueExecuting() {
         return this.matingTimeout >= 0 && this.checkSufficientDoorsPresentForNewVillager() && this.villagerObj.getGrowingAge() == 0;
     }
-    
+
     public void updateTask() {
         --this.matingTimeout;
         this.villagerObj.getLookHelper().setLookPositionWithEntity((Entity)this.mate, 10.0f, 30.0f);
@@ -71,7 +71,7 @@ public class EntityAIIllagerTraderMate extends EntityAIBase
             this.worldObj.setEntityState((Entity)this.villagerObj, (byte)12);
         }
     }
-    
+
     private boolean checkSufficientDoorsPresentForNewVillager() {
         if (!this.villageObj.isMatingSeason()) {
             return false;
@@ -79,7 +79,7 @@ public class EntityAIIllagerTraderMate extends EntityAIBase
         final int i = (int)((float)this.villageObj.getNumVillageDoors() * 0.35);
         return this.villageObj.getNumVillagers() < i;
     }
-    
+
     private void giveBirth() {
         final EntityIllagerTrader entityvillager = this.villagerObj.createChild(this.mate);
         this.mate.setGrowingAge(6000);

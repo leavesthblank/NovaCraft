@@ -18,7 +18,7 @@ import com.NovaCraft.entity.misc.EntityVaniteFirechargeProjectile;
 public class VaniteFirechargeProjectileRenderer extends Render
 {
     private float field_77002_a;
-    private static final String __OBFID = "CL_00000995";
+
 
     public VaniteFirechargeProjectileRenderer(float p_i1254_1_)
     {

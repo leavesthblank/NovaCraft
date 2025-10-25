@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 public class BlockGrimstoneRedstone extends Block
 {
     private boolean field_150187_a;
-    private static final String __OBFID = "CL_00000294";
+
 
     public BlockGrimstoneRedstone(boolean p_i45420_1_)
     {

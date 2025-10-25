@@ -27,7 +27,7 @@ public class EntityVoidCube extends EntityLiving implements IMob
     public float prevSquishFactor;
     /** ticks until this slime jumps again */
     private int slimeJumpDelay;
-    private static final String __OBFID = "CL_00001698";
+
 
     public EntityVoidCube(World p_i1742_1_)
     {
@@ -267,7 +267,7 @@ public class EntityVoidCube extends EntityLiving implements IMob
     {
         return this.getSlimeSize() * 2;
     }
-    
+
     @Override
     protected void dropFewItems(boolean wasRecentlyHit, int lootingModifier) {
     	int rand2 = (int)(1 + Math.random() * 2);
@@ -275,18 +275,18 @@ public class EntityVoidCube extends EntityLiving implements IMob
         {
         case 1: this.dropItem(NovaCraftItems.null_cube_slime, 1 + rand.nextInt(1));
         	break;
-        case 2: 
+        case 2:
         	break;
         }
     }
-    
+
     public boolean getCanSpawnHere() {
         final int i = MathHelper.floor_double(this.posX);
         final int j = MathHelper.floor_double(this.boundingBox.minY);
         final int k = MathHelper.floor_double(this.posZ);
-        final boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes((Entity)this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);          
+        final boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes((Entity)this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
         return (this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.frontierslate || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.destitude_block || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.destitude_growth) && this.worldObj.getBlockLightValue(i, j, k) < 11 && canSpawn;
-                      
+
     }
 
     /**

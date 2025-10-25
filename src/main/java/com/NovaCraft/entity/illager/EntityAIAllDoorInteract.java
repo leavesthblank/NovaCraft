@@ -16,12 +16,12 @@ public class EntityAIAllDoorInteract extends EntityAIBase
     boolean hasStoppedDoorInteraction;
     float entityPositionX;
     float entityPositionZ;
-    private static final String __OBFID = "CL_00001581";
-    
+
+
     public EntityAIAllDoorInteract(final EntityLiving p_i1621_1_) {
         this.theEntity = p_i1621_1_;
     }
-    
+
     public boolean shouldExecute() {
         if (!this.theEntity.isCollidedHorizontally) {
             return false;
@@ -49,17 +49,17 @@ public class EntityAIAllDoorInteract extends EntityAIBase
         }
         return false;
     }
-    
+
     public boolean continueExecuting() {
         return !this.hasStoppedDoorInteraction;
     }
-    
+
     public void startExecuting() {
         this.hasStoppedDoorInteraction = false;
         this.entityPositionX = (float)(this.entityPosX + 0.5f - this.theEntity.posX);
         this.entityPositionZ = (float)(this.entityPosZ + 0.5f - this.theEntity.posZ);
     }
-    
+
     public void updateTask() {
         final float f = (float)(this.entityPosX + 0.5f - this.theEntity.posX);
         final float f2 = (float)(this.entityPosZ + 0.5f - this.theEntity.posZ);
@@ -68,7 +68,7 @@ public class EntityAIAllDoorInteract extends EntityAIBase
             this.hasStoppedDoorInteraction = true;
         }
     }
-    
+
     private BlockDoor func_151503_a(final int x, final int y, final int z) {
         final Block block = this.theEntity.worldObj.getBlock(x, y, z);
         return (block instanceof BlockDoor) ? (BlockDoor) block : null;

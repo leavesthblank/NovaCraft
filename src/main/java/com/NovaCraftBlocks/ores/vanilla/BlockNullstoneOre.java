@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 public class BlockNullstoneOre extends Block
 {
-    private static final String __OBFID = "CL_00000282";
+
 
     public BlockNullstoneOre()
     {
@@ -79,7 +79,7 @@ public class BlockNullstoneOre extends Block
         if (this.getItemDropped(p_149690_5_, rand, p_149690_7_) != Item.getItemFromBlock(this))
         {
             int j1 = 0;
-            
+
              if (this == NovaCraftBlocks.nullstone_diamond)
             {
                 j1 = MathHelper.getRandomIntegerInRange(rand, 6, 9);

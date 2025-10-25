@@ -20,7 +20,7 @@ import com.NovaCraft.entity.misc.EntityIonizatiorProjectile;
 public class IonizatiorProjectileRenderer extends Render
 {
     private float field_77002_a;
-    private static final String __OBFID = "CL_00000995";
+
 
     public IonizatiorProjectileRenderer(float p_i1254_1_)
     {

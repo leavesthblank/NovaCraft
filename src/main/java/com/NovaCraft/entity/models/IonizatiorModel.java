@@ -13,7 +13,7 @@ public class IonizatiorModel extends ModelBase
     /** The sticks that fly around the Blaze. */
     private ModelRenderer[] blazeSticks = new ModelRenderer[12];
     private ModelRenderer blazeHead;
-    private static final String __OBFID = "CL_00000831";
+
 
     public IonizatiorModel()
     {
@@ -21,17 +21,17 @@ public class IonizatiorModel extends ModelBase
         {
             this.blazeSticks[i] = new ModelRenderer(this, 0, 8);
             this.blazeSticks[i].addBox(0.0F, 0.0F, 0.0F, 2, 8, 2);
-            
+
             //this.blazeSticks[i] = new ModelRenderer(this, 0, 8);
             //this.blazeSticks[i].addBox(0.0F, -2.0F, 0.0F, 2, 8, 2);
         }
 
         this.blazeHead = new ModelRenderer(this, 0, 0);
-        this.blazeHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8); 
-       
-        
+        this.blazeHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8);
+
+
     }
-    
+
 
 
     public int func_78104_a()
@@ -93,6 +93,6 @@ public class IonizatiorModel extends ModelBase
 
         this.blazeHead.rotateAngleY = p_78087_4_ / (180F / (float)Math.PI);
         this.blazeHead.rotateAngleX = p_78087_5_ / (180F / (float)Math.PI);
-        
+
     }
 }

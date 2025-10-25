@@ -32,7 +32,7 @@ public class LegendaryEnchantmentTableContainer extends Container
     /** SlotEnchantmentTable object with ItemStack to be enchanted */
     public IInventory tableInventory = new InventoryBasic("Enchant", true, 1)
     {
-        private static final String __OBFID = "CL_00001746";
+
         /**
          * Returns the maximum stack size for a inventory slot.
          */
@@ -60,7 +60,7 @@ public class LegendaryEnchantmentTableContainer extends Container
     public long nameSeed;
     /** 3-member array storing the enchantment levels of each slot */
     public int[] enchantLevels = new int[6]; //3
-    private static final String __OBFID = "CL_00001745";
+
 
     public LegendaryEnchantmentTableContainer(InventoryPlayer p_i1811_1_, World p_i1811_2_, int p_i1811_3_, int p_i1811_4_, int p_i1811_5_)
     {
@@ -70,7 +70,7 @@ public class LegendaryEnchantmentTableContainer extends Container
         this.posZ = p_i1811_5_;
         this.addSlotToContainer(new Slot(this.tableInventory, 0, 25, 47)
         {
-            private static final String __OBFID = "CL_00001747";
+
             /**
              * Check if the stack is a valid item for this slot. Always true beside for the armor slots.
              */
@@ -81,7 +81,7 @@ public class LegendaryEnchantmentTableContainer extends Container
         });
         int l;
 
-        for (l = 0; l < 3; ++l) 
+        for (l = 0; l < 3; ++l)
         {
             for (int i1 = 0; i1 < 9; ++i1)
             {
@@ -152,7 +152,7 @@ public class LegendaryEnchantmentTableContainer extends Container
                     int j;
                     float power = 0;
                     //Checking for bookshelves and getting the bonus to levels?
-                    for (j = -1; j <= 1; ++j) 
+                    for (j = -1; j <= 1; ++j)
                     {
                         for (int k = -1; k <= 1; ++k)
                         {
@@ -184,7 +184,7 @@ public class LegendaryEnchantmentTableContainer extends Container
             {
                 for (i = 0; i < 6; ++i) //Not sure what this does
                 {
-                    this.enchantLevels[i] = 0; 
+                    this.enchantLevels[i] = 0;
                 }
             }
         }
@@ -207,7 +207,7 @@ public class LegendaryEnchantmentTableContainer extends Container
                 if (list != null)
                 {
                     p_75140_1_.addExperienceLevel(-90); //this.enchantLevels[p_75140_2_]
- 
+
                     if (flag)
                     {
                         itemstack.func_150996_a(Items.enchanted_book);
@@ -232,7 +232,7 @@ public class LegendaryEnchantmentTableContainer extends Container
                             }
                        }
                     }
-                    
+
                     this.onCraftMatrixChanged(this.tableInventory);
                 }
             }
@@ -243,7 +243,7 @@ public class LegendaryEnchantmentTableContainer extends Container
             return false;
         }
     }
-    
+
     public int RandomLevel() {
     	int randlevel = (int)(1 + Math.random() * 5);
     	switch (randlevel)
@@ -260,7 +260,7 @@ public class LegendaryEnchantmentTableContainer extends Container
      	   	break;
         }
 		return randlevel;
-    	
+
     }
 
     /**

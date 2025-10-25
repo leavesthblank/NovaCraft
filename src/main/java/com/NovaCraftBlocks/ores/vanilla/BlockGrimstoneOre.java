@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 public class BlockGrimstoneOre extends Block
 {
-    private static final String __OBFID = "CL_00000282";
+
 
     public BlockGrimstoneOre()
     {
@@ -79,7 +79,7 @@ public class BlockGrimstoneOre extends Block
         if (this.getItemDropped(p_149690_5_, rand, p_149690_7_) != Item.getItemFromBlock(this))
         {
             int j1 = 0;
-            
+
              if (this == NovaCraftBlocks.grimstone_diamond)
             {
                 j1 = MathHelper.getRandomIntegerInRange(rand, 4, 8);

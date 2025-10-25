@@ -21,7 +21,7 @@ import net.minecraft.world.gen.structure.StructureStart;
 public class MapGenNetherBridgeNovaCraft extends MapGenStructure
 {
     private List spawnList = new ArrayList();
-    
+
     @Override
     public String func_143025_a()
     {
@@ -52,7 +52,7 @@ public class MapGenNetherBridgeNovaCraft extends MapGenStructure
 
     public static class Start extends StructureStart
         {
-            private static final String __OBFID = "CL_00000452";
+
 
             public Start() {}
 
