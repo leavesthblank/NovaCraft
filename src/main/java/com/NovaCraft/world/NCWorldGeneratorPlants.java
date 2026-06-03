@@ -1,43 +1,26 @@
 package com.NovaCraft.world;
 
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.DUNGEON;
-
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-import java.util.Set;
-
 import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.config.ConfigsStructures;
 import com.NovaCraft.config.ConfigsWorld;
 import com.NovaCraft.world.structure.*;
 import org.apache.commons.lang3.ArrayUtils;
-
-import com.NovaCraft.config.Configs;
-import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.world.village.VindicatorRandomHouse;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.plants.LargeLuminantTreeGen;
 import com.NovaCraftBlocks.plants.LuminantTreeGen;
-import com.google.common.collect.Maps;
-
 import cpw.mods.fml.common.IWorldGenerator;
-import cpw.mods.fml.common.Loader;
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
-import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenFlowers;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
-import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class NCWorldGeneratorPlants implements IWorldGenerator {
 	
@@ -77,10 +60,10 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 	protected final List<WorldGenNovaCraftDeepRoots> deep_roots = new LinkedList<WorldGenNovaCraftDeepRoots>();
 	
 	protected final List<WorldGenNovaCraftMushroom> mushroom = new LinkedList<WorldGenNovaCraftMushroom>();
-	protected final List<WorldGenNovaCraftMushroom2> mushroom2 = new LinkedList<WorldGenNovaCraftMushroom2>();
-	protected final List<WorldGenNovaCraftMushroom3> mushroom3 = new LinkedList<WorldGenNovaCraftMushroom3>();
-	protected final List<WorldGenNovaCraftMushroom4> mushroom4 = new LinkedList<WorldGenNovaCraftMushroom4>();
-	protected final List<WorldGenNovaCraftMushroom5> mushroom5 = new LinkedList<WorldGenNovaCraftMushroom5>();
+	protected final List<WorldGenNovaCraftMushroom> mushroom2 = new LinkedList<WorldGenNovaCraftMushroom>();
+	protected final List<WorldGenNovaCraftMushroom> mushroom3 = new LinkedList<WorldGenNovaCraftMushroom>();
+	protected final List<WorldGenNovaCraftMushroom> mushroom4 = new LinkedList<WorldGenNovaCraftMushroom>();
+	protected final List<WorldGenNovaCraftMushroom> mushroom5 = new LinkedList<WorldGenNovaCraftMushroom>();
 	
 	protected final List<WorldGenPherithium> pherithium_gen = new LinkedList<WorldGenPherithium>();
 	protected final List<WorldGenPherithiumSmall> small_pherithium_gen = new LinkedList<WorldGenPherithiumSmall>();
@@ -89,11 +72,15 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 	protected final List<WorldGenLargeStoneStalagmite> large_stone_stalagmite_gen = new LinkedList<WorldGenLargeStoneStalagmite>();
 	protected final List<WorldGenNullstoneStalagmite> nullstone_stalagmite_gen = new LinkedList<WorldGenNullstoneStalagmite>();
 	protected final List<WorldGenLargeNullstoneStalagmite> large_nullstone_stalagmite_gen = new LinkedList<WorldGenLargeNullstoneStalagmite>();
-	
+	protected final List<WorldGenGrimstoneStalagmite> grimstone_stalagmite_gen = new LinkedList<WorldGenGrimstoneStalagmite>();
+	protected final List<WorldGenGrimstoneStalagmite> large_grimstone_stalagmite_gen = new LinkedList<WorldGenGrimstoneStalagmite>();
+
 	protected final List<WorldGenStoneStalactite> stone_stalactite_gen = new LinkedList<WorldGenStoneStalactite>();
 	protected final List<WorldGenLargeStoneStalactite> large_stone_stalactite_gen = new LinkedList<WorldGenLargeStoneStalactite>();
 	protected final List<WorldGenNullstoneStalactite> nullstone_stalactite_gen = new LinkedList<WorldGenNullstoneStalactite>();
 	protected final List<WorldGenLargeNullstoneStalactite> large_nullstone_stalactite_gen = new LinkedList<WorldGenLargeNullstoneStalactite>();
+	protected final List<WorldGenGrimstoneStalactite> grimstone_stalactite_gen = new LinkedList<WorldGenGrimstoneStalactite>();
+	protected final List<WorldGenGrimstoneStalactite> large_grimstone_stalactite_gen = new LinkedList<WorldGenGrimstoneStalactite>();
 	
 	protected final List<WorldGenIcicle> icicle = new LinkedList<WorldGenIcicle>();
 	
@@ -146,10 +133,10 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 		deep_roots.add(new WorldGenNovaCraftDeepRoots(NovaCraftBlocks.deep_roots, 30));
 		
 		mushroom.add(new WorldGenNovaCraftMushroom(NovaCraftBlocks.hydnum_mushroom, 3));
-		mushroom2.add(new WorldGenNovaCraftMushroom2(NovaCraftBlocks.calvatia_mushroom, 2));
-		mushroom3.add(new WorldGenNovaCraftMushroom3(NovaCraftBlocks.lentius_mushroom, 3));
-		mushroom4.add(new WorldGenNovaCraftMushroom4(NovaCraftBlocks.rozite_mushroom, 2));
-		mushroom5.add(new WorldGenNovaCraftMushroom5(NovaCraftBlocks.pleurotus_mushroom, 1));
+		mushroom2.add(new WorldGenNovaCraftMushroom(NovaCraftBlocks.calvatia_mushroom, 2));
+		mushroom3.add(new WorldGenNovaCraftMushroom(NovaCraftBlocks.lentius_mushroom, 3));
+		mushroom4.add(new WorldGenNovaCraftMushroom(NovaCraftBlocks.rozite_mushroom, 2));
+		mushroom5.add(new WorldGenNovaCraftMushroom(NovaCraftBlocks.pleurotus_mushroom, 1));
 		
 		pherithium_gen.add(new WorldGenPherithium(NovaCraftBlocks.large_pherithium_stalagmite, 16));
 		small_pherithium_gen.add(new WorldGenPherithiumSmall(NovaCraftBlocks.small_pherithium_stalagmite, 18));
@@ -158,11 +145,15 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 		large_stone_stalagmite_gen.add(new WorldGenLargeStoneStalagmite(NovaCraftBlocks.large_stone_stalagmite, 23));
 		nullstone_stalagmite_gen.add(new WorldGenNullstoneStalagmite(NovaCraftBlocks.nullstone_stalagmite, 24));
 		large_nullstone_stalagmite_gen.add(new WorldGenLargeNullstoneStalagmite(NovaCraftBlocks.large_nullstone_stalagmite, 26));
-		
+		grimstone_stalagmite_gen.add(new WorldGenGrimstoneStalagmite(NovaCraftBlocks.grimstone_stalagmite, 25));
+		large_grimstone_stalagmite_gen.add(new WorldGenGrimstoneStalagmite(NovaCraftBlocks.large_grimstone_stalagmite, 26));
+
 		stone_stalactite_gen.add(new WorldGenStoneStalactite(NovaCraftBlocks.stone_stalactite, 25));
 		large_stone_stalactite_gen.add(new WorldGenLargeStoneStalactite(NovaCraftBlocks.large_stone_stalactite, 27));
 		nullstone_stalactite_gen.add(new WorldGenNullstoneStalactite(NovaCraftBlocks.nullstone_stalactite, 25));
 		large_nullstone_stalactite_gen.add(new WorldGenLargeNullstoneStalactite(NovaCraftBlocks.large_nullstone_stalactite, 28));
+		grimstone_stalactite_gen.add(new WorldGenGrimstoneStalactite(NovaCraftBlocks.grimstone_stalactite, 25));
+		large_grimstone_stalactite_gen.add(new WorldGenGrimstoneStalactite(NovaCraftBlocks.large_grimstone_stalactite, 26));
 		
 		icicle.add(new WorldGenIcicle(NovaCraftBlocks.icicle, 40));
 		
@@ -281,7 +272,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 				new VindicatorRandomHouse().generate(world, rand, x17, y17 - 1, z17);
 			}
 			
-			//Lumiant Tree
+			//Luminant Tree
 			int x16;
 			int z16;
 			x16 = chunkX * 16 + rand.nextInt(8) + 8;
@@ -313,7 +304,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			int y18 = world.getHeightValue(x18, z18);
 			BiomeGenBase biome18;
 			biome18 = world.getBiomeGenForCoords(x18, z18);
-			if(BiomeDictionary.isBiomeOfType(biome18, Type.SANDY) && rand.nextInt(1160) == 0 && ConfigsStructures.enableDesertCreeperStatueGeneration) {
+			if(BiomeDictionary.isBiomeOfType(biome18, Type.SANDY) && rand.nextInt(1560) == 0 && ConfigsStructures.enableDesertCreeperStatueGeneration) {
 				new DesertCreeperStructureGen().generate(world, rand, x18, y18 - 16 + rand.nextInt(6), z18);
 			}
 
@@ -325,7 +316,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			int y19 = world.getHeightValue(x19, z19);
 			BiomeGenBase biome19;
 			biome19 = world.getBiomeGenForCoords(x19, z19);
-			if(BiomeDictionary.isBiomeOfType(biome19, Type.SWAMP) && rand.nextInt(260) == 0 && ConfigsStructures.enableSlimeStatueGeneration) {
+			if(BiomeDictionary.isBiomeOfType(biome19, Type.SWAMP) && rand.nextInt(460) == 0 && ConfigsStructures.enableSlimeStatueGeneration) {
 				new SlimeStructureGen().generate(world, rand, x19, y19 - 4 + rand.nextInt(2), z19);
 			}
 
@@ -336,7 +327,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			}
 			
 			//Sculk Gen
-			if (ConfigsWorld.enableSculkGeneration && rand.nextInt(5) == 1) {
+			if (ConfigsWorld.enableSculkGeneration && ConfigsWorld.enableAdditionalSculkGeneration && rand.nextInt(5) == 1) {
 			int x1;
 			int z1;
 			x1 = chunkX * 16 + rand.nextInt(8) + 8;
@@ -467,7 +458,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 						
 			if((world.getHeightValue(x, z) > 0) && rand.nextInt(3) == 1) {
 				
-				if (ConfigsWorld.enableMossGeneration && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
+				if (ConfigsWorld.enableAdditionalMossGeneration && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
 				
 				if(!(BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.COLD) || BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.HOT))) {
 					moss_block_gen.get(0).generate(world, rand, x, rand.nextInt(40) + 40, z);
@@ -494,6 +485,12 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 					stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 30, z);
 					large_stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 33, z);
 					large_stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 28, z);
+
+					grimstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 12, z);
+					grimstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 10, z);
+					large_grimstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 13, z);
+					large_grimstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 11, z);
+
 					nullstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 15, z);
 					nullstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 5, z);
 					large_nullstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 13, z);
@@ -503,12 +500,20 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 					stone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 30, z);
 					large_stone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 30, z);
 					large_stone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 25, z);
+
+					grimstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 12, z);
+					grimstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 13, z);
+					large_grimstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 12, z);
+					large_grimstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 13, z);
+
 					nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 10, z);
 					nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 8, z);
 					nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 5, z);
 					large_nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 8, z);
 					large_nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 7, z);
 					large_nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 8, z);
+
+
 				}
 				
 				if (ConfigsWorld.enableGlowLichenGeneration) {

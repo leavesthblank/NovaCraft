@@ -1,7 +1,6 @@
 package com.NovaCraft.container;
 
 import com.NovaCraft.TileEntity.TileEntityDeepoidFurnace;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,34 +19,34 @@ public class DeepoidFurnaceContainer extends Container
     private int lastBurnTime;
     private int lastItemBurnTime;
 
-    public DeepoidFurnaceContainer(InventoryPlayer p_i1812_1_, TileEntityDeepoidFurnace p_i1812_2_)
+    public DeepoidFurnaceContainer(InventoryPlayer inventory, TileEntityDeepoidFurnace tileEntity)
     {
-        this.tileFurnace = p_i1812_2_;
-        this.addSlotToContainer(new Slot(p_i1812_2_, 0, 56, 17));
-        this.addSlotToContainer(new Slot(p_i1812_2_, 1, 56, 53));
-        this.addSlotToContainer(new SlotFurnace(p_i1812_1_.player, p_i1812_2_, 2, 116, 35));
+        this.tileFurnace = tileEntity;
+        this.addSlotToContainer(new Slot(tileEntity, 0, 56, 17));
+        this.addSlotToContainer(new Slot(tileEntity, 1, 56, 53));
+        this.addSlotToContainer(new SlotFurnace(inventory.player, tileEntity, 2, 116, 35));
         int i;
 
         for (i = 0; i < 3; ++i)
         {
             for (int j = 0; j < 9; ++j)
             {
-                this.addSlotToContainer(new Slot(p_i1812_1_, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+                this.addSlotToContainer(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
 
         for (i = 0; i < 9; ++i)
         {
-            this.addSlotToContainer(new Slot(p_i1812_1_, i, 8 + i * 18, 142));
+            this.addSlotToContainer(new Slot(inventory, i, 8 + i * 18, 142));
         }
     }
 
-    public void addCraftingToCrafters(ICrafting p_75132_1_)
+    public void addCraftingToCrafters(ICrafting crafting)
     {
-        super.addCraftingToCrafters(p_75132_1_);
-        p_75132_1_.sendProgressBarUpdate(this, 0, this.tileFurnace.furnaceCookTime);
-        p_75132_1_.sendProgressBarUpdate(this, 1, this.tileFurnace.furnaceBurnTime);
-        p_75132_1_.sendProgressBarUpdate(this, 2, this.tileFurnace.currentItemBurnTime);
+        super.addCraftingToCrafters(crafting);
+        crafting.sendProgressBarUpdate(this, 0, this.tileFurnace.furnaceCookTime);
+        crafting.sendProgressBarUpdate(this, 1, this.tileFurnace.furnaceBurnTime);
+        crafting.sendProgressBarUpdate(this, 2, this.tileFurnace.currentItemBurnTime);
     }
 
     public void detectAndSendChanges()
@@ -103,7 +102,7 @@ public class DeepoidFurnaceContainer extends Container
         return this.tileFurnace.isUseableByPlayer(p_75145_1_);
     }
 
-    public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int p_82846_2_)
+    public ItemStack transferStackInSlot(EntityPlayer player, int p_82846_2_)
     {
         ItemStack itemstack = null;
         Slot slot = (Slot)this.inventorySlots.get(p_82846_2_);
@@ -169,7 +168,7 @@ public class DeepoidFurnaceContainer extends Container
                 return null;
             }
 
-            slot.onPickupFromSlot(p_82846_1_, itemstack1);
+            slot.onPickupFromSlot(player, itemstack1);
         }
 
         return itemstack;

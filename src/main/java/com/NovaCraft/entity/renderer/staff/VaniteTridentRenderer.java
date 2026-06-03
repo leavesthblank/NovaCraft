@@ -15,8 +15,8 @@ public class VaniteTridentRenderer extends Render {
         super();
     }
 
-    public void doRender(Entity var1, double var2, double var4, double var6, float var8, float var9) {
-        this.doRenderKnife((EntityVaniteTrident) var1, var2, var4, var6, var8, var9);
+    public void doRender(Entity entity, double var2, double var4, double var6, float var8, float var9) {
+        this.doRenderKnife((EntityVaniteTrident) entity, var2, var4, var6, var8, var9);
     }
 
     public void doRenderKnife(EntityVaniteTrident entity, double d, double d1, double d2, float yaw, float time) {

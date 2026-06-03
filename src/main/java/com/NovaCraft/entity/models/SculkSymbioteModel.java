@@ -5,7 +5,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
@@ -132,18 +131,5 @@ public class SculkSymbioteModel extends ModelBase
         this.Piece7.rotateAngleY = MathHelper.sin(f21 - 2.2687502f) * f11;
         this.Piece8.rotateAngleY = MathHelper.sin(f21 - 2.4562502f) * f11;
     }
-    
-   // public void setRotationAngles(final EntityLiving par1EntityLiving, final float par2, final float par3, final float par4) {
-    //    final float f1 = (0.5f + Math.max(par3, par4 - 1.0f)) * 0.25f;
-    //    final float f2 = par2 * 0.6662f;
-    //    this.Piece1.rotateAngleY = MathHelper.cos(f2 - 0.75f) * f1;
-    //    this.Piece2.rotateAngleY = MathHelper.cos(f2 - 1.05f) * f1;
-    //    this.Piece3.rotateAngleY = MathHelper.cos(f2 - 1.33125f) * f1;
-     //   this.Piece4.rotateAngleY = MathHelper.cos(f2 - 1.59375f) * f1;
-     //   this.Piece5.rotateAngleY = MathHelper.cos(f2 - 1.8375001f) * f1;
-     //   this.Piece6.rotateAngleY = MathHelper.cos(f2 - 2.0625f) * f1;
-     //   this.Piece7.rotateAngleY = MathHelper.cos(f2 - 2.2687502f) * f1;
-     //   this.Piece8.rotateAngleY = MathHelper.cos(f2 - 2.4562502f) * f1;
-   // }
     
 }

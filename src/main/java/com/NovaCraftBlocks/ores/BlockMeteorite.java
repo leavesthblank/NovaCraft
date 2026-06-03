@@ -1,31 +1,17 @@
 package com.NovaCraftBlocks.ores;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.config.ConfigsCompact;
-import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.ibm.icu.impl.duration.impl.Utils;
-
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;

@@ -1,10 +1,8 @@
 package com.NovaCraftBlocks.ores.vanilla;
 
 import java.util.Random;
-
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -36,35 +34,23 @@ public class BlockNullstoneRedstone extends Block
         this.field_150187_a = p_i45420_1_;
     }
 
-    /**
-     * How many world ticks before ticking
-     */
     public int tickRate(World p_149738_1_)
     {
         return 60;
     }
 
-    /**
-     * Called when a player hits the block. Args: world, x, y, z, player
-     */
     public void onBlockClicked(World p_149699_1_, int p_149699_2_, int p_149699_3_, int p_149699_4_, EntityPlayer p_149699_5_)
     {
         this.func_150185_e(p_149699_1_, p_149699_2_, p_149699_3_, p_149699_4_);
         super.onBlockClicked(p_149699_1_, p_149699_2_, p_149699_3_, p_149699_4_, p_149699_5_);
     }
 
-    /**
-     * Called whenever an entity is walking on top of this block. Args: world, x, y, z, entity
-     */
     public void onEntityWalking(World p_149724_1_, int p_149724_2_, int p_149724_3_, int p_149724_4_, Entity p_149724_5_)
     {
         this.func_150185_e(p_149724_1_, p_149724_2_, p_149724_3_, p_149724_4_);
         super.onEntityWalking(p_149724_1_, p_149724_2_, p_149724_3_, p_149724_4_, p_149724_5_);
     }
 
-    /**
-     * Called upon block activation (right click on the block.)
-     */
     public boolean onBlockActivated(World p_149727_1_, int p_149727_2_, int p_149727_3_, int p_149727_4_, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
     {
         this.func_150185_e(p_149727_1_, p_149727_2_, p_149727_3_, p_149727_4_);
@@ -81,9 +67,6 @@ public class BlockNullstoneRedstone extends Block
         }
     }
 
-    /**
-     * Ticks the block if it's been scheduled
-     */
     public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_)
     {
         if (this == NovaCraftBlocks.lit_nullstone_redstone)
@@ -97,44 +80,32 @@ public class BlockNullstoneRedstone extends Block
         return Items.redstone;
     }
 
-    /**
-     * Returns the usual quantity dropped by the block plus a bonus of 1 to 'i' (inclusive).
-     */
     public int quantityDroppedWithBonus(int p_149679_1_, Random p_149679_2_)
     {
         return this.quantityDropped(p_149679_2_) + p_149679_2_.nextInt(p_149679_1_ + 1);
     }
 
-    /**
-     * Returns the quantity of items to drop on block destruction.
-     */
     public int quantityDropped(Random p_149745_1_)
     {
         return 1 + p_149745_1_.nextInt(2);
     }
 
-    /**
-     * Drops the block items with a specified chance of dropping the specified items
-     */
     public void dropBlockAsItemWithChance(World p_149690_1_, int p_149690_2_, int p_149690_3_, int p_149690_4_, int p_149690_5_, float p_149690_6_, int p_149690_7_)
     {
         super.dropBlockAsItemWithChance(p_149690_1_, p_149690_2_, p_149690_3_, p_149690_4_, p_149690_5_, p_149690_6_, p_149690_7_);
     }
 
     private Random rand = new Random();
-    @Override // World, meta, fortune
-    public int getExpDrop(IBlockAccess p_149690_1_, int p_149690_5_, int p_149690_7_)
+    @Override
+    public int getExpDrop(IBlockAccess world, int meta, int fortune)
     {
-        if (this.getItemDropped(p_149690_5_, rand, p_149690_7_) != Item.getItemFromBlock(this))
+        if (this.getItemDropped(meta, rand, fortune) != Item.getItemFromBlock(this))
         {
             return 1 + rand.nextInt(5);
         }
         return 0;
     }
 
-    /**
-     * A randomly called display update to be able to add particles or other items for display
-     */
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {
@@ -192,10 +163,6 @@ public class BlockNullstoneRedstone extends Block
         }
     }
 
-    /**
-     * Returns an item stack containing a single instance of the current block type. 'i' is the block's subtype/damage
-     * and is ignored for blocks which do not support subtypes. Blocks which cannot be harvested should return null.
-     */
     protected ItemStack createStackedBlock(int p_149644_1_)
     {
         return new ItemStack(NovaCraftBlocks.nullstone_redstone);

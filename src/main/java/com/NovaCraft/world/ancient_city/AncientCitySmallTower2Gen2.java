@@ -12,7 +12,7 @@ import java.util.*;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.entity.EntityWardenVessel;
+import com.NovaCraft.entity.EntityWardling;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -1852,7 +1852,7 @@ public class AncientCitySmallTower2Gen2 extends WorldGenerator
 			}
 		}
 		
-		EntityWardenVessel warden = new EntityWardenVessel(world);
+		EntityWardling warden = new EntityWardling(world);
 		warden.setPosition(i + 5, j + 16, k + 7);
 
 		if (!world.isRemote) {

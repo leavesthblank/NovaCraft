@@ -1,15 +1,11 @@
 package com.NovaCraft.world.floating_island;
 
 import java.util.Random;
-
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenFloatingIsland extends WorldGenerator {

@@ -8,10 +8,9 @@ import net.minecraft.entity.player.*;
 public class EntityAITradeIllagerChief extends EntityAIBase
 {
     private EntityIllagerChief villager;
-    private static final String __OBFID = "CL_00001617";
     
-    public EntityAITradeIllagerChief(final EntityIllagerChief p_i1658_1_) {
-        this.villager = p_i1658_1_;
+    public EntityAITradeIllagerChief(final EntityIllagerChief entity) {
+        this.villager = entity;
         this.setMutexBits(5);
     }
     

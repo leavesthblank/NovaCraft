@@ -13,11 +13,10 @@ public class EntityAIIllagerTraderMate extends EntityAIBase
     private World worldObj;
     private int matingTimeout;
     Village villageObj;
-    private static final String __OBFID = "CL_00001594";
     
-    public EntityAIIllagerTraderMate(final EntityIllagerTrader p_i1634_1_) {
-        this.villagerObj = p_i1634_1_;
-        this.worldObj = p_i1634_1_.worldObj;
+    public EntityAIIllagerTraderMate(final EntityIllagerTrader entity) {
+        this.villagerObj = entity;
+        this.worldObj = entity.worldObj;
         this.setMutexBits(3);
     }
     

@@ -2,7 +2,6 @@ package com.NovaCraft.achievements;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 import net.minecraft.item.Item;

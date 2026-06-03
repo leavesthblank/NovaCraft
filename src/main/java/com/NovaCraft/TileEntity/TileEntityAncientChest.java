@@ -9,7 +9,6 @@ import net.minecraft.block.*;
 import net.minecraft.util.*;
 import net.minecraft.inventory.*;
 import java.util.*;
-
 import com.NovaCraft.container.InventoryLargeAncientChest;
 import com.NovaCraftBlocks.container.BlockAncientChest;
 

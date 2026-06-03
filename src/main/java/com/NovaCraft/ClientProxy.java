@@ -6,7 +6,6 @@ import com.NovaCraft.entity.renderer.DeepOneEggRenderer;
 import com.NovaCraft.entity.renderer.RendersNovaCraft;
 import com.NovaCraft.renderer.*;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -49,6 +48,7 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerBlockHandler(new BlockVaniteCauldronRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockMoltenVaniteCauldronRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockMoltenCrystalCauldronRenderer());
+		RenderingRegistry.registerBlockHandler(new BlockMercuryVaniteCauldronRenderer());
 		
 		RenderingRegistry.registerBlockHandler(new BlockVaniteClusterRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockLegendaryBeaconRenderer());

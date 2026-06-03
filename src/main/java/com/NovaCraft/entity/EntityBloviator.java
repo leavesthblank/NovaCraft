@@ -2,19 +2,13 @@ package com.NovaCraft.entity;
 
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.entity.projectile.EntityLargeFireball;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.world.*;
 import net.minecraft.util.*;
-
-import java.util.Random;
-
 import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.misc.EntityBloviatorProjectile;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.*;
@@ -22,9 +16,7 @@ import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 
-public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayData
-{
-    public int flapSoundTime;
+public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayData {
     public int courseChangeCooldown;
     public int courseChangeCooldown2;
     private int field_82222_j;
@@ -36,14 +28,13 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
     private int targetObstructedTicks;
     public float animTime;
     public float prevAnimTime;
-    private int aggroCooldown;
     public int prevAttackCounter;
     public int attackCounter;
     private int explosionStrength = 3;
     private final float base;
     
-    public EntityBloviator(final World p_i1731_1_) {
-        super(p_i1731_1_);
+    public EntityBloviator(final World world) {
+        super(world);
         this.targetObstructedTicks = 0;
         this.tasks.addTask(0, (EntityAIBase)new EntityAIWatchClosest((EntityLiving)this, (Class)EntityPlayer.class, 200.0f));
         this.tasks.addTask(1, (EntityAIBase)new EntityAILookIdle((EntityLiving)this));
@@ -117,8 +108,8 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
             this.damageEntity(DamageSource.drown, 1.0f);
             this.setFire(1);
         }
-		int rand2 = (int)(1 + Math.random() * 4);
-		switch (rand2)
+		int summon_mob = (int)(1 + Math.random() * 4);
+		switch (summon_mob)
         {
         case 1: 
 		 if (this.rand.nextInt(100) == 1 && !this.worldObj.isRemote) {
@@ -295,12 +286,8 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
             this.rotationYaw = n2;
             this.renderYawOffset = n2;
         }
-        
-        
-        
-        //new
 
-        double d4 = 256.0D; //128
+        double d4 = 256.0D;
         this.prevAttackCounter = this.attackCounter;
 
 		if (this.getAttackTarget() == null) {
@@ -480,39 +467,33 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
         return 6.0F;
     }
     
-    protected void dropFewItems(final boolean p_70628_1_, final int p_70628_2_) {
+    protected void dropFewItems(final boolean p_70628_1_, final int chance) {
     	this.entityDropItem(new ItemStack(NovaCraftItems.heart_of_the_end, 1, 0), 0.5F);
     	
     	int j;
         int k;
        	        
-        j = this.rand.nextInt(4 + p_70628_2_);
+        j = this.rand.nextInt(4 + chance);
 
         for (k = 0; k < j; ++k)
         {
         	this.dropItem(NovaCraftItems.nullified_dust, 6 + j);
         }
     }
-    
-    /**
-     * (abstract) Protected helper method to write subclass entity data to NBT.
-     */
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+
+    public void writeEntityToNBT(NBTTagCompound compound)
     {
-        super.writeEntityToNBT(p_70014_1_);
-        p_70014_1_.setInteger("ExplosionPower", this.explosionStrength);
+        super.writeEntityToNBT(compound);
+        compound.setInteger("ExplosionPower", this.explosionStrength);
     }
 
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(p_70037_1_);
+        super.readEntityFromNBT(compound);
 
-        if (p_70037_1_.hasKey("ExplosionPower", 99))
+        if (compound.hasKey("ExplosionPower", 99))
         {
-            this.explosionStrength = p_70037_1_.getInteger("ExplosionPower");
+            this.explosionStrength = compound.getInteger("ExplosionPower");
         }
     }
     

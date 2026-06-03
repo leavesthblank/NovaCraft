@@ -6,14 +6,11 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.entity.EntityWardenVessel;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
 import net.minecraft.item.ItemStack;
@@ -27,7 +24,6 @@ import net.minecraft.util.MathHelper;
 public class AncientCityLargeHangingStructureGen extends WorldGenerator
 {
 	public AncientCityLargeHangingStructureGen() {
-
 	}
 	
 	 public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
@@ -543,7 +539,7 @@ public class AncientCityLargeHangingStructureGen extends WorldGenerator
 				case 24: 
 					return new ItemStack(Items.gunpowder, random.nextInt(6) + 5);
 				case 25:
-					if (Configs.enableTreasureCratesDropDiamonds == true) {
+					if (Configs.enableTreasureCratesDropDiamonds) {
 						return new ItemStack(Items.diamond, 1);
 					}
 					else {

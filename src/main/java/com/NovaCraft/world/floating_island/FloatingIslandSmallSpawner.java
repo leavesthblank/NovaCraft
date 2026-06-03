@@ -6,7 +6,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
 import java.util.Random;
 
 public class FloatingIslandSmallSpawner extends WorldGenAbstractTree
@@ -18,15 +17,15 @@ public class FloatingIslandSmallSpawner extends WorldGenAbstractTree
 
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
 
-        world.setBlock(i + 1, j + 0, k + 0, NovaCraftBlocks.etherstone_tiled_slab);
-        world.setBlock(i + 0, j + 0, k + 1, NovaCraftBlocks.etherstone_tiled_slab);
-        world.setBlock(i + 1, j + 0, k + 1, NovaCraftBlocks.etherstone_tiles, 0, 2);
-        world.setBlock(i + 2, j + 0, k + 1, NovaCraftBlocks.etherstone_tiled_slab);
-        world.setBlock(i + 0, j + 0, k + 2, NovaCraftBlocks.etherstone_tiles, 0, 2);
-        world.setBlock(i + 1, j + 0, k + 2, NovaCraftBlocks.cracked_etherstone_tiles, 0, 2);
-        world.setBlock(i + 2, j + 0, k + 2, NovaCraftBlocks.etherstone_tiles, 0, 2);
-        world.setBlock(i + 1, j + 0, k + 3, NovaCraftBlocks.etherstone_tiles, 0, 2);
-        world.setBlock(i + 2, j + 0, k + 3, NovaCraftBlocks.cracked_etherstone_tiles, 0, 2);
+        world.setBlock(i + 1, j, k, NovaCraftBlocks.etherstone_tiled_slab);
+        world.setBlock(i, j, k + 1, NovaCraftBlocks.etherstone_tiled_slab);
+        world.setBlock(i + 1, j, k + 1, NovaCraftBlocks.etherstone_tiles, 0, 2);
+        world.setBlock(i + 2, j, k + 1, NovaCraftBlocks.etherstone_tiled_slab);
+        world.setBlock(i, j, k + 2, NovaCraftBlocks.etherstone_tiles, 0, 2);
+        world.setBlock(i + 1, j, k + 2, NovaCraftBlocks.cracked_etherstone_tiles, 0, 2);
+        world.setBlock(i + 2, j, k + 2, NovaCraftBlocks.etherstone_tiles, 0, 2);
+        world.setBlock(i + 1, j, k + 3, NovaCraftBlocks.etherstone_tiles, 0, 2);
+        world.setBlock(i + 2, j, k + 3, NovaCraftBlocks.cracked_etherstone_tiles, 0, 2);
 
         world.setBlock(i + 1, j + 1, k + 2, Blocks.mob_spawner, 0, 2);
         TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 1, j + 1, k + 2);

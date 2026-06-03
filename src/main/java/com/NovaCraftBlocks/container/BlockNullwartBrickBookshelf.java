@@ -1,19 +1,12 @@
 package com.NovaCraftBlocks.container;
 
-import java.util.Random;
-
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

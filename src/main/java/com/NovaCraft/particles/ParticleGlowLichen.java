@@ -1,8 +1,6 @@
 package com.NovaCraft.particles;
 
 import com.NovaCraft.particles.entity.EntityGlowLichenParticle;
-
-import net.minecraft.client.particle.EntityPortalFX;
 import net.minecraft.world.World;
 
 public class ParticleGlowLichen extends EntityGlowLichenParticle {

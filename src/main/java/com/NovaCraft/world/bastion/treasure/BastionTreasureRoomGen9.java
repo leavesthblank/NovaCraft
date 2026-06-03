@@ -8,7 +8,6 @@ import net.minecraft.world.*;
 import java.util.*;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntitySavageSerpent;
-import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;

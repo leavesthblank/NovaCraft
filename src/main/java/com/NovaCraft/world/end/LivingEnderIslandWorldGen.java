@@ -1,7 +1,6 @@
 package com.NovaCraft.world.end;
 
 import java.util.Random;
-
 import com.NovaCraft.world.end.endcamp.ChorusIslandGen;
 import com.NovaCraft.world.end.endcamp.EnderCampCenterGen;
 import com.NovaCraft.world.end.endcamp.EnderCampTreasureTowerPart1Gen;
@@ -11,15 +10,12 @@ import com.NovaCraft.world.end.endcamp.EnderSettlementLacunaIslandGen;
 import com.NovaCraft.world.end.endcamp.EnderSettlementShipBottomGen;
 import com.NovaCraft.world.end.endcamp.EnderSettlementShipGen;
 import com.NovaCraft.world.end.endcamp.EnderSettlementSmallEndTowerGen;
-
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSand;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 

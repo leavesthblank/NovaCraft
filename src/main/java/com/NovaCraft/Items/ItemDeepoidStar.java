@@ -5,8 +5,6 @@ import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

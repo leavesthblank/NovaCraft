@@ -8,9 +8,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
@@ -21,16 +19,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
-
 import java.util.List;
-
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.entity.misc.EntityVaniteTrident;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.google.common.collect.Multimap;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -41,14 +36,14 @@ public class ItemVaniteTrident extends ItemBow {
 	private float field_150934_a;
 	private final Item.ToolMaterial field_150933_b;
 
-	public ItemVaniteTrident(Item.ToolMaterial p_i45356_1_) {
+	public ItemVaniteTrident(Item.ToolMaterial toolMaterial) {
 		super();
 		this.maxStackSize = 1;
 		this.setFull3D();
 		this.setTextureName(NovaCraft.find("vanite_trident"));
 		this.setCreativeTab(NovaCraftCreativeTabs.tools);
-		this.field_150933_b = p_i45356_1_;
-		this.field_150934_a = 8.0F + p_i45356_1_.getDamageVsEntity();
+		this.field_150933_b = toolMaterial;
+		this.field_150934_a = 8.0F + toolMaterial.getDamageVsEntity();
 	}
 
 	@Override

@@ -2,7 +2,6 @@ package com.NovaCraftBlocks.crystals;
 
 import java.util.List;
 import java.util.Random;
-
 import com.NovaCraft.Item.Block.ItemAetherCluster;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.core.Utils;
@@ -10,7 +9,6 @@ import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks.ISubBlocksBlock;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -29,8 +27,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
-
 
 public class BlockAetherCluster extends BlockAether implements ISubBlocksBlock {
 	
@@ -218,25 +214,25 @@ public class BlockAetherCluster extends BlockAether implements ISubBlocksBlock {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister p_149651_1_)
+	public void registerBlockIcons(IIconRegister register)
 	{
 		icons = new IIcon[2];
 		if(type == 0) {
-			icons[0] = p_149651_1_.registerIcon("nova_craft:aether_bud");
-			icons[1] = p_149651_1_.registerIcon("nova_craft:aether_medium_bud");
+			icons[0] = register.registerIcon("nova_craft:aether_bud");
+			icons[1] = register.registerIcon("nova_craft:aether_medium_bud");
 		}
 		if(type == 1) {
-			icons[0] = p_149651_1_.registerIcon("nova_craft:aether_large_bud");
-			icons[1] = p_149651_1_.registerIcon("nova_craft:aether_cluster");
+			icons[0] = register.registerIcon("nova_craft:aether_large_bud");
+			icons[1] = register.registerIcon("nova_craft:aether_cluster");
 		}
-		super.registerBlockIcons(p_149651_1_);
+		super.registerBlockIcons(register);
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
+	public void getSubBlocks(Item item, CreativeTabs tabs, List list)
 	{
-		p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
-		p_149666_3_.add(new ItemStack(p_149666_1_, 1, 6));
+		list.add(new ItemStack(item, 1, 0));
+		list.add(new ItemStack(item, 1, 6));
 	}
 
 	@Override

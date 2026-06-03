@@ -1,11 +1,9 @@
 package com.NovaCraft.entity;
 
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -16,31 +14,23 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class EntityDestitumite extends EntityMob
 {		
-	public EntityDestitumite(final World p_i1745_1_) {
-		super(p_i1745_1_);
+	public EntityDestitumite(final World world) {
+		super(world);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
 		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
@@ -75,16 +65,12 @@ public class EntityDestitumite extends EntityMob
 		}
 		
 		this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 30, 1));        
-        int rand = (int)(1 + Math.random() * 2);
-		switch (rand)
-        {
-            case 1:
-            	((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.blindness.id, 60, 0));
-                break;
-            case 2:
-            	((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.wither.id, 100, 1));
-            	break;
-        }
+        int potion_type = (int)(1 + Math.random() * 2);
+		if (potion_type == 1) {
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.blindness.id, 60, 0));
+		} else {
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.wither.id, 100, 1));
+		}
         
                 
 		return flag;
@@ -125,12 +111,12 @@ public class EntityDestitumite extends EntityMob
 		return super.getBrightness(p_70013_1_);
 	}
 	
-	 protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+	 protected void dropFewItems(boolean p_70628_1_, int chance)
 	    {
 	        int j;
 	        int k;
 	        {
-	            j = this.rand.nextInt(1 + p_70628_2_);
+	            j = this.rand.nextInt(1 + chance);
 
 	            for (k = 0; k < j; ++k)
 	            {
@@ -144,28 +130,19 @@ public class EntityDestitumite extends EntityMob
     {
         return EnumCreatureAttribute.UNDEFINED;
     }
-	
-	/**
-     * Returns the sound this mob makes while it's alive.
-     */
+
 	@Override
     protected String getLivingSound()
     {
         return "nova_craft:destitumite.living";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
 	@Override
     protected String getHurtSound()
     {
         return "nova_craft:destitumite.hurt";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
 	@Override
     protected String getDeathSound()
     {

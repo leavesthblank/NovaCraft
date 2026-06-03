@@ -1,10 +1,8 @@
 package com.NovaCraft.Items.Staffs;
 
 import java.util.List;
-
-import com.NovaCraft.entity.EntityIceSceptorProjectile;
+import com.NovaCraft.entity.misc.EntityIceSceptorProjectile;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -14,7 +12,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;

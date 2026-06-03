@@ -6,7 +6,6 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 
-
 public class IllagerChiefOverlayRenderer extends IllagerChiefRenderer {
 
 	public ResourceLocation texture = new ResourceLocation("nova_craft", "textures/entity/vindicator_settler/chief_overlay.png");

@@ -3,10 +3,8 @@ package com.NovaCraftBlocks.potion;
 import java.util.Random;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.ores.BlockReinforcedVanite;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -14,9 +12,7 @@ import net.minecraft.block.BlockCauldron;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -178,17 +174,14 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 1, 3);
 
-                // Give correct empty bucket
                 ItemStack bucket = (held.getItem() == Items.lava_bucket) ? new ItemStack(Items.bucket) : new ItemStack(NovaCraftItems.vanite_bucket);
 
                 if (!player.inventory.addItemStackToInventory(bucket)) {
                     player.dropPlayerItemWithRandomChoice(bucket, false);
                 }
 
-                // Consume one lava bucket
                 if (!player.capabilities.isCreativeMode) {
                     held.stackSize--;
                     if (held.stackSize <= 0) {
@@ -204,14 +197,39 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
             return true;
         }
 
+        else if ((held.getItem() == NovaCraftItems.bucket_mercury || held.getItem() == NovaCraftItems.vanite_bucket_mercury) && meta == 0) {
+
+            if (!world.isRemote) {
+
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 1, 3);
+
+                ItemStack bucket = (held.getItem() == NovaCraftItems.bucket_mercury) ? new ItemStack(Items.bucket) : new ItemStack(NovaCraftItems.vanite_bucket);
+
+                if (!player.inventory.addItemStackToInventory(bucket)) {
+                    player.dropPlayerItemWithRandomChoice(bucket, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 5.8F);
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
         else if ((held.getItem() == Items.bucket || held.getItem() == NovaCraftItems.vanite_bucket) && meta == 1) {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 0, 3);
 
-                // Give correct empty bucket
                 ItemStack bucket = (held.getItem() == Items.bucket) ? new ItemStack(Items.lava_bucket) : new ItemStack(NovaCraftItems.vanite_bucket_lava);
 
                 if (!player.inventory.addItemStackToInventory(bucket)) {
@@ -236,10 +254,8 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 0, 3);
 
-                // Give correct empty bucket
                 ItemStack bucket = (held.getItem() == Items.bucket) ? new ItemStack(Items.lava_bucket) : new ItemStack(NovaCraftItems.vanite_bucket_lava);
 
                 if (!player.inventory.addItemStackToInventory(bucket)) {
@@ -289,10 +305,8 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 2, 3);
 
-                // Give correct empty bucket
                 ItemStack potion = new ItemStack(Items.glass_bottle);
 
                 if (!player.inventory.addItemStackToInventory(potion)) {
@@ -317,10 +331,8 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 3, 3);
 
-                // Give correct empty bucket
                 ItemStack potion = new ItemStack(Items.glass_bottle);
 
                 if (!player.inventory.addItemStackToInventory(potion)) {
@@ -345,10 +357,8 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 4, 3);
 
-                // Give correct empty bucket
                 ItemStack potion = new ItemStack(Items.glass_bottle);
 
                 if (!player.inventory.addItemStackToInventory(potion)) {
@@ -373,10 +383,8 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 3, 3);
 
-                // Give correct empty bucket
                 ItemStack potion = new ItemStack(Items.potionitem, 1, 8229);
 
                 if (!player.inventory.addItemStackToInventory(potion)) {
@@ -401,10 +409,8 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 2, 3);
 
-                // Give correct empty bucket
                 ItemStack potion = new ItemStack(Items.potionitem, 1, 8229);
 
                 if (!player.inventory.addItemStackToInventory(potion)) {
@@ -429,10 +435,8 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 0, 3);
 
-                // Give correct empty bucket
                 ItemStack potion = new ItemStack(Items.potionitem, 1, 8229);
 
                 if (!player.inventory.addItemStackToInventory(potion)) {
@@ -457,7 +461,6 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 5, 3);
 
                 if (!player.capabilities.isCreativeMode) {
@@ -478,7 +481,6 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 6, 3);
 
                 if (!player.capabilities.isCreativeMode) {
@@ -499,7 +501,6 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 7, 3);
 
                 if (!player.capabilities.isCreativeMode) {
@@ -520,10 +521,8 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 0, 3);
 
-                // Give correct empty bucket
                 ItemStack potion = new ItemStack(NovaCraftItems.end_portal_sealent, 1, 0);
 
                 if (!player.inventory.addItemStackToInventory(potion)) {
@@ -548,10 +547,8 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 11, 3);
 
-                // Give correct empty bucket
                 ItemStack potion = new ItemStack(NovaCraftItems.end_portal_sealent, 1, 0);
 
                 if (!player.inventory.addItemStackToInventory(potion)) {
@@ -576,10 +573,8 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 12, 3);
 
-                // Give correct empty bucket
                 ItemStack potion = new ItemStack(NovaCraftItems.end_portal_sealent, 1, 0);
 
                 if (!player.inventory.addItemStackToInventory(potion)) {
@@ -604,7 +599,6 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 8, 3);
 
                 if (!player.capabilities.isCreativeMode) {
@@ -625,7 +619,6 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 9, 3);
 
                 if (!player.capabilities.isCreativeMode) {
@@ -646,7 +639,6 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 10, 3);
 
                 if (!player.capabilities.isCreativeMode) {
@@ -667,7 +659,6 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 11, 3);
 
                 if (!player.capabilities.isCreativeMode) {
@@ -688,7 +679,6 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 12, 3);
 
                 if (!player.capabilities.isCreativeMode) {
@@ -709,7 +699,6 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlockMetadataWithNotify(x, y, z, 13, 3);
 
                 if (!player.capabilities.isCreativeMode) {
@@ -730,7 +719,6 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlock(x, y, z, NovaCraftBlocks.potion_vanite_cauldron, 0, 3);
 
                 if (!player.capabilities.isCreativeMode) {
@@ -751,7 +739,6 @@ public class BlockLavaVaniteCauldron extends BlockCauldron {
 
             if (!world.isRemote) {
 
-                // Change block metadata
                 world.setBlock(x, y, z, NovaCraftBlocks.potion_vanite_cauldron, 1, 3);
 
                 if (!player.capabilities.isCreativeMode) {

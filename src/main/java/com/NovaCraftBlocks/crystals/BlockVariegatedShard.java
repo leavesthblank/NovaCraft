@@ -1,16 +1,8 @@
 package com.NovaCraftBlocks.crystals;
 
 import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraft.sounds.Reference;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.IProjectile;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
 public class BlockVariegatedShard extends Block {
 	

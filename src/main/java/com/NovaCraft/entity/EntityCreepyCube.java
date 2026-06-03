@@ -3,18 +3,13 @@ package com.NovaCraft.entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-
 import java.util.List;
-
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
 public class EntityCreepyCube extends EntityMob

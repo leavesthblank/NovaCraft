@@ -13,11 +13,10 @@ public class EntityDarkLichenParticleTwo extends EntityFX
     private double portalPosX;
     private double portalPosY;
     private double portalPosZ;
-    private static final String __OBFID = "CL_00000921";
 
-    public EntityDarkLichenParticleTwo(World p_i1222_1_, double p_i1222_2_, double p_i1222_4_, double p_i1222_6_, double p_i1222_8_, double p_i1222_10_, double p_i1222_12_)
+    public EntityDarkLichenParticleTwo(World world, double p_i1222_2_, double p_i1222_4_, double p_i1222_6_, double p_i1222_8_, double p_i1222_10_, double p_i1222_12_)
     {
-        super(p_i1222_1_, p_i1222_2_, p_i1222_4_, p_i1222_6_, p_i1222_8_, p_i1222_10_, p_i1222_12_);
+        super(world, p_i1222_2_, p_i1222_4_, p_i1222_6_, p_i1222_8_, p_i1222_10_, p_i1222_12_);
         this.motionX = p_i1222_8_;
         this.motionY = p_i1222_10_;
         this.motionZ = p_i1222_12_;

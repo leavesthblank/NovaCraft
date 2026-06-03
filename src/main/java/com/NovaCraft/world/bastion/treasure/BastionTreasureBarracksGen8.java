@@ -2193,7 +2193,7 @@ public class BastionTreasureBarracksGen8 extends WorldGenerator
 			case 5:
 				return new ItemStack(NovaCraftItems.vanite_bucket_lava, 1);
 			case 6:
-				return new ItemStack(NovaCraftItems.vanite_bucket_lava, 1);
+				return new ItemStack(NovaCraftBlocks.lava_sponge, random.nextInt(7) + 3);
 			case 7:
 				return new ItemStack(NovaCraftItems.vanite_bucket_blazlinite, 1);
 			case 8:

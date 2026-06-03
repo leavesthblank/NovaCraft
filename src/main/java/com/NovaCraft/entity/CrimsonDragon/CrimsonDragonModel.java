@@ -10,33 +10,21 @@ import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class CrimsonDragonModel extends ModelBase {
-    /** The head Model renderer of the dragon */
     private ModelRenderer head;
-    /** The spine Model renderer of the dragon */
     private ModelRenderer spine;
-    /** The jaw Model renderer of the dragon */
     private ModelRenderer jaw;
-    /** The body Model renderer of the dragon */
     private ModelRenderer body;
-    /** The rear leg Model renderer of the dragon */
     private ModelRenderer rearLeg;
-    /** The front leg Model renderer of the dragon */
     private ModelRenderer frontLeg;
-    /** The rear leg tip Model renderer of the dragon */
     private ModelRenderer rearLegTip;
-    /** The front leg tip Model renderer of the dragon */
     private ModelRenderer frontLegTip;
-    /** The rear foot Model renderer of the dragon */
     private ModelRenderer rearFoot;
-    /** The front foot Model renderer of the dragon */
     private ModelRenderer frontFoot;
-    /** The wing Model renderer of the dragon */
     private ModelRenderer wing;
-    /** The wing tip Model renderer of the dragon */
     private ModelRenderer wingTip;
     private float partialTicks;
 
-    public CrimsonDragonModel(float p_i1169_1_) {
+    public CrimsonDragonModel(float integer) {
         this.textureWidth = 256;
         this.textureHeight = 256;
         this.setTextureOffset("body.body", 0, 0);
@@ -114,13 +102,13 @@ public class CrimsonDragonModel extends ModelBase {
         this.rearLegTip.addChild(this.rearFoot);
     }
 
-    public void setLivingAnimations(EntityLivingBase p_78086_1_, float p_78086_2_, float p_78086_3_, float p_78086_4_) {
+    public void setLivingAnimations(EntityLivingBase livingBase, float p_78086_2_, float p_78086_3_, float p_78086_4_) {
         this.partialTicks = p_78086_4_;
     }
 
-    public void render(Entity p_78088_1_, float p_78088_2_, float p_78088_3_, float p_78088_4_, float p_78088_5_, float p_78088_6_, float p_78088_7_) {
+    public void render(Entity entity, float p_78088_2_, float p_78088_3_, float p_78088_4_, float p_78088_5_, float p_78088_6_, float p_78088_7_) {
         GL11.glPushMatrix();
-        EntityCrimsonDragon EntityCrimsonDragon = (EntityCrimsonDragon)p_78088_1_;
+        EntityCrimsonDragon EntityCrimsonDragon = (EntityCrimsonDragon)entity;
         float f6 = EntityCrimsonDragon.prevAnimTime + (EntityCrimsonDragon.animTime - EntityCrimsonDragon.prevAnimTime) * this.partialTicks;
         this.jaw.rotateAngleX = (float)(Math.sin((double)(f6 * (float)Math.PI * 2.0F)) + 1.0D) * 0.2F;
         float f7 = (float)(Math.sin((double)(f6 * (float)Math.PI * 2.0F - 1.0F)) + 1.0D);
@@ -223,17 +211,17 @@ public class CrimsonDragonModel extends ModelBase {
         GL11.glPopMatrix();
     }
 
-    private float updateRotations(double p_78214_1_) {
-        while (p_78214_1_ >= 180.0D)
+    private float updateRotations(double angle) {
+        while (angle >= 180.0D)
         {
-            p_78214_1_ -= 360.0D;
+            angle -= 360.0D;
         }
 
-        while (p_78214_1_ < -180.0D)
+        while (angle < -180.0D)
         {
-            p_78214_1_ += 360.0D;
+            angle += 360.0D;
         }
 
-        return (float)p_78214_1_;
+        return (float)angle;
     }
 }

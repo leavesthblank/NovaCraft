@@ -1,11 +1,14 @@
 package com.NovaCraft.world.ancient_city;
 
+import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsStructures;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import org.apache.commons.lang3.ArrayUtils;
+import java.util.Arrays;
 import java.util.Random;
 
 public class AncientCityFinder {
@@ -19,7 +22,34 @@ public class AncientCityFinder {
         }
     }
 
+    private static boolean isValidDimension(int dim) {
+        if (ConfigsStructures.AncientCityValidDimension == null) {
+            return false;
+        }
+
+        for (int id : ConfigsStructures.AncientCityValidDimension) {
+            if (id == dim) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static ChunkCoordinates getNearestAncientCity(World world, int playerX, int playerZ) {
+        if (Configs.enableDebugMode) {
+            System.out.println("[AncientCityFinder] isRemote=" + world.isRemote + ", dim=" + world.provider.dimensionId +
+                    ", name=" + world.provider.getDimensionName() + ", validDims=" + Arrays.toString(ConfigsStructures.AncientCityValidDimension));
+
+        System.out.println("[AncientCityFinder] Dimension passed config whitelist.");
+        }
+
+        if (!isValidDimension(world.provider.dimensionId)) {
+            if (Configs.enableDebugMode) System.out.println("[AncientCityFinder] Dimension failed config whitelist.");
+
+            return null;
+        }
+
         int spacing = 750;
         int searchRadius = 20;
         int playerRegionX = floorDiv(playerX, 750);
@@ -34,7 +64,7 @@ public class AncientCityFinder {
                     if (regionRand.nextInt(3) == 1) {
                         int baseX = regionX * 750 + regionRand.nextInt(750);
                         int baseZ = regionZ * 750 + regionRand.nextInt(750);
-                        if (Math.abs(baseX) >= 5000 && Math.abs(baseZ) >= 5000) {
+                        if (Math.abs(baseX) >= ConfigsStructures.AncientCityGenerationDistance && Math.abs(baseZ) >= ConfigsStructures.AncientCityGenerationDistance) {
                             int chunkCornerX = baseX >> 4 << 4;
                             int chunkCornerZ = baseZ >> 4 << 4;
                             BiomeGenBase biome = world.getBiomeGenForCoords(chunkCornerX, chunkCornerZ);

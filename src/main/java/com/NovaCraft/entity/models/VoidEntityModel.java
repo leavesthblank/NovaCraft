@@ -1,6 +1,5 @@
 package com.NovaCraft.entity.models;
 
-import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.client.model.ModelBiped;
@@ -16,8 +15,8 @@ public class VoidEntityModel extends ModelBiped
         this.bipedLeftArm.rotateAngleZ = 0.0F;
         this.bipedRightArm.rotateAngleY = -(0.1F - f6 * 0.6F);
         this.bipedLeftArm.rotateAngleY = 0.1F - f6 * 0.6F;
-        this.bipedRightArm.rotateAngleX = 0.0F; //-((float)Math.PI / 2F);
-        this.bipedLeftArm.rotateAngleX = 0.0F; //-((float)Math.PI / 2F)
+        this.bipedRightArm.rotateAngleX = 0.0F;
+        this.bipedLeftArm.rotateAngleX = 0.0F;
         this.bipedRightArm.rotateAngleX -= f6 * 1.2F - f7 * 0.4F;
         this.bipedLeftArm.rotateAngleX -= f6 * 1.2F - f7 * 0.4F;
         this.bipedRightArm.rotateAngleZ += MathHelper.cos(p_78087_3_ * 0.09F) * 0.05F + 0.05F;

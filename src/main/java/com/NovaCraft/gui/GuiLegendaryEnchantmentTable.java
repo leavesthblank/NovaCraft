@@ -3,7 +3,6 @@ package com.NovaCraft.gui;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
-
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -40,36 +39,26 @@ public class GuiLegendaryEnchantmentTable extends GuiContainer
     public float field_147076_A;
     ItemStack field_147077_B;
     private String field_147079_H;
-    private static final String __OBFID = "CL_00000757";
 
-    public GuiLegendaryEnchantmentTable(InventoryPlayer p_i1090_1_, World p_i1090_2_, int p_i1090_3_, int p_i1090_4_, int p_i1090_5_, String p_i1090_6_)
+    public GuiLegendaryEnchantmentTable(InventoryPlayer inventoryPlayer, World world, int p_i1090_3_, int p_i1090_4_, int p_i1090_5_, String p_i1090_6_)
     {
-        super(new LegendaryEnchantmentTableContainer(p_i1090_1_, p_i1090_2_, p_i1090_3_, p_i1090_4_, p_i1090_5_));
+        super(new LegendaryEnchantmentTableContainer(inventoryPlayer, world, p_i1090_3_, p_i1090_4_, p_i1090_5_));
         this.field_147075_G = (LegendaryEnchantmentTableContainer)this.inventorySlots;
         this.field_147079_H = p_i1090_6_;
     }
 
-    /**
-     * Draw the foreground layer for the GuiContainer (everything in front of the items)
-     */
     protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_)
     {
         this.fontRendererObj.drawString(this.field_147079_H == null ? I18n.format("container.enchant", new Object[0]) : this.field_147079_H, 12, 5, 4210752);
         this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
     }
 
-    /**
-     * Called from the main game loop to update the screen.
-     */
     public void updateScreen()
     {
         super.updateScreen();
         this.func_147068_g();
     }
 
-    /**
-     * Called when the mouse is clicked.
-     */
     protected void mouseClicked(int p_73864_1_, int p_73864_2_, int p_73864_3_)
     {
         super.mouseClicked(p_73864_1_, p_73864_2_, p_73864_3_);

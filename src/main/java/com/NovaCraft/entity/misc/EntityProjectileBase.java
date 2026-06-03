@@ -3,9 +3,7 @@ package com.NovaCraft.entity.misc;
 import cpw.mods.fml.common.registry.IThrowableEntity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
 import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

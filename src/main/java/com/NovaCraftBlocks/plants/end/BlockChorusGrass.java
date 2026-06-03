@@ -2,9 +2,7 @@ package com.NovaCraftBlocks.plants.end;
 
 import java.util.ArrayList;
 import java.util.Random;
-
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.init.Blocks;

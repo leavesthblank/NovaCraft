@@ -1,13 +1,11 @@
 package com.NovaCraft.entity.misc;
 
 import java.util.List;
-
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntityPrisoner;
 import com.NovaCraft.entity.EntityWarden;
-import com.NovaCraft.entity.EntityWardenVessel;
+import com.NovaCraft.entity.EntityWardling;
 import com.NovaCraft.particles.ParticleHandler;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
@@ -107,7 +105,7 @@ public class EntityWardenProjectile extends Entity {
 		if (this.shooter instanceof EntityWarden) {
 			damage = 14.0F;
 		}
-		else if (this.shooter instanceof EntityWardenVessel) {
+		else if (this.shooter instanceof EntityWardling) {
 			damage = 8.0F;
 		}
 		else if (this.shooter instanceof EntityPrisoner) {
@@ -127,11 +125,8 @@ public class EntityWardenProjectile extends Entity {
 		}
 	}
 
-
-	// === PARTICLES (LOW DENSITY) ===
 	@SideOnly(Side.CLIENT)
 	private void spawnTrailParticles() {
-		// spawn a short trail along motion vector
 		for (int i = 0; i < 2; i++) {
 			double t = i / 2.0D;
 

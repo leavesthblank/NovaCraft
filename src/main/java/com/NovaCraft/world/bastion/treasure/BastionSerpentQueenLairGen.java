@@ -6,13 +6,11 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
 import net.minecraft.item.ItemStack;
@@ -1341,7 +1339,7 @@ public class BastionSerpentQueenLairGen extends WorldGenerator
 			case 5:
 				return new ItemStack(NovaCraftItems.vanite_bucket_lava, 1);
 			case 6:
-				return new ItemStack(NovaCraftItems.vanite_bucket_lava, 1);
+				return new ItemStack(NovaCraftBlocks.lava_sponge, random.nextInt(7) + 3);
 			case 7:
 				return new ItemStack(NovaCraftItems.vanite_bucket_blazlinite, 1);
 			case 8:

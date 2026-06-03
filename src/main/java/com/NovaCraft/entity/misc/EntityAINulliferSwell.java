@@ -1,52 +1,37 @@
 package com.NovaCraft.entity.misc;
 
 import com.NovaCraft.entity.EntityNullifier;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 
 public class EntityAINulliferSwell extends EntityAIBase
 {
-    /** The creeper that is swelling. */
 	EntityNullifier swellingCreeper;
-    /** The creeper's attack target. This is used for the changing of the creeper's state. */
     EntityLivingBase creeperAttackTarget;
 
-    public EntityAINulliferSwell(EntityNullifier p_i1655_1_)
+    public EntityAINulliferSwell(EntityNullifier nullifier)
     {
-        this.swellingCreeper = p_i1655_1_;
+        this.swellingCreeper = nullifier;
         this.setMutexBits(1);
     }
 
-    /**
-     * Returns whether the EntityAIBase should begin execution.
-     */
     public boolean shouldExecute()
     {
         EntityLivingBase entitylivingbase = this.swellingCreeper.getAttackTarget();
         return this.swellingCreeper.getCreeperState() > 0 || entitylivingbase != null && this.swellingCreeper.getDistanceSqToEntity(entitylivingbase) < 9.0D;
     }
 
-    /**
-     * Execute a one shot task or start executing a continuous task
-     */
     public void startExecuting()
     {
         this.swellingCreeper.getNavigator().clearPathEntity();
         this.creeperAttackTarget = this.swellingCreeper.getAttackTarget();
     }
 
-    /**
-     * Resets the task
-     */
     public void resetTask()
     {
         this.creeperAttackTarget = null;
     }
 
-    /**
-     * Updates the task
-     */
     public void updateTask()
     {
         if (this.creeperAttackTarget == null)

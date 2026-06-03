@@ -7,12 +7,9 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
 import net.minecraft.item.ItemStack;
@@ -141,7 +138,7 @@ public class AncientCityNetherPortalGen extends WorldGenerator
     	PlaceDeepslateBricks = determineIfDeepslateBricksExists(world, i + 2, j, k + 1);
     	PlaceCrackedDeepslateBricks = determineIfCrackedDeepslateBricksExists(world, i + 5, j, k + 1);
     	PlaceDeepslateBrickWall = determineIfDeepslateBrickWallExists(world, i + 3, j + 4, k + 6);
-    	PlaceDeepslateTileStairs = determineIfDeepslateTileStairsExists(world, i + 1, j, k + 0);
+    	PlaceDeepslateTileStairs = determineIfDeepslateTileStairsExists(world, i + 1, j, k);
     	PlaceSoulLantern = determineIfSoulLanternExists(world, i + 3, j + 3, k + 6);
     	
 		world.setBlock(i + 1, j, k, PlaceDeepslateTileStairs, 0, 2);

@@ -1,16 +1,7 @@
 package com.NovaCraft.entity;
 
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
-import com.NovaCraft.config.Configs;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -18,31 +9,22 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class EntityOutsider extends EntityMob
 {		
-	public EntityOutsider(final World p_i1745_1_) {
-		super(p_i1745_1_);
+	public EntityOutsider(final World world) {
+		super(world);
 		getNavigator().setBreakDoors(true);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
@@ -114,10 +96,7 @@ public class EntityOutsider extends EntityMob
 	{
 		return super.getBrightness(p_70013_1_);
 	}
-	 
-	/**
-     * Called when the mob's health reaches 0.
-     */
+
     public void onDeath(DamageSource p_70645_1_)
     {
         super.onDeath(p_70645_1_);

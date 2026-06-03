@@ -3,7 +3,6 @@ package com.NovaCraft.world.nether;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-
 import com.NovaCraft.config.ConfigsStructures;
 import com.NovaCraft.config.ConfigsWorld;
 import com.NovaCraft.world.nether.structure.BlazingSerpentDungeonGen;
@@ -12,11 +11,8 @@ import com.NovaCraft.world.structure.YttrlinsiteGeoGen;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenFlowers;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class NCWorldGeneratorNether implements IWorldGenerator {
 	

@@ -18,12 +18,12 @@ public class DestituteTentacleProjectileRenderer extends Render {
         this.shadowSize = 0.0F;
     }
 
-    public void doRenderProjectile(EntityDestituteTentacleProjectile notchwave, double par2, double par4, double par6, float par8, float par9) {
+    public void doRenderProjectile(EntityDestituteTentacleProjectile entity, double par2, double par4, double par6, float par8, float par9) {
         GL11.glPushMatrix();
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glTranslated(par2, par4, par6);
 
-        this.bindTexture(this.getEntityTexture(notchwave));
+        this.bindTexture(this.getEntityTexture(entity));
 
         Tessellator tessellator = Tessellator.instance;
 

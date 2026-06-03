@@ -47,8 +47,8 @@ public class SculkedMonitorProjectileRenderer extends Render {
     }
 
     @Override
-    public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9) {
-        this.doRenderProjectile((EntitySculkedMonitorProjectile) par1Entity, par2, par4, par6, par8, par9);
+    public void doRender(Entity entity, double par2, double par4, double par6, float par8, float par9) {
+        this.doRenderProjectile((EntitySculkedMonitorProjectile) entity, par2, par4, par6, par8, par9);
     }
 
     @Override

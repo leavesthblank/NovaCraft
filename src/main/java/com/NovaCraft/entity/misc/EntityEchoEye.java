@@ -5,7 +5,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
@@ -18,9 +17,9 @@ public class EntityEchoEye extends Entity {
     private int despawnTimer;
     private boolean shatterOrDrop;
 
-    public EntityEchoEye(World p_i1757_1_)
+    public EntityEchoEye(World world)
     {
-        super(p_i1757_1_);
+        super(world);
         this.setSize(0.25F, 0.25F);
     }
 
@@ -34,12 +33,12 @@ public class EntityEchoEye extends Entity {
         return p_70112_1_ < d1 * d1;
     }
 
-    public EntityEchoEye(World p_i1758_1_, double p_i1758_2_, double p_i1758_4_, double p_i1758_6_)
+    public EntityEchoEye(World world, double x, double y, double z)
     {
-        super(p_i1758_1_);
+        super(world);
         this.despawnTimer = 0;
         this.setSize(0.25F, 0.25F);
-        this.setPosition(p_i1758_2_, p_i1758_4_, p_i1758_6_);
+        this.setPosition(x, y, z);
         this.yOffset = 0.0F;
     }
 
@@ -67,17 +66,17 @@ public class EntityEchoEye extends Entity {
     }
 
     @SideOnly(Side.CLIENT)
-    public void setVelocity(double p_70016_1_, double p_70016_3_, double p_70016_5_)
+    public void setVelocity(double x, double y, double z)
     {
-        this.motionX = p_70016_1_;
-        this.motionY = p_70016_3_;
-        this.motionZ = p_70016_5_;
+        this.motionX = x;
+        this.motionY = y;
+        this.motionZ = z;
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {
-            float f = MathHelper.sqrt_double(p_70016_1_ * p_70016_1_ + p_70016_5_ * p_70016_5_);
-            this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(p_70016_1_, p_70016_5_) * 180.0D / Math.PI);
-            this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(p_70016_3_, (double)f) * 180.0D / Math.PI);
+            float f = MathHelper.sqrt_double(x * x + z * z);
+            this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(x, z) * 180.0D / Math.PI);
+            this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(y, (double)f) * 180.0D / Math.PI);
         }
     }
 
@@ -178,9 +177,9 @@ public class EntityEchoEye extends Entity {
         }
     }
 
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_) {}
+    public void writeEntityToNBT(NBTTagCompound compound) {}
 
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_) {}
+    public void readEntityFromNBT(NBTTagCompound compound) {}
 
     @SideOnly(Side.CLIENT)
     public float getShadowSize() {

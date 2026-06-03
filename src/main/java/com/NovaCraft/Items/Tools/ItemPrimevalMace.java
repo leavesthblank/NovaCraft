@@ -1,13 +1,8 @@
 package com.NovaCraft.Items.Tools;
 
 import java.util.List;
-
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -20,7 +15,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
@@ -57,7 +51,7 @@ public class ItemPrimevalMace extends ItemSword
 		
 		else if (s != null && (s.toLowerCase().contains("sculk_dweller") || s.toLowerCase().contains("sculk_symbiote") || s.toLowerCase().contains("sculk_abomination") 
 				|| s.toLowerCase().contains("sculk_duplicator") || s.toLowerCase().contains("sculk_hunger") || s.toLowerCase().contains("sculked_monitor") 
-				|| s.toLowerCase().contains("sculk_incinerator") || s.toLowerCase().contains("warden_vessel"))) {
+				|| s.toLowerCase().contains("sculk_incinerator") || s.toLowerCase().contains("wardling"))) {
 			if (entityliving.getHealth() > 0) {
 				entityliving.attackEntityFrom(DamageSource.causeMobDamage(entityliving1), 18);
 				((EntityLivingBase)entityliving).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 70, 3));

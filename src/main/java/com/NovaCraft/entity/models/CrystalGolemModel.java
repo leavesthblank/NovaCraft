@@ -1,7 +1,6 @@
 package com.NovaCraft.entity.models;
 
 import com.NovaCraft.entity.EntityCrystalGolem;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;

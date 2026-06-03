@@ -4,7 +4,6 @@ import com.NovaCraft.entity.illager.EntityVindicator;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
 import java.util.Random;
 
 public class MansionFloor1Gen4 extends WorldGenerator

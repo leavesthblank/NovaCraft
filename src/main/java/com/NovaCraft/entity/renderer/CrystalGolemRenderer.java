@@ -22,37 +22,37 @@ public class CrystalGolemRenderer extends RenderLiving
         this.crystalGolemModel = (CrystalGolemModel)this.mainModel;
     }
 
-    public void doRender(EntityCrystalGolem p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(EntityCrystalGolem entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-        super.doRender((EntityLiving)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        super.doRender((EntityLiving)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    protected void rotateCorpse(EntityCrystalGolem p_77043_1_, float p_77043_2_, float p_77043_3_, float p_77043_4_)
+    protected void rotateCorpse(EntityCrystalGolem entity, float p_77043_2_, float p_77043_3_, float p_77043_4_)
     {
-        super.rotateCorpse(p_77043_1_, p_77043_2_, p_77043_3_, p_77043_4_);
+        super.rotateCorpse(entity, p_77043_2_, p_77043_3_, p_77043_4_);
 
-        if ((double)p_77043_1_.limbSwingAmount >= 0.01D)
+        if ((double)entity.limbSwingAmount >= 0.01D)
         {
             float f3 = 13.0F;
-            float f4 = p_77043_1_.limbSwing - p_77043_1_.limbSwingAmount * (1.0F - p_77043_4_) + 6.0F;
+            float f4 = entity.limbSwing - entity.limbSwingAmount * (1.0F - p_77043_4_) + 6.0F;
             float f5 = (Math.abs(f4 % f3 - f3 * 0.5F) - f3 * 0.25F) / (f3 * 0.25F);
             GL11.glRotatef(6.5F * f5, 0.0F, 0.0F, 1.0F);
         }
     }
 
-    public void doRender(EntityLiving p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(EntityLiving entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-        this.doRender((EntityCrystalGolem)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        this.doRender((EntityCrystalGolem)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    protected void rotateCorpse(EntityLivingBase p_77043_1_, float p_77043_2_, float p_77043_3_, float p_77043_4_)
+    protected void rotateCorpse(EntityLivingBase entity, float p_77043_2_, float p_77043_3_, float p_77043_4_)
     {
-        this.rotateCorpse((EntityCrystalGolem)p_77043_1_, p_77043_2_, p_77043_3_, p_77043_4_);
+        this.rotateCorpse((EntityCrystalGolem)entity, p_77043_2_, p_77043_3_, p_77043_4_);
     }
 
-    public void doRender(EntityLivingBase p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(EntityLivingBase entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-        this.doRender((EntityCrystalGolem)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        this.doRender((EntityCrystalGolem)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
     @Override
@@ -65,8 +65,8 @@ public class CrystalGolemRenderer extends RenderLiving
         return new ResourceLocation("nova_craft", "textures/entity/crystal_golem/" + ((EntityCrystalGolem)entity).getType() + ".png");
     }
 	
-    public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-        this.doRender((EntityCrystalGolem)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        this.doRender((EntityCrystalGolem)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 }

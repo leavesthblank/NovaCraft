@@ -8,6 +8,7 @@ public class NovaCraftLiquids
 {
     public static Fluid blazlinite;
     public static Fluid molten_vanite;
+    public static Fluid mercury;
     
     public static void preInit() {
         registerFluids();
@@ -20,11 +21,13 @@ public class NovaCraftLiquids
     private static void registerFluids() {
     	NovaCraftLiquids.blazlinite = registerFluid((Fluid)new FluidBlazlinite("blazlinite"));
     	NovaCraftLiquids.molten_vanite = registerFluid((Fluid)new FluidBlazlinite("molten_vanite"));
+        NovaCraftLiquids.mercury = registerFluid((Fluid)new FluidBlazlinite("mercury"));
     }
     
     private static void registerFluidBlocks() {
     	NovaCraftLiquids.blazlinite.setBlock(NovaCraftBlocks.blazlinite);
     	NovaCraftLiquids.molten_vanite.setBlock(NovaCraftBlocks.molten_vanite);
+        NovaCraftLiquids.mercury.setBlock(NovaCraftBlocks.mercury);
     }
     
     public static Fluid registerFluid(final Fluid fluid) {

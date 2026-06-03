@@ -1,11 +1,9 @@
 package com.NovaCraft.entity.models;
 
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
-
 
 public class SculkAbominationModel extends ModelBase
 {	
@@ -62,75 +60,63 @@ public class SculkAbominationModel extends ModelBase
 		textureHeight = 32;
 		
 		(this.part1 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(-1.0F, -4.0F, -8.0F, 2, 4, 1);
-		this.part1.setTextureSize(64, 32); //52 40
+		this.part1.setTextureSize(64, 32);
 		part1.setRotationPoint(0.0F, 24.0F, 0.0F);
-		//setRotationAngle(part1, 0.0F, -1.5708F, 0.0F);
         this.part1.mirror = true;
         
         (this.part2 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(-1.0F, -4.0F, 7.0F, 2, 4, 1);
 		this.part2.setTextureSize(64, 32);
 		part2.setRotationPoint(0.0F, 24.0F, 0.0F);
-		//setRotationAngle(part2, 0.0F, -1.5708F, 0.0F);
         this.part2.mirror = true;
         
         (this.part3 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(7.0F, -4.0F, -1.0F, 1, 4, 2);
 		this.part3.setTextureSize(64, 32);
 		part3.setRotationPoint(0.0F, 24.0F, 0.0F);
-		//setRotationAngle(part3, 0.0F, -1.5708F, 0.0F);
         this.part3.mirror = true;
         
         (this.part4 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(-8.0F, -4.0F, -1.0F, 1, 4, 2);
 		this.part4.setTextureSize(64, 32);
 		part4.setRotationPoint(0.0F, 24.0F, 0.0F);
-		//setRotationAngle(part4, 0.0F, -1.5708F, 0.0F);
         this.part4.mirror = true;
         
         (this.part5 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(-7.0F, -5.0F, -1.0F, 2, 1, 2);
 		this.part5.setTextureSize(64, 32);
 		part5.setRotationPoint(0.0F, 24.0F, 0.0F);
-		//setRotationAngle(part5, 0.0F, -1.5708F, 0.0F);
         this.part5.mirror = true;
         
         (this.part6 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(-5.0F, -6.0F, -1.0F, 2, 1, 2);
 		this.part6.setTextureSize(64, 32);
 		part6.setRotationPoint(0.0F, 24.0F, 0.0F);
-		//setRotationAngle(part6, 0.0F, -1.5708F, 0.0F);
         this.part6.mirror = true;
                
         (this.part7 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(5.0F, -5.0F, -1.0F, 2, 1, 2);
 		this.part7.setTextureSize(64, 32);
 		part7.setRotationPoint(0.0F, 24.0F, 0.0F);
-		//setRotationAngle(part7, 0.0F, -1.5708F, 0.0F);
         this.part7.mirror = true;
         
         (this.part8 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(3.0F, -6.0F, -1.0F, 2, 1, 2);
 		this.part8.setTextureSize(64, 32);
 		part8.setRotationPoint(0.0F, 24.0F, 0.0F);
-		//setRotationAngle(part8, 0.0F, -1.5708F, 0.0F);
         this.part8.mirror = true;
         
         (this.part9 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(-1.0F, -5.0F, -7.0F, 2, 1, 2);
 		this.part9.setTextureSize(64, 32);
 		part9.setRotationPoint(0.0F, 24.0F, 0.0F);
-		//setRotationAngle(part9, 0.0F, -1.5708F, 0.0F);
         this.part9.mirror = true;
         
         (this.part10 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(-1.0F, -6.0F, -5.0F, 2, 1, 2);
 		this.part10.setTextureSize(64, 32);
 		part10.setRotationPoint(0.0F, 24.0F, 0.0F);
-		//setRotationAngle(part10, 0.0F, -1.5708F, 0.0F);
         this.part10.mirror = true;
         
         (this.part11 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(-1.0F, -5.0F, 5.0F, 2, 1, 2);
 		this.part11.setTextureSize(64, 32);
 		part11.setRotationPoint(0.0F, 24.0F, 0.0F);
-		//setRotationAngle(part11, 0.0F, -1.5708F, 0.0F);
         this.part11.mirror = true;
               
         (this.part12 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(-1.0F, -6.0F, 3.0F, 2, 1, 2);
 		this.part12.setTextureSize(64, 32);
 		part12.setRotationPoint(0.0F, 24.0F, 0.0F);
-		//setRotationAngle(part12, 0.0F, -1.5708F, 0.0F);
         this.part12.mirror = true;
         
         (this.body = new ModelRenderer((ModelBase)this, 40, 5)).addBox(-3.0F, -23.0F, -3.0F, 6, 18, 6);
@@ -192,9 +178,7 @@ public class SculkAbominationModel extends ModelBase
      	part25.setRotationPoint(0.0F, 24.0F, 0.0F);
      	setRotationAngle(part25, 0.0F, -1.5708F, 0.0F);
         this.part25.mirror = true;
-        
-        
-        
+
         //upper spikes
         (this.part26 = new ModelRenderer((ModelBase)this, 40, 20)).addBox(3.0F, -14.0F, 0.0F, 2, 1, 1);
      	this.part26.setTextureSize(64, 32);
@@ -296,7 +280,6 @@ public class SculkAbominationModel extends ModelBase
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		
 		super.render(entity, f, f1, f2, f3, f4, f5);
 	    setRotationAngles(f, f1, f2, f3, f4, f5);
 		part1.render(f5);

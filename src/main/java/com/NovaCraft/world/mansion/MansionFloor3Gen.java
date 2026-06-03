@@ -12,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityFlowerPot;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
 import java.util.Random;
 
 public class MansionFloor3Gen extends WorldGenerator {

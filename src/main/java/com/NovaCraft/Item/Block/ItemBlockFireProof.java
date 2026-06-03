@@ -1,7 +1,6 @@
 package com.NovaCraft.Item.Block;
 
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemBlock;

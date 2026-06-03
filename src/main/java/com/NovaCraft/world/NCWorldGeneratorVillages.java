@@ -1,26 +1,12 @@
 package com.NovaCraft.world;
 
 import java.util.Random;
-
 import com.NovaCraft.config.ConfigsStructures;
-import org.apache.commons.lang3.ArrayUtils;
-
-import com.NovaCraft.config.Configs;
-import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.world.village.VindicatorWell;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.IWorldGenerator;
-import cpw.mods.fml.common.Loader;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSand;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class NCWorldGeneratorVillages implements IWorldGenerator {
 	
@@ -33,10 +19,9 @@ public class NCWorldGeneratorVillages implements IWorldGenerator {
 	 	
 	 	public void generateOverworldStructures(World world, Random rand, int x, int z) {
 	 		//Vindicator Villages
-			int i, j, k, num, num2;
+			int i, j, k, num;
 			i = j = k = -1;
 			num = 0;
-			num2 = 0;
 			BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAt(x, z);
 			if(world.getWorldInfo().getTerrainType().getWorldTypeID() != 1){
 

@@ -27,8 +27,8 @@ public class GiantFrogRenderer extends RenderLiving
         return new ResourceLocation("nova_craft","textures/entity/giant_frog/" + ((EntityGiantFrog)entity).getType() + ".png");
     }
 
-    public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-        this.doRender((EntityGiantFrog)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        this.doRender((EntityGiantFrog)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 }

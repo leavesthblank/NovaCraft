@@ -1,6 +1,5 @@
 package com.NovaCraftBlocks;
 
-import com.NovaCraft.entity.EntityCorruptist;
 import com.NovaCraft.entity.EntityRavager;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.sounds.ModSounds;
@@ -9,10 +8,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityIronGolem;
-import net.minecraft.entity.monster.EntitySnowman;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -261,6 +257,6 @@ public class BlockVanitePumpkin extends BlockDirectional
     {
         this.field_149986_M = p_149651_1_.registerIcon("nova_craft:vanite_pumpkin_face");
         this.field_149984_b = p_149651_1_.registerIcon("nova_craft:vanite_pumpkin_top");
-        this.blockIcon = p_149651_1_.registerIcon("nova_craft:vanite_pumpkin_side");
+        this.blockIcon = p_149651_1_.registerIcon("nova_craft:vanite_pumpkin_top");
     }
 }

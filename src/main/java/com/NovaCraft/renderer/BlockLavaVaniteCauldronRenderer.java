@@ -1,9 +1,7 @@
 package com.NovaCraft.renderer;
 
-import com.NovaCraftBlocks.ores.BlockReinforcedVanite;
 import com.NovaCraftBlocks.potion.BlockLavaVaniteCauldron;
 import com.NovaCraftBlocks.potion.BlockPotionVaniteCauldron;
-import com.NovaCraftBlocks.potion.BlockVaniteCauldron;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;

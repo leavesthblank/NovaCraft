@@ -1,11 +1,9 @@
 package com.NovaCraft.entity.renderer.staff;
 
-import com.NovaCraft.entity.EntityOctoqus;
 import com.NovaCraft.entity.misc.EntityOctoqusProjectile;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -50,8 +48,8 @@ public class OctoqusProjectileRenderer extends Render {
     }
 
     @Override
-    public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9) {
-        this.doRenderEntity((EntityOctoqusProjectile) par1Entity, par2, par4, par6, par8, par9);
+    public void doRender(Entity entity, double par2, double par4, double par6, float par8, float par9) {
+        this.doRenderEntity((EntityOctoqusProjectile) entity, par2, par4, par6, par8, par9);
     }
 
     @Override

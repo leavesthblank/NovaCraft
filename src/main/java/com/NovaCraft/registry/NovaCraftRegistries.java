@@ -1,16 +1,11 @@
 package com.NovaCraft.registry;
 
 import java.util.Iterator;
-
-import com.NovaCraft.Item.Block.ItemBlockFireProof;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.config.ConfigsWorld;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import com.NovaCraftBlocks.ores.BlockRawDivineral;
-import com.NovaCraftBlocks.ores.BlockRawNetherite;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -217,10 +212,10 @@ public class NovaCraftRegistries {
 		register("pherithium_lump", new ItemStack(NovaCraftItems.pherithium_lump, 1), "ZZZ", "ZXZ", "ZZZ", 'Z', new ItemStack(NovaCraftItems.pherithium_scraps), 'X', new ItemStack(Items.gold_ingot));
 		register("sculked_leather", new ItemStack(NovaCraftItems.sculked_leather), "XXX", "XXX", "XXX", 'X', NovaCraftItems.sculk_flesh);
 
-		register("pherithium_helmet", new ItemStack(NovaCraftItems.pherithium_helmet, 1), "XXX", "X X", 'X', NovaCraftItems.pherithium_ingot);
-		register("pherithium_chestplate", new ItemStack(NovaCraftItems.pherithium_chestplate, 1), "X X", "XXX", "XXX", 'X', NovaCraftItems.pherithium_ingot);
-		register("pherithium_leggings", new ItemStack(NovaCraftItems.pherithium_leggings, 1), "XXX", "X X", "X X", 'X', NovaCraftItems.pherithium_ingot);
-		register("pherithium_boots", new ItemStack(NovaCraftItems.pherithium_boots, 1), "X X", "X X", 'X', NovaCraftItems.pherithium_ingot);
+		register("pherithium_helmet", new ItemStack(NovaCraftItems.pherithium_helmet, 1), "YXY", "X X", 'X', NovaCraftItems.pherithium_ingot, 'Y', NovaCraftBlocks.block_of_pherithium);
+		register("pherithium_chestplate", new ItemStack(NovaCraftItems.pherithium_chestplate, 1), "X X", "YXY", "XYX", 'X', NovaCraftItems.pherithium_ingot, 'Y', NovaCraftBlocks.block_of_pherithium);
+		register("pherithium_leggings", new ItemStack(NovaCraftItems.pherithium_leggings, 1), "XYX", "Y Y", "X X", 'X', NovaCraftItems.pherithium_ingot, 'Y', NovaCraftBlocks.block_of_pherithium);
+		register("pherithium_boots", new ItemStack(NovaCraftItems.pherithium_boots, 1), "X X", "Y Y", 'X', NovaCraftItems.pherithium_ingot, 'Y', NovaCraftBlocks.block_of_pherithium);
 		register("pherithium_pickaxe", new ItemStack(NovaCraftItems.pherithium_pickaxe, 1), "ZZZ", " Y ", " Y ", 'Z', NovaCraftItems.pherithium_ingot, 'Y', Items.stick);
 		register("pherithium_axe", new ItemStack(NovaCraftItems.pherithium_axe, 1), "ZZ", "ZY", " Y", 'Z', NovaCraftItems.pherithium_ingot, 'Y', Items.stick);
 		register("pherithium_shovel", new ItemStack(NovaCraftItems.pherithium_shovel, 1), "Z", "Y", "Y", 'Z', NovaCraftItems.pherithium_ingot, 'Y', Items.stick);
@@ -245,6 +240,8 @@ public class NovaCraftRegistries {
 		register("nullstone_tiles", new ItemStack(NovaCraftBlocks.nullstone_tiles, 4), "XX", "XX", 'X', NovaCraftBlocks.nullstone_bricks);
 
 		register("basal_bricks", new ItemStack(NovaCraftBlocks.basal_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.basal);
+		register("cinnabar_bricks", new ItemStack(NovaCraftBlocks.cinnabar_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.cinnabar);
+		register("stibnite_bricks", new ItemStack(NovaCraftBlocks.stibnite_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.stibnite);
 
 		register("welkin_stick", new ItemStack(NovaCraftItems.welkin_stick, 4), "X", "X", 'X', NovaCraftBlocks.welkin_planks);
 
@@ -652,6 +649,10 @@ public class NovaCraftRegistries {
 		register("basal_stairs", new ItemStack(NovaCraftBlocks.basal_stairs, 4), "Z  ", "ZZ ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.basal));
 		register("basal_brick_stairs", new ItemStack(NovaCraftBlocks.basal_brick_stairs, 4), "Z  ", "ZZ ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.basal_bricks));
 
+		register("cinnabar_stairs", new ItemStack(NovaCraftBlocks.cinnabar_stairs, 4), "Z  ", "ZZ ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.cinnabar));
+		register("cinnabar_brick_stairs", new ItemStack(NovaCraftBlocks.cinnabar_brick_stairs, 4), "Z  ", "ZZ ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.cinnabar_bricks));
+		register("stibnite_brick_stairs", new ItemStack(NovaCraftBlocks.stibnite_brick_stairs, 4), "Z  ", "ZZ ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.stibnite_bricks));
+
 		//Walls
 		register("grimstone_wall", new ItemStack(NovaCraftBlocks.grimstone_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.grimstone));
 		register("cobbled_grimstone_wall", new ItemStack(NovaCraftBlocks.cobbled_grimstone_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.cobbled_grimstone));
@@ -667,6 +668,10 @@ public class NovaCraftRegistries {
 
 		register("sculk_brick_wall", new ItemStack(NovaCraftBlocks.sculk_brick_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.sculk_bricks));
 		register("sculk_tiled_wall", new ItemStack(NovaCraftBlocks.sculk_tiled_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.sculk_tiles));
+
+		register("cinnabar_wall", new ItemStack(NovaCraftBlocks.cinnabar_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.cinnabar));
+		register("cinnabar_brick_wall", new ItemStack(NovaCraftBlocks.cinnabar_brick_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.cinnabar_bricks));
+		register("stibnite_brick_wall", new ItemStack(NovaCraftBlocks.stibnite_brick_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.stibnite_bricks));
 
 		register("basal_wall", new ItemStack(NovaCraftBlocks.basal_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.basal));
 		register("basal_brick_wall", new ItemStack(NovaCraftBlocks.basal_brick_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.basal_bricks));
@@ -700,6 +705,10 @@ public class NovaCraftRegistries {
 		register("cobbled_etherstone_slab", new ItemStack(NovaCraftBlocks.cobbled_etherstone_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.cobbled_etherstone));
 		register("etherstone_brick_slab", new ItemStack(NovaCraftBlocks.etherstone_brick_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.etherstone_bricks));
 		register("etherstone_tiled_slab", new ItemStack(NovaCraftBlocks.etherstone_tiled_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.etherstone_tiles));
+
+		register("cinnabar_slab", new ItemStack(NovaCraftBlocks.cinnabar_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.cinnabar));
+		register("cinnabar_brick_slab", new ItemStack(NovaCraftBlocks.cinnabar_brick_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.cinnabar_bricks));
+		register("stibnite_brick_slab", new ItemStack(NovaCraftBlocks.stibnite_brick_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.stibnite_bricks));
 
 		register("basal_slab", new ItemStack(NovaCraftBlocks.basal_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.basal));
 		register("basal_brick_slab", new ItemStack(NovaCraftBlocks.basal_brick_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.basal_bricks));
@@ -834,7 +843,6 @@ public class NovaCraftRegistries {
 			registerShapeless("end_portal_sealent", new ItemStack(NovaCraftItems.end_portal_sealent, 2), new ItemStack(NovaCraftItems.vanite_bottle), new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), new ItemStack(Items.ender_pearl), new ItemStack(Items.potionitem, 1, 8229), new ItemStack(NovaCraftItems.relik_dust), new ItemStack(NovaCraftItems.vanite_bottle));
 		}
 
-		registerShapeless("bright_lichen", new ItemStack(NovaCraftBlocks.bright_lichen), new ItemStack(NovaCraftBlocks.glow_lichen), new ItemStack(NovaCraftItems.glow_ink_sac));
 		registerShapeless("inked_sculk_block", new ItemStack(NovaCraftBlocks.inked_sculk_block), new ItemStack(NovaCraftBlocks.sculk_block), new ItemStack(NovaCraftItems.glow_ink_sac));
 		registerShapeless("sculk_bricks", new ItemStack(NovaCraftBlocks.sculk_bricks, 2), new ItemStack(NovaCraftBlocks.grimstone_bricks), new ItemStack(NovaCraftBlocks.sculk_block));
 		registerShapeless("inked_vacuum_sand", new ItemStack(NovaCraftBlocks.inked_vacuum_sand), new ItemStack(NovaCraftBlocks.vacuum_sand), new ItemStack(NovaCraftItems.glow_ink_sac));
@@ -846,6 +854,7 @@ public class NovaCraftRegistries {
 
 		registerShapeless("dye", new ItemStack(Items.dye, 2, 8), new ItemStack(NovaCraftBlocks.shadow_bloom));
 		registerShapeless("dye", new ItemStack(Items.dye, 1, 6), new ItemStack(NovaCraftBlocks.cyan_rose));
+		registerShapeless("dye", new ItemStack(Items.dye, 1, 6), new ItemStack(NovaCraftBlocks.blue_cave_bloom));
 		registerShapeless("dye", new ItemStack(Items.dye, 1, 11), new ItemStack(NovaCraftBlocks.desert_bloom));
 		registerShapeless("dye", new ItemStack(Items.dye, 2, 14), new ItemStack(NovaCraftBlocks.torchflower));
 		registerShapeless("lapis", new ItemStack(Items.dye, 2, 4), new ItemStack(NovaCraftBlocks.sculk_bloom));
@@ -853,6 +862,8 @@ public class NovaCraftRegistries {
 		registerShapeless("dye", new ItemStack(Items.dye, 1, 5), new ItemStack(NovaCraftBlocks.violet));
 		registerShapeless("dye", new ItemStack(Items.dye, 1, 5), new ItemStack(NovaCraftBlocks.purple_rose));
 		registerShapeless("dye", new ItemStack(Items.dye, 1, 1), new ItemStack(NovaCraftBlocks.blooming_barb));
+		registerShapeless("dye", new ItemStack(Items.dye, 1, 7), new ItemStack(NovaCraftBlocks.cave_bloom));
+		registerShapeless("dye", new ItemStack(Items.dye, 1, 13), new ItemStack(NovaCraftBlocks.magenta_cave_bloom));
 
 		registerShapeless("dye", new ItemStack(Items.dye, 1, 1), new ItemStack(NovaCraftBlocks.lentius_mushroom));
 		registerShapeless("dye", new ItemStack(Items.dye, 1, 12), new ItemStack(NovaCraftBlocks.rozite_mushroom));
@@ -939,14 +950,6 @@ public class NovaCraftRegistries {
 
 	private static void registerShapeless(String name, ItemStack stack, Object... recipe) {
 		GameRegistry.addShapelessRecipe(stack, recipe);
-	}
-
-	private static void removeFirstRecipeFor(Block block) {
-		removeFirstRecipeFor(Item.getItemFromBlock(block));
-	}
-
-	private static void removeFirstRecipeFor(Item item) {
-		removeFirstRecipeFor(item, OreDictionary.WILDCARD_VALUE);
 	}
 
 	private static void removeFirstRecipeFor(Item item, int meta) {

@@ -2,53 +2,26 @@ package com.NovaCraft.entity.DeepoidDragon;
 
 import java.util.Iterator;
 import java.util.List;
-
-import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntityIonizatior;
 import com.NovaCraft.entity.EntityVargouzite;
-import com.NovaCraft.entity.misc.EntityWardenProjectile;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockEndPortal;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityFlying;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityMultiPart;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.boss.IBossDisplayData;
-import net.minecraft.entity.item.EntityEnderCrystal;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityLargeFireball;
-import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.StatCollector;
 import net.minecraft.util.Vec3;
-import net.minecraft.world.EnumDifficulty;
-import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayData, GIEntityMultiPart, IMob
 {
@@ -65,11 +38,7 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     public EntityDeepoidDragonPart dragonPartTail3;
     public EntityDeepoidDragonPart dragonPartWing1;
     public EntityDeepoidDragonPart dragonPartWing2;
-    private int aggroCooldown;
-    public int prevAttackCounter;
-    public int attackCounter;
     public int courseChangeCooldown;
-    private int field_70846_g;
     public float prevAnimTime;
     public float animTime;
     public boolean forceNewTarget;
@@ -78,9 +47,9 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     public int deathTicks;
     public EntityLivingBase shootingEntity;
 
-    public EntityDeepoidDragon(final World p_i1700_1_)
+    public EntityDeepoidDragon(final World world)
     {
-        super(p_i1700_1_);
+        super(world);
         this.dragonPartArray = new EntityDeepoidDragonPart[] {this.dragonPartHead = new EntityDeepoidDragonPart(this, "head", 6.0F, 6.0F), this.dragonPartBody = new EntityDeepoidDragonPart(this, "body", 8.0F, 8.0F), this.dragonPartTail1 = new EntityDeepoidDragonPart(this, "tail", 4.0F, 4.0F), this.dragonPartTail2 = new EntityDeepoidDragonPart(this, "tail", 4.0F, 4.0F), this.dragonPartTail3 = new EntityDeepoidDragonPart(this, "tail", 4.0F, 4.0F), this.dragonPartWing1 = new EntityDeepoidDragonPart(this, "wing", 4.0F, 4.0F), this.dragonPartWing2 = new EntityDeepoidDragonPart(this, "wing", 4.0F, 4.0F)};
         this.setHealth(this.getMaxHealth());
         this.setSize(8.0F, 4.0F);
@@ -144,9 +113,9 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     		
     		Vec3 look = this.getLookVec();
 
-    		double dist = -2.9; //3.9
+    		double dist = -2.9;
     		double px = this.posX + look.xCoord * dist;
-    		double py = this.posY + 4.25 + look.yCoord * dist; //0.25
+    		double py = this.posY + 4.25 + look.yCoord * dist;
     		double pz = this.posZ + look.zCoord * dist;
 
     			for (int i = 0; i < 6; i++)
@@ -155,8 +124,8 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     			double dy = look.yCoord;
     			double dz = look.zCoord;
 
-    			double spread = 6 + this.getRNG().nextDouble() * 2.5; //5
-    			double velocity = 1.15 + this.getRNG().nextDouble() * 0.45; //0.15
+    			double spread = 6 + this.getRNG().nextDouble() * 2.5;
+    			double velocity = 1.15 + this.getRNG().nextDouble() * 0.45;
 
     			dx += this.getRNG().nextGaussian() * 0.007499999832361937D * spread;
     			dy += this.getRNG().nextGaussian() * 0.007499999832361937D * spread;
@@ -170,27 +139,23 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     	}
     }
 
-    public void onLivingUpdate()
-    {
+    public void onLivingUpdate() {
     	
         float f;
         float f1;       
         
-        int rand2 = (int)(1 + Math.random() * 4);
-		switch (rand2)
-        {
-        case 1: 
-		 if (this.rand.nextInt(25) == 1 && !this.worldObj.isRemote) {
-		        EntityVargouzite var = new EntityVargouzite(this.worldObj);
-		        var.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
-		        var.setAttackTarget(this.getAttackTarget());
+        int summonEntity = (int)(1 + Math.random() * 4);
+        if (summonEntity == 1) {
+            if (this.rand.nextInt(25) == 1 && !this.worldObj.isRemote) {
+                EntityVargouzite var = new EntityVargouzite(this.worldObj);
+                var.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+                var.setAttackTarget(this.getAttackTarget());
 
-		        if (!this.worldObj.isRemote) {
-		           this.worldObj.spawnEntityInWorld(var);
-		          }
-		        
-		        break;
-         	}
+                if (!this.worldObj.isRemote) {
+                    this.worldObj.spawnEntityInWorld(var);
+                }
+
+            }
         }
         
         if (this.worldObj.isRemote)
@@ -449,16 +414,12 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
         		}
         	}
     }
-    
-    public void playBreathSound() {
-		worldObj.playSoundEffect(this.posX + 0.5, this.posY + 0.5, this.posZ + 0.5, "nova_craft:deepoid.breath", rand.nextFloat() * 0.5F, rand.nextFloat() * 0.5F); //mob.enderdragon.growl
-	}
 
-    private void collideWithEntities(List p_70970_1_)
+    private void collideWithEntities(List entities)
     {
         double d0 = (this.dragonPartBody.boundingBox.minX + this.dragonPartBody.boundingBox.maxX) / 2.0D;
         double d1 = (this.dragonPartBody.boundingBox.minZ + this.dragonPartBody.boundingBox.maxZ) / 2.0D;
-        Iterator iterator = p_70970_1_.iterator();
+        Iterator iterator = entities.iterator();
 
         while (iterator.hasNext())
         {
@@ -477,11 +438,11 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     	this.FireBreath();
     }
 
-    private void attackEntitiesInList(List p_70971_1_)
+    private void attackEntitiesInList(List entities)
     {
-        for (int i = 0; i < p_70971_1_.size(); ++i)
+        for (int i = 0; i < entities.size(); ++i)
         {
-            Entity entity = (Entity)p_70971_1_.get(i);
+            Entity entity = (Entity)entities.get(i);
        if(!((entity instanceof EntityVargouzite) || (entity instanceof EntityIonizatior))) { 
     	   
             if (entity instanceof EntityLivingBase)
@@ -500,14 +461,13 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
         		{
         			entity.setFire(40);
         			entity.attackEntityFrom(DamageSource.generic, 25.0F);
-                	entity.attackEntityFrom(DamageSource.magic, 15.0F);	
-        			//nice try
+                	entity.attackEntityFrom(DamageSource.magic, 15.0F);
         		  }
                 }
              }           
           }
        
-       		if (worldObj.isRemote) //good
+       		if (worldObj.isRemote)
        		this.FireBreath();
         }
         
@@ -546,9 +506,9 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
         return (float)MathHelper.wrapAngleTo180_double(p_70973_1_);
     }
 
-    public boolean aattackEntityFromPart(EntityDeepoidDragonPart p_70965_1_, DamageSource p_70965_2_, float p_70965_3_)
+    public boolean aattackEntityFromPart(EntityDeepoidDragonPart entityPart, DamageSource source, float p_70965_3_)
     {
-        if (p_70965_1_ != this.dragonPartHead)
+        if (entityPart != this.dragonPartHead)
         {
             p_70965_3_ = p_70965_3_ / 4.0F + 1.0F;
         }
@@ -561,10 +521,10 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
         this.targetZ = this.posZ - (double)(f3 * 5.0F) + (double)((this.rand.nextFloat() - 0.5F) * 2.0F);
         this.target = null;
 
-        if (p_70965_2_.getEntity() instanceof EntityPlayer || p_70965_2_.isExplosion())
+        if (source.getEntity() instanceof EntityPlayer || source.isExplosion())
         {
-            this.func_82195_e(p_70965_2_, p_70965_3_);
-            this.attackEntityFrom(p_70965_2_, p_70965_3_);
+            this.func_82195_e(source, p_70965_3_);
+            this.attackEntityFrom(source, p_70965_3_);
         }
 
         return true;
@@ -617,9 +577,9 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
         return super.attackEntityFrom(ds, i);
     }
 
-    protected boolean func_82195_e(DamageSource p_82195_1_, float p_82195_2_)
+    protected boolean func_82195_e(DamageSource source, float p_82195_2_)
     {
-        return super.attackEntityFrom(p_82195_1_, p_82195_2_);
+        return super.attackEntityFrom(source, p_82195_2_);
     }
     
     public int getTotalArmorValue()

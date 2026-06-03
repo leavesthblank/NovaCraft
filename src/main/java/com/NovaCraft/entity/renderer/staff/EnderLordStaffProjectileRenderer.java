@@ -5,12 +5,9 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
-
-import com.NovaCraft.entity.EntityBloviator;
-import com.NovaCraft.entity.EntityEnderLordStaffProjectile;
+import com.NovaCraft.entity.misc.EntityEnderLordStaffProjectile;
 
 public class EnderLordStaffProjectileRenderer extends Render {
 
@@ -51,14 +48,14 @@ public class EnderLordStaffProjectileRenderer extends Render {
         GL11.glPopMatrix();
     }
     
-    protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_) {
-        this.preRenderCallback(p_77041_1_, p_77041_2_);
+    protected void preRenderCallback(EntityLivingBase entity, float p_77041_2_) {
+        this.preRenderCallback(entity, p_77041_2_);
         GL11.glScalef(0.5F, 0.5F, 0.5F);
     }
 
     @Override
-    public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9) {
-        this.doRenderEntity((EntityEnderLordStaffProjectile) par1Entity, par2, par4, par6, par8, par9);
+    public void doRender(Entity entity, double par2, double par4, double par6, float par8, float par9) {
+        this.doRenderEntity((EntityEnderLordStaffProjectile) entity, par2, par4, par6, par8, par9);
     }
 
     @Override

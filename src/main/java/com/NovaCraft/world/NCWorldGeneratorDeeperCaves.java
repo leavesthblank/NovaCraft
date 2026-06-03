@@ -1,49 +1,28 @@
 package com.NovaCraft.world;
 
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.DUNGEON;
-
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-import java.util.Set;
-
 import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.config.ConfigsStructures;
 import com.NovaCraft.config.ConfigsWorld;
 import org.apache.commons.lang3.ArrayUtils;
-
-import com.NovaCraft.config.Configs;
-import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.world.structure.AetherGeoGen;
 import com.NovaCraft.world.structure.CopartzGeoGen;
 import com.NovaCraft.world.structure.LarimarGeoGen;
 import com.NovaCraft.world.structure.NovaCraftAdvancedTraditionalDungeonGen;
 import com.NovaCraft.world.structure.NovaCraftTraditionalDungeonGen;
-import com.NovaCraft.world.structure.SeaSerpentSpawner;
 import com.NovaCraft.world.structure.TsavorokiteGeoGen;
 import com.NovaCraft.world.structure.YttrlinsiteGeoGen;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.plants.LargeLuminantTreeGen;
-import com.NovaCraftBlocks.plants.LuminantTreeGen;
-import com.google.common.collect.Maps;
-
 import cpw.mods.fml.common.IWorldGenerator;
-import cpw.mods.fml.common.Loader;
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
-import net.minecraft.world.gen.feature.WorldGenDungeons;
-import net.minecraft.world.gen.feature.WorldGenFlowers;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
-import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 	
@@ -68,10 +47,10 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 	protected final List<WorldGenNovaCraftDeepRoots> deep_roots = new LinkedList<WorldGenNovaCraftDeepRoots>();
 	
 	protected final List<WorldGenNovaCraftMushroom> mushroom = new LinkedList<WorldGenNovaCraftMushroom>();
-	protected final List<WorldGenNovaCraftMushroom2> mushroom2 = new LinkedList<WorldGenNovaCraftMushroom2>();
-	protected final List<WorldGenNovaCraftMushroom3> mushroom3 = new LinkedList<WorldGenNovaCraftMushroom3>();
-	protected final List<WorldGenNovaCraftMushroom4> mushroom4 = new LinkedList<WorldGenNovaCraftMushroom4>();
-	protected final List<WorldGenNovaCraftMushroom5> mushroom5 = new LinkedList<WorldGenNovaCraftMushroom5>();
+	protected final List<WorldGenNovaCraftMushroom> mushroom2 = new LinkedList<WorldGenNovaCraftMushroom>();
+	protected final List<WorldGenNovaCraftMushroom> mushroom3 = new LinkedList<WorldGenNovaCraftMushroom>();
+	protected final List<WorldGenNovaCraftMushroom> mushroom4 = new LinkedList<WorldGenNovaCraftMushroom>();
+	protected final List<WorldGenNovaCraftMushroom> mushroom5 = new LinkedList<WorldGenNovaCraftMushroom>();
 	
 	protected final List<WorldGenPherithium> pherithium_gen = new LinkedList<WorldGenPherithium>();
 	protected final List<WorldGenPherithiumSmall> small_pherithium_gen = new LinkedList<WorldGenPherithiumSmall>();
@@ -122,10 +101,10 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 		deep_roots.add(new WorldGenNovaCraftDeepRoots(NovaCraftBlocks.deep_roots, 30));
 		
 		mushroom.add(new WorldGenNovaCraftMushroom(NovaCraftBlocks.hydnum_mushroom, 3));
-		mushroom2.add(new WorldGenNovaCraftMushroom2(NovaCraftBlocks.calvatia_mushroom, 2));
-		mushroom3.add(new WorldGenNovaCraftMushroom3(NovaCraftBlocks.lentius_mushroom, 3));
-		mushroom4.add(new WorldGenNovaCraftMushroom4(NovaCraftBlocks.rozite_mushroom, 2));
-		mushroom5.add(new WorldGenNovaCraftMushroom5(NovaCraftBlocks.pleurotus_mushroom, 1));
+		mushroom2.add(new WorldGenNovaCraftMushroom(NovaCraftBlocks.calvatia_mushroom, 2));
+		mushroom3.add(new WorldGenNovaCraftMushroom(NovaCraftBlocks.lentius_mushroom, 3));
+		mushroom4.add(new WorldGenNovaCraftMushroom(NovaCraftBlocks.rozite_mushroom, 2));
+		mushroom5.add(new WorldGenNovaCraftMushroom(NovaCraftBlocks.pleurotus_mushroom, 1));
 		
 		pherithium_gen.add(new WorldGenPherithium(NovaCraftBlocks.large_pherithium_stalagmite, 16));
 		small_pherithium_gen.add(new WorldGenPherithiumSmall(NovaCraftBlocks.small_pherithium_stalagmite, 18));

@@ -4,10 +4,8 @@ import net.minecraft.client.renderer.texture.*;
 import net.minecraft.item.*;
 import net.minecraft.entity.player.*;
 import java.util.*;
-
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 import net.minecraft.init.*;

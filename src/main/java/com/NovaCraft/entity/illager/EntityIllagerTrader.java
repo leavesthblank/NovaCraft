@@ -1,5 +1,7 @@
 package com.NovaCraft.entity.illager;
 
+import com.NovaCraft.entity.*;
+import com.NovaCraft.entity.models.WardlingModel;
 import net.minecraft.entity.player.*;
 import net.minecraft.world.*;
 import net.minecraft.entity.passive.*;
@@ -19,18 +21,8 @@ import net.minecraft.entity.item.*;
 import net.minecraft.init.*;
 import cpw.mods.fml.relauncher.*;
 import java.util.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
-import com.NovaCraft.entity.EntitySculkAbomination;
-import com.NovaCraft.entity.EntitySculkDuplicator;
-import com.NovaCraft.entity.EntitySculkDweller;
-import com.NovaCraft.entity.EntitySculkHunger;
-import com.NovaCraft.entity.EntitySculkIncinerator;
-import com.NovaCraft.entity.EntitySculkSymbiote;
-import com.NovaCraft.entity.EntitySculkedMonitor;
-import com.NovaCraft.entity.EntityWarden;
-import com.NovaCraft.entity.EntityWardenVessel;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 //Credit goes to Delirus, Netherlious Author
@@ -57,12 +49,12 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
   private int angerLevel;
   private Entity lastAggroTarget;
   
-  public EntityIllagerTrader(final World p_i1747_1_) {
-      this(p_i1747_1_, 0);
+  public EntityIllagerTrader(final World world) {
+      this(world, 0);
   }
   
-  public EntityIllagerTrader(final World p_i1748_1_, final int p_i1748_2_) {
-      super(p_i1748_1_);
+  public EntityIllagerTrader(final World world, final int p_i1748_2_) {
+      super(world);
       this.aiArrowAttack = new NewEntityAIArrowAttack((IRangedAttackMob)this, 1.0, 20, 60, 15.0f);
       this.aiAttackOnCollide = new EntityAIAttackOnCollide((EntityCreature)this, 1.2, false);
       this.targetObstructedTicks = 0;
@@ -79,7 +71,7 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidChance((EntityCreature)this, (Class)EntitySculkHunger.class, 6.0f, 1.0, 1.0, 0.1f, "nova_craft:vindicator.living"));
       this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidChance((EntityCreature)this, (Class)EntitySculkDuplicator.class, 6.0f, 1.0, 1.0, 0.1f, "nova_craft:vindicator.living"));      
       this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidChance((EntityCreature)this, (Class)EntitySculkedMonitor.class, 6.0f, 1.0, 1.0, 0.1f, "nova_craft:vindicator.living"));
-      this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidChance((EntityCreature)this, (Class)EntityWardenVessel.class, 6.0f, 1.0, 1.0, 0.1f, "nova_craft:vindicator.living"));
+      this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidChance((EntityCreature)this, (Class)EntityWardling.class, 6.0f, 1.0, 1.0, 0.1f, "nova_craft:vindicator.living"));
       this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidChance((EntityCreature)this, (Class)EntitySculkIncinerator.class, 6.0f, 1.0, 1.0, 0.1f, "nova_craft:vindicator.living"));
       this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidChance((EntityCreature)this, (Class)EntityWarden.class, 6.0f, 1.0, 1.0, 0.1f, "nova_craft:vindicator.living")); 
       this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidChance((EntityCreature)this, (Class)EntityWither.class, 6.0f, 1.0, 1.0, 0.1f, "nova_craft:vindicator.living"));      
@@ -181,14 +173,14 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       super.moveEntityWithHeading(par1, par2);
   }
   
-  public boolean attackEntityFrom(final DamageSource par1DamageSource, final int par2) {
-      if (super.attackEntityFrom(par1DamageSource, (float)par2)) {
-          final Entity var3 = par1DamageSource.getEntity();
+  public boolean attackEntityFrom(final DamageSource source, final int par2) {
+      if (super.attackEntityFrom(source, (float)par2)) {
+          final Entity var3 = source.getEntity();
           final int i = this.rand.nextInt(2);
           if (var3 != null) {
               this.dodgeAttack();
           }
-          return super.attackEntityFrom(par1DamageSource, (float)par2);
+          return super.attackEntityFrom(source, (float)par2);
       }
       return false;
   }
@@ -201,8 +193,8 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       return i;
   }
   
-  public boolean attackEntityFrom(final DamageSource par1DamageSource, final float float1) {
-      return (par1DamageSource.getEntity() == null || !(par1DamageSource.getEntity() instanceof EntityIllagerTrader)) && super.attackEntityFrom(par1DamageSource, float1);
+  public boolean attackEntityFrom(final DamageSource source, final float float1) {
+      return (source.getEntity() == null || !(source.getEntity() instanceof EntityIllagerTrader)) && super.attackEntityFrom(source, float1);
   }
   
   public void dodgeAttack() {
@@ -223,9 +215,9 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       }
   }
   
-  public IEntityLivingData onSpawnWithEgg(IEntityLivingData p_110161_1_) {
-      p_110161_1_ = super.onSpawnWithEgg(p_110161_1_);
-      return p_110161_1_;
+  public IEntityLivingData onSpawnWithEgg(IEntityLivingData entityLivingData) {
+      entityLivingData = super.onSpawnWithEgg(entityLivingData);
+      return entityLivingData;
   }
   
   public boolean canAttackClass(final Class p_70686_1_) {
@@ -244,8 +236,8 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       }
   }
   
-  public void attackEntityWithRangedAttack(final EntityLivingBase p_82196_1_, final float p_82196_2_) {
-      final EntityArrow entityarrow = new EntityArrow(this.worldObj, (EntityLivingBase)this, p_82196_1_, 1.6f, (float)(14 - this.worldObj.difficultySetting.getDifficultyId() * 4));
+  public void attackEntityWithRangedAttack(final EntityLivingBase entity, final float p_82196_2_) {
+      final EntityArrow entityarrow = new EntityArrow(this.worldObj, (EntityLivingBase)this, entity, 1.6f, (float)(14 - this.worldObj.difficultySetting.getDifficultyId() * 4));
       final int i = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, this.getHeldItem());
       final int j = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, this.getHeldItem());
       entityarrow.setDamage(p_82196_2_ * 2.0f + this.rand.nextGaussian() * 0.25 + this.worldObj.difficultySetting.getDifficultyId() * 0.11f);
@@ -322,10 +314,10 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       	}
       }
   
-  protected void attackEntity(final Entity p_70785_1_, final float p_70785_2_) {
-      if (this.attackTime <= 0 && p_70785_2_ < 2.0f && p_70785_1_.boundingBox.maxY > this.boundingBox.minY && p_70785_1_.boundingBox.minY < this.boundingBox.maxY) {
+  protected void attackEntity(final Entity entity, final float p_70785_2_) {
+      if (this.attackTime <= 0 && p_70785_2_ < 2.0f && entity.boundingBox.maxY > this.boundingBox.minY && entity.boundingBox.minY < this.boundingBox.maxY) {
           this.attackTime = 20;
-          this.attackEntityAsMob(p_70785_1_);
+          this.attackEntityAsMob(entity);
           this.swingItem();
       }
   }
@@ -385,7 +377,6 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
           if (this.timeUntilReset <= 0) {
               if (this.needsInitilization) {
                   if (this.buyingList.size() > 1) {
-                      //for (final MerchantRecipe merchantrecipe : this.buyingList) {
                       Iterator iterator = this.buyingList.iterator();
 
                       while(iterator.hasNext()) {
@@ -409,24 +400,24 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       super.updateAITick();
   }
   
-  public boolean interact(final EntityPlayer p_70085_1_) {
-      final ItemStack itemstack = p_70085_1_.inventory.getCurrentItem();
+  public boolean interact(final EntityPlayer entity) {
+      final ItemStack itemstack = entity.inventory.getCurrentItem();
       final boolean flag = itemstack != null && itemstack.getItem() == Items.spawn_egg;
-      if (!flag && this.isEntityAlive() && !this.isTrading() && !this.isChild() && this.getAttackTarget() == null && !p_70085_1_.isSneaking()) {
+      if (!flag && this.isEntityAlive() && !this.isTrading() && !this.isChild() && this.getAttackTarget() == null && !entity.isSneaking()) {
           if (!this.worldObj.isRemote) {
-              this.setCustomer(p_70085_1_);
+              this.setCustomer(entity);
               if (this.hasCustomNameTag()) {
-                  p_70085_1_.displayGUIMerchant((IMerchant)this, this.getCustomNameTag());
-                  p_70085_1_.triggerAchievement(AchievementsNovaCraft.what_are_ya_buyin);
+                  entity.displayGUIMerchant((IMerchant)this, this.getCustomNameTag());
+                  entity.triggerAchievement(AchievementsNovaCraft.what_are_ya_buyin);
               }
               else {
-                  p_70085_1_.displayGUIMerchant((IMerchant)this, StatCollector.translateToLocal("entity.nova_craft.vindicator_trader.name"));
-                  p_70085_1_.triggerAchievement(AchievementsNovaCraft.what_are_ya_buyin);
+                  entity.displayGUIMerchant((IMerchant)this, StatCollector.translateToLocal("entity.nova_craft.vindicator_trader.name"));
+                  entity.triggerAchievement(AchievementsNovaCraft.what_are_ya_buyin);
               }
           }
           return true;
       }
-      return super.interact(p_70085_1_);
+      return super.interact(entity);
   }
   
   protected void entityInit() {
@@ -435,27 +426,27 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       this.dataWatcher.addObject(13, (Object)new Byte((byte)0));
   }
   
-  public void writeEntityToNBT(final NBTTagCompound p_70014_1_) {
-      super.writeEntityToNBT(p_70014_1_);
-      p_70014_1_.setInteger("PotionCount", this.potionCount);
+  public void writeEntityToNBT(final NBTTagCompound compound) {
+      super.writeEntityToNBT(compound);
+      compound.setInteger("PotionCount", this.potionCount);
       if (this.buyingList != null) {
-          p_70014_1_.setTag("Offers", (NBTBase)this.buyingList.getRecipiesAsTags());
+          compound.setTag("Offers", (NBTBase)this.buyingList.getRecipiesAsTags());
       }
   }
   
-  public void readEntityFromNBT(final NBTTagCompound p_70037_1_) {
-      super.readEntityFromNBT(p_70037_1_);
-      if (p_70037_1_.hasKey("PotionCount")) {
-          this.potionCount = p_70037_1_.getInteger("PotionCount");
+  public void readEntityFromNBT(final NBTTagCompound compound) {
+      super.readEntityFromNBT(compound);
+      if (compound.hasKey("PotionCount")) {
+          this.potionCount = compound.getInteger("PotionCount");
       }
-      if (p_70037_1_.hasKey("Offers", 10)) {
-          final NBTTagCompound nbttagcompound1 = p_70037_1_.getCompoundTag("Offers");
+      if (compound.hasKey("Offers", 10)) {
+          final NBTTagCompound nbttagcompound1 = compound.getCompoundTag("Offers");
           this.buyingList = new MerchantRecipeList(nbttagcompound1);
       }
   }
   
-  public void setCurrentItemOrArmor(final int p_70062_1_, final ItemStack p_70062_2_) {
-      super.setCurrentItemOrArmor(p_70062_1_, p_70062_2_);
+  public void setCurrentItemOrArmor(final int p_70062_1_, final ItemStack stack) {
+      super.setCurrentItemOrArmor(p_70062_1_, stack);
       if (!this.worldObj.isRemote && p_70062_1_ == 0) {
           this.setCombatTask();
       }
@@ -493,16 +484,16 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       return this.isPlaying;
   }
   
-  public void setRevengeTarget(final EntityLivingBase p_70604_1_) {
-      super.setRevengeTarget(p_70604_1_);
-      if (this.villageObj != null && p_70604_1_ != null) {
-          this.villageObj.addOrRenewAgressor(p_70604_1_);
-          if (p_70604_1_ instanceof EntityPlayer) {
+  public void setRevengeTarget(final EntityLivingBase entity) {
+      super.setRevengeTarget(entity);
+      if (this.villageObj != null && entity != null) {
+          this.villageObj.addOrRenewAgressor(entity);
+          if (entity instanceof EntityPlayer) {
               byte b0 = -1;
               if (this.isChild()) {
                   b0 = -3;
               }
-              this.villageObj.setReputationForPlayer(p_70604_1_.getCommandSenderName(), (int)b0);
+              this.villageObj.setReputationForPlayer(entity.getCommandSenderName(), (int)b0);
               if (this.isEntityAlive()) {
                   this.worldObj.setEntityState((Entity)this, (byte)13);
               }
@@ -510,9 +501,9 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       }
   }
   
-  public void onDeath(final DamageSource p_70645_1_) {
+  public void onDeath(final DamageSource source) {
       if (this.villageObj != null) {
-          final Entity entity = p_70645_1_.getEntity();
+          final Entity entity = source.getEntity();
           if (entity != null) {
               if (entity instanceof EntityPlayer) {
                   this.villageObj.setReputationForPlayer(entity.getCommandSenderName(), -2);
@@ -528,7 +519,7 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
               }
           }
       }
-      super.onDeath(p_70645_1_);
+      super.onDeath(source);
   }
   
   public void setCustomer(final EntityPlayer p_70932_1_) {
@@ -625,10 +616,10 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       return null;
   }
   
-  public void func_110297_a_(final ItemStack p_110297_1_) {
+  public void func_110297_a_(final ItemStack stack) {
       if (!this.worldObj.isRemote && this.livingSoundTime > -this.getTalkInterval() + 20) {
           this.livingSoundTime = -this.getTalkInterval();
-          if (p_110297_1_ != null) {
+          if (stack != null) {
               this.playSound("nova_craft:vindicator.living", this.getSoundVolume(), this.getSoundPitch());
           }
           else {
@@ -637,7 +628,7 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       }
   }
   
-  public MerchantRecipeList getRecipes(final EntityPlayer p_70934_1_) {
+  public MerchantRecipeList getRecipes(final EntityPlayer entityPlayer) {
       if (this.buyingList == null) {
           this.addDefaultEquipmentAndRecipies(1);
       }

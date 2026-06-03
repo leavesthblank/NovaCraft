@@ -16,9 +16,9 @@ public class GuiDeepoidBrewingStand extends GuiContainer {
     private static final ResourceLocation brewingStandGuiTextures = new ResourceLocation("nova_craft", "textures/gui/deepoid_brewing_stand_gui.png");
     private TileEntityDeepoidBrewingStand tileBrewingStand;
 
-    public GuiDeepoidBrewingStand(InventoryPlayer p_i1081_1_, TileEntityDeepoidBrewingStand p_i1081_2_)
+    public GuiDeepoidBrewingStand(InventoryPlayer inventoryPlayer, TileEntityDeepoidBrewingStand p_i1081_2_)
     {
-        super(new DeepoidBrewingStandContainer(p_i1081_1_, p_i1081_2_));
+        super(new DeepoidBrewingStandContainer(inventoryPlayer, p_i1081_2_));
         this.tileBrewingStand = p_i1081_2_;
     }
 

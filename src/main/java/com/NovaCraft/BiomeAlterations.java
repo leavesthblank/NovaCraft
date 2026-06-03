@@ -2,11 +2,8 @@ package com.NovaCraft;
 
 import com.NovaCraft.config.ConfigsWorld;
 import net.minecraft.world.biome.BiomeGenBase;
-
 import java.util.HashMap;
 import java.util.Map;
-
-import com.NovaCraft.config.Configs;
 
 public class BiomeAlterations {
 

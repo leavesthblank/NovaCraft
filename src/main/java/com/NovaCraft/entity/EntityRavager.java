@@ -7,7 +7,6 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
@@ -161,15 +160,15 @@ public class EntityRavager extends EntityMob implements IBossDisplayData {
         this.dataWatcher.updateObject(21, (byte) id);
     }
 
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_) {
-        super.writeEntityToNBT(p_70014_1_);
-        p_70014_1_.setInteger("RavagerType", this.getType().getId());
+    public void writeEntityToNBT(NBTTagCompound compound) {
+        super.writeEntityToNBT(compound);
+        compound.setInteger("RavagerType", this.getType().getId());
     }
 
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(p_70037_1_);
-        this.setType(p_70037_1_.getInteger("RavagerType"));
+        super.readEntityFromNBT(compound);
+        this.setType(compound.getInteger("RavagerType"));
     }
 
     @Override

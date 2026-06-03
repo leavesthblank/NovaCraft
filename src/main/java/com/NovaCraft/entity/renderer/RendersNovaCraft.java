@@ -23,7 +23,6 @@ import com.NovaCraft.entity.illager.EntityIllagerTrader;
 import com.NovaCraft.entity.illager.EntityVindicator;
 import com.NovaCraft.entity.misc.*;
 import com.NovaCraft.entity.models.*;
-import com.NovaCraft.entity.models.hardmode.HardmodeMagmaCubeModel;
 import com.NovaCraft.entity.models.hardmode.HardmodeSlimeModel;
 import com.NovaCraft.entity.renderer.hardmode.HardmodeCreeperRenderer;
 import com.NovaCraft.entity.renderer.hardmode.HardmodeGhastRenderer;
@@ -38,20 +37,13 @@ import com.NovaCraft.entity.renderer.illager.IllagerTraderOverlayRenderer;
 import com.NovaCraft.entity.renderer.illager.IllagerTraderRenderer;
 import com.NovaCraft.entity.renderer.staff.*;
 import com.NovaCraft.legendarybeacon.LegendaryBeaconRenderer;
-
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Loader;
-import net.minecraft.client.model.ModelSkeleton;
-import net.minecraft.client.model.ModelSlime;
-import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityEnderEye;
-import net.minecraft.init.Items;
 import net.minecraftforge.client.MinecraftForgeClient;
 
 public class RendersNovaCraft {
@@ -100,7 +92,7 @@ public class RendersNovaCraft {
 	register(EntitySculkSymbiote.class, new SculkSymbioteRenderer());
 	register(EntityVoidEntity.class, new VoidEntityRenderer(new VoidEntityModel(), 0.5f));
 	register(EntityVoidCube.class, new VoidCubeRenderer(new VoidCubeModel(16), new VoidCubeModel(0), 0.25F));
-	register(EntityNullifier.class, new VoidiferRenderer());
+	register(EntityNullifier.class, new NullifierRenderer());
 	register(EntitySculkDweller.class, new SculkDwellerRenderer());
 	register(EntityWarden.class, new WardenRenderer());
 	register(EntitySculkAbomination.class, new SculkAbominationRenderer(new SculkAbominationModel(), new SculkAbominationModel(), 0.7F));
@@ -122,7 +114,7 @@ public class RendersNovaCraft {
 	register(EntityDestituteTentacle.class, new DestituteTentacleRenderer());
 	register(EntitySculkIncinerator.class, new SculkIncineratorRenderer(new SculkIncineratorModel(), new SculkIncineratorModel(), 0.6f));
 	register(EntityPrisoner.class, new PrisonerRenderer());
-	register(EntityWardenVessel.class, new WardenVesselRenderer());
+	register(EntityWardling.class, new WardlingRenderer());
 	register(EntityNitro.class, new NitroRenderer());
 	register(EntityNulk.class, new NulkRenderer());
 	register(EntityNuxx.class, new NuxxRenderer());

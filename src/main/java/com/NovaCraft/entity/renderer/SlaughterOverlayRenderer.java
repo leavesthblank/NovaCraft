@@ -6,7 +6,6 @@ import net.minecraft.client.model.ModelSkeleton;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 
-
 public class SlaughterOverlayRenderer extends SlaughterRenderer {
 
 	public ResourceLocation slaughter_texture = new ResourceLocation("nova_craft", "textures/entity/slaughter/slaughter_overlay.png");
@@ -73,7 +72,7 @@ public class SlaughterOverlayRenderer extends SlaughterRenderer {
 	}
 	
 	@Override
-	protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+	protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
 	    GL11.glScalef(1.25F, 1.25F, 1.25F);
 	}
 

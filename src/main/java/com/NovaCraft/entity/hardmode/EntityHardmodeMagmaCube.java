@@ -1,7 +1,6 @@
 package com.NovaCraft.entity.hardmode;
 
 import com.NovaCraft.achievements.AchievementsNovaCraft;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityLiving;
@@ -15,9 +14,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.chunk.Chunk;
 
 public class EntityHardmodeMagmaCube extends EntityLiving implements IMob
 {
@@ -26,9 +22,9 @@ public class EntityHardmodeMagmaCube extends EntityLiving implements IMob
     public float prevSquishFactor;
     private int slimeJumpDelay;
 
-    public EntityHardmodeMagmaCube(World p_i1742_1_)
+    public EntityHardmodeMagmaCube(World world)
     {
-        super(p_i1742_1_);
+        super(world);
         int i = 1 << this.rand.nextInt(3);
         this.yOffset = 0.0F;
         this.slimeJumpDelay = this.rand.nextInt(10) + 10;
@@ -57,16 +53,16 @@ public class EntityHardmodeMagmaCube extends EntityLiving implements IMob
         return this.dataWatcher.getWatchableObjectByte(16);
     }
 
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    public void writeEntityToNBT(NBTTagCompound compound)
     {
-        super.writeEntityToNBT(p_70014_1_);
-        p_70014_1_.setInteger("Size", this.getSlimeSize() - 1);
+        super.writeEntityToNBT(compound);
+        compound.setInteger("Size", this.getSlimeSize() - 1);
     }
 
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(p_70037_1_);
-        int i = p_70037_1_.getInteger("Size");
+        super.readEntityFromNBT(compound);
+        int i = compound.getInteger("Size");
 
         if (i < 0)
         {
@@ -215,26 +211,26 @@ public class EntityHardmodeMagmaCube extends EntityLiving implements IMob
         super.setDead();
     }
 
-    public void onDeath(DamageSource p_70645_1_)
+    public void onDeath(DamageSource source)
     {
-        super.onDeath(p_70645_1_);
+        super.onDeath(source);
 
-        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        if (source.getEntity() instanceof EntityPlayer)
         {
-            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            EntityPlayer entityplayer = (EntityPlayer)source.getEntity();
             
             entityplayer.triggerAchievement(AchievementsNovaCraft.a_new_encounter);
             
         }
     }
 
-    public void onCollideWithPlayer(EntityPlayer p_70100_1_)
+    public void onCollideWithPlayer(EntityPlayer entity)
     {
         if (this.canDamagePlayer())
         {
             int i = this.getSlimeSize();
 
-            if (this.canEntityBeSeen(p_70100_1_) && this.getDistanceSqToEntity(p_70100_1_) < 0.6D * (double)i * 0.6D * (double)i && p_70100_1_.attackEntityFrom(DamageSource.causeMobDamage(this), (float)this.getAttackStrength()))
+            if (this.canEntityBeSeen(entity) && this.getDistanceSqToEntity(entity) < 0.6D * (double)i * 0.6D * (double)i && entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)this.getAttackStrength()))
             {
                 this.playSound("minecraft:mob.attack", 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
             }

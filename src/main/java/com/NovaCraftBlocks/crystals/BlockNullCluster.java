@@ -2,7 +2,6 @@ package com.NovaCraftBlocks.crystals;
 
 import java.util.List;
 import java.util.Random;
-
 import com.NovaCraft.Item.Block.ItemNullCluster;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.core.Utils;
@@ -10,7 +9,6 @@ import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks.ISubBlocksBlock;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -29,8 +27,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
-
 
 public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
 	
@@ -64,7 +60,7 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
         return getLightValue() + (type * 3) + (meta / 6);
     }
 
-   public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+   public Item getItemDropped(int p_149650_1_, Random random, int p_149650_3_)
    {
         return NovaCraftItems.null_shard;
     }
@@ -87,9 +83,9 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
     	return true;
     }
 
-    public int getDamageValue(World p_149643_1_, int p_149643_2_, int p_149643_3_, int p_149643_4_)
+    public int getDamageValue(World world, int p_149643_2_, int p_149643_3_, int p_149643_4_)
     {
-        return p_149643_1_.getBlockMetadata(p_149643_2_, p_149643_3_, p_149643_4_) < 6 ? 0 : 6;
+        return world.getBlockMetadata(p_149643_2_, p_149643_3_, p_149643_4_) < 6 ? 0 : 6;
     }
     
     public int quantityDropped(int meta, int fortune, Random random)
@@ -104,7 +100,7 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
     	return 0;
     }
 
-    public int quantityDropped(Random p_149745_1_)
+    public int quantityDropped(Random random)
     {
     	if(harvestingWithPickaxe()) {
             return 4;
@@ -181,20 +177,20 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
 		}
     }
 
-    protected void checkAndDropBlock(World p_149855_1_, int p_149855_2_, int p_149855_3_, int p_149855_4_)
+    protected void checkAndDropBlock(World world, int p_149855_2_, int p_149855_3_, int p_149855_4_)
     {
-        if (!this.canBlockStay(p_149855_1_, p_149855_2_, p_149855_3_, p_149855_4_))
+        if (!this.canBlockStay(world, p_149855_2_, p_149855_3_, p_149855_4_))
         {
-            this.dropBlockAsItem(p_149855_1_, p_149855_2_, p_149855_3_, p_149855_4_, p_149855_1_.getBlockMetadata(p_149855_2_, p_149855_3_, p_149855_4_), 0);
-            p_149855_1_.setBlockToAir(p_149855_2_, p_149855_3_, p_149855_4_);
+            this.dropBlockAsItem(world, p_149855_2_, p_149855_3_, p_149855_4_, world.getBlockMetadata(p_149855_2_, p_149855_3_, p_149855_4_), 0);
+			world.setBlockToAir(p_149855_2_, p_149855_3_, p_149855_4_);
         }
     }
 
 	@Override
-    public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_)
+    public void onNeighborBlockChange(World world, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block block)
     {
-        super.onNeighborBlockChange(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, p_149695_5_);
-        this.checkAndDropBlock(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
+        super.onNeighborBlockChange(world, p_149695_2_, p_149695_3_, p_149695_4_, block);
+        this.checkAndDropBlock(world, p_149695_2_, p_149695_3_, p_149695_4_);
     }
     
 	@Override
@@ -218,25 +214,25 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister p_149651_1_)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		icons = new IIcon[2];
 		if(type == 0) {
-			icons[0] = p_149651_1_.registerIcon("nova_craft:null_bud");
-			icons[1] = p_149651_1_.registerIcon("nova_craft:null_medium_bud");
+			icons[0] = iconRegister.registerIcon("nova_craft:null_bud");
+			icons[1] = iconRegister.registerIcon("nova_craft:null_medium_bud");
 		}
 		if(type == 1) {
-			icons[0] = p_149651_1_.registerIcon("nova_craft:null_large_bud");
-			icons[1] = p_149651_1_.registerIcon("nova_craft:null_cluster");
+			icons[0] = iconRegister.registerIcon("nova_craft:null_large_bud");
+			icons[1] = iconRegister.registerIcon("nova_craft:null_cluster");
 		}
-		super.registerBlockIcons(p_149651_1_);
+		super.registerBlockIcons(iconRegister);
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
+	public void getSubBlocks(Item item, CreativeTabs tabs, List list)
 	{
-		p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
-		p_149666_3_.add(new ItemStack(p_149666_1_, 1, 6));
+		list.add(new ItemStack(item, 1, 0));
+		list.add(new ItemStack(item, 1, 6));
 	}
 
 	@Override

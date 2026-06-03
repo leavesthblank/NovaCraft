@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
 import java.util.Random;
 
 public class FloatingIslandTreasure extends WorldGenAbstractTree

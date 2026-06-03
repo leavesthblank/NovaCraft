@@ -1,16 +1,13 @@
 package com.NovaCraft.Items.Tools;
 
 import java.util.List;
-
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,10 +18,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.item.ItemPickaxe;

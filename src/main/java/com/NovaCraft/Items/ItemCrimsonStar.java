@@ -1,6 +1,5 @@
 package com.NovaCraft.Items;
 
-import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.CrimsonDragon.EntityCrimsonDragon;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;

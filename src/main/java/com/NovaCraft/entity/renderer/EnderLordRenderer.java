@@ -31,29 +31,29 @@ public class EnderLordRenderer extends RenderLiving
         this.setRenderPassModel(this.endermanModel);
     }
 
-    public void doRender(EntityEnderLord p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(EntityEnderLord entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
 
-        if (p_76986_1_.isScreaming())
+        if (entity.isScreaming())
         {
             double d3 = 0.02D;
             p_76986_2_ += this.rnd.nextGaussian() * d3;
             p_76986_6_ += this.rnd.nextGaussian() * d3;
         }
 
-        super.doRender((EntityLiving)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        super.doRender((EntityLiving)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    protected ResourceLocation getEntityTexture(EntityEnderLord p_110775_1_)
+    protected ResourceLocation getEntityTexture(EntityEnderLord entity)
     {
         return endermanTextures;
     }
 
-    protected void renderEquippedItems(EntityEnderLord p_77029_1_, float p_77029_2_)
+    protected void renderEquippedItems(EntityEnderLord entity, float p_77029_2_)
     {
-        super.renderEquippedItems(p_77029_1_, p_77029_2_);
+        super.renderEquippedItems(entity, p_77029_2_);
 
-        if (p_77029_1_.func_146080_bZ().getMaterial() != Material.air)
+        if (entity.func_146080_bZ().getMaterial() != Material.air)
         {
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);
             GL11.glPushMatrix();
@@ -63,19 +63,19 @@ public class EnderLordRenderer extends RenderLiving
             GL11.glRotatef(20.0F, 1.0F, 0.0F, 0.0F);
             GL11.glRotatef(45.0F, 0.0F, 1.0F, 0.0F);
             GL11.glScalef(-f1, -f1, f1);
-            int i = p_77029_1_.getBrightnessForRender(p_77029_2_);
+            int i = entity.getBrightnessForRender(p_77029_2_);
             int j = i % 65536;
             int k = i / 65536;
             OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j / 1.0F, (float)k / 1.0F);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
             this.bindTexture(TextureMap.locationBlocksTexture);
-            this.field_147909_c.renderBlockAsItem(p_77029_1_.func_146080_bZ(), p_77029_1_.getCarryingData(), 1.0F);
+            this.field_147909_c.renderBlockAsItem(entity.func_146080_bZ(), entity.getCarryingData(), 1.0F);
             GL11.glPopMatrix();
             GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         }
     }
 
-    protected int shouldRenderPass(EntityEnderLord p_77032_1_, int p_77032_2_, float p_77032_3_)
+    protected int shouldRenderPass(EntityEnderLord entity, int p_77032_2_, float p_77032_3_)
     {
         if (p_77032_2_ != 0)
         {
@@ -90,7 +90,7 @@ public class EnderLordRenderer extends RenderLiving
             GL11.glBlendFunc(GL11.GL_ONE, GL11.GL_ONE);
             GL11.glDisable(GL11.GL_LIGHTING);
 
-            if (p_77032_1_.isInvisible())
+            if (entity.isInvisible())
             {
                 GL11.glDepthMask(false);
             }
@@ -114,33 +114,33 @@ public class EnderLordRenderer extends RenderLiving
         GL11.glScalef(1.25F, 1.25F, 1.25F);
     }
 
-    public void doRender(EntityLiving p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(EntityLiving entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-        this.doRender((EntityEnderLord)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        this.doRender((EntityEnderLord)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    protected int shouldRenderPass(EntityLivingBase p_77032_1_, int p_77032_2_, float p_77032_3_)
+    protected int shouldRenderPass(EntityLivingBase entity, int p_77032_2_, float p_77032_3_)
     {
-        return this.shouldRenderPass((EntityEnderLord)p_77032_1_, p_77032_2_, p_77032_3_);
+        return this.shouldRenderPass((EntityEnderLord)entity, p_77032_2_, p_77032_3_);
     }
 
-    protected void renderEquippedItems(EntityLivingBase p_77029_1_, float p_77029_2_)
+    protected void renderEquippedItems(EntityLivingBase entity, float p_77029_2_)
     {
-        this.renderEquippedItems((EntityEnderLord)p_77029_1_, p_77029_2_);
+        this.renderEquippedItems((EntityEnderLord)entity, p_77029_2_);
     }
 
-    public void doRender(EntityLivingBase p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(EntityLivingBase entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-        this.doRender((EntityEnderLord)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        this.doRender((EntityEnderLord)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    protected ResourceLocation getEntityTexture(Entity p_110775_1_)
+    protected ResourceLocation getEntityTexture(Entity entity)
     {
-        return this.getEntityTexture((EntityEnderLord)p_110775_1_);
+        return this.getEntityTexture((EntityEnderLord)entity);
     }
 
-    public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-        this.doRender((EntityEnderLord)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        this.doRender((EntityEnderLord)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 }

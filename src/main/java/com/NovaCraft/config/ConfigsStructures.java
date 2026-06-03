@@ -7,8 +7,13 @@ import java.io.File;
 
 public class ConfigsStructures {
 
+    public static int[] AncientCityValidDimension;
+    public static int AncientCityGenerationDistance;
     public static boolean enableAncientCity;
+    public static int InfestedBastionGenerationDistance;
     public static boolean enableInfestedBastion;
+    public static int[] MansionValidDimension;
+    public static int MansionGenerationDistance;
     public static boolean enableMansion;
     public static boolean enableDeepoidFortress;
     public static boolean enableSculkInfestedMineshaft;
@@ -46,8 +51,12 @@ public class ConfigsStructures {
         Configuration conf = new Configuration(configFile);
         conf.load();
 
-        enableAncientCity = conf.getBoolean("enableAncientCity", "Overworld Structures", true, "Enables Ancient Cities to start generating 5k from spawn.");
-        enableMansion = conf.getBoolean("enableMansion", "Overworld Structures", true, "Enables Mansions to start generating 12k from spawn.");
+        AncientCityGenerationDistance = conf.get("Ancient City Generation Distance", "How far away should Ancient Cities start generating from 0,0?", 5000).getInt();
+        AncientCityValidDimension = conf.get("Overworld Structures", "Ancient City Valid Dimension", new int[]{0}, "List Of Valid Dimensions Ancient Cities can Generate in.").getIntList();
+        enableAncientCity = conf.getBoolean("enableAncientCity", "Overworld Structures", true, "Enables Ancient Cities to start generating 5k from spawn.(Default is 5k blocks)");
+        MansionGenerationDistance = conf.get("Mansion Generation Distance", "How far away should Mansion start generating from 0,0?", 12000).getInt();
+        MansionValidDimension = conf.get("Overworld Structures", "Mansion Valid Dimension", new int[]{0}, "List Of Valid Dimensions Mansion can Generate in.").getIntList();
+        enableMansion = conf.getBoolean("enableMansion", "Overworld Structures", true, "Enables Mansions to start generating 12k from spawn.(Default is 12k blocks)");
         enableSculkInfestedMineshaft = conf.getBoolean("enableSculkInfestedMineshaft", "Overworld Structures", true, "Enables Sculk Infested Mineshafts generation.");
         enableCraters = conf.getBoolean("enableCraters", "Overworld Structures", true, "Enables small craters in world generation.");
         enableMassiveCraters = conf.getBoolean("enableMassiveCraters", "Overworld Structures", true, "Enables massive craters in world generation.");
@@ -67,13 +76,12 @@ public class ConfigsStructures {
         enableAdvancedTraditionalOverworldDungeons = conf.getBoolean("enableAdvancedTraditionalOverworldDungeons", "Overworld Structures", true, "Enables advanced traditional dungeons to generate in the Overworld.");
         enableVoidTemples = conf.getBoolean("enableVoidTemples", "Overworld Structures", true, "Enables Void Temple Generation.");
 
-
         enableDeepoidFortress = conf.getBoolean("enableDeepoidFortress", "Nether Structures", true, "Enables Deepoid Fortress Generation in the Nether.");
-        enableInfestedBastion = conf.getBoolean("enableInfestedBastion", "Nether Structures", true, "Enables infested bastion to generate in the Nether.");
+        InfestedBastionGenerationDistance = conf.get("Infested Bastion Generation Distance", "How far away should Infested Bastions start generating from 0,0?", 500).getInt();
+        enableInfestedBastion = conf.getBoolean("enableInfestedBastion", "Nether Structures", true, "Enables infested bastion to generate in the Nether.(Default is 500 blocks)");
         enableTraditionalNetherDungeons = conf.getBoolean("enableTraditionalNetherDungeons", "Nether Structures", true, "Enables traditional nether dungeons to generate in the Nether.");
         enableBlazingSerpentDungeons = conf.getBoolean("enableBlazingSerpentDungeons", "Nether Structures", true, "Enables traditional blazing serpent dungeons to generate in the Nether.");
         enableNetherYttrlinisteGeodes = conf.getBoolean("enableNetherYttrlinisteGeodes", "Nether Structures", true, "Enables yttrliniste geodes to generate in the Nether(This is the intended location of them).");
-
 
         enableLacunaTreeGeneration = conf.getBoolean("enableLacunaTreeGeneration", "End Structures", true, "Enables Lacuna Trees Generating In the End.");
         enableEndDungeon = conf.getBoolean("enableEndDungeon", "End Structures", true, "Enables End Dungeon Generation.");

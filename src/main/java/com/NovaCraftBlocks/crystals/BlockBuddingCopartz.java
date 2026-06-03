@@ -1,11 +1,9 @@
 package com.NovaCraftBlocks.crystals;
 
 import java.util.Random;
-
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;

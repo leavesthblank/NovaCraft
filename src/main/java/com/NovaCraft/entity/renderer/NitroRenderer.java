@@ -31,9 +31,9 @@ public class NitroRenderer extends RenderLiving
         this.setRenderPassModel((ModelBase)new NitroModel());
     }
 
-    protected void preRenderCallback(EntityNitro p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityNitro entity, float p_77041_2_)
     {
-        float f1 = p_77041_1_.getCreeperFlashIntensity(p_77041_2_);
+        float f1 = entity.getCreeperFlashIntensity(p_77041_2_);
         float f2 = 1.0F + MathHelper.sin(f1 * 100.0F) * f1 * 0.01F;
 
         if (f1 < 0.0F)
@@ -53,9 +53,9 @@ public class NitroRenderer extends RenderLiving
         GL11.glScalef(f3, f4, f3);
     }
 
-    protected int getColorMultiplier(EntityNitro p_77030_1_, float p_77030_2_, float p_77030_3_)
+    protected int getColorMultiplier(EntityNitro entity, float p_77030_2_, float p_77030_3_)
     {
-        float f2 = p_77030_1_.getCreeperFlashIntensity(p_77030_3_);
+        float f2 = entity.getCreeperFlashIntensity(p_77030_3_);
 
         if ((int)(f2 * 10.0F) % 2 == 0)
         {
@@ -82,14 +82,14 @@ public class NitroRenderer extends RenderLiving
         }
     }
 
-    protected int shouldRenderPass(EntityNitro p_77032_1_, int p_77032_2_, float p_77032_3_)
+    protected int shouldRenderPass(EntityNitro entity, int p_77032_2_, float p_77032_3_)
     {
     	if (p_77032_2_ != 0) {
             return -1;
         }
-        if (p_77032_1_.getPowered())
+        if (entity.getPowered())
         {
-            if (p_77032_1_.isInvisible())
+            if (entity.isInvisible())
             {
                 GL11.glDepthMask(false);
             }
@@ -100,7 +100,7 @@ public class NitroRenderer extends RenderLiving
 
             if (p_77032_2_ == 1)
             {
-                float f1 = (float)p_77032_1_.ticksExisted + p_77032_3_;
+                float f1 = (float)entity.ticksExisted + p_77032_3_;
                 this.bindTexture(NitroRenderer.armor);
                 GL11.glMatrixMode(GL11.GL_TEXTURE);
                 GL11.glLoadIdentity();
@@ -147,40 +147,40 @@ public class NitroRenderer extends RenderLiving
         return 1;
     }
 
-    protected int inheritRenderPass(EntityNitro p_77035_1_, int p_77035_2_, float p_77035_3_)
+    protected int inheritRenderPass(EntityNitro entity, int p_77035_2_, float p_77035_3_)
     {
         return -1;
     }
 
-    protected ResourceLocation getEntityTexture(EntityNitro p_110775_1_)
+    protected ResourceLocation getEntityTexture(EntityNitro entity)
     {
         return NitroRenderer.chaotic1;
     }
 
-    protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityLivingBase entity, float p_77041_2_)
     {
-        this.preRenderCallback((EntityNitro)p_77041_1_, p_77041_2_);
+        this.preRenderCallback((EntityNitro)entity, p_77041_2_);
         GL11.glScalef(1.1F, 1.1F, 1.1F);
     }
 
-    protected int getColorMultiplier(EntityLivingBase p_77030_1_, float p_77030_2_, float p_77030_3_)
+    protected int getColorMultiplier(EntityLivingBase entity, float p_77030_2_, float p_77030_3_)
     {
-        return this.getColorMultiplier((EntityNitro)p_77030_1_, p_77030_2_, p_77030_3_);
+        return this.getColorMultiplier((EntityNitro)entity, p_77030_2_, p_77030_3_);
     }
 
-    protected int shouldRenderPass(EntityLivingBase p_77032_1_, int p_77032_2_, float p_77032_3_)
+    protected int shouldRenderPass(EntityLivingBase entity, int p_77032_2_, float p_77032_3_)
     {
-        return this.shouldRenderPass((EntityNitro)p_77032_1_, p_77032_2_, p_77032_3_);
+        return this.shouldRenderPass((EntityNitro)entity, p_77032_2_, p_77032_3_);
     }
 
-    protected int inheritRenderPass(EntityLivingBase p_77035_1_, int p_77035_2_, float p_77035_3_)
+    protected int inheritRenderPass(EntityLivingBase entity, int p_77035_2_, float p_77035_3_)
     {
-        return this.inheritRenderPass((EntityNitro)p_77035_1_, p_77035_2_, p_77035_3_);
+        return this.inheritRenderPass((EntityNitro)entity, p_77035_2_, p_77035_3_);
     }
 
-    protected ResourceLocation getEntityTexture(Entity p_110775_1_)
+    protected ResourceLocation getEntityTexture(Entity entity)
     {
-        return this.getEntityTexture((EntityNitro)p_110775_1_);
+        return this.getEntityTexture((EntityNitro)entity);
     }
     
     static {

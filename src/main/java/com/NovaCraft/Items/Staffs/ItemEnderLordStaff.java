@@ -1,19 +1,16 @@
 package com.NovaCraft.Items.Staffs;
 
 import java.util.List;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
-import com.NovaCraft.entity.EntityEnderLordStaffProjectile;
+import com.NovaCraft.entity.misc.EntityEnderLordStaffProjectile;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.EnumChatFormatting;

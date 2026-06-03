@@ -1,10 +1,8 @@
 package com.NovaCraft.entity.models;
 
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.MathHelper;
 
 public class NulkModel extends ModelBase {
 	
@@ -24,7 +22,6 @@ public class NulkModel extends ModelBase {
 	ModelRenderer bottom_right_tent2;
 	ModelRenderer mid_left_tent2;
 	ModelRenderer top_right_tent2;
-	
 	ModelRenderer eye1;
 	ModelRenderer eye2;
 	ModelRenderer eye3;
@@ -163,7 +160,6 @@ public class NulkModel extends ModelBase {
     	
         this.head.rotateAngleY = rotationYaw / 57.295776f;
         this.head.rotateAngleX = rotationPitch / 57.295776f;
-        
         this.left_ear.rotateAngleY = rotationYaw / 57.295776f;
         this.left_ear.rotateAngleX = rotationPitch / 57.295776f;
         this.right_ear.rotateAngleY = rotationYaw / 57.295776f;

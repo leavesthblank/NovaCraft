@@ -3,9 +3,7 @@ package com.NovaCraft.entity.misc;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import java.util.List;
-
 import com.NovaCraft.Items.Staffs.NovaCraftDamageSource;
-
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.network.Packet;
@@ -41,8 +39,8 @@ public class EntityVaniteFirechargeProjectile extends EntityProjectileBase imple
     private int ticksInAir;
     private double damage;
     
-    public EntityVaniteFirechargeProjectile(final World p_i1753_1_) {
-        super(p_i1753_1_);
+    public EntityVaniteFirechargeProjectile(final World world) {
+        super(world);
         this.field_145791_d = -1;
         this.field_145792_e = -1;
         this.field_145789_f = -1;
@@ -51,20 +49,20 @@ public class EntityVaniteFirechargeProjectile extends EntityProjectileBase imple
         this.setSize(0.25f, 0.25f);
     }
     
-    public EntityVaniteFirechargeProjectile(final World p_i1754_1_, final double p_i1754_2_, final double p_i1754_4_, final double p_i1754_6_) {
-        super(p_i1754_1_);
+    public EntityVaniteFirechargeProjectile(final World world, final double x, final double y, final double z) {
+        super(world);
         this.field_145791_d = -1;
         this.field_145792_e = -1;
         this.field_145789_f = -1;
         this.damage = 5.0;
         this.renderDistanceWeight = 5.0;
         this.setSize(0.5f, 0.5f);
-        this.setPosition(p_i1754_2_, p_i1754_4_, p_i1754_6_);
+        this.setPosition(x, y, z);
         this.yOffset = 0.0f;
     }
     
-    public EntityVaniteFirechargeProjectile(final World p_i1755_1_, final EntityLivingBase p_i1755_2_, final EntityLivingBase p_i1755_3_, final float p_i1755_4_, final float p_i1755_5_) {
-        super(p_i1755_1_);
+    public EntityVaniteFirechargeProjectile(final World world, final EntityLivingBase p_i1755_2_, final EntityLivingBase p_i1755_3_, final float p_i1755_4_, final float p_i1755_5_) {
+        super(world);
         this.field_145791_d = -1;
         this.field_145792_e = -1;
         this.field_145789_f = -1;
@@ -88,8 +86,8 @@ public class EntityVaniteFirechargeProjectile extends EntityProjectileBase imple
         }
     }
     
-    public EntityVaniteFirechargeProjectile(final World p_i1756_1_, final EntityLivingBase p_i1756_2_, final float p_i1756_3_) {
-        super(p_i1756_1_);
+    public EntityVaniteFirechargeProjectile(final World world, final EntityLivingBase p_i1756_2_, final float p_i1756_3_) {
+        super(world);
         this.field_145791_d = -1;
         this.field_145792_e = -1;
         this.field_145789_f = -1;
@@ -324,17 +322,17 @@ public class EntityVaniteFirechargeProjectile extends EntityProjectileBase imple
         }
     }
     
-    public void readEntityFromNBT(final NBTTagCompound p_70037_1_) {
-        this.field_145791_d = p_70037_1_.getShort("xTile");
-        this.field_145792_e = p_70037_1_.getShort("yTile");
-        this.field_145789_f = p_70037_1_.getShort("zTile");
-        this.ticksInGround = p_70037_1_.getShort("life");
-        this.field_145790_g = Block.getBlockById(p_70037_1_.getByte("inTile") & 0xFF);
-        this.inData = (p_70037_1_.getByte("inData") & 0xFF);
-        this.arrowShake = (p_70037_1_.getByte("shake") & 0xFF);
-        this.inGround = (p_70037_1_.getByte("inGround") == 1);
-        if (p_70037_1_.hasKey("damage", 6)) {
-            this.damage = p_70037_1_.getDouble("damage");
+    public void readEntityFromNBT(final NBTTagCompound compound) {
+        this.field_145791_d = compound.getShort("xTile");
+        this.field_145792_e = compound.getShort("yTile");
+        this.field_145789_f = compound.getShort("zTile");
+        this.ticksInGround = compound.getShort("life");
+        this.field_145790_g = Block.getBlockById(compound.getByte("inTile") & 0xFF);
+        this.inData = (compound.getByte("inData") & 0xFF);
+        this.arrowShake = (compound.getByte("shake") & 0xFF);
+        this.inGround = (compound.getByte("inGround") == 1);
+        if (compound.hasKey("damage", 6)) {
+            this.damage = compound.getDouble("damage");
         }
     }
     
@@ -392,21 +390,19 @@ public class EntityVaniteFirechargeProjectile extends EntityProjectileBase imple
         }
     }
     
-    public void writeEntityToNBT(final NBTTagCompound p_70014_1_) {
-        p_70014_1_.setShort("xTile", (short)this.field_145791_d);
-        p_70014_1_.setShort("yTile", (short)this.field_145792_e);
-        p_70014_1_.setShort("zTile", (short)this.field_145789_f);
-        p_70014_1_.setShort("life", (short)this.ticksInGround);
-        p_70014_1_.setByte("inTile", (byte)Block.getIdFromBlock(this.field_145790_g));
-        p_70014_1_.setByte("inData", (byte)this.inData);
-        p_70014_1_.setByte("shake", (byte)this.arrowShake);
-        p_70014_1_.setByte("inGround", (byte)(byte)(this.inGround ? 1 : 0));
-        p_70014_1_.setDouble("damage", this.damage);
+    public void writeEntityToNBT(final NBTTagCompound compound) {
+        compound.setShort("xTile", (short)this.field_145791_d);
+        compound.setShort("yTile", (short)this.field_145792_e);
+        compound.setShort("zTile", (short)this.field_145789_f);
+        compound.setShort("life", (short)this.ticksInGround);
+        compound.setByte("inTile", (byte)Block.getIdFromBlock(this.field_145790_g));
+        compound.setByte("inData", (byte)this.inData);
+        compound.setByte("shake", (byte)this.arrowShake);
+        compound.setByte("inGround", (byte)(byte)(this.inGround ? 1 : 0));
+        compound.setDouble("damage", this.damage);
     }
 
 	@Override
 	protected void onImpact(MovingObjectPosition object) {
-		// TODO Auto-generated method stub
-		
 	}
 }

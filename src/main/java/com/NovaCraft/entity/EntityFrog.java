@@ -1,36 +1,26 @@
 package com.NovaCraft.entity;
 
 import java.util.List;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.misc.EnumFrogType;
-import net.minecraft.entity.ai.EntityAITargetNonTamed;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIFollowParent;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMate;
 import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAITargetNonTamed;
 import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -181,9 +171,9 @@ public class EntityFrog extends EntityAnimal {
         this.playSound("nova_craft:frog.step", 0.25f, 1.0f);
     }
     
-    public boolean isPotionApplicable(PotionEffect p_70687_1_)
+    public boolean isPotionApplicable(PotionEffect effect)
     {
-        return p_70687_1_.getPotionID() == Potion.poison.id ? false : super.isPotionApplicable(p_70687_1_);
+        return effect.getPotionID() != Potion.poison.id && super.isPotionApplicable(effect);
     }
     
     public EnumFrogType getType()
@@ -198,19 +188,19 @@ public class EntityFrog extends EntityAnimal {
         this.dataWatcher.updateObject(21, (byte) id);
     }
     
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    public void writeEntityToNBT(NBTTagCompound compound)
     {
-        super.writeEntityToNBT(p_70014_1_);
-        p_70014_1_.setInteger("FrogType", this.getType().getId());
+        super.writeEntityToNBT(compound);
+        compound.setInteger("FrogType", this.getType().getId());
     }
 
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(p_70037_1_);
-        this.setType(p_70037_1_.getInteger("FrogType"));
+        super.readEntityFromNBT(compound);
+        this.setType(compound.getInteger("FrogType"));
     }
     
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+    protected void dropFewItems(boolean p_70628_1_, int chance)
     {        
         if (!(this.getType() == EnumFrogType.POSION_1) && !(this.getType() == EnumFrogType.POSION_2) && !(this.getType() == EnumFrogType.POSION_3) && !(this.getType() == EnumFrogType.POSION_4)) {
             if (this.isBurning())

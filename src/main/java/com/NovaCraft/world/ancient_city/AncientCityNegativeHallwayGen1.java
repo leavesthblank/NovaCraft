@@ -7,11 +7,9 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.init.*;
 
 public class AncientCityNegativeHallwayGen1 extends WorldGenerator
@@ -225,8 +223,8 @@ public class AncientCityNegativeHallwayGen1 extends WorldGenerator
 	 public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
 		 PlaceDeepslateBricks = determineIfDeepslateBricksExists(world, i + 7, j, k + 4);
 		 PlaceCrackedDeepslateBricks = determineIfCrackedDeepslateBricksExists(world, i + 7, j, k + 14);
-		 PlaceDeepslateTiles = determineIfDeepslateTilesExist(world, i + 10, j, k + 0);
-		 PlaceCrackedDeepslateTiles = determineIfCrackedDeepslateTilesExist(world, i + 7, j, k + 0);
+		 PlaceDeepslateTiles = determineIfDeepslateTilesExist(world, i + 10, j, k);
+		 PlaceCrackedDeepslateTiles = determineIfCrackedDeepslateTilesExist(world, i + 7, j, k);
 		 PlaceChiseledDeepslate = determineIfChiseledDeepslateExist(world, i + 7, j, k + 2);
 		 PlacePolishedDeepslate = determineIfPolishedDeepslateExists(world, i + 10, j + 2, k + 1);
 		 

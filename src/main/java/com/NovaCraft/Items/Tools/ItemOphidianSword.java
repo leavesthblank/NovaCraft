@@ -2,11 +2,9 @@ package com.NovaCraft.Items.Tools;
 
 import java.util.List;
 import java.util.Random;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;

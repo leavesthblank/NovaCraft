@@ -1,6 +1,5 @@
 package com.NovaCraft.sounds;
 
-import com.NovaCraft.sounds.*;
 import net.minecraft.block.Block.SoundType;
 
 public class CustomSoundGrimstone extends SoundType {

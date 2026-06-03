@@ -9,10 +9,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraftBlocks.special.BlockModelBase;
 import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
-
 import javax.vecmath.Point2f;
 
 //Credit goes to Thaumcraft and Et Futurum Requiem I think

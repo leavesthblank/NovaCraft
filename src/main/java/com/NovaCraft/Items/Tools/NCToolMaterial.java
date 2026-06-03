@@ -1,9 +1,7 @@
 package com.NovaCraft.Items.Tools;
 
 import net.minecraftforge.common.util.EnumHelper;
-
 import com.NovaCraft.config.Configs;
-
 import net.minecraft.item.Item;
 
 public class NCToolMaterial

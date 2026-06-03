@@ -7,11 +7,8 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.init.*;
 
 public class AncientCityCenterPortalGen2 extends WorldGenerator
@@ -19,11 +16,6 @@ public class AncientCityCenterPortalGen2 extends WorldGenerator
 	public AncientCityCenterPortalGen2() {
 
 	}
-	//0 -> deepslate bricks
-	//1 -> cracked deepslate bricks
-	//2 -> deepslate tiles
-	//3 -> cracked deepslate bricks
-	//4 -> chiseled deepslate bricks
 	private Block PlaceDeepslateBricks;
 	private Block PlaceDeepslateTiles;
 	private Block PlaceCrackedDeepslateTiles;

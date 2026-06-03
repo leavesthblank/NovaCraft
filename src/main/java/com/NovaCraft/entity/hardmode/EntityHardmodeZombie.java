@@ -5,10 +5,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
-
 import net.minecraft.block.Block;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
@@ -28,11 +26,8 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
-import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -48,9 +43,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeModContainer;
-import cpw.mods.fml.common.eventhandler.Event.Result;
-import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.event.entity.living.ZombieEvent.SummonAidEvent;
 
 public class EntityHardmodeZombie extends EntityMob
 {
@@ -62,9 +54,9 @@ public class EntityHardmodeZombie extends EntityMob
     private float field_146074_bv = -1.0F;
     private float field_146073_bw;
 
-    public EntityHardmodeZombie(World p_i1745_1_)
+    public EntityHardmodeZombie(World world)
     {
-        super(p_i1745_1_);
+        super(world);
         this.getNavigator().setBreakDoors(true);
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
@@ -176,14 +168,14 @@ public class EntityHardmodeZombie extends EntityMob
         return this.getDataWatcher().getWatchableObjectByte(12) == 1;
     }
 
-    protected int getExperiencePoints(EntityPlayer p_70693_1_)
+    protected int getExperiencePoints(EntityPlayer entity)
     {
         if (this.isChild())
         {
             this.experienceValue = (int)((float)this.experienceValue * 2.5F);
         }
 
-        return super.getExperiencePoints(p_70693_1_);
+        return super.getExperiencePoints(entity);
     }
 
     public void setChild(boolean p_82227_1_)
@@ -256,9 +248,9 @@ public class EntityHardmodeZombie extends EntityMob
         super.onLivingUpdate();
     }
 
-    public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_)
+    public boolean attackEntityFrom(DamageSource source, float p_70097_2_)
     {
-        if (!super.attackEntityFrom(p_70097_1_, p_70097_2_))
+        if (!super.attackEntityFrom(source, p_70097_2_))
         {
             return false;
         }
@@ -271,9 +263,9 @@ public class EntityHardmodeZombie extends EntityMob
                 entitylivingbase = (EntityLivingBase)this.getEntityToAttack();
             }
 
-            if (entitylivingbase == null && p_70097_1_.getEntity() instanceof EntityLivingBase)
+            if (entitylivingbase == null && source.getEntity() instanceof EntityLivingBase)
             {
-                entitylivingbase = (EntityLivingBase)p_70097_1_.getEntity();
+                entitylivingbase = (EntityLivingBase)source.getEntity();
             }
 
 
@@ -284,17 +276,14 @@ public class EntityHardmodeZombie extends EntityMob
             return true;
         }
     }
-    
-    /**
-     * Called when the mob's health reaches 0.
-     */
-    public void onDeath(DamageSource p_70645_1_)
+
+    public void onDeath(DamageSource source)
     {
-        super.onDeath(p_70645_1_);
+        super.onDeath(source);
         
-        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        if (source.getEntity() instanceof EntityPlayer)
         {
-            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            EntityPlayer entityplayer = (EntityPlayer)source.getEntity();
             
             entityplayer.triggerAchievement(AchievementsNovaCraft.a_new_encounter);
             
@@ -317,9 +306,9 @@ public class EntityHardmodeZombie extends EntityMob
         super.onUpdate();
     }
 
-    public boolean attackEntityAsMob(Entity p_70652_1_)
+    public boolean attackEntityAsMob(Entity entity)
     {
-        boolean flag = super.attackEntityAsMob(p_70652_1_);
+        boolean flag = super.attackEntityAsMob(entity);
 
         if (flag)
         {
@@ -327,14 +316,14 @@ public class EntityHardmodeZombie extends EntityMob
 
             if (this.getHeldItem() == null && this.isBurning() && this.rand.nextFloat() < (float)i * 0.3F)
             {
-                p_70652_1_.setFire(2 * i);
+                entity.setFire(2 * i);
             }
         }
         
-        if (p_70652_1_ instanceof EntityPlayer) {
-			
-        	p_70652_1_.attackEntityFrom(DamageSource.generic, 14.0f);
-        	p_70652_1_.attackEntityFrom(DamageSource.magic, 6.0F);            
+        if (entity instanceof EntityPlayer) {
+
+            entity.attackEntityFrom(DamageSource.generic, 14.0f);
+            entity.attackEntityFrom(DamageSource.magic, 6.0F);
         }
 
         return flag;
@@ -380,7 +369,7 @@ public class EntityHardmodeZombie extends EntityMob
         return EnumCreatureAttribute.UNDEAD;
     }
 
-    protected void dropRareDrop(int p_70600_1_)
+    protected void dropRareDrop(int random)
     {
         switch (this.rand.nextInt(3))
         {
@@ -395,51 +384,51 @@ public class EntityHardmodeZombie extends EntityMob
         }
     }
 
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    public void writeEntityToNBT(NBTTagCompound compound)
     {
-        super.writeEntityToNBT(p_70014_1_);
+        super.writeEntityToNBT(compound);
 
         if (this.isChild())
         {
-            p_70014_1_.setBoolean("IsBaby", true);
+            compound.setBoolean("IsBaby", true);
         }
 
         if (this.isVillager())
         {
-            p_70014_1_.setBoolean("IsVillager", true);
+            compound.setBoolean("IsVillager", true);
         }
 
-        p_70014_1_.setInteger("ConversionTime", this.isConverting() ? this.conversionTime : -1);
-        p_70014_1_.setBoolean("CanBreakDoors", this.func_146072_bX());
+        compound.setInteger("ConversionTime", this.isConverting() ? this.conversionTime : -1);
+        compound.setBoolean("CanBreakDoors", this.func_146072_bX());
     }
 
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(p_70037_1_);
+        super.readEntityFromNBT(compound);
 
-        if (p_70037_1_.getBoolean("IsBaby"))
+        if (compound.getBoolean("IsBaby"))
         {
             this.setChild(true);
         }
 
-        if (p_70037_1_.getBoolean("IsVillager"))
+        if (compound.getBoolean("IsVillager"))
         {
             this.setVillager(true);
         }
 
-        if (p_70037_1_.hasKey("ConversionTime", 99) && p_70037_1_.getInteger("ConversionTime") > -1)
+        if (compound.hasKey("ConversionTime", 99) && compound.getInteger("ConversionTime") > -1)
         {
-            this.startConversion(p_70037_1_.getInteger("ConversionTime"));
+            this.startConversion(compound.getInteger("ConversionTime"));
         }
 
-        this.func_146070_a(p_70037_1_.getBoolean("CanBreakDoors"));
+        this.func_146070_a(compound.getBoolean("CanBreakDoors"));
     }
 
-    public void onKillEntity(EntityLivingBase p_70074_1_)
+    public void onKillEntity(EntityLivingBase entity)
     {
-        super.onKillEntity(p_70074_1_);
+        super.onKillEntity(entity);
 
-        if ((this.worldObj.difficultySetting == EnumDifficulty.NORMAL || this.worldObj.difficultySetting == EnumDifficulty.HARD) && p_70074_1_ instanceof EntityVillager)
+        if ((this.worldObj.difficultySetting == EnumDifficulty.NORMAL || this.worldObj.difficultySetting == EnumDifficulty.HARD) && entity instanceof EntityVillager)
         {
             if (this.worldObj.difficultySetting != EnumDifficulty.HARD && this.rand.nextBoolean())
             {
@@ -447,12 +436,12 @@ public class EntityHardmodeZombie extends EntityMob
             }
 
             EntityHardmodeZombie EntityHardmodeZombie = new EntityHardmodeZombie(this.worldObj);
-            EntityHardmodeZombie.copyLocationAndAnglesFrom(p_70074_1_);
-            this.worldObj.removeEntity(p_70074_1_);
+            EntityHardmodeZombie.copyLocationAndAnglesFrom(entity);
+            this.worldObj.removeEntity(entity);
             EntityHardmodeZombie.onSpawnWithEgg((IEntityLivingData)null);
             EntityHardmodeZombie.setVillager(true);
 
-            if (p_70074_1_.isChild())
+            if (entity.isChild())
             {
                 EntityHardmodeZombie.setChild(true);
             }
@@ -462,9 +451,9 @@ public class EntityHardmodeZombie extends EntityMob
         }
     }
 
-    public IEntityLivingData onSpawnWithEgg(IEntityLivingData p_110161_1_)
+    public IEntityLivingData onSpawnWithEgg(IEntityLivingData entityLivingData)
     {
-        Object p_110161_1_1 = super.onSpawnWithEgg(p_110161_1_);
+        Object p_110161_1_1 = super.onSpawnWithEgg(entityLivingData);
         float f = this.worldObj.func_147462_b(this.posX, this.posY, this.posZ);
         this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * f);
 
@@ -541,20 +530,20 @@ public class EntityHardmodeZombie extends EntityMob
         return (IEntityLivingData)p_110161_1_1;
     }
 
-    public boolean interact(EntityPlayer p_70085_1_)
+    public boolean interact(EntityPlayer entity)
     {
-        ItemStack itemstack = p_70085_1_.getCurrentEquippedItem();
+        ItemStack itemstack = entity.getCurrentEquippedItem();
 
         if (itemstack != null && itemstack.getItem() == Items.golden_apple && itemstack.getItemDamage() == 0 && this.isVillager() && this.isPotionActive(Potion.weakness))
         {
-            if (!p_70085_1_.capabilities.isCreativeMode)
+            if (!entity.capabilities.isCreativeMode)
             {
                 --itemstack.stackSize;
             }
 
             if (itemstack.stackSize <= 0)
             {
-                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack)null);
+                entity.inventory.setInventorySlotContents(entity.inventory.currentItem, (ItemStack)null);
             }
 
             if (!this.worldObj.isRemote)
@@ -679,7 +668,6 @@ public class EntityHardmodeZombie extends EntityMob
     {
         public boolean field_142048_a;
         public boolean field_142046_b;
-        private static final String __OBFID = "CL_00001704";
 
         private GroupData(boolean p_i2348_2_, boolean p_i2348_3_)
         {

@@ -26,7 +26,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBrightLichen extends BlockBush implements IEmissiveLayerBlock, IShearable
 {
-	public static final int[] colors = new int[]{0xfbff71, 0xfbff77, 0xcfff77, 0x9dff77, 0x77ffa4, 0x77ffd8, 0x77e8ff, 0x48ffbc};
+	public static final int[] colors = new int[]{0xff8f2c, 0xffab77, 0xffb077, 0xffb077, 0xccb73f, 0xffc277, 0xffc277, 0xffb048};
 	private IIcon infusedOverlay;
     private IIcon[] icon;
     
@@ -38,13 +38,13 @@ public class BlockBrightLichen extends BlockBush implements IEmissiveLayerBlock,
         this.setLightOpacity(0);
         this.func_150089_b(0);
         this.setCreativeTab(NovaCraftCreativeTabs.blocks);
-        this.setLightLevel(0.95F);
+        this.setLightLevel(0.55F);
         this.setTickRandomly(false);
     }
     
     public void registerBlockIcons(final IIconRegister iconRegister) {
-        this.icon[0] = iconRegister.registerIcon("nova_craft:bright_lichen");
-        this.icon[1] = iconRegister.registerIcon("nova_craft:bright_lichen");
+        this.icon[0] = iconRegister.registerIcon("nova_craft:brimstone_lichen");
+        this.icon[1] = iconRegister.registerIcon("nova_craft:brimstone_lichen");
         infusedOverlay = iconRegister.registerIcon("nova_craft:glow_lichen_overlay");
     }
     

@@ -140,7 +140,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 			
 			//Override of vanilla ore generation
 			this.addVanillaOres(Blocks.coal_ore, world, random, chunkX, chunkZ, 6, 14, 18, 24, 128);
-			this.addVanillaOres(Blocks.iron_ore, world, random, chunkX, chunkZ, 4, 8, 10, 0, 64);
+			this.addVanillaOres(Blocks.iron_ore, world, random, chunkX, chunkZ, 4, 8, 15, 0, 64);
 			this.addVanillaOres(Blocks.gold_ore, world, random, chunkX, chunkZ, 2, 8, 4, 0, 32);
 			this.addVanillaOres(Blocks.redstone_ore, world, random, chunkX, chunkZ, 3, 5, 8, 0, 24);
 			this.addVanillaOres(Blocks.lapis_ore, world, random, chunkX, chunkZ, 1, 4, 6, 0, 32);

@@ -10,7 +10,6 @@ import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
 import java.util.Random;
 
 public class FloatingIslandBunker extends WorldGenAbstractTree

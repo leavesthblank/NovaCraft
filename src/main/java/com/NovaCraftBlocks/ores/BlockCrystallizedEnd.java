@@ -1,28 +1,19 @@
 package com.NovaCraftBlocks.ores;
 
 import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.EntityWarden;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.ibm.icu.impl.duration.impl.Utils;
-
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -44,13 +35,13 @@ public class BlockCrystallizedEnd extends Block {
 
 	
 	@SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
+    public void randomDisplayTick(World world, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random random)
     {
-        super.randomDisplayTick(p_149734_1_, p_149734_2_, p_149734_3_, p_149734_4_, p_149734_5_);
+        super.randomDisplayTick(world, p_149734_2_, p_149734_3_, p_149734_4_, random);
 
-        if (p_149734_5_.nextInt(2) == 0)
+        if (random.nextInt(2) == 0)
         {
-            p_149734_1_.spawnParticle("townaura", (double)((float)p_149734_2_ + p_149734_5_.nextFloat()), (double)((float)p_149734_3_ + 1.1F), (double)((float)p_149734_4_ + p_149734_5_.nextFloat()), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("townaura", (double)((float)p_149734_2_ + random.nextFloat()), (double)((float)p_149734_3_ + 1.1F), (double)((float)p_149734_4_ + random.nextFloat()), 0.0D, 0.0D, 0.0D);
         }
     } 
 	

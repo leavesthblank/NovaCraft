@@ -21,12 +21,12 @@ public class PhoenixRenderer extends RenderLiving
         this.setRenderPassModel(super.mainModel);
     }
     
-    protected int setGlowstuffBrightness(final EntityPhoenix par1EntityRay, final int par2, final float par3) {
+    protected int setGlowstuffBrightness(final EntityPhoenix entity, final int par2, final float par3) {
         if (par2 != 0) {
             GL11.glDepthMask(true);
             return -1;
         }
-        if (par1EntityRay.hasSpecialTexture) {
+        if (entity.hasSpecialTexture) {
             this.bindTexture(phoenixScarsGlow);
         }
         else {
@@ -46,12 +46,12 @@ public class PhoenixRenderer extends RenderLiving
         return 1;
     }
     
-    protected int shouldRenderPass(final EntityLiving par1EntityLiving, final int par2, final float par3) {
-        return this.setGlowstuffBrightness((EntityPhoenix)par1EntityLiving, par2, par3);
+    protected int shouldRenderPass(final EntityLiving entity, final int par2, final float par3) {
+        return this.setGlowstuffBrightness((EntityPhoenix)entity, par2, par3);
     }
 
 	@Override
-	protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
+	protected ResourceLocation getEntityTexture(Entity entity) {
 		
 		return phoenix;
 	}

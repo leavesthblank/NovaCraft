@@ -31,7 +31,7 @@ public class PrisonerRenderer extends RenderLiving
         return this.shouldRenderPass((EntityPrisoner)par1EntityLivingBase, par2, par3);
     }
     
-    protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityLivingBase entity, float p_77041_2_)
     {
         GL11.glScalef(3.0F, 3.0F, 3.0F);
     }
@@ -73,26 +73,26 @@ public class PrisonerRenderer extends RenderLiving
     }
 	
 	@Override
-	protected ResourceLocation getEntityTexture(final Entity p_110775_1_) {
+	protected ResourceLocation getEntityTexture(final Entity entity) {
 		return PrisonerRenderer.texture;
 	}
 	
-	 public void doRender(EntityPrisoner p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
-	        BossStatus.setBossStatus(p_76986_1_, true);	        
+	 public void doRender(EntityPrisoner entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
+	        BossStatus.setBossStatus(entity, true);
 
-	        super.doRender((EntityLiving)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+	        super.doRender((EntityLiving)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
 	 }
 
-	 public void doRender(EntityLiving p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
-	        this.doRender((EntityPrisoner)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+	 public void doRender(EntityLiving entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
+	        this.doRender((EntityPrisoner)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
 	 }
 	 
-	 public void doRender(EntityLivingBase p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
-	        this.doRender((EntityPrisoner)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+	 public void doRender(EntityLivingBase entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
+	        this.doRender((EntityPrisoner)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
 	 }
 	 
-	 public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
-	        this.doRender((EntityPrisoner)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+	 public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
+	        this.doRender((EntityPrisoner)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
 	 }
 	 
 	 static {

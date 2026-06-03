@@ -1,20 +1,15 @@
 package com.NovaCraftBlocks.container;
 
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
 import net.minecraft.util.*;
-
 import java.util.Random;
-
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.TileEntity.TileEntityAdvancedEnchantmentTable;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.*;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.world.*;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.*;
@@ -54,9 +49,9 @@ public class BlockAdvancedEnchantmentTable extends BlockEnchantmentTable
     }
     
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
+    public void randomDisplayTick(World world, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random random)
     {
-        super.randomDisplayTick(p_149734_1_, p_149734_2_, p_149734_3_, p_149734_4_, p_149734_5_);
+        super.randomDisplayTick(world, p_149734_2_, p_149734_3_, p_149734_4_, random);
 
         for (int l = p_149734_2_ - 2; l <= p_149734_2_ + 2; ++l)
         {
@@ -67,18 +62,18 @@ public class BlockAdvancedEnchantmentTable extends BlockEnchantmentTable
                     i1 = p_149734_4_ + 2;
                 }
 
-                if (p_149734_5_.nextInt(16) == 0)
+                if (random.nextInt(16) == 0)
                 {
                     for (int j1 = p_149734_3_; j1 <= p_149734_3_ + 1; ++j1)
                     {
-                        if (p_149734_1_.getBlock(l, j1, i1) == NovaCraftBlocks.nullwart_brick_bookshelf)
+                        if (world.getBlock(l, j1, i1) == NovaCraftBlocks.nullwart_brick_bookshelf)
                         {
-                            if (!p_149734_1_.isAirBlock((l - p_149734_2_) / 2 + p_149734_2_, j1, (i1 - p_149734_4_) / 2 + p_149734_4_))
+                            if (!world.isAirBlock((l - p_149734_2_) / 2 + p_149734_2_, j1, (i1 - p_149734_4_) / 2 + p_149734_4_))
                             {
                                 break;
                             }
 
-                            p_149734_1_.spawnParticle("enchantmenttable", (double)p_149734_2_ + 0.5D, (double)p_149734_3_ + 2.0D, (double)p_149734_4_ + 0.5D, (double)((float)(l - p_149734_2_) + p_149734_5_.nextFloat()) - 0.5D, (double)((float)(j1 - p_149734_3_) - p_149734_5_.nextFloat() - 1.0F), (double)((float)(i1 - p_149734_4_) + p_149734_5_.nextFloat()) - 0.5D);
+                            world.spawnParticle("enchantmenttable", (double)p_149734_2_ + 0.5D, (double)p_149734_3_ + 2.0D, (double)p_149734_4_ + 0.5D, (double)((float)(l - p_149734_2_) + random.nextFloat()) - 0.5D, (double)((float)(j1 - p_149734_3_) - random.nextFloat() - 1.0F), (double)((float)(i1 - p_149734_4_) + random.nextFloat()) - 0.5D);
                         }
                     }
                 }
@@ -198,18 +193,18 @@ public class BlockAdvancedEnchantmentTable extends BlockEnchantmentTable
         }
     }
     
-    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_)
+    public TileEntity createNewTileEntity(World world, int p_149915_2_)
     {
         return new TileEntityAdvancedEnchantmentTable();
     }
     
-    public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_)
+    public void onBlockPlacedBy(World world, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_)
     {
-        super.onBlockPlacedBy(p_149689_1_, p_149689_2_, p_149689_3_, p_149689_4_, p_149689_5_, p_149689_6_);
+        super.onBlockPlacedBy(world, p_149689_2_, p_149689_3_, p_149689_4_, p_149689_5_, p_149689_6_);
 
         if (p_149689_6_.hasDisplayName())
         {
-            ((TileEntityAdvancedEnchantmentTable)p_149689_1_.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_)).func_145920_a(p_149689_6_.getDisplayName());
+            ((TileEntityAdvancedEnchantmentTable)world.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_)).func_145920_a(p_149689_6_.getDisplayName());
         }
     }
     

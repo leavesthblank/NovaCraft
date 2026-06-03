@@ -1,7 +1,6 @@
 package com.NovaCraft.entity.renderer;
 
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.EntityDeathStalker;
 import com.NovaCraft.entity.models.DeathStalkerModel;
 import net.minecraft.client.model.ModelBase;
@@ -29,7 +28,7 @@ public class DeathStalkerRenderer extends RenderLiving
         return this.shouldRenderPass((EntityDeathStalker)par1EntityLivingBase, par2, par3);
     }
     
-    protected int shouldRenderPass(EntityDeathStalker p_77032_1_, int p_77032_2_, float p_77032_3_)
+    protected int shouldRenderPass(EntityDeathStalker entity, int p_77032_2_, float p_77032_3_)
     {
         if (p_77032_2_ != 0)
         {
@@ -44,7 +43,7 @@ public class DeathStalkerRenderer extends RenderLiving
             GL11.glBlendFunc(GL11.GL_ONE, GL11.GL_ONE);
             GL11.glDisable(GL11.GL_LIGHTING);
 
-            if (p_77032_1_.isInvisible())
+            if (entity.isInvisible())
             {
                 GL11.glDepthMask(false);
             }

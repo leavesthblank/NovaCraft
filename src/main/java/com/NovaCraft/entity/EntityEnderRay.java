@@ -1,22 +1,14 @@
 package com.NovaCraft.entity;
 
-import java.util.List;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.misc.EntityRayfireball;
-
 import net.minecraft.item.Item;
-import java.util.ArrayList;
 import net.minecraft.item.ItemStack;
-import java.util.Iterator;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Vec3;
-import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.init.Items;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 import cpw.mods.fml.relauncher.Side;
@@ -34,9 +26,7 @@ public class EntityEnderRay extends EntityFlying implements IMob
     public double waypointY;
     public double waypointZ;
     public boolean hasSpecialTexture;
-    private Entity targetedEntity;
     private Entity attackedEntity;
-    private int aggroCooldown;
     public int prevAttackCounter;
     public int attackCounter;
     private final float base;
@@ -45,9 +35,7 @@ public class EntityEnderRay extends EntityFlying implements IMob
         super(par1World);
         this.courseChangeCooldown = 0;
         this.hasSpecialTexture = false;
-        this.targetedEntity = null;
         this.attackedEntity = null;
-        this.aggroCooldown = 0;
         this.prevAttackCounter = 0;
         this.attackCounter = 0;
         this.setSize(6.0f, 1.0f);

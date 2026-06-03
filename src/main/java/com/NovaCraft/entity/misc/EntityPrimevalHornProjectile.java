@@ -1,19 +1,14 @@
 package com.NovaCraft.entity.misc;
 
 import java.util.ArrayList;
-
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntityWarden;
 import com.NovaCraft.particles.ParticleHandler;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.world.World;

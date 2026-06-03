@@ -1,12 +1,8 @@
 package com.NovaCraft.entity.renderer;
 
 import com.NovaCraft.entity.EntityRelik;
-import com.NovaCraft.entity.EntitySculkDweller;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelZombie;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.entity.Entity;
@@ -27,13 +23,13 @@ public class RelikRenderer extends RenderBiped
 
     @Override
     protected void preRenderCallback(EntityLivingBase par1EntityLiving, float par2) {
-        if ((par1EntityLiving instanceof EntitySculkDweller)) {
+        if ((par1EntityLiving instanceof EntityRelik)) {
             GL11.glScalef(this.scale, this.scale, this.scale);
         }
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(final Entity p_110775_1_) {
+    protected ResourceLocation getEntityTexture(final Entity entity) {
         return texture;
     }
     static {

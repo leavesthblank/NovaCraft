@@ -1,11 +1,8 @@
 package com.NovaCraft.entity;
 
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -13,33 +10,24 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.stats.AchievementList;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class EntitySculkAbomination extends EntityMob
 {		
-	public EntitySculkAbomination(final World p_i1745_1_) {
-		super(p_i1745_1_);
+	public EntitySculkAbomination(final World world) {
+		super(world);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
 		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
@@ -141,17 +129,14 @@ public class EntitySculkAbomination extends EntityMob
 	        }
 	        
 	    }
-	 
-	 	/**
-	     * Called when the mob's health reaches 0.
-	     */
-	    public void onDeath(DamageSource p_70645_1_)
-	    {
-	        super.onDeath(p_70645_1_);
 
-	        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+	    public void onDeath(DamageSource source)
+	    {
+	        super.onDeath(source);
+
+	        if (source.getEntity() instanceof EntityPlayer)
 	        {
-	            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+	            EntityPlayer entityplayer = (EntityPlayer)source.getEntity();
 	            
 	            entityplayer.triggerAchievement(AchievementsNovaCraft.kill_sculk_abomination);
 	            
@@ -161,16 +146,10 @@ public class EntitySculkAbomination extends EntityMob
 	 protected void dropRareDrop(int p_70600_1_)
 	    {
 		 
-		 int rand = (int)(1 + Math.random() * 2);
-		 switch (rand)
-	        {
-	        	case 1:
-	        		this.dropItem(NovaCraftItems.sculk_dweller_heart, 1);
-	        		break;
-	        	case 2:
-	        		break;
-	        		
-	        }
+		 int rare_chance = (int)(1 + Math.random() * 2);
+			if (rare_chance == 1) {
+				this.dropItem(NovaCraftItems.sculk_dweller_heart, 1);
+			}
 		 
 	    }
 	
@@ -178,28 +157,19 @@ public class EntitySculkAbomination extends EntityMob
     {
         return EnumCreatureAttribute.UNDEFINED;
     }
-	
-	/**
-     * Returns the sound this mob makes while it's alive.
-     */
+
 	@Override
     protected String getLivingSound()
     {
         return "nova_craft:sculk_abomination.living";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
 	@Override
     protected String getHurtSound()
     {
         return "nova_craft:warden_altar.shriek";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
 	@Override
     protected String getDeathSound()
     {
@@ -213,7 +183,7 @@ public class EntitySculkAbomination extends EntityMob
 	
 	@Override
     public boolean getCanSpawnHere() {
-        return this.posY <= 44.0D && super.getCanSpawnHere(); //16
+        return this.posY <= 44.0D && super.getCanSpawnHere();
     }
 
 }

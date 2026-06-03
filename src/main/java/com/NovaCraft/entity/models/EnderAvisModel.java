@@ -3,9 +3,7 @@ package com.NovaCraft.entity.models;
 import net.minecraft.util.MathHelper;
 import net.minecraft.entity.EntityLiving;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.EntityEnderAvis;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.model.ModelBase;
@@ -243,31 +241,21 @@ public class EnderAvisModel extends ModelBase
         this.rightWing.rotateAngleY = 1.5707964f - 1.5707964f * (this.ticksFlying / 5.0f);
         this.leftWingBone.rotateAngleY = -1.5707964f + 1.5707964f * (this.ticksFlying / 5.0f);
         this.leftWing.rotateAngleY = -1.5707964f + 1.5707964f * (this.ticksFlying / 5.0f);
-       // if (this.isFlying) {
-            //if (this.ticksFlying >= 5) {
-                this.rightWing.rotateAngleZ = -f2 - 2.7f;
-                this.leftWing.rotateAngleZ = f2 + 2.7f;
-                this.rightWingBone.rotateAngleZ = -f2 - 2.7f;
-                this.leftWingBone.rotateAngleZ = f2 + 2.7f;
-           // }
-            final ModelRenderer rightLeg = this.rightLeg;
-            rightLeg.rotateAngleX *= 0.8f;
-            final ModelRenderer leftLeg = this.leftLeg;
-            leftLeg.rotateAngleX *= 0.8f;
-            final ModelRenderer rightFoot = this.rightFoot;
-            rightFoot.rotateAngleX *= 0.8f;
-            final ModelRenderer leftFoot = this.leftFoot;
-            leftFoot.rotateAngleX *= 0.8f;
-       // }
-       // else {
-          // this.rightWing.rotateAngleZ = 0.0f;
-          //  this.rightWingBone.rotateAngleZ = 0.0f;
-          //  this.leftWing.rotateAngleZ = 0.0f;
-          //  this.leftWingBone.rotateAngleZ = 0.0f;
-            this.rightLeg.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;
-            this.leftLeg.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
-            this.rightFoot.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;
-            this.leftFoot.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
-       // }
+        this.rightWing.rotateAngleZ = -f2 - 2.7f;
+        this.leftWing.rotateAngleZ = f2 + 2.7f;
+        this.rightWingBone.rotateAngleZ = -f2 - 2.7f;
+        this.leftWingBone.rotateAngleZ = f2 + 2.7f;
+        final ModelRenderer rightLeg = this.rightLeg;
+        rightLeg.rotateAngleX *= 0.8f;
+        final ModelRenderer leftLeg = this.leftLeg;
+        leftLeg.rotateAngleX *= 0.8f;
+        final ModelRenderer rightFoot = this.rightFoot;
+        rightFoot.rotateAngleX *= 0.8f;
+        final ModelRenderer leftFoot = this.leftFoot;
+        leftFoot.rotateAngleX *= 0.8f;
+        this.rightLeg.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;
+        this.leftLeg.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
+        this.rightFoot.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;
+        this.leftFoot.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
     }
 }

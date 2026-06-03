@@ -1,16 +1,13 @@
 package com.NovaCraft.Items.Staffs;
 
-import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.Items.Tools.NCToolMaterial;
 import com.NovaCraft.entity.misc.EntityPrimevalHornProjectile;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.EnumHelper;
 
 public class ItemPrimevalHorn extends ItemSword {
 	

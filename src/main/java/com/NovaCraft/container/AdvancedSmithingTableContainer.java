@@ -2,10 +2,8 @@ package com.NovaCraft.container;
 
 import net.minecraft.world.*;
 import net.minecraft.inventory.*;
-
 import com.NovaCraft.crafting.CraftingAdvancedSmithingTable;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 

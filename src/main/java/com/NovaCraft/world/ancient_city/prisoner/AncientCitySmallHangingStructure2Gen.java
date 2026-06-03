@@ -8,7 +8,7 @@ import net.minecraft.world.*;
 import java.util.*;
 
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.EntityWardenVessel;
+import com.NovaCraft.entity.EntityWardling;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;

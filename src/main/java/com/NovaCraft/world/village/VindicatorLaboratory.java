@@ -82,7 +82,7 @@ public class VindicatorLaboratory extends WorldGenerator
 	}
 
 	public boolean generate(World world, Random rand, int i, int j, int k) {
-		//check that each corner is one of the valid spawn blocks
+		//Checks that each corner is one of the valid spawn blocks
 		if(!LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 8, j, k) || !LocationIsValidSpawn(world, i + 8, j, k + 8) || !LocationIsValidSpawn(world, i, j, k + 8) || !AirLocationIsValidSpawn(world, i, j + 7, k) || !AirLocationIsValidSpawn(world, i + 8, j + 7, k) || !AirLocationIsValidSpawn(world, i + 8, j + 7, k + 8) || !AirLocationIsValidSpawn(world, i, j + 7, k + 8))
 		{
 			return false;

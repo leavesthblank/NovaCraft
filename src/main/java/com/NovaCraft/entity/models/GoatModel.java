@@ -3,20 +3,16 @@ package com.NovaCraft.entity.models;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.EntityGoat;
-import com.google.common.collect.ImmutableList;
 
 public class GoatModel extends ModelBase
 {
-    ModelRenderer headModel; //ears and hair
+    ModelRenderer headModel;
     ModelRenderer leftHorn;
     ModelRenderer rightHorn;
-    ModelRenderer nose; //head
+    ModelRenderer nose;
     ModelRenderer body;
     ModelRenderer legBackLeft;
     ModelRenderer legBackRight;
@@ -109,7 +105,7 @@ public class GoatModel extends ModelBase
     public void setRotationAngles(final float f, final float f1, final float f2, final float f3, final float f4, final float f5, final Entity entity) {	
     	
     	final float f6 = 57.295776f;
-        this.headModel.rotateAngleX = f4 * 0.009453292f; //0.017453292
+        this.headModel.rotateAngleX = f4 * 0.009453292f;
         this.headModel.rotateAngleY = f3 * 0.009453292f;
         this.legBackRight.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;
         this.legBackLeft.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;

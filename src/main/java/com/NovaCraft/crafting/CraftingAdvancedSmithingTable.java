@@ -1,7 +1,6 @@
 package com.NovaCraft.crafting;
 
 import net.minecraft.init.*;
-
 import net.minecraft.item.crafting.*;
 import java.util.*;
 import net.minecraft.item.*;

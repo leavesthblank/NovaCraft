@@ -2,7 +2,6 @@ package com.NovaCraft.registry;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.IFuelHandler;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

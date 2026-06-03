@@ -44,15 +44,15 @@ public class WyrmlingModel extends ModelBase {
     private final ModelRenderer left_wing_1;
     private final ModelRenderer left_wing_2;
 
-    public WyrmlingModel() { //+x left -xright //-z forward +z back
+    public WyrmlingModel() {
         textureWidth = 192;
         textureHeight = 192;
 
         (this.body = new ModelRenderer((ModelBase)this, 0, 0)).setRotationPoint(4.75F, -0.25F, 0.0F);
         this.body.addBox(-12.25F, -11.0F, -1.5F, 14, 10, 20, 0.0f);
-        this.setRotationAngle(this.body, -0.30F, 0.0F, 0.0F); //-0.0436F, 0.0F, 0.0F
+        this.setRotationAngle(this.body, -0.30F, 0.0F, 0.0F);
 
-        (this.tail1 = new ModelRenderer((ModelBase)this, 0, 32)).setRotationPoint(2.5F, -4.25F, -12.75F); //2.5F, 0.25F, -11.75F
+        (this.tail1 = new ModelRenderer((ModelBase)this, 0, 32)).setRotationPoint(2.5F, -4.25F, -12.75F);
         this.tail1.addBox(-7.5F, -11.2422F, 30.2229F, 9, 9, 8, 0.0f);
         this.setRotationAngle(this.tail1, -0.3436F, 0.0F, 0.0F);
 
@@ -81,7 +81,7 @@ public class WyrmlingModel extends ModelBase {
         this.setRotationAngle(this.tail6, -0.0436F, 0.0F, 0.0F);
         this.tail5.addChild(this.tail6);
 
-        (this.neck = new ModelRenderer((ModelBase)this, 123, 25)).setRotationPoint(2.0F, -5.0F, -11.0F); //2.0F, -5.0F, -12.0F
+        (this.neck = new ModelRenderer((ModelBase)this, 123, 25)).setRotationPoint(2.0F, -5.0F, -11.0F);
         this.neck.addBox(-6.0F, -7.0F, -1.0F, 7, 7, 12);
         this.setRotationAngle(this.neck, -0.1745F, 0.0F, 0.0F);
 
@@ -189,7 +189,7 @@ public class WyrmlingModel extends ModelBase {
         this.setRotationAngle(this.left_wing_base_1, 0.0F, 0.0F, -0.6545F);
         body.addChild(left_wing_base_1);
 
-        (this.left_wing_base_2 = new ModelRenderer((ModelBase)this, 35, 104)).setRotationPoint(33.75F, 0.35F, 0.0F); //21.75F, 0.35F, 0.0F
+        (this.left_wing_base_2 = new ModelRenderer((ModelBase)this, 35, 104)).setRotationPoint(33.75F, 0.35F, 0.0F);
         this.left_wing_base_2.addBox(-1.0F, -2.0F, -1.0F, 34, 2, 2, 0.0f);
         this.setRotationAngle(this.left_wing_base_2, 0.0F, 0.0F, 0.48F);
         left_wing_base_1.addChild(left_wing_base_2);

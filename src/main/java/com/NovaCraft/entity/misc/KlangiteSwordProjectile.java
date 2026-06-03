@@ -3,9 +3,7 @@ package com.NovaCraft.entity.misc;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import java.util.List;
-
 import com.NovaCraft.Items.Staffs.NovaCraftDamageSource;
-
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.network.Packet;
@@ -40,8 +38,8 @@ public class KlangiteSwordProjectile extends Entity implements IProjectile
     private int ticksInAir;
     private double damage;
     
-    public KlangiteSwordProjectile(final World par1World) {
-        super(par1World);
+    public KlangiteSwordProjectile(final World world) {
+        super(world);
         this.field_145791_d = -1;
         this.field_145792_e = -1;
         this.field_145789_f = -1;
@@ -50,8 +48,8 @@ public class KlangiteSwordProjectile extends Entity implements IProjectile
         this.setSize(0.5f, 0.5f);
     }
     
-    public KlangiteSwordProjectile(final World par1World, final double par2, final double par3, final double par4) {
-        super(par1World);
+    public KlangiteSwordProjectile(final World world, final double par2, final double par3, final double par4) {
+        super(world);
         this.field_145791_d = -1;
         this.field_145792_e = -1;
         this.field_145789_f = -1;
@@ -62,8 +60,8 @@ public class KlangiteSwordProjectile extends Entity implements IProjectile
         this.yOffset = 0.0f;
     }
     
-    public KlangiteSwordProjectile(final World par1World, final EntityLivingBase par2EntityLivingBase) {
-        super(par1World);
+    public KlangiteSwordProjectile(final World world, final EntityLivingBase par2EntityLivingBase) {
+        super(world);
         this.field_145791_d = -1;
         this.field_145792_e = -1;
         this.field_145789_f = -1;
@@ -83,8 +81,8 @@ public class KlangiteSwordProjectile extends Entity implements IProjectile
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.39f, 1.0f);
     }
     
-    public KlangiteSwordProjectile(final World par1World, final EntityLivingBase par2EntityLivingBase, final EntityLivingBase par3EntityLivingBase, final float par4, final float par5) {
-        super(par1World);
+    public KlangiteSwordProjectile(final World world, final EntityLivingBase par2EntityLivingBase, final EntityLivingBase par3EntityLivingBase, final float par4, final float par5) {
+        super(world);
         this.field_145791_d = -1;
         this.field_145792_e = -1;
         this.field_145789_f = -1;
@@ -108,8 +106,8 @@ public class KlangiteSwordProjectile extends Entity implements IProjectile
         }
     }
     
-    public KlangiteSwordProjectile(final World par1World, final EntityLivingBase par2EntityLivingBase, final float par3) {
-        super(par1World);
+    public KlangiteSwordProjectile(final World world, final EntityLivingBase par2EntityLivingBase, final float par3) {
+        super(world);
         this.field_145791_d = -1;
         this.field_145792_e = -1;
         this.field_145789_f = -1;
@@ -334,17 +332,17 @@ public class KlangiteSwordProjectile extends Entity implements IProjectile
         }
     }
     
-    public void readEntityFromNBT(final NBTTagCompound par1NBTTagCompound) {
-        this.field_145791_d = par1NBTTagCompound.getShort("xTile");
-        this.field_145792_e = par1NBTTagCompound.getShort("yTile");
-        this.field_145789_f = par1NBTTagCompound.getShort("zTile");
-        this.ticksInGround = par1NBTTagCompound.getShort("life");
-        this.field_145790_g = Block.getBlockById(par1NBTTagCompound.getByte("inTile") & 0xFF);
-        this.inData = (par1NBTTagCompound.getByte("inData") & 0xFF);
-        this.arrowShake = (par1NBTTagCompound.getByte("shake") & 0xFF);
-        this.inGround = (par1NBTTagCompound.getByte("inGround") == 1);
-        if (par1NBTTagCompound.hasKey("damage", 99)) {
-            this.damage = par1NBTTagCompound.getDouble("damage");
+    public void readEntityFromNBT(final NBTTagCompound compound) {
+        this.field_145791_d = compound.getShort("xTile");
+        this.field_145792_e = compound.getShort("yTile");
+        this.field_145789_f = compound.getShort("zTile");
+        this.ticksInGround = compound.getShort("life");
+        this.field_145790_g = Block.getBlockById(compound.getByte("inTile") & 0xFF);
+        this.inData = (compound.getByte("inData") & 0xFF);
+        this.arrowShake = (compound.getByte("shake") & 0xFF);
+        this.inGround = (compound.getByte("inGround") == 1);
+        if (compound.hasKey("damage", 99)) {
+            this.damage = compound.getDouble("damage");
         }
     }
     
@@ -383,16 +381,16 @@ public class KlangiteSwordProjectile extends Entity implements IProjectile
     }
     
     @SideOnly(Side.CLIENT)
-    public void setVelocity(final double par1, final double par2, final double par3) {
-        this.motionX = par1;
-        this.motionY = par2;
-        this.motionZ = par3;
+    public void setVelocity(final double x, final double y, final double z) {
+        this.motionX = x;
+        this.motionY = y;
+        this.motionZ = z;
         if (this.prevRotationPitch == 0.0f && this.prevRotationYaw == 0.0f) {
-            final float f = MathHelper.sqrt_double(par1 * par1 + par3 * par3);
-            final float n = (float)(Math.atan2(par1, par3) * 180.0 / 3.141592653589793);
+            final float f = MathHelper.sqrt_double(x * x + z * z);
+            final float n = (float)(Math.atan2(x, z) * 180.0 / 3.141592653589793);
             this.rotationYaw = n;
             this.prevRotationYaw = n;
-            final float n2 = (float)(Math.atan2(par2, f) * 180.0 / 3.141592653589793);
+            final float n2 = (float)(Math.atan2(y, f) * 180.0 / 3.141592653589793);
             this.rotationPitch = n2;
             this.prevRotationPitch = n2;
             this.prevRotationPitch = this.rotationPitch;
@@ -402,15 +400,15 @@ public class KlangiteSwordProjectile extends Entity implements IProjectile
         }
     }
     
-    public void writeEntityToNBT(final NBTTagCompound par1NBTTagCompound) {
-        par1NBTTagCompound.setShort("xTile", (short)this.field_145791_d);
-        par1NBTTagCompound.setShort("yTile", (short)this.field_145792_e);
-        par1NBTTagCompound.setShort("zTile", (short)this.field_145789_f);
-        par1NBTTagCompound.setShort("life", (short)this.ticksInGround);
-        par1NBTTagCompound.setByte("inTile", (byte)Block.getIdFromBlock(this.field_145790_g));
-        par1NBTTagCompound.setByte("inData", (byte)this.inData);
-        par1NBTTagCompound.setByte("shake", (byte)this.arrowShake);
-        par1NBTTagCompound.setByte("inGround", (byte)(byte)(this.inGround ? 1 : 0));
-        par1NBTTagCompound.setDouble("damage", this.damage);
+    public void writeEntityToNBT(final NBTTagCompound compound) {
+        compound.setShort("xTile", (short)this.field_145791_d);
+        compound.setShort("yTile", (short)this.field_145792_e);
+        compound.setShort("zTile", (short)this.field_145789_f);
+        compound.setShort("life", (short)this.ticksInGround);
+        compound.setByte("inTile", (byte)Block.getIdFromBlock(this.field_145790_g));
+        compound.setByte("inData", (byte)this.inData);
+        compound.setByte("shake", (byte)this.arrowShake);
+        compound.setByte("inGround", (byte)(byte)(this.inGround ? 1 : 0));
+        compound.setDouble("damage", this.damage);
     }
 }

@@ -1,10 +1,8 @@
 package com.NovaCraft.entity.hardmode;
 
 import com.NovaCraft.achievements.AchievementsNovaCraft;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -14,7 +12,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 
@@ -23,12 +20,11 @@ public class EntityHardmodeSlime extends EntityLiving implements IMob
     public float squishAmount;
     public float squishFactor;
     public float prevSquishFactor;
-    /** ticks until this slime jumps again */
     private int slimeJumpDelay;
 
-    public EntityHardmodeSlime(World p_i1742_1_)
+    public EntityHardmodeSlime(World world)
     {
-        super(p_i1742_1_);
+        super(world);
         int i = 1 << this.rand.nextInt(3);
         this.yOffset = 0.0F;
         this.slimeJumpDelay = this.rand.nextInt(10) + 10;
@@ -41,40 +37,31 @@ public class EntityHardmodeSlime extends EntityLiving implements IMob
         this.dataWatcher.addObject(16, new Byte((byte)1));
     }
 
-    protected void setSlimeSize(int p_70799_1_)
+    protected void setSlimeSize(int size)
     {
-        this.dataWatcher.updateObject(16, new Byte((byte)p_70799_1_));
-        this.setSize(0.6F * (float)p_70799_1_, 0.6F * (float)p_70799_1_);
+        this.dataWatcher.updateObject(16, new Byte((byte)size));
+        this.setSize(0.6F * (float)size, 0.6F * (float)size);
         this.setPosition(this.posX, this.posY, this.posZ);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((double)(p_70799_1_ * p_70799_1_ * 3));
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((double)(size * size * 3));
         this.setHealth(this.getMaxHealth());
-        this.experienceValue = p_70799_1_;
+        this.experienceValue = size;
     }
 
-    /**
-     * Returns the size of the slime.
-     */
     public int getSlimeSize()
     {
         return this.dataWatcher.getWatchableObjectByte(16);
     }
 
-    /**
-     * (abstract) Protected helper method to write subclass entity data to NBT.
-     */
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    public void writeEntityToNBT(NBTTagCompound compound)
     {
-        super.writeEntityToNBT(p_70014_1_);
-        p_70014_1_.setInteger("Size", this.getSlimeSize() - 1);
+        super.writeEntityToNBT(compound);
+        compound.setInteger("Size", this.getSlimeSize() - 1);
     }
 
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(p_70037_1_);
-        int i = p_70037_1_.getInteger("Size");
+        super.readEntityFromNBT(compound);
+        int i = compound.getInteger("Size");
 
         if (i < 0)
         {
@@ -84,25 +71,16 @@ public class EntityHardmodeSlime extends EntityLiving implements IMob
         this.setSlimeSize(i + 1);
     }
 
-    /**
-     * Returns the name of a particle effect that may be randomly created by EntityHardmodeSlime.onUpdate()
-     */
     protected String getSlimeParticle()
     {
         return "slime";
     }
 
-    /**
-     * Returns the name of the sound played when the slime jumps.
-     */
     protected String getJumpSound()
     {
         return "mob.slime." + (this.getSlimeSize() > 1 ? "big" : "small");
     }
 
-    /**
-     * Called to update the entity's position/logic.
-     */
     public void onUpdate()
     {
         if (!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL && this.getSlimeSize() > 0)
@@ -195,9 +173,6 @@ public class EntityHardmodeSlime extends EntityLiving implements IMob
         this.squishAmount *= 0.6F;
     }
 
-    /**
-     * Gets the amount of time the slime needs to wait between jumps.
-     */
     protected int getJumpDelay()
     {
         return this.rand.nextInt(10) + 10;
@@ -208,9 +183,6 @@ public class EntityHardmodeSlime extends EntityLiving implements IMob
         return new EntityHardmodeSlime(this.worldObj);
     }
 
-    /**
-     * Will get destroyed next tick.
-     */
     public void setDead()
     {
         int i = this.getSlimeSize();
@@ -232,66 +204,48 @@ public class EntityHardmodeSlime extends EntityLiving implements IMob
 
         super.setDead();
     }
-    
-    /**
-     * Called when the mob's health reaches 0.
-     */
-    public void onDeath(DamageSource p_70645_1_)
+
+    public void onDeath(DamageSource source)
     {
-        super.onDeath(p_70645_1_);
+        super.onDeath(source);
         
-        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        if (source.getEntity() instanceof EntityPlayer)
         {
-            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            EntityPlayer entityplayer = (EntityPlayer)source.getEntity();
             
             entityplayer.triggerAchievement(AchievementsNovaCraft.a_new_encounter);
             
         }
     }
 
-    /**
-     * Called by a player entity when they collide with an entity
-     */
-    public void onCollideWithPlayer(EntityPlayer p_70100_1_)
+    public void onCollideWithPlayer(EntityPlayer player)
     {
         if (this.canDamagePlayer())
         {
             int i = this.getSlimeSize();
 
-            if (this.canEntityBeSeen(p_70100_1_) && this.getDistanceSqToEntity(p_70100_1_) < 0.6D * (double)i * 0.6D * (double)i && p_70100_1_.attackEntityFrom(DamageSource.causeMobDamage(this), (float)this.getAttackStrength()))
+            if (this.canEntityBeSeen(player) && this.getDistanceSqToEntity(player) < 0.6D * (double)i * 0.6D * (double)i && player.attackEntityFrom(DamageSource.causeMobDamage(this), (float)this.getAttackStrength()))
             {
                 this.playSound("mob.attack", 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
             }
         }
     }
 
-    /**
-     * Indicates weather the slime is able to damage the player (based upon the slime's size)
-     */
     protected boolean canDamagePlayer()
     {
         return this.getSlimeSize() > 1;
     }
 
-    /**
-     * Gets the amount of damage dealt to the player when "attacked" by the slime.
-     */
     protected int getAttackStrength()
     {
         return this.getSlimeSize() * 10;
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
     protected String getHurtSound()
     {
         return "mob.slime." + (this.getSlimeSize() > 1 ? "big" : "small");
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
     protected String getDeathSound()
     {
         return "mob.slime." + (this.getSlimeSize() > 1 ? "big" : "small");
@@ -302,9 +256,6 @@ public class EntityHardmodeSlime extends EntityLiving implements IMob
         return this.getSlimeSize() == 1 ? Items.slime_ball : Item.getItemById(0);
     }
 
-    /**
-     * Checks if the entity's current position is a valid location to spawn this entity.
-     */
     public boolean getCanSpawnHere()
     {
         Chunk chunk = this.worldObj.getChunkFromBlockCoords(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posZ));
@@ -334,34 +285,21 @@ public class EntityHardmodeSlime extends EntityLiving implements IMob
         }
     }
 
-    /**
-     * Returns the volume for the sounds this mob makes.
-     */
     protected float getSoundVolume()
     {
         return 0.4F * (float)this.getSlimeSize();
     }
 
-    /**
-     * The speed it takes to move the entityliving's rotationPitch through the faceEntity method. This is only currently
-     * use in wolves.
-     */
     public int getVerticalFaceSpeed()
     {
         return 0;
     }
 
-    /**
-     * Returns true if the slime makes a sound when it jumps (based upon the slime's size)
-     */
     protected boolean makesSoundOnJump()
     {
         return this.getSlimeSize() > 0;
     }
 
-    /**
-     * Returns true if the slime makes a sound when it lands after a jump (based upon the slime's size)
-     */
     protected boolean makesSoundOnLand()
     {
         return this.getSlimeSize() > 2;

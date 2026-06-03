@@ -1,10 +1,8 @@
 package com.NovaCraftBlocks.decorative;
 
 import java.util.Random;
-
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -26,7 +24,7 @@ public class BlocksNovaCraftSlab extends BlockSlab {
 	}
 
 	@Override
-	public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
+	public Item getItem(World world, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
 		return Item.getItemFromBlock(this.getDroppedSlab());
 	}
 
@@ -81,6 +79,12 @@ public class BlocksNovaCraftSlab extends BlockSlab {
 			return NovaCraftBlocks.basal_brick_slab;
 		} else if (this == NovaCraftBlocks.basal_double_slab) {
 			return NovaCraftBlocks.basal_slab;
+		} else if (this == NovaCraftBlocks.cinnabar_double_slab) {
+			return NovaCraftBlocks.cinnabar_slab;
+		} else if (this == NovaCraftBlocks.stibnite_brick_double_slab) {
+			return NovaCraftBlocks.stibnite_brick_slab;
+		} else if (this == NovaCraftBlocks.cinnabar_brick_double_slab) {
+			return NovaCraftBlocks.cinnabar_brick_slab;
 		}
 		else {
 			return this;

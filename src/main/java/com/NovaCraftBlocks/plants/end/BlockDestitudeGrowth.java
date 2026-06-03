@@ -12,18 +12,13 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
 import java.util.Random;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.EntityDestitumite;
 import com.NovaCraft.entity.EntityDestituteTentacle;
 import com.NovaCraft.entity.EntityRealityDistorter;
-import com.NovaCraft.entity.EntitySculkAbomination;
-import com.NovaCraft.entity.EntitySculkSymbiote;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.sounds.ModSounds;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

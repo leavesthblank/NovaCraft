@@ -1,43 +1,24 @@
 package com.NovaCraft.entity;
 
-import java.util.List;
-
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.illager.EntityVindicator;
 import com.NovaCraft.entity.misc.EnumGiantFrogType;
-import net.minecraft.entity.ai.EntityAITargetNonTamed;
-
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIFollowParent;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMate;
 import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAITargetNonTamed;
-import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySkeleton;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class EntityGiantFrog extends EntityMob {
 
@@ -200,8 +181,8 @@ public class EntityGiantFrog extends EntityMob {
 
     }
 
-    public void onCollideWithPlayer(EntityPlayer p_70100_1_) {
-        if (this.canEntityBeSeen(p_70100_1_) && this.getDistanceSqToEntity(p_70100_1_) < 16D && p_70100_1_.attackEntityFrom(DamageSource.causeMobDamage(this), 2))
+    public void onCollideWithPlayer(EntityPlayer entityPlayer) {
+        if (this.canEntityBeSeen(entityPlayer) && this.getDistanceSqToEntity(entityPlayer) < 16D && entityPlayer.attackEntityFrom(DamageSource.causeMobDamage(this), 2))
         {
             this.playSound("minecraft:mob.attack", 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
         }
@@ -236,9 +217,9 @@ public class EntityGiantFrog extends EntityMob {
         this.playSound("nova_craft:frog.step", 0.25f, 1.0f);
     }
 
-    public boolean isPotionApplicable(PotionEffect p_70687_1_)
+    public boolean isPotionApplicable(PotionEffect effect)
     {
-        return p_70687_1_.getPotionID() == Potion.poison.id ? false : super.isPotionApplicable(p_70687_1_);
+        return effect.getPotionID() != Potion.poison.id && super.isPotionApplicable(effect);
     }
 
     public EnumGiantFrogType getType()
@@ -253,19 +234,19 @@ public class EntityGiantFrog extends EntityMob {
         this.dataWatcher.updateObject(21, (byte) id);
     }
 
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    public void writeEntityToNBT(NBTTagCompound compound)
     {
-        super.writeEntityToNBT(p_70014_1_);
-        p_70014_1_.setInteger("GiantFrogType", this.getType().getId());
+        super.writeEntityToNBT(compound);
+        compound.setInteger("GiantFrogType", this.getType().getId());
     }
 
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(p_70037_1_);
-        this.setType(p_70037_1_.getInteger("GiantFrogType"));
+        super.readEntityFromNBT(compound);
+        this.setType(compound.getInteger("GiantFrogType"));
     }
 
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+    protected void dropFewItems(boolean p_70628_1_, int chance)
     {
             if (this.isBurning())
             {

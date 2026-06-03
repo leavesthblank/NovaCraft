@@ -8,7 +8,6 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.hardmode.EntityHardmodeSkeleton;
 import com.NovaCraft.entity.models.hardmode.HardmodeSkeletonModel;
 
@@ -23,13 +22,9 @@ public class HardmodeSkeletonRenderer extends RenderBiped
         super(new HardmodeSkeletonModel(), 0.5F);
     }
 
-    /**
-     * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
-     * entityLiving, partialTickTime
-     */
-    protected void preRenderCallback(EntityHardmodeSkeleton p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityHardmodeSkeleton entity, float p_77041_2_)
     {
-        if (p_77041_1_.getSkeletonType() == 1)
+        if (entity.getSkeletonType() == 1)
         {
             GL11.glScalef(1.2F, 1.2F, 1.2F);
         }
@@ -40,36 +35,23 @@ public class HardmodeSkeletonRenderer extends RenderBiped
         GL11.glTranslatef(0.09375F, 0.1875F, 0.0F);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
-    protected ResourceLocation getEntityTexture(EntityHardmodeSkeleton p_110775_1_)
+    protected ResourceLocation getEntityTexture(EntityHardmodeSkeleton entity)
     {
-        return p_110775_1_.getSkeletonType() == 1 ? witherSkeletonTextures : skeletonTextures;
+        return entity.getSkeletonType() == 1 ? witherSkeletonTextures : skeletonTextures;
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
-    protected ResourceLocation getEntityTexture(EntityLiving p_110775_1_)
+    protected ResourceLocation getEntityTexture(EntityLiving entity)
     {
-        return this.getEntityTexture((EntityHardmodeSkeleton)p_110775_1_);
+        return this.getEntityTexture((EntityHardmodeSkeleton)entity);
     }
 
-    /**
-     * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
-     * entityLiving, partialTickTime
-     */
-    protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityLivingBase entity, float p_77041_2_)
     {
-        this.preRenderCallback((EntityHardmodeSkeleton)p_77041_1_, p_77041_2_);
+        this.preRenderCallback((EntityHardmodeSkeleton)entity, p_77041_2_);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
-    protected ResourceLocation getEntityTexture(Entity p_110775_1_)
+    protected ResourceLocation getEntityTexture(Entity entity)
     {
-        return this.getEntityTexture((EntityHardmodeSkeleton)p_110775_1_);
+        return this.getEntityTexture((EntityHardmodeSkeleton)entity);
     }
 }

@@ -1,12 +1,10 @@
 package com.NovaCraft.world.ancient_city;
 
 import java.util.Random;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;

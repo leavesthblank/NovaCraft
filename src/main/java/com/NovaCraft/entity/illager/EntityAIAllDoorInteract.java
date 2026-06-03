@@ -16,7 +16,6 @@ public class EntityAIAllDoorInteract extends EntityAIBase
     boolean hasStoppedDoorInteraction;
     float entityPositionX;
     float entityPositionZ;
-    private static final String __OBFID = "CL_00001581";
     
     public EntityAIAllDoorInteract(final EntityLiving p_i1621_1_) {
         this.theEntity = p_i1621_1_;

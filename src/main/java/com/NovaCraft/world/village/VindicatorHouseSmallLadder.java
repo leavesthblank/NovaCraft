@@ -60,15 +60,6 @@ public class VindicatorHouseSmallLadder extends WorldGenerator
 
 	public VindicatorHouseSmallLadder() { }
 	
-	public boolean checkAllLocations(World world, int i, int j, int k){
-		if(!LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 5, j, k) || !LocationIsValidSpawn(world, i + 5, j, k + 4) || !LocationIsValidSpawn(world, i, j, k + 4) || !AirLocationIsValidSpawn(world, i, j + 5, k) || !AirLocationIsValidSpawn(world, i + 5, j + 5, k) || !AirLocationIsValidSpawn(world, i + 5, j + 5, k + 4) || !AirLocationIsValidSpawn(world, i, j + 5, k + 4))
-		{
-			return false;
-		}
-		
-		return true;
-	}
-	
 	public boolean AirLocationIsValidSpawn(World world, int i, int j, int k){
 		Block blockID = world.getBlock(i, j, k);
 		Block blockIDAbove = world.getBlock(i, j+1, k);
@@ -81,7 +72,7 @@ public class VindicatorHouseSmallLadder extends WorldGenerator
 	}
 
 	public boolean generate(World world, Random rand, int i, int j, int k) {
-		//check that each corner is one of the valid spawn blocks
+		//Checks that each corner is one of the valid spawn blocks
 		if(!LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 5, j, k) || !LocationIsValidSpawn(world, i + 5, j, k + 4) || !LocationIsValidSpawn(world, i, j, k + 4) || !AirLocationIsValidSpawn(world, i, j + 5, k) || !AirLocationIsValidSpawn(world, i + 5, j + 5, k) || !AirLocationIsValidSpawn(world, i + 5, j + 5, k + 4) || !AirLocationIsValidSpawn(world, i, j + 5, k + 4))
 		{
 			return false;

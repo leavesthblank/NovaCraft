@@ -1,12 +1,10 @@
 package com.NovaCraft.entity;
 
 import java.util.List;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.misc.EnumGolemType;
 import com.NovaCraft.registry.OtherModItems;
-
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,9 +15,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIDefendVillage;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookAtVillager;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
@@ -31,8 +27,6 @@ import net.minecraft.entity.monster.EntityGolem;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
@@ -49,9 +43,9 @@ public class EntityCrystalGolem extends EntityGolem
     Village villageObj;
     private int attackTimer;
 
-    public EntityCrystalGolem(World p_i1694_1_)
+    public EntityCrystalGolem(World world)
     {
-        super(p_i1694_1_);
+        super(world);
         this.setSize(0.7F, 1.45F);
         this.getNavigator().setAvoidsWater(true);
         this.tasks.addTask(1, new EntityAIAttackOnCollide(this, 1.0D, true));
@@ -121,14 +115,14 @@ public class EntityCrystalGolem extends EntityGolem
         return p_70682_1_;
     }
 
-    protected void collideWithEntity(Entity p_82167_1_)
+    protected void collideWithEntity(Entity entity)
     {
-        if (p_82167_1_ instanceof IMob && this.getRNG().nextInt(20) == 0)
+        if (entity instanceof IMob && this.getRNG().nextInt(20) == 0)
         {
-            this.setAttackTarget((EntityLivingBase)p_82167_1_);
+            this.setAttackTarget((EntityLivingBase)entity);
         }
 
-        super.collideWithEntity(p_82167_1_);
+        super.collideWithEntity(entity);
     }
 
     public void onLivingUpdate()
@@ -235,29 +229,29 @@ public class EntityCrystalGolem extends EntityGolem
         return this.isPlayerCreated() && EntityPlayer.class.isAssignableFrom(p_70686_1_) ? false : super.canAttackClass(p_70686_1_);
     }
 
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    public void writeEntityToNBT(NBTTagCompound compound)
     {
-        super.writeEntityToNBT(p_70014_1_);
-        p_70014_1_.setBoolean("PlayerCreated", this.isPlayerCreated());
-        p_70014_1_.setInteger("GolemType", this.getType().getId());
+        super.writeEntityToNBT(compound);
+        compound.setBoolean("PlayerCreated", this.isPlayerCreated());
+        compound.setInteger("GolemType", this.getType().getId());
     }
 
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(p_70037_1_);
-        this.setPlayerCreated(p_70037_1_.getBoolean("PlayerCreated"));
-        this.setType(p_70037_1_.getInteger("GolemType"));
+        super.readEntityFromNBT(compound);
+        this.setPlayerCreated(compound.getBoolean("PlayerCreated"));
+        this.setType(compound.getInteger("GolemType"));
     }
 
-    public boolean attackEntityAsMob(Entity p_70652_1_)
+    public boolean attackEntityAsMob(Entity entity)
     {
         this.attackTimer = 30;
         this.worldObj.setEntityState(this, (byte)4);
-        boolean flag = p_70652_1_.attackEntityFrom(DamageSource.causeMobDamage(this), (float)(6 + this.rand.nextInt(3)));
+        boolean flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)(6 + this.rand.nextInt(3)));
 
         if (flag)
         {
-            p_70652_1_.motionY += 0.2000000059604645D;
+            entity.motionY += 0.2000000059604645D;
         }
 
         this.playSound("mob.irongolem.throw", 1.0F, 1.0F);
@@ -309,7 +303,7 @@ public class EntityCrystalGolem extends EntityGolem
         this.playSound("mob.irongolem.walk", 0.25F, 0.25F);
     }
 
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {
+    protected void dropFewItems(boolean p_70628_1_, int chance) {
         int k;
         int l;
         if (this.getType() == EnumGolemType.COPARTZ) {
@@ -390,13 +384,13 @@ public class EntityCrystalGolem extends EntityGolem
         }
     }
 
-    public void onDeath(DamageSource p_70645_1_)
+    public void onDeath(DamageSource source)
     {
         if (!this.isPlayerCreated() && this.attackingPlayer != null && this.villageObj != null)
         {
             this.villageObj.setReputationForPlayer(this.attackingPlayer.getCommandSenderName(), -5);
         }
 
-        super.onDeath(p_70645_1_);
+        super.onDeath(source);
     }
 }

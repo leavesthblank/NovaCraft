@@ -43,6 +43,7 @@ item.infused_larimar_shard.name=Infused Larimar Shard
 item.infused_tsavorokite_shard.name=Infused Tsavorokite Shard
 item.infused_yttrlinsite_shard.name=Infused Yttrlinsite Shard
 item.infused_aether_shard.name=Infused Aether Shard
+item.cave_berry.name=Cave Berry
 item.anomalous_essence.name=Anomalous Essence
 item.corrupted_essence.name=Corrupted Essence
 item.reinforced_vanite_ingot.name=Reinforced Vanite Ingot
@@ -147,6 +148,10 @@ item.crimson_star.name=Crimson Star
 item.crimson_dragon_bone.name=Crimson Dragon Bone
 item.crimson_scales.name=Crimson Scales
 item.crimson_eye.name=Crimson Eye
+item.massive_stone_stalagmite.name=Massive Stone Stalagmite
+item.massive_nullstone_stalagmite.name=Massive Nullstone Stalagmite
+item.massive_stone_stalactite.name=Massive Stone Stalactite
+item.massive_nullstone_stalactite.name=Massive Nullstone Stalactite
 
 item.cave_stew.end_stew.name=End Stew
 item.cave_stew.cave_stew.name=Cave Stew
@@ -160,6 +165,8 @@ item.vanite_bucket_water.name=Water Bucket
 item.vanite_bucket_lava.name=Lava Bucket
 item.vanite_bucket_blazlinite.name=Blazlinite Bucket
 item.vanite_bucket_molten_vanite.name=Molten Vanite Bucket
+item.vanite_bucket_mercury.name=Mercury Bucket
+item.bucket_mercury.name=Mercury Bucket
 
 item.potion_speed_extended.potion_speed.name=Extended Potion Of Swiftness
 item.potion_speed_extended.potion_speed_regular.name=Potion Of Swiftness
@@ -435,6 +442,19 @@ tile.deepoid_power_core.name=Deepoid Power Core
 tile.deepoid_furnace.name=Deepoid Furnace
 tile.lit_deepoid_furnace.name=Deepoid Furnace
 tile.deepoid_brewing_stand.name=Deepoid Brewing Stand
+tile.glow_vines.name=Glow Vine
+tile.bloomed_glow_vines.name=Bloomed Glow Vine
+tile.cinnabar_stalagmite.name=Cinnabar Stalagmite
+tile.cinnabar_stalactite.name=Cinnabar Stalactite
+tile.large_cinnabar_stalagmite.name=Large Cinnabar Stalagmite
+tile.large_cinnabar_stalactite.name=Large Cinnabar Stalactite
+tile.cinnabar_brimstone.name=Cinnabar Brimstone Ore
+
+tile.cave_bloom.name=White Cave Bloom
+tile.blue_cave_bloom.name=Blue Cave Bloom
+tile.magenta_cave_bloom.name=Magenta Cave Bloom
+
+tile.infused_iridium_bricks_copartz_infused_iridium_bricks.name=Copartz Infused Iridium Bricks
 
 tile.sculk_sensor.name=Sculk Grass
 tile.grimstone_shrieker.name=Warden Altar
@@ -501,7 +521,7 @@ tile.sculk_brick_bookshelf.name=Sculk Brick Bookshelf
 tile.advanced_enchantment_table.name=Advanced Enchantment Table
 tile.destitude_growth.name=Destitute Growth
 tile.destitude_block.name=Destitute Block
-tile.destitude_bloom.name=Destitude Bloom
+tile.destitude_bloom.name=Destitute Bloom
 tile.destitude_vein.name=Destitute Vein
 tile.living_ender.name=Living Ender
 tile.dark_lotus.name=Dark Lotus
@@ -531,6 +551,28 @@ tile.iridium_bricks.name=Iridium Bricks
 tile.cracked_end_portal_frame.name=Cracked End Portal Frame
 tile.welkin_log.name=Welkin Log
 tile.welkin_planks.name=Welkin Planks
+tile.massive_stone_stalactite_bottom.name=Massive Stone Stalactite
+tile.massive_stone_stalactite_top.name=Massive Stone Stalactite
+tile.massive_stone_stalagmite_bottom.name=Massive Stone Stalagmite
+tile.massive_stone_stalagmite_top.name=Massive Stone Stalagmite
+tile.massive_nullstone_stalactite_top.name=Massive Nullstone Stalactite
+tile.massive_nullstone_stalactite_bottom.name=Massive Nullstone Stalactite
+tile.massive_nullstone_stalagmite_bottom.name=Massive Nullstone Stalagmite
+tile.massive_nullstone_stalagmite_top.name=Massive Nullstone Stalagmite
+tile.grimstone_stalagmite.name=Grimstone Stalagmite
+tile.grimstone_stalactite.name=Grimstone Stalactite
+tile.large_grimstone_stalagmite.name=Large Grimstone Stalagmite
+tile.large_grimstone_stalactite.name=Large Grimstone Stalactite
+tile.cinnabar.name=Cinnabar
+tile.cinnabar_bricks.name=Cinnabar Bricks
+tile.stibnite.name=Stibnite
+tile.stibnite_bricks.name=Stibnite Bricks
+tile.cinnabar_brimstone_ore.name=Cinnabar Brimstone Ore
+tile.cinnabar_pherithium_stalagmite.name=Cinnabar Pherithium Stalagmite
+tile.cinnabar_pherithium_stalactite.name=Cinnabar Pherithium Stalactite
+tile.mercury.name=Mercury
+tile.lava_sponge_lava_sponge.name=Lava Sponge
+tile.lava_sponge_lava_sponge_wet.name=Hot Lava Sponge
 
 tile.iron_pile.name=Iron Pile
 tile.gold_pile.name=Gold Pile
@@ -567,6 +609,7 @@ tile.large_nullstone_stalactite.name=Large Nullstone Stalactite
 tile.icicle.name=Icicle
 tile.glow_torch.name=Glow Torch
 tile.vanite_torch.name=Vanite Torch
+tile.mercury_vanite_cauldron.name=Vanite Cauldron
 
 tile.iridium_furnace.name=Iridium Furnace
 tile.iridium_power_core.name=Iridium Power Core
@@ -619,7 +662,7 @@ tile.arctic_moss_carpet.name=Arctic Moss Carpet
 tile.glow_lichen.name=Glow Lichen
 tile.grim_lichen.name=Grim Lichen
 tile.dark_lichen.name=Dark Lichen
-tile.bright_lichen.name=Bright Lichen
+tile.bright_lichen.name=Cinnabar Lichen
 
 tile.sculk_block.name=Sculk
 tile.inked_sculk_block.name=Inked Sculk
@@ -764,6 +807,9 @@ tile.vanite_brick_stairs.name=Vanite Brick Stairs
 tile.carved_vanite_brick_stairs.name=Carved Vanite Brick Stairs
 tile.basal_stairs.name=Basal Stairs
 tile.basal_brick_stairs.name=Basal Brick Stairs
+tile.cinnabar_stairs.name=Cinnabar Stairs
+tile.stibnite_brick_stairs.name=Stibnite Brick Stairs
+tile.cinnabar_brick_stairs.name=Cinnabar Brick Stairs
 
 #Wall Names
 tile.grimstone_wall.name=Grimstone Wall
@@ -791,6 +837,9 @@ tile.vanite_brick_wall.name=Vanite Brick Wall
 tile.carved_vanite_brick_wall.name=Carved Vanite Brick Wall
 tile.basal_wall.name=Basal Wall
 tile.basal_brick_wall.name=Basal Brick Wall
+tile.cinnabar_wall.name=Cinnabar Wall
+tile.stibnite_brick_wall.name=Stibnite Brick Wall
+tile.cinnabar_brick_wall.name=Cinnabar Brick Wall
 
 #Slab Names
 grimstone_slab.name=Grimstone Slab
@@ -820,6 +869,9 @@ vanite_brick_slab.name=Vanite Brick Slab
 carved_vanite_brick_slab.name=Carved Vanite Brick Slab
 basal_slab.name=Basal Slab
 basal_brick_slab.name=Basal Brick Slab
+cinnabar_slab.name=Cinnabar Slab
+cinnabar_brick_slab.name=Cinnabar Brick Slab
+stibnite_brick_slab.name=Stibnite Brick Slab
 
 
 #Double Slab Names
@@ -850,6 +902,9 @@ tile.vanite_brick_double_slab.name=Vanite Brick Double Slab
 tile.carved_vanite_brick_double_slab.name=Carved Vanite Brick Double Slab
 tile.basal_double_slab.name=Basal Double Slab
 tile.basal_brick_double_slab.name=Basal Brick Double Slab
+tile.cinnabar_double_slab.name=Cinnabar Double Slab
+tile.cinnabar_brick_double_slab.name=Cinnabar Brick Double Slab
+tile.stibnite_brick_double_slab.name=Stibnite Brick Double Slab
 
 #Tabs
 tab.novacraft_tools=Novacraft Tools
@@ -1221,6 +1276,8 @@ achievement.a_new_encounter.desc=Defeat any Hardmode Mob
 achievement.ancient_loot.desc=Unlock an Ancient Chest
 achievement.mach_2.desc=Equip Ancient Leggings
 achievement.miners_meal.desc=Consume Miner's Stew
+
+death.attack.mercury=%1$s was poisoned by mercury
 
 #Entities
 entity.nova_craft.XTNT.name=Xancium TNT

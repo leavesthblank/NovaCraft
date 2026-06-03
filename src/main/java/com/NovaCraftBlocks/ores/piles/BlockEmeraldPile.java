@@ -1,22 +1,15 @@
 package com.NovaCraftBlocks.ores.piles;
 
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
-
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-import com.NovaCraft.registry.OtherModItems;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
@@ -37,14 +30,14 @@ public class BlockEmeraldPile extends Block
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister p_149651_1_)
+    public void registerBlockIcons(IIconRegister iconRegister)
     {
-        this.blockIcon = p_149651_1_.registerIcon("nova_craft:emerald_pile");
+        this.blockIcon = iconRegister.registerIcon("nova_craft:emerald_pile");
     }
 
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int p_149668_2_, int p_149668_3_, int p_149668_4_)
     {
-        int l = p_149668_1_.getBlockMetadata(p_149668_2_, p_149668_3_, p_149668_4_) & 7;
+        int l = world.getBlockMetadata(p_149668_2_, p_149668_3_, p_149668_4_) & 7;
         float f = 0.125F;
         return AxisAlignedBB.getBoundingBox((double)p_149668_2_ + this.minX, (double)p_149668_3_ + this.minY, (double)p_149668_4_ + this.minZ, (double)p_149668_2_ + this.maxX, (float)p_149668_3_ + (float)l * f, (double)p_149668_4_ + this.maxZ);
     }
@@ -76,22 +69,22 @@ public class BlockEmeraldPile extends Block
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, f, 1.0F);
     }
 
-    public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_)
+    public boolean canPlaceBlockAt(World world, int p_149742_2_, int p_149742_3_, int p_149742_4_)
     {
-        Block block = p_149742_1_.getBlock(p_149742_2_, p_149742_3_ - 1, p_149742_4_);
-        return block != Blocks.ice && block != Blocks.packed_ice ? (block.isLeaves(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_) ? true : (block == this && (p_149742_1_.getBlockMetadata(p_149742_2_, p_149742_3_ - 1, p_149742_4_) & 7) == 7 ? true : block.isOpaqueCube())) : false;
+        Block block = world.getBlock(p_149742_2_, p_149742_3_ - 1, p_149742_4_);
+        return block != Blocks.ice && block != Blocks.packed_ice ? (block.isLeaves(world, p_149742_2_, p_149742_3_ - 1, p_149742_4_) ? true : (block == this && (world.getBlockMetadata(p_149742_2_, p_149742_3_ - 1, p_149742_4_) & 7) == 7 ? true : block.isOpaqueCube())) : false;
     }
 
-    public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_)
+    public void onNeighborBlockChange(World world, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block block)
     {
-        this.func_150155_m(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
+        this.func_150155_m(world, p_149695_2_, p_149695_3_, p_149695_4_);
     }
 
-    private boolean func_150155_m(World p_150155_1_, int p_150155_2_, int p_150155_3_, int p_150155_4_)
+    private boolean func_150155_m(World world, int p_150155_2_, int p_150155_3_, int p_150155_4_)
     {
-        if (!this.canPlaceBlockAt(p_150155_1_, p_150155_2_, p_150155_3_, p_150155_4_))
+        if (!this.canPlaceBlockAt(world, p_150155_2_, p_150155_3_, p_150155_4_))
         {
-            p_150155_1_.setBlockToAir(p_150155_2_, p_150155_3_, p_150155_4_);
+            world.setBlockToAir(p_150155_2_, p_150155_3_, p_150155_4_);
             return false;
         }
         else
@@ -100,10 +93,10 @@ public class BlockEmeraldPile extends Block
         }
     }
 
-    public void harvestBlock(World p_149636_1_, EntityPlayer p_149636_2_, int p_149636_3_, int p_149636_4_, int p_149636_5_, int p_149636_6_)
+    public void harvestBlock(World world, EntityPlayer entityPlayer, int p_149636_3_, int p_149636_4_, int p_149636_5_, int p_149636_6_)
     {
-        super.harvestBlock(p_149636_1_, p_149636_2_, p_149636_3_, p_149636_4_, p_149636_5_, p_149636_6_);
-        p_149636_1_.setBlockToAir(p_149636_3_, p_149636_4_, p_149636_5_);
+        super.harvestBlock(world, entityPlayer, p_149636_3_, p_149636_4_, p_149636_5_, p_149636_6_);
+        world.setBlockToAir(p_149636_3_, p_149636_4_, p_149636_5_);
     }
     
     @Override
@@ -111,12 +104,12 @@ public class BlockEmeraldPile extends Block
    		return 1;
    	}
 
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+    public Item getItemDropped(int p_149650_1_, Random random, int p_149650_3_)
     {
     	return NovaCraftItems.diamond_nugget;
     }
 
-    public int quantityDropped(World world, EntityPlayer p_149636_2_, int x, int y, int z, Random random)
+    public int quantityDropped(World world, EntityPlayer entityPlayer, int x, int y, int z, Random random)
     {
     	int meta = world.getBlockMetadata(x, y, z);
     	switch (meta) {

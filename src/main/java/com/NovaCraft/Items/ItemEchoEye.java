@@ -10,7 +10,6 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-
 import java.util.List;
 
 public class ItemEchoEye extends Item {

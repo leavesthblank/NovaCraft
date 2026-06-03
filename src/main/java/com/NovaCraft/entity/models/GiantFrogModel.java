@@ -1,10 +1,7 @@
 package com.NovaCraft.entity.models;
 
-import com.NovaCraft.entity.EntityFrog;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.EntityGiantFrog;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

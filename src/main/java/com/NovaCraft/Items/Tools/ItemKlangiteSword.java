@@ -1,12 +1,10 @@
 package com.NovaCraft.Items.Tools;
 
 import java.util.List;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.entity.misc.KlangiteSwordProjectile;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -14,13 +12,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeHooks;
 
 public class ItemKlangiteSword extends ItemSword
 {

@@ -1,11 +1,8 @@
 package com.NovaCraft.container;
 
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;

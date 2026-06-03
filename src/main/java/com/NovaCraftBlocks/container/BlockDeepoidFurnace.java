@@ -3,12 +3,10 @@ package com.NovaCraftBlocks.container;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
-
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.TileEntity.TileEntityDeepoidFurnace;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -17,7 +15,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
@@ -50,25 +47,25 @@ public class BlockDeepoidFurnace extends BlockContainer
 		this.setResistance(10);
     }
 
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+    public Item getItemDropped(int p_149650_1_, Random random, int p_149650_3_)
     {
         return Item.getItemFromBlock(NovaCraftBlocks.deepoid_furnace);
     }
 
-    public void onBlockAdded(World p_149726_1_, int p_149726_2_, int p_149726_3_, int p_149726_4_)
+    public void onBlockAdded(World world, int p_149726_2_, int p_149726_3_, int p_149726_4_)
     {
-        super.onBlockAdded(p_149726_1_, p_149726_2_, p_149726_3_, p_149726_4_);
-        this.func_149930_e(p_149726_1_, p_149726_2_, p_149726_3_, p_149726_4_);
+        super.onBlockAdded(world, p_149726_2_, p_149726_3_, p_149726_4_);
+        this.func_149930_e(world, p_149726_2_, p_149726_3_, p_149726_4_);
     }
 
-    private void func_149930_e(World p_149930_1_, int p_149930_2_, int p_149930_3_, int p_149930_4_)
+    private void func_149930_e(World world, int p_149930_2_, int p_149930_3_, int p_149930_4_)
     {
-        if (!p_149930_1_.isRemote)
+        if (!world.isRemote)
         {
-            Block block = p_149930_1_.getBlock(p_149930_2_, p_149930_3_, p_149930_4_ - 1);
-            Block block1 = p_149930_1_.getBlock(p_149930_2_, p_149930_3_, p_149930_4_ + 1);
-            Block block2 = p_149930_1_.getBlock(p_149930_2_ - 1, p_149930_3_, p_149930_4_);
-            Block block3 = p_149930_1_.getBlock(p_149930_2_ + 1, p_149930_3_, p_149930_4_);
+            Block block = world.getBlock(p_149930_2_, p_149930_3_, p_149930_4_ - 1);
+            Block block1 = world.getBlock(p_149930_2_, p_149930_3_, p_149930_4_ + 1);
+            Block block2 = world.getBlock(p_149930_2_ - 1, p_149930_3_, p_149930_4_);
+            Block block3 = world.getBlock(p_149930_2_ + 1, p_149930_3_, p_149930_4_);
             byte b0 = 3;
 
             if (block.func_149730_j() && !block1.func_149730_j())
@@ -91,7 +88,7 @@ public class BlockDeepoidFurnace extends BlockContainer
                 b0 = 4;
             }
 
-            p_149930_1_.setBlockMetadataWithNotify(p_149930_2_, p_149930_3_, p_149930_4_, b0, 2);
+            world.setBlockMetadataWithNotify(p_149930_2_, p_149930_3_, p_149930_4_, b0, 2);
         }
     }
     
@@ -101,14 +98,14 @@ public class BlockDeepoidFurnace extends BlockContainer
     }
     
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(final IIconRegister p_149651_1_) {
-        this.blockIcon = p_149651_1_.registerIcon("nova_craft:deepoid_furnace_side");
-        this.iconTop = p_149651_1_.registerIcon("nova_craft:deepoid_furnace_top");
+    public void registerBlockIcons(final IIconRegister iconRegister) {
+        this.blockIcon = iconRegister.registerIcon("nova_craft:deepoid_furnace_side");
+        this.iconTop = iconRegister.registerIcon("nova_craft:deepoid_furnace_top");
         if (this.smelting) {
-        	this.iconFront = p_149651_1_.registerIcon("nova_craft:deepoid_furnace_face_on");
+        	this.iconFront = iconRegister.registerIcon("nova_craft:deepoid_furnace_face_on");
         }
         else {
-        	this.iconFront = p_149651_1_.registerIcon("nova_craft:deepoid_furnace_face_off");
+        	this.iconFront = iconRegister.registerIcon("nova_craft:deepoid_furnace_face_off");
         }
     }
 
@@ -162,71 +159,71 @@ public class BlockDeepoidFurnace extends BlockContainer
         	}
     }
 
-    public static void updateFurnaceBlockState(boolean p_149931_0_, World p_149931_1_, int p_149931_2_, int p_149931_3_, int p_149931_4_)
+    public static void updateFurnaceBlockState(boolean p_149931_0_, World world, int p_149931_2_, int p_149931_3_, int p_149931_4_)
     {
-        int l = p_149931_1_.getBlockMetadata(p_149931_2_, p_149931_3_, p_149931_4_);
-        TileEntity tileentity = p_149931_1_.getTileEntity(p_149931_2_, p_149931_3_, p_149931_4_);
+        int l = world.getBlockMetadata(p_149931_2_, p_149931_3_, p_149931_4_);
+        TileEntity tileentity = world.getTileEntity(p_149931_2_, p_149931_3_, p_149931_4_);
         field_149934_M = true;
 
         if (p_149931_0_)
         {
-            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, NovaCraftBlocks.lit_deepoid_furnace);
+            world.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, NovaCraftBlocks.lit_deepoid_furnace);
         }
         else
         {
-            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, NovaCraftBlocks.deepoid_furnace);
+            world.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, NovaCraftBlocks.deepoid_furnace);
         }
 
         field_149934_M = false;
-        p_149931_1_.setBlockMetadataWithNotify(p_149931_2_, p_149931_3_, p_149931_4_, l, 2);
+        world.setBlockMetadataWithNotify(p_149931_2_, p_149931_3_, p_149931_4_, l, 2);
 
         if (tileentity != null)
         {
             tileentity.validate();
-            p_149931_1_.setTileEntity(p_149931_2_, p_149931_3_, p_149931_4_, tileentity);
+            world.setTileEntity(p_149931_2_, p_149931_3_, p_149931_4_, tileentity);
         }
     }
 
-    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_)
+    public TileEntity createNewTileEntity(World world, int p_149915_2_)
     {
         return new TileEntityDeepoidFurnace();
     }
 
-    public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_)
+    public void onBlockPlacedBy(World world, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase entityLivingBase, ItemStack stack)
     {
-        int l = MathHelper.floor_double((double)(p_149689_5_.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        int l = MathHelper.floor_double((double)(entityLivingBase.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 
         if (l == 0)
         {
-            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 2, 2);
+            world.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 2, 2);
         }
 
         if (l == 1)
         {
-            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 5, 2);
+            world.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 5, 2);
         }
 
         if (l == 2)
         {
-            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 3, 2);
+            world.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 3, 2);
         }
 
         if (l == 3)
         {
-            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 4, 2);
+            world.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 4, 2);
         }
 
-        if (p_149689_6_.hasDisplayName())
+        if (stack.hasDisplayName())
         {
-            ((TileEntityDeepoidFurnace)p_149689_1_.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_)).func_145951_a(p_149689_6_.getDisplayName());
+            ((TileEntityDeepoidFurnace)world.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_)).func_145951_a(stack.getDisplayName());
         }
     }
 
-    public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_)
+    public void breakBlock(World world, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block block, int p_149749_6_)
     {
         if (!field_149934_M)
         {
-        	TileEntityDeepoidFurnace tileentityfurnace = (TileEntityDeepoidFurnace)p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
+        	TileEntityDeepoidFurnace tileentityfurnace = (TileEntityDeepoidFurnace)world.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
 
             if (tileentityfurnace != null)
             {
@@ -250,7 +247,7 @@ public class BlockDeepoidFurnace extends BlockContainer
                             }
 
                             itemstack.stackSize -= j1;
-                            EntityItem entityitem = new EntityItem(p_149749_1_, (double)((float)p_149749_2_ + f), (double)((float)p_149749_3_ + f1), (double)((float)p_149749_4_ + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+                            EntityItem entityitem = new EntityItem(world, (double)((float)p_149749_2_ + f), (double)((float)p_149749_3_ + f1), (double)((float)p_149749_4_ + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
                             if (itemstack.hasTagCompound())
                             {
@@ -261,49 +258,49 @@ public class BlockDeepoidFurnace extends BlockContainer
                             entityitem.motionX = (double)((float)this.rand.nextGaussian() * f3);
                             entityitem.motionY = (double)((float)this.rand.nextGaussian() * f3 + 0.2F);
                             entityitem.motionZ = (double)((float)this.rand.nextGaussian() * f3);
-                            p_149749_1_.spawnEntityInWorld(entityitem);
+                            world.spawnEntityInWorld(entityitem);
                         }
                     }
                 }
 
-                p_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);
+                world.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, block);
             }
         }
 
-        super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);
+        super.breakBlock(world, p_149749_2_, p_149749_3_, p_149749_4_, block, p_149749_6_);
     }
 
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
+    public void randomDisplayTick(World world, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random random)
     {
         if (this.smelting)
         {
-            int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
+            int l = world.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
             float f = (float)p_149734_2_ + 0.5F;
-            float f1 = (float)p_149734_3_ + 0.0F + p_149734_5_.nextFloat() * 6.0F / 16.0F;
+            float f1 = (float)p_149734_3_ + 0.0F + random.nextFloat() * 6.0F / 16.0F;
             float f2 = (float)p_149734_4_ + 0.5F;
             float f3 = 0.52F;
-            float f4 = p_149734_5_.nextFloat() * 0.6F - 0.3F;
+            float f4 = random.nextFloat() * 0.6F - 0.3F;
 
             if (l == 4)
             {
-                p_149734_1_.spawnParticle("smoke", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
-                p_149734_1_.spawnParticle("flame", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+                world.spawnParticle("smoke", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+                world.spawnParticle("flame", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
             }
             else if (l == 5)
             {
-                p_149734_1_.spawnParticle("smoke", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
-                p_149734_1_.spawnParticle("flame", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+                world.spawnParticle("smoke", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+                world.spawnParticle("flame", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
             }
             else if (l == 2)
             {
-                p_149734_1_.spawnParticle("smoke", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
-                p_149734_1_.spawnParticle("flame", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
+                world.spawnParticle("smoke", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
+                world.spawnParticle("flame", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
             }
             else if (l == 3)
             {
-                p_149734_1_.spawnParticle("smoke", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
-                p_149734_1_.spawnParticle("flame", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
+                world.spawnParticle("smoke", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
+                world.spawnParticle("flame", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
             }
         }
     }
@@ -313,13 +310,13 @@ public class BlockDeepoidFurnace extends BlockContainer
         return true;
     }
 
-    public int getComparatorInputOverride(World p_149736_1_, int p_149736_2_, int p_149736_3_, int p_149736_4_, int p_149736_5_)
+    public int getComparatorInputOverride(World world, int p_149736_2_, int p_149736_3_, int p_149736_4_, int p_149736_5_)
     {
-        return Container.calcRedstoneFromInventory((IInventory)p_149736_1_.getTileEntity(p_149736_2_, p_149736_3_, p_149736_4_));
+        return Container.calcRedstoneFromInventory((IInventory)world.getTileEntity(p_149736_2_, p_149736_3_, p_149736_4_));
     }
 
     @SideOnly(Side.CLIENT)
-    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
+    public Item getItem(World world, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {
         return Item.getItemFromBlock(NovaCraftBlocks.deepoid_furnace);
     }

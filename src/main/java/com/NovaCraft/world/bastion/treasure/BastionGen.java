@@ -1,7 +1,7 @@
 package com.NovaCraft.world.bastion.treasure;
 
 import java.util.Random;
-
+import com.NovaCraft.config.ConfigsStructures;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -17,8 +17,7 @@ public class BastionGen implements IWorldGenerator {
 	   }
 	
 	public void generateNether(World world, Random rand, int x, int z) {
-		if(Math.abs(x) < 500 && Math.abs(z) < 500) return;
-		
+		if(Math.abs(x) < ConfigsStructures.InfestedBastionGenerationDistance && Math.abs(z) < ConfigsStructures.InfestedBastionGenerationDistance) return;
 		
 		if (rand.nextInt(500) == 25) {
 		int x1 = x + rand.nextInt(16) + 8;

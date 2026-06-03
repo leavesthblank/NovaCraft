@@ -1,13 +1,6 @@
 package com.NovaCraft.entity;
 
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.AI.EntityAILavaSwimming;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,32 +9,24 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class EntitySeaSerpent extends EntityMob
 {		
-	public EntitySeaSerpent(final World p_i1745_1_) {
-		super(p_i1745_1_);
+	public EntitySeaSerpent(final World world) {
+		super(world);
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
 		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
 		this.tasks.addTask(5, new EntityAISwimming(this));
@@ -141,10 +126,6 @@ public class EntitySeaSerpent extends EntityMob
     
     protected String getDeathSound() {
         return "nova_craft:blazing_serpent.hurt";
-    }
-    
-    protected String getChargeSound() {
-        return null;
     }
     
     @Override

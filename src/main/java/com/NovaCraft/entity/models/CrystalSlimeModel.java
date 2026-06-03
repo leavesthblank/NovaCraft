@@ -13,16 +13,11 @@ public class CrystalSlimeModel extends ModelBase
     ModelRenderer slimeRightEye;
     ModelRenderer slimeLeftEye;
     ModelRenderer slimeMouth;
-
     ModelRenderer crystal;
     ModelRenderer crystal2;
-
     ModelRenderer crystal_side_right;
-
     ModelRenderer crystal_side_right_2;
-
     ModelRenderer crystal_side_left;
-
     ModelRenderer crystal_side_left_2;
 
     public CrystalSlimeModel(int p_i1157_1_)
@@ -40,29 +35,23 @@ public class CrystalSlimeModel extends ModelBase
             this.slimeLeftEye.addBox(1.25F, 18.0F, -3.5F, 2, 2, 2);
             this.slimeMouth = new ModelRenderer(this, 32, 8);
             this.slimeMouth.addBox(0.0F, 21.0F, -3.5F, 1, 1, 1);
-
             this.crystal = new ModelRenderer(this, 32, 22);
-            this.crystal.addBox(-3.0F, 12.0F, 0.5F, 6, 6, 0); //0.0F, 12.0F, -3.5F
+            this.crystal.addBox(-3.0F, 12.0F, 0.5F, 6, 6, 0);
             this.setRotationAngle(this.crystal, 0.0F, 0.45F, 0.0F);
-
             this.crystal2 = new ModelRenderer(this, 32, 22);
-            this.crystal2.addBox(-3.0F, 12.0F, 0.5F, 6, 6, 0); //0.0F, 12.0F, -3.5F
+            this.crystal2.addBox(-3.0F, 12.0F, 0.5F, 6, 6, 0);
             this.setRotationAngle(this.crystal2, 0.0F, -0.45F, 0.0F);
-
             this.crystal_side_right = new ModelRenderer(this, 50, 22);
-            this.crystal_side_right.addBox(-9.0F, 14.0F, 0.0F, 5, 6, 0); //-9.0F, 14.0F, -0.5F
+            this.crystal_side_right.addBox(-9.0F, 14.0F, 0.0F, 5, 6, 0);
             this.setRotationAngle(this.crystal_side_right, 0.0F, 0.45F, 0.0F);
-
             this.crystal_side_right_2 = new ModelRenderer(this, 50, 22);
-            this.crystal_side_right_2.addBox(-9.0F, 14.0F, 0.0F, 5, 6, 0); //-9.0F, 14.0F, -0.5F
+            this.crystal_side_right_2.addBox(-9.0F, 14.0F, 0.0F, 5, 6, 0);
             this.setRotationAngle(this.crystal_side_right_2, 0.0F, -0.45F, 0.0F);
-
             this.crystal_side_left = new ModelRenderer(this, 50, 14);
-            this.crystal_side_left.addBox(4.0F, 14.0F, 0.0F, 5, 6, 0); //-9.0F, 14.0F, -0.5F
+            this.crystal_side_left.addBox(4.0F, 14.0F, 0.0F, 5, 6, 0);
             this.setRotationAngle(this.crystal_side_left, 0.0F, 0.45F, 0.0F);
-
             this.crystal_side_left_2 = new ModelRenderer(this, 50, 14);
-            this.crystal_side_left_2.addBox(4.0F, 14.0F, 0.0F, 5, 6, 0); //-9.0F, 14.0F, -0.5F
+            this.crystal_side_left_2.addBox(4.0F, 14.0F, 0.0F, 5, 6, 0);
             this.setRotationAngle(this.crystal_side_left_2, 0.0F, -0.45F, 0.0F);
         }
     }

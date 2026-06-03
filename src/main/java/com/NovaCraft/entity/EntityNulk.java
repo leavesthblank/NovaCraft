@@ -2,25 +2,18 @@ package com.NovaCraft.entity;
 
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Blocks;
 import net.minecraft.entity.ai.*;
 import net.minecraft.world.*;
 import net.minecraft.util.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 
-public class EntityNulk extends EntityFlying implements IMob
-{
-    public int flapSoundTime;
+public class EntityNulk extends EntityFlying implements IMob {
     public int courseChangeCooldown;
     public double waypointX;
     public double waypointY;
@@ -32,8 +25,8 @@ public class EntityNulk extends EntityFlying implements IMob
     private int field_82222_j;
 	private int[] field_82224_i = new int[2];
     
-    public EntityNulk(final World p_i1731_1_) {
-        super(p_i1731_1_);
+    public EntityNulk(final World world) {
+        super(world);
         this.targetObstructedTicks = 0;
         this.tasks.addTask(0, (EntityAIBase)new EntityAIWatchClosest((EntityLiving)this, (Class)EntityPlayer.class, 8.0f));
         this.tasks.addTask(1, (EntityAIBase)new EntityAILookIdle((EntityLiving)this));

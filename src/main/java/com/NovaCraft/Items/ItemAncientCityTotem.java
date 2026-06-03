@@ -1,22 +1,10 @@
 package com.NovaCraft.Items;
 
 import java.util.List;
-
-import com.NovaCraft.entity.EntitySculkAbomination;
-import com.NovaCraft.entity.EntitySculkDuplicator;
-import com.NovaCraft.entity.EntitySculkDweller;
-import com.NovaCraft.entity.EntitySculkHunger;
-import com.NovaCraft.entity.EntitySculkIncinerator;
-import com.NovaCraft.entity.EntitySculkSymbiote;
-import com.NovaCraft.entity.EntitySculkedMonitor;
-import com.NovaCraft.entity.EntityWarden;
-import com.NovaCraft.entity.EntityWardenVessel;
+import com.NovaCraft.entity.*;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -50,7 +38,7 @@ public class ItemAncientCityTotem extends Item {
     		 for(Entity entity : volume) {
     			 if((entity instanceof EntitySculkSymbiote) || (entity instanceof EntitySculkHunger) || (entity instanceof EntitySculkDweller) 
     				|| (entity instanceof EntitySculkAbomination) || (entity instanceof EntitySculkDuplicator) || (entity instanceof EntitySculkedMonitor)
-    				|| (entity instanceof EntitySculkIncinerator) || (entity instanceof EntityWardenVessel)) {
+    				|| (entity instanceof EntitySculkIncinerator) || (entity instanceof EntityWardling)) {
     				 worldIn.playSoundAtEntity(player, "nova_craft:totem.use", 1, 1);
     				 player.attackEntityFrom(DamageSource.outOfWorld, 10F);
     				 entity.setDead();

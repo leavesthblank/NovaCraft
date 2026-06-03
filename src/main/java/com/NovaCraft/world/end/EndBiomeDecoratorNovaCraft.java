@@ -14,7 +14,7 @@ public class EndBiomeDecoratorNovaCraft extends BiomeEndDecorator {
 		this.spikeGen = new WorldGenSpikes(Blocks.end_stone);
 	}
 
-	protected void genDecorations(BiomeGenBase p_150513_1_)
+	protected void genDecorations(BiomeGenBase base)
 	{
 		this.generateOres();
 

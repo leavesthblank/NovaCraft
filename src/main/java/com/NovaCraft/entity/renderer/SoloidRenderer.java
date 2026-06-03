@@ -21,19 +21,19 @@ public class SoloidRenderer extends RenderLiving
         this.setRenderPassModel((ModelBase)new SoloidModel());
     }
 
-    public void doRender(final Entity par1Entity, final double par2, final double par3, final double par4, final float par5, final float par6) {
-        this.doRender((EntityLiving)par1Entity, par2, par3, par4, par5, par6);
+    public void doRender(final Entity entity, final double par2, final double par3, final double par4, final float par5, final float par6) {
+        this.doRender((EntityLiving)entity, par2, par3, par4, par5, par6);
     }
 
-    public void doRender(final EntityLivingBase par1EntityLivingBase, final double par2, final double par3, final double par4, final float par5, final float par6) {
-        this.doRender((EntityLiving)par1EntityLivingBase, par2, par3, par4, par5, par6);
+    public void doRender(final EntityLivingBase entity, final double par2, final double par3, final double par4, final float par5, final float par6) {
+        this.doRender((EntityLiving)entity, par2, par3, par4, par5, par6);
     }
 
-    protected ResourceLocation getEntityTexture(final Entity par1Entity) {
-        return this.getEntityTexture((EntitySoloid)par1Entity);
+    protected ResourceLocation getEntityTexture(final Entity entity) {
+        return this.getEntityTexture((EntitySoloid)entity);
     }
 
-    protected ResourceLocation getEntityTexture(final EntitySoloid par1EntitySoloid) {
+    protected ResourceLocation getEntityTexture(final EntitySoloid entity) {
         return SoloidRenderer.mobTextures;
     }
 
@@ -42,11 +42,11 @@ public class SoloidRenderer extends RenderLiving
         GL11.glScalef(0.8F, 0.8F, 0.8F);
     }
 
-    protected int shouldRenderPass(final EntityLivingBase par1EntityLivingBase, final int par2, final float par3) {
-        return this.shouldRenderPass((EntitySoloid)par1EntityLivingBase, par2, par3);
+    protected int shouldRenderPass(final EntityLivingBase entity, final int par2, final float par3) {
+        return this.shouldRenderPass((EntitySoloid)entity, par2, par3);
     }
 
-    protected int shouldRenderPass(final EntitySoloid par1EntitySoloid, final int par2, final float par3) {
+    protected int shouldRenderPass(final EntitySoloid entity, final int par2, final float par3) {
         if (par2 != 0) {
             return -1;
         }
@@ -54,7 +54,7 @@ public class SoloidRenderer extends RenderLiving
         GL11.glEnable(3042);
         GL11.glDisable(3008);
         GL11.glBlendFunc(1, 1);
-        if (par1EntitySoloid.isInvisible()) {
+        if (entity.isInvisible()) {
             GL11.glDepthMask(false);
         }
         else {

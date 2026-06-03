@@ -5,34 +5,32 @@ import com.NovaCraft.entity.misc.EntityKlangiteFirechargeProjectile;
 import com.NovaCraft.entity.misc.EntityVaniteFirechargeProjectile;
 import com.NovaCraft.entity.misc.EntityVaniteTrident;
 import com.NovaCraft.entity.misc.KlangiteSwordProjectile;
-
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 
 public class NovaCraftDamageSource {
 	
-	public static DamageSource causeDiamondFirechargeDamage(final EntityDiamondFirechargeProjectile par1, final Entity par2) {
-        return new EntityDamageSourceIndirect("EntityDiamondFirecharge", (Entity)par1, par2).setProjectile();
+	public static DamageSource causeDiamondFirechargeDamage(final EntityDiamondFirechargeProjectile projectile, final Entity entity) {
+        return new EntityDamageSourceIndirect("EntityDiamondFirecharge", (Entity)projectile, entity).setProjectile();
     }
 	
-	public static DamageSource causeVaniteFirechargeDamage(final EntityVaniteFirechargeProjectile par1, final Entity par2) {
-        return new EntityDamageSourceIndirect("EntityVaniteFirecharge", (Entity)par1, par2).setProjectile();
+	public static DamageSource causeVaniteFirechargeDamage(final EntityVaniteFirechargeProjectile projectile, final Entity entity) {
+        return new EntityDamageSourceIndirect("EntityVaniteFirecharge", (Entity)projectile, entity).setProjectile();
     }
 	
-	public static DamageSource causeKlangiteFirechargeDamage(final EntityKlangiteFirechargeProjectile par1, final Entity par2) {
-        return new EntityDamageSourceIndirect("EntityKlangiteFirecharge", (Entity)par1, par2).setProjectile();
+	public static DamageSource causeKlangiteFirechargeDamage(final EntityKlangiteFirechargeProjectile projectile, final Entity entity) {
+        return new EntityDamageSourceIndirect("EntityKlangiteFirecharge", (Entity)projectile, entity).setProjectile();
     }
 	
-	public static DamageSource causeVaniteTridentDamage(EntityVaniteTrident p_76353_0_, Entity p_76353_1_)
+	public static DamageSource causeVaniteTridentDamage(EntityVaniteTrident entityVaniteTrident, Entity entity)
     {
-        return (new EntityDamageSourceIndirect("EntityVaniteTrident", p_76353_0_, p_76353_1_)).setProjectile();
+        return (new EntityDamageSourceIndirect("EntityVaniteTrident", entityVaniteTrident, entity)).setProjectile();
     }
 	
-	public static DamageSource causeKlangiteSwordDamage(KlangiteSwordProjectile p_76353_0_, Entity p_76353_1_)
+	public static DamageSource causeKlangiteSwordDamage(KlangiteSwordProjectile projectile, Entity entity)
     {
-        return (new EntityDamageSourceIndirect("EntityKlangiteSwordProjectile", p_76353_0_, p_76353_1_)).setProjectile();
+        return (new EntityDamageSourceIndirect("EntityKlangiteSwordProjectile", projectile, entity)).setProjectile();
     }
 
 }

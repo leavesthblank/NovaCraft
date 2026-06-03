@@ -7,7 +7,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.TileEntity.TileEntityDeepoidFurnace;
 import com.NovaCraft.container.DeepoidFurnaceContainer;
 
@@ -17,10 +16,10 @@ public class GuiDeepoidFurnace extends GuiContainer
     private static final ResourceLocation furnaceGuiTextures = new ResourceLocation("nova_craft","textures/gui/deepoid_furnace_gui.png");
     private TileEntityDeepoidFurnace tileFurnace;
 
-    public GuiDeepoidFurnace(InventoryPlayer p_i1091_1_, TileEntityDeepoidFurnace p_i1091_2_)
+    public GuiDeepoidFurnace(InventoryPlayer inventoryPlayer, TileEntityDeepoidFurnace tileFurnace)
     {
-        super(new DeepoidFurnaceContainer(p_i1091_1_, p_i1091_2_));
-        this.tileFurnace = p_i1091_2_;
+        super(new DeepoidFurnaceContainer(inventoryPlayer, tileFurnace));
+        this.tileFurnace = tileFurnace;
     }
 
     protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_)

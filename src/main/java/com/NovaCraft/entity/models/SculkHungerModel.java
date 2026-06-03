@@ -5,7 +5,6 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
-
 public class SculkHungerModel extends ModelBase
 {
 	ModelRenderer body;
@@ -13,7 +12,6 @@ public class SculkHungerModel extends ModelBase
 	public ModelRenderer right_arm;
 	ModelRenderer left_leg;
 	ModelRenderer right_leg;
-	
 	ModelRenderer tentacle1;
 	ModelRenderer tentacle2;
 	ModelRenderer tentacle3;
@@ -240,8 +238,6 @@ public class SculkHungerModel extends ModelBase
             this.left_arm.rotateAngleY += this.body.rotateAngleY;
             this.left_arm.rotateAngleX += this.body.rotateAngleY;
         }
-
-        
             this.body.rotateAngleX = 0.0F;            
             this.tentacle1.rotationPointY = 0.0F;
             this.tentacle2.rotationPointY = 0.0F;

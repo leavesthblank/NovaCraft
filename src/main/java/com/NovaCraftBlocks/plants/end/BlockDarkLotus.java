@@ -2,10 +2,8 @@ package com.NovaCraftBlocks.plants.end;
 
 import java.util.ArrayList;
 import java.util.Random;
-
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;

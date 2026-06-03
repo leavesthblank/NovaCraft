@@ -1,6 +1,7 @@
 package com.NovaCraft.world.ancient_city;
 
 import com.NovaCraft.config.ConfigsCompact;
+import com.NovaCraft.entity.EntityWardling;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.gen.feature.*;
@@ -9,14 +10,10 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.entity.EntityWardenVessel;
-import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
 import net.minecraft.item.ItemStack;
@@ -29,12 +26,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 	public AncientCityCenterPortalGen6() {
 
 	}
-	
-	//0 -> deepslate bricks
-	//1 -> cracked deepslate bricks
-	//2 -> deepslate tiles
-	//3 -> cracked deepslate bricks
-	//4 -> chiseled deepslate bricks
 	private Block PlaceDeepslate;
 	private Block PlaceDeepslateBricks;
 	private Block PlaceDeepslateTiles;
@@ -2904,8 +2895,8 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 				chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBasicLoot(random));
 			}
 		}
-		
-		EntityWardenVessel warden = new EntityWardenVessel(world);
+
+		EntityWardling warden = new EntityWardling(world);
 		warden.setPosition(i + 16, j + 4, k + 40);
 
 		if (!world.isRemote) {

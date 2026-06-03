@@ -3,20 +3,13 @@ package com.NovaCraft.entity;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import com.NovaCraft.config.ConfigsEntities;
 import com.NovaCraft.entity.CrimsonDragon.EntityCrimsonDragon;
 import com.NovaCraft.entity.misc.*;
-import net.minecraft.client.renderer.entity.RenderSnowball;
-import net.minecraft.entity.item.EntityEnderEye;
-import net.minecraft.init.Items;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.NovaCraft.Hardmode;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.ItemNovaCraftSpawnEgg;
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
 import com.NovaCraft.entity.hardmode.EntityHardmodeCreeper;
 import com.NovaCraft.entity.hardmode.EntityHardmodeGhast;
@@ -28,7 +21,6 @@ import com.NovaCraft.entity.hardmode.EntityHardmodeZombie;
 import com.NovaCraft.entity.illager.EntityIllagerChief;
 import com.NovaCraft.entity.illager.EntityIllagerTrader;
 import com.NovaCraft.entity.illager.EntityVindicator;
-
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -131,7 +123,7 @@ public class EntitiesNovaCraft {
 		register(EntityDestitumite.class, "destitumite", 52, 0x080909, 0x1b1b1b);
 		register(EntityDestituteTentacle.class, "destitumite_tentacle", 53, 0x080909, 0x1b2b1c);
 		register(EntitySculkIncinerator.class, "sculk_incinerator", 55, 0x4ea19f, 0x2a4f59);
-		register(EntityWardenVessel.class, "warden_vessel", 61, 0x022e31, 0x226e95);
+		register(EntityWardling.class, "warden_vessel", 61, 0x022e31, 0x226e95);
 		register(EntityNitro.class, "nitro", 62, 0x890009, 0xcb868b);
 		register(EntityNulk.class, "nulk", 63, 0x19141a, 0x564d61);
 		register(EntityNuxx.class, "nuxx", 64, 0x07051f, 0x3d3347);

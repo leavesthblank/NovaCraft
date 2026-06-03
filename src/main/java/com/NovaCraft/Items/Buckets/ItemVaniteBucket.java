@@ -2,21 +2,16 @@ package com.NovaCraft.Items.Buckets;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-import net.minecraft.world.chunk.Chunk;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
@@ -25,48 +20,48 @@ public class ItemVaniteBucket extends Item
 {
     private Block isFull;
 
-    public ItemVaniteBucket(Block p_i45331_1_)
+    public ItemVaniteBucket(Block block)
     {
         this.maxStackSize = 1;
-        this.isFull = p_i45331_1_;
+        this.isFull = block;
         this.setCreativeTab(NovaCraftCreativeTabs.items);
     }
 
-    public ItemStack onItemRightClick(ItemStack p_77659_1_, World p_77659_2_, EntityPlayer p_77659_3_)
+    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer)
     {
         boolean flag = this.isFull == Blocks.air;
-        MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(p_77659_2_, p_77659_3_, flag);
+        MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, entityPlayer, flag);
 
         if (movingobjectposition == null)
         {
-            return p_77659_1_;
+            return itemStack;
         }
         else
         {
-            FillBucketEvent event = new FillBucketEvent(p_77659_3_, p_77659_1_, p_77659_2_, movingobjectposition);
+            FillBucketEvent event = new FillBucketEvent(entityPlayer, itemStack, world, movingobjectposition);
             if (MinecraftForge.EVENT_BUS.post(event))
             {
-                return p_77659_1_;
+                return itemStack;
             }
 
             if (event.getResult() == Event.Result.ALLOW)
             {
-                if (p_77659_3_.capabilities.isCreativeMode)
+                if (entityPlayer.capabilities.isCreativeMode)
                 {
-                    return p_77659_1_;
+                    return itemStack;
                 }
 
-                if (--p_77659_1_.stackSize <= 0)
+                if (--itemStack.stackSize <= 0)
                 {
                     return event.result;
                 }
 
-                if (!p_77659_3_.inventory.addItemStackToInventory(event.result))
+                if (!entityPlayer.inventory.addItemStackToInventory(event.result))
                 {
-                    p_77659_3_.dropPlayerItemWithRandomChoice(event.result, false);
+                    entityPlayer.dropPlayerItemWithRandomChoice(event.result, false);
                 }
 
-                return p_77659_1_;
+                return itemStack;
             }
             if (movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK)
             {
@@ -74,44 +69,50 @@ public class ItemVaniteBucket extends Item
                 int j = movingobjectposition.blockY;
                 int k = movingobjectposition.blockZ;
 
-                if (!p_77659_2_.canMineBlock(p_77659_3_, i, j, k))
+                if (!world.canMineBlock(entityPlayer, i, j, k))
                 {
-                    return p_77659_1_;
+                    return itemStack;
                 }
 
                 if (flag)
                 {
-                    if (!p_77659_3_.canPlayerEdit(i, j, k, movingobjectposition.sideHit, p_77659_1_))
+                    if (!entityPlayer.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStack))
                     {
-                        return p_77659_1_;
+                        return itemStack;
                     }
 
-                    Block block = p_77659_2_.getBlock(i, j, k);
-                    int l = p_77659_2_.getBlockMetadata(i, j, k);
+                    Block block = world.getBlock(i, j, k);
+                    int l = world.getBlockMetadata(i, j, k);
                     	if (block == Blocks.water && l == 0)
                     	{
-                    		p_77659_2_.setBlockToAir(i, j, k);
-                    		return this.fillBucket(p_77659_1_, p_77659_3_, NovaCraftItems.vanite_bucket_water);
+                    		world.setBlockToAir(i, j, k);
+                    		return this.fillBucket(itemStack, entityPlayer, NovaCraftItems.vanite_bucket_water);
                     	}
 
                     	else if (block == Blocks.lava && l == 0) 
                         {
-                    		p_77659_2_.setBlockToAir(i, j, k);
-                            return this.fillBucket(p_77659_1_, p_77659_3_, NovaCraftItems.vanite_bucket_lava);
+                    		world.setBlockToAir(i, j, k);
+                            return this.fillBucket(itemStack, entityPlayer, NovaCraftItems.vanite_bucket_lava);
+                        }
+
+                        else if (block == NovaCraftBlocks.mercury && l == 0)
+                        {
+                            world.setBlockToAir(i, j, k);
+                            return this.fillBucket(itemStack, entityPlayer, NovaCraftItems.vanite_bucket_mercury);
                         }
                     	
-                    	else if (block == NovaCraftBlocks.blazlinite && l == 0 && p_77659_2_.getBlock(i,j - 1,k) != NovaCraftBlocks.iridium_bricks)
+                    	else if (block == NovaCraftBlocks.blazlinite && l == 0 && world.getBlock(i,j - 1,k) != NovaCraftBlocks.iridium_bricks)
                         {
-                    		p_77659_2_.setBlockToAir(i, j, k);
-                    		p_77659_3_.triggerAchievement(AchievementsNovaCraft.extreme_heat);
-                            return this.fillBucket(p_77659_1_, p_77659_3_, NovaCraftItems.vanite_bucket_blazlinite);
+                    		world.setBlockToAir(i, j, k);
+                    		entityPlayer.triggerAchievement(AchievementsNovaCraft.extreme_heat);
+                            return this.fillBucket(itemStack, entityPlayer, NovaCraftItems.vanite_bucket_blazlinite);
                         }
                     	
                     	else if (block == NovaCraftBlocks.molten_vanite && l == 0) 
                         {
-                    		p_77659_2_.setBlockToAir(i, j, k);
-                    		p_77659_3_.triggerAchievement(AchievementsNovaCraft.molten_vanite);
-                            return this.fillBucket(p_77659_1_, p_77659_3_, NovaCraftItems.vanite_bucket_molten_vanite);
+                    		world.setBlockToAir(i, j, k);
+                    		entityPlayer.triggerAchievement(AchievementsNovaCraft.molten_vanite);
+                            return this.fillBucket(itemStack, entityPlayer, NovaCraftItems.vanite_bucket_molten_vanite);
                         }
                 }
                 else
@@ -151,19 +152,19 @@ public class ItemVaniteBucket extends Item
                         ++i;
                     }
 
-                    if (!p_77659_3_.canPlayerEdit(i, j, k, movingobjectposition.sideHit, p_77659_1_))
+                    if (!entityPlayer.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStack))
                     {
-                        return p_77659_1_;
+                        return itemStack;
                     }
 
-                    if (this.tryPlaceContainedLiquid(p_77659_2_, i, j, k) && !p_77659_3_.capabilities.isCreativeMode)
+                    if (this.tryPlaceContainedLiquid(world, i, j, k) && !entityPlayer.capabilities.isCreativeMode)
                     {
                         return new ItemStack(NovaCraftItems.vanite_bucket);
                     }
                 }
             }
 
-            return p_77659_1_;
+            return itemStack;
         }
     }
 
@@ -231,7 +232,7 @@ public class ItemVaniteBucket extends Item
                     }
 
                     p_77875_1_.setBlock(p_77875_2_, p_77875_3_, p_77875_4_, this.isFull, 0, 3);
-                }                             
+                }
 
                 return true;
             }

@@ -3,8 +3,6 @@ package com.NovaCraft.TileEntity;
 import net.minecraft.tileentity.*;
 import cpw.mods.fml.relauncher.*;
 import net.minecraft.item.*;
-
-import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.google.common.collect.*;
 import net.minecraft.util.*;
 import net.minecraft.entity.player.*;
@@ -15,7 +13,6 @@ import net.minecraft.block.*;
 import net.minecraft.network.*;
 import net.minecraft.nbt.*;
 import net.minecraft.network.play.server.*;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.*;
 import java.util.*;

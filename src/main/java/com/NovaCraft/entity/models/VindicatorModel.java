@@ -1,7 +1,6 @@
 package com.NovaCraft.entity.models;
 
 import com.NovaCraft.entity.illager.EntityVindicator;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBiped;

@@ -1,8 +1,5 @@
 package com.NovaCraft.entity;
 
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
@@ -17,17 +14,15 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityDrifter extends EntityMob
-{
-    /** Random offset used in floating behaviour */
+public class EntityDrifter extends EntityMob {
+
     private float heightOffset = 0.5F;
-    /** ticks until heightOffset is randomized */
     private int heightOffsetUpdateTime;
     private int field_70846_g;
 
-    public EntityDrifter(World p_i1731_1_)
+    public EntityDrifter(World world)
     {
-        super(p_i1731_1_);
+        super(world);
         this.isImmuneToFire = true;
         this.experienceValue = 5;
     }
@@ -44,25 +39,16 @@ public class EntityDrifter extends EntityMob
         this.dataWatcher.addObject(16, new Byte((byte)0));
     }
 
-    /**
-     * Returns the sound this mob makes while it's alive.
-     */
     protected String getLivingSound()
     {
         return "mob.blaze.breathe";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
     protected String getHurtSound()
     {
         return "mob.blaze.hit";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
     protected String getDeathSound()
     {
         return "mob.blaze.death";
@@ -74,18 +60,11 @@ public class EntityDrifter extends EntityMob
         return 15728880;
     }
 
-    /**
-     * Gets how bright this entity is.
-     */
     public float getBrightness(float p_70013_1_)
     {
         return 1.0F;
     }
 
-    /**
-     * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
-     * use this to react to sunlight and start to burn.
-     */
     public void onLivingUpdate()
     {
         if (!this.worldObj.isRemote)
@@ -127,21 +106,18 @@ public class EntityDrifter extends EntityMob
         super.onLivingUpdate();
     }
 
-    /**
-     * Basic mob attack. Default to touch of death in EntityCreature. Overridden by each mob to define their attack.
-     */
-    protected void attackEntity(Entity p_70785_1_, float p_70785_2_)
+    protected void attackEntity(Entity entity, float p_70785_2_)
     {
-        if (this.attackTime <= 0 && p_70785_2_ < 2.0F && p_70785_1_.boundingBox.maxY > this.boundingBox.minY && p_70785_1_.boundingBox.minY < this.boundingBox.maxY)
+        if (this.attackTime <= 0 && p_70785_2_ < 2.0F && entity.boundingBox.maxY > this.boundingBox.minY && entity.boundingBox.minY < this.boundingBox.maxY)
         {
             this.attackTime = 30;
-            this.attackEntityAsMob(p_70785_1_);
+            this.attackEntityAsMob(entity);
         }
         else if (p_70785_2_ < 30.0F)
         {
-            double d0 = p_70785_1_.posX - this.posX;
-            double d1 = p_70785_1_.boundingBox.minY + (double)(p_70785_1_.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
-            double d2 = p_70785_1_.posZ - this.posZ;
+            double d0 = entity.posX - this.posX;
+            double d1 = entity.boundingBox.minY + (double)(entity.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
+            double d2 = entity.posZ - this.posZ;
 
             if (this.attackTime == 0)
             {
@@ -182,9 +158,6 @@ public class EntityDrifter extends EntityMob
         }
     }
 
-    /**
-     * Called when the mob is falling. Calculates and applies fall damage.
-     */
     protected void fall(float p_70069_1_) {}
 
     protected Item getDropItem()
@@ -192,24 +165,17 @@ public class EntityDrifter extends EntityMob
         return Items.flint;
     }
 
-    /**
-     * Returns true if the entity is on fire. Used by render to add the fire effect on rendering.
-     */
     public boolean isBurning()
     {
         return this.func_70845_n();
     }
 
-    /**
-     * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
-     * par2 - Level of Looting used to kill this mob.
-     */
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+    protected void dropFewItems(boolean p_70628_1_, int chance)
     {
         int j;
         int k;
         {
-            j = this.rand.nextInt(3 + p_70628_2_);
+            j = this.rand.nextInt(3 + chance);
 
             for (k = 0; k < j; ++k)
             {
@@ -217,7 +183,7 @@ public class EntityDrifter extends EntityMob
             }
         }
 
-        j = this.rand.nextInt(1 + p_70628_2_);
+        j = this.rand.nextInt(1 + chance);
 
         for (k = 0; k < j; ++k)
         {
@@ -246,9 +212,6 @@ public class EntityDrifter extends EntityMob
         this.dataWatcher.updateObject(16, Byte.valueOf(b0));
     }
 
-    /**
-     * Checks to make sure the light is not too bright where the mob is spawning
-     */
     protected boolean isValidLightLevel()
     {
         return true;

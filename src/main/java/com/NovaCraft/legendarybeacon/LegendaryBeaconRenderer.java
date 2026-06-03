@@ -1,17 +1,13 @@
 package com.NovaCraft.legendarybeacon;
 
 import net.minecraft.tileentity.TileEntity;
-
-import java.util.Iterator;
 import net.minecraft.util.MathHelper;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.World;
 import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.TileEntity.TileEntityLegendaryBeacon;
-
 import java.util.List;
 import net.minecraft.client.model.ModelEnderCrystal;
 import net.minecraft.client.model.ModelBase;
@@ -30,9 +26,9 @@ public class LegendaryBeaconRenderer extends TileEntitySpecialRenderer
         this.rotation = (int)(Math.random() * 100000.0);
     }
     
-    public void renderTileEntityAt(TileEntityLegendaryBeacon p_147500_1_, double p_147500_2_, double p_147500_4_, double p_147500_6_, float p_147500_8_, final long time)
+    public void renderTileEntityAt(TileEntityLegendaryBeacon tileEntityLegendaryBeacon, double p_147500_2_, double p_147500_4_, double p_147500_6_, float p_147500_8_, final long time)
     {
-        float f1 = p_147500_1_.func_146002_i();
+        float f1 = tileEntityLegendaryBeacon.func_146002_i();
         GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
 
         if (f1 > 0.0F)
@@ -46,7 +42,7 @@ public class LegendaryBeaconRenderer extends TileEntitySpecialRenderer
             GL11.glDisable(GL11.GL_BLEND);
             GL11.glDepthMask(true);
             OpenGlHelper.glBlendFunc(770, 1, 1, 0);
-            float f2 = (float)p_147500_1_.getWorldObj().getTotalWorldTime() + p_147500_8_;
+            float f2 = (float)tileEntityLegendaryBeacon.getWorldObj().getTotalWorldTime() + p_147500_8_;
             float f3 = -f2 * 0.2F - (float)MathHelper.floor_float(-f2 * 0.1F);
             byte b0 = 1;
             double d3 = (double)f2 * 0.025D * (1.0D - (double)(b0 & 1) * 2.5D);

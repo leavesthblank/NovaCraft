@@ -8,7 +8,6 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
 import java.util.Random;
 
 public class MansionBasementStairsFloor1Gen extends WorldGenerator

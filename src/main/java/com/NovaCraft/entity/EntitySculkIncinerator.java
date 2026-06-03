@@ -5,25 +5,14 @@ import net.minecraft.entity.player.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.world.*;
 import net.minecraft.util.*;
-
-import java.util.Random;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.misc.EntitySculkLaser;
-import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
-import net.minecraft.nbt.NBTTagCompound;
 
-public class EntitySculkIncinerator extends EntityFlying implements IMob
-{
-    public int flapSoundTime;
+public class EntitySculkIncinerator extends EntityFlying implements IMob {
     public int courseChangeCooldown;
     public int courseChangeCooldown2;
     private int field_82222_j;
@@ -35,13 +24,12 @@ public class EntitySculkIncinerator extends EntityFlying implements IMob
     private int targetObstructedTicks;
     public float animTime;
     public float prevAnimTime;
-    private int aggroCooldown;
     public int prevAttackCounter;
     public int attackCounter;
     private final float base;
     
-    public EntitySculkIncinerator(final World p_i1731_1_) {
-        super(p_i1731_1_);
+    public EntitySculkIncinerator(final World world) {
+        super(world);
         this.targetObstructedTicks = 0;
         this.tasks.addTask(0, (EntityAIBase)new EntityAIWatchClosest((EntityLiving)this, (Class)EntityPlayer.class, 30.0f));
         this.tasks.addTask(1, (EntityAIBase)new EntityAILookIdle((EntityLiving)this));
@@ -187,7 +175,7 @@ public class EntitySculkIncinerator extends EntityFlying implements IMob
         
         //new
 
-        double d4 = 256.0D; //128
+        double d4 = 256.0D;
         this.prevAttackCounter = this.attackCounter;
 
 		if (this.getAttackTarget() == null) {
@@ -428,10 +416,7 @@ public class EntitySculkIncinerator extends EntityFlying implements IMob
     {
         return 2.0F;
     }
-    
-    /**
-     * Called when the mob's health reaches 0.
-     */
+
     public void onDeath(DamageSource p_70645_1_)
     {
         super.onDeath(p_70645_1_);
@@ -445,12 +430,12 @@ public class EntitySculkIncinerator extends EntityFlying implements IMob
         }
     }
     
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+    protected void dropFewItems(boolean p_70628_1_, int chance)
     {
         int j;
         int k;
         {
-            j = this.rand.nextInt(1 + p_70628_2_);
+            j = this.rand.nextInt(1 + chance);
 
             for (k = 0; k < j; ++k)
             {
@@ -458,7 +443,7 @@ public class EntitySculkIncinerator extends EntityFlying implements IMob
             }
         }
 
-        j = this.rand.nextInt(1 + p_70628_2_);
+        j = this.rand.nextInt(1 + chance);
 
         for (k = 0; k < j; ++k)
         {

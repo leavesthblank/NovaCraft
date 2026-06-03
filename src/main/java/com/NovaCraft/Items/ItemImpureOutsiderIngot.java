@@ -1,18 +1,10 @@
 package com.NovaCraft.Items;
 
 import java.util.List;
-import java.util.Random;
-
-import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;

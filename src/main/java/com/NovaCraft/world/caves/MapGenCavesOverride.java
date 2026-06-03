@@ -10,7 +10,7 @@ public class MapGenCavesOverride extends MapGenCaves {
         //Restores Cave Rarity logic of release 1.6.4
         int i1 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(40) + 1) + 1);
 
-        if (this.rand.nextInt(7) != 0) {
+        if (this.rand.nextInt(5) != 0) {
             i1 = 0;
         }
 

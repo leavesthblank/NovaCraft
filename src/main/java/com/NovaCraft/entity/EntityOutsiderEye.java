@@ -5,20 +5,16 @@ import net.minecraft.entity.player.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.world.*;
 import net.minecraft.util.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.particles.ParticleHandler;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 
-public class EntityOutsiderEye extends EntityFlying implements IMob
-{
-    public int flapSoundTime;
+public class EntityOutsiderEye extends EntityFlying implements IMob {
     public int courseChangeCooldown;
     public double waypointX;
     public double waypointY;
@@ -28,8 +24,8 @@ public class EntityOutsiderEye extends EntityFlying implements IMob
     public float animTime;
     public float prevAnimTime;
     
-    public EntityOutsiderEye(final World p_i1731_1_) {
-        super(p_i1731_1_);
+    public EntityOutsiderEye(final World world) {
+        super(world);
         this.targetObstructedTicks = 0;
         this.tasks.addTask(0, (EntityAIBase)new EntityAIWatchClosest((EntityLiving)this, (Class)EntityPlayer.class, 8.0f));
         this.tasks.addTask(1, (EntityAIBase)new EntityAILookIdle((EntityLiving)this));
@@ -295,17 +291,14 @@ public class EntityOutsiderEye extends EntityFlying implements IMob
             }
         }
     }
-    
-    /**
-     * Called when the mob's health reaches 0.
-     */
-    public void onDeath(DamageSource p_70645_1_)
+
+    public void onDeath(DamageSource source)
     {
-        super.onDeath(p_70645_1_);
+        super.onDeath(source);
         
-        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        if (source.getEntity() instanceof EntityPlayer)
         {
-            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            EntityPlayer entityplayer = (EntityPlayer)source.getEntity();
             
             entityplayer.triggerAchievement(AchievementsNovaCraft.a_new_encounter);
             

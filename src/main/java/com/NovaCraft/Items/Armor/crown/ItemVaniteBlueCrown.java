@@ -1,9 +1,7 @@
 package com.NovaCraft.Items.Armor.crown;
 
 import java.util.List;
-
 import org.apache.logging.log4j.Level;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.Items.Armor.NCArmorMaterial;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
@@ -11,24 +9,16 @@ import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-
 import cpw.mods.fml.common.FMLLog;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ISpecialArmor;
 
 public class ItemVaniteBlueCrown extends ItemArmor {
 	

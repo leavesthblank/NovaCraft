@@ -25,6 +25,9 @@ import com.NovaCraft.world.OreGenEventHandler;
 import com.NovaCraft.world.PopulateChunkEventHandler;
 import com.NovaCraft.world.ancient_city.AncientCityGen;
 import com.NovaCraft.world.bastion.treasure.BastionGen;
+import com.NovaCraft.world.caves.CaveWorldGeneratorDeepDark;
+import com.NovaCraft.world.caves.cold.CaveWorldGeneratorFloraBiome;
+import com.NovaCraft.world.caves.ore_deposit.deep.CaveWorldGeneratorDeepOreDeposit;
 import com.NovaCraft.world.end.DestitudeIslandWorldGen;
 import com.NovaCraft.world.end.EndIslandWorldGen;
 import com.NovaCraft.world.end.NCWorldGeneratorEnd;
@@ -44,7 +47,6 @@ import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.*;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -59,15 +61,12 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.BiomeDictionary.Type;
-import net.minecraftforge.event.terraingen.InitMapGenEvent;
-import net.minecraftforge.event.world.WorldEvent;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = "nova_craft", version = "1.5.0", name = "NovaCraft")
@@ -99,8 +98,9 @@ public class NovaCraft {
         NovaCraftOverrideTextures.init();
         FMLCommonHandler.instance().bus().register(this);
         NovaCraftLiquids.preInit();
-        NovaCraftItems.initialization();
         NovaCraftBlocks.initialization();
+        NovaCraftLiquids.init();
+        NovaCraftItems.initialization();
         NovaCraftBlocks.initializeHarvestLevels();
         if (ConfigsWorld.enableVanillaBiomeAlterations) {
             BiomeAlterations.applyTweaks();
@@ -109,11 +109,15 @@ public class NovaCraft {
         MinecraftForge.ORE_GEN_BUS.register(new OreGenEventHandler());
         MinecraftForge.EVENT_BUS.register(new PopulateChunkEventHandler());
 
+        MinecraftForge.EVENT_BUS.register((Object)new NovaCraftBucketFillEvent());
+
         if (Configs.enableStrongholdAlterations) {
             MinecraftForge.TERRAIN_GEN_BUS.register(new StrongholdGenHandler());
         }
-
         GameRegistry.registerWorldGenerator(new NCWorldGeneratorPre(), Integer.MAX_VALUE);
+        GameRegistry.registerWorldGenerator(new CaveWorldGeneratorDeepOreDeposit(), Integer.MAX_VALUE);
+        GameRegistry.registerWorldGenerator(new CaveWorldGeneratorDeepDark(), Integer.MAX_VALUE);
+        GameRegistry.registerWorldGenerator(new CaveWorldGeneratorFloraBiome(), Integer.MAX_VALUE);
         GameRegistry.registerWorldGenerator((IWorldGenerator)new FloatingIslandGen(), Integer.MAX_VALUE);
 
         if (ConfigsStructures.enableDeepoidFortress) {

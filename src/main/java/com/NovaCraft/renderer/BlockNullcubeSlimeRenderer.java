@@ -1,9 +1,7 @@
 package com.NovaCraft.renderer;
 
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

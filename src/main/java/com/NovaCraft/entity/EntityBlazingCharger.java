@@ -1,12 +1,8 @@
 package com.NovaCraft.entity;
 
 import net.minecraft.entity.*;
-import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.util.DamageSource;
-
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraft.entity.monster.EntityMob;
@@ -14,8 +10,8 @@ import net.minecraft.init.Items;
 
 public class EntityBlazingCharger extends EntityMob
 {
-    public EntityBlazingCharger(final World par1World) {
-        super(par1World);
+    public EntityBlazingCharger(final World world) {
+        super(world);
         this.setSize(1.4f, 0.9f);
         this.isImmuneToFire = true;
     }
@@ -63,12 +59,12 @@ public class EntityBlazingCharger extends EntityMob
         return Items.leather;
     }
     
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+    protected void dropFewItems(boolean p_70628_1_, int chance)
     {
         int j;
         int k;
         {
-            j = this.rand.nextInt(3 + p_70628_2_);
+            j = this.rand.nextInt(3 + chance);
 
             for (k = 0; k < j; ++k)
             {
@@ -76,7 +72,7 @@ public class EntityBlazingCharger extends EntityMob
             }
         }
 
-        j = this.rand.nextInt(3 + p_70628_2_);
+        j = this.rand.nextInt(3 + chance);
 
         for (k = 0; k < j; ++k)
         {
@@ -84,11 +80,11 @@ public class EntityBlazingCharger extends EntityMob
         }
     }
     
-    public boolean attackEntityAsMob(final Entity par1Entity) {
+    public boolean attackEntityAsMob(final Entity entity) {
         this.worldObj.setEntityState((Entity)this, (byte)4);
-        final boolean flag = par1Entity.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase)this), (float)(3 + this.rand.nextInt(5)));
+        final boolean flag = entity.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase)this), (float)(3 + this.rand.nextInt(5)));
         if (flag) {
-            par1Entity.motionY += 0.4000000059604645;
+            entity.motionY += 0.4000000059604645;
         }
         this.playSound("mob.irongolem.throw", 1.0f, 1.0f);
         return flag;
@@ -99,8 +95,8 @@ public class EntityBlazingCharger extends EntityMob
         return this.height + 0.6D;
     }
 
-    public IEntityLivingData onSpawnWithEgg(IEntityLivingData p_110161_1_) {
-        Object p_110161_1_1 = super.onSpawnWithEgg(p_110161_1_);
+    public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+        Object DATA = super.onSpawnWithEgg(data);
 
         if (this.worldObj.rand.nextInt(6) == 0) {
             EntitySlaughter entity = new EntitySlaughter(this.worldObj);
@@ -110,7 +106,7 @@ public class EntityBlazingCharger extends EntityMob
             entity.mountEntity(this);
         }
 
-        return (IEntityLivingData)p_110161_1_1;
+        return (IEntityLivingData)DATA;
     }
     
     public EnumCreatureAttribute getCreatureAttribute() {

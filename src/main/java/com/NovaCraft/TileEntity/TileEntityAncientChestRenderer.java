@@ -5,10 +5,7 @@ import cpw.mods.fml.relauncher.*;
 import net.minecraft.util.*;
 import net.minecraft.client.model.*;
 import org.lwjgl.opengl.*;
-
 import com.NovaCraftBlocks.container.BlockAncientChest;
-import com.NovaCraftBlocks.container.BlockUnbreakableAncientChest;
-
 import net.minecraft.block.*;
 import net.minecraft.tileentity.*;
 

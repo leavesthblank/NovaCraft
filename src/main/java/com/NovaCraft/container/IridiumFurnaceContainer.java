@@ -19,42 +19,42 @@ public class IridiumFurnaceContainer extends Container {
     private int lastBurnTime;
     private int lastItemBurnTime;
 
-    public IridiumFurnaceContainer(InventoryPlayer playerInv, TileEntityIridiumFurnace tile) {
-        this.tileFurnace = tile;
+    public IridiumFurnaceContainer(InventoryPlayer playerInventory, TileEntityIridiumFurnace tileEntity) {
+        this.tileFurnace = tileEntity;
 
         //Smelting Slot
-        this.addSlotToContainer(new Slot(tile, 0, 56, 17));
+        this.addSlotToContainer(new Slot(tileEntity, 0, 56, 17));
 
         //Fuel Slot
-        this.addSlotToContainer(new Slot(tile, 1, 56, 53));
+        this.addSlotToContainer(new Slot(tileEntity, 1, 56, 53));
 
         //Main Output
-        this.addSlotToContainer(new SlotFurnace(playerInv.player, tile, 2, 116, 35));
+        this.addSlotToContainer(new SlotFurnace(playerInventory.player, tileEntity, 2, 116, 35));
 
         //Special Output
-        this.addSlotToContainer(new SlotFurnace(playerInv.player, tile, 3, 147, 35));
+        this.addSlotToContainer(new SlotFurnace(playerInventory.player, tileEntity, 3, 147, 35));
 
         //Inventory
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {
                 this.addSlotToContainer(
-                        new Slot(playerInv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18)
+                        new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18)
                 );
             }
         }
 
         //Hotbar
         for (int i = 0; i < 9; ++i) {
-            this.addSlotToContainer(new Slot(playerInv, i, 8 + i * 18, 142));
+            this.addSlotToContainer(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
 
     @Override
-    public void addCraftingToCrafters(ICrafting crafter) {
-        super.addCraftingToCrafters(crafter);
-        crafter.sendProgressBarUpdate(this, 0, tileFurnace.furnaceCookTime);
-        crafter.sendProgressBarUpdate(this, 1, tileFurnace.furnaceBurnTime);
-        crafter.sendProgressBarUpdate(this, 2, tileFurnace.currentItemBurnTime);
+    public void addCraftingToCrafters(ICrafting crafting) {
+        super.addCraftingToCrafters(crafting);
+        crafting.sendProgressBarUpdate(this, 0, tileFurnace.furnaceCookTime);
+        crafting.sendProgressBarUpdate(this, 1, tileFurnace.furnaceBurnTime);
+        crafting.sendProgressBarUpdate(this, 2, tileFurnace.currentItemBurnTime);
     }
 
     @Override

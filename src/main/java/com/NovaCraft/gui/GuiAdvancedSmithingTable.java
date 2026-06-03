@@ -7,9 +7,7 @@ import net.minecraft.entity.player.*;
 import net.minecraft.world.*;
 import net.minecraft.inventory.*;
 import org.lwjgl.opengl.*;
-
 import com.NovaCraft.container.AdvancedSmithingTableContainer;
-
 import net.minecraft.client.resources.*;
 
 @SideOnly(Side.CLIENT)
@@ -17,8 +15,8 @@ public class GuiAdvancedSmithingTable extends GuiContainer
 {
     private static final ResourceLocation craftingTableGuiTextures;
     
-    public GuiAdvancedSmithingTable(final InventoryPlayer p_i1084_1_, final World p_i1084_2_, final int p_i1084_3_, final int p_i1084_4_, final int p_i1084_5_) {
-        super((Container)new AdvancedSmithingTableContainer(p_i1084_1_, p_i1084_2_, p_i1084_3_, p_i1084_4_, p_i1084_5_));
+    public GuiAdvancedSmithingTable(final InventoryPlayer inventoryPlayer, final World world, final int p_i1084_3_, final int p_i1084_4_, final int p_i1084_5_) {
+        super((Container)new AdvancedSmithingTableContainer(inventoryPlayer, world, p_i1084_3_, p_i1084_4_, p_i1084_5_));
     }
     
     protected void drawGuiContainerBackgroundLayer(final float p_146976_1_, final int p_146976_2_, final int p_146976_3_) {

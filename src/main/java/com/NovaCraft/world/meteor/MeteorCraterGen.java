@@ -1,6 +1,5 @@
 package com.NovaCraft.world.meteor;
 
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.config.ConfigsStructures;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.world.World;

@@ -1,12 +1,6 @@
 package com.NovaCraft.entity;
 
-
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.achievements.AchievementsNovaCraft;
-import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -30,8 +24,8 @@ import net.minecraft.world.World;
 
 public class EntityRelik extends EntityMob
 {
-    public EntityRelik(final World p_i1745_1_) {
-        super(p_i1745_1_);
+    public EntityRelik(final World world) {
+        super(world);
         getNavigator().setBreakDoors(true);
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));

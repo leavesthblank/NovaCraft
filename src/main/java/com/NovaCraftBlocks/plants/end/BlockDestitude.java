@@ -3,18 +3,14 @@ package com.NovaCraftBlocks.plants.end;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
 import java.util.Random;
-
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

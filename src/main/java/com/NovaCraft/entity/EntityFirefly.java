@@ -3,14 +3,8 @@ package com.NovaCraft.entity;
 import com.NovaCraft.config.ConfigsEntities;
 import net.minecraft.entity.passive.*;
 import net.minecraft.world.*;
-
-import java.util.Random;
-
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.particles.ParticleHandler;
-
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockGrass;
@@ -85,9 +79,6 @@ public class EntityFirefly extends EntityAmbientCreature
         return 15728880;
     }
 
-    /**
-     * Gets how bright this entity is.
-     */
     public float getBrightness(float p_70013_1_)
     {
         return 1.0F;

@@ -17,7 +17,7 @@ public class CryologerRenderer extends RenderBiped
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(final Entity p_110775_1_) {
+    protected ResourceLocation getEntityTexture(final Entity entity) {
         return CryologerRenderer.texture;
     }
 

@@ -4,21 +4,16 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityMobSpawner;
-import net.minecraft.util.MathHelper;
 
 public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 {
@@ -34,7 +29,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 2, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 13, k + 3, Blocks.air, 0, 2);
+			world.setBlock(i, j + 13, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 13, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 13, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 13, k + 3, Blocks.air, 0, 2);
@@ -49,7 +44,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 3, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 13, k + 4, Blocks.air, 0, 2);
+			world.setBlock(i, j + 13, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 13, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 13, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 13, k + 4, NovaCraftBlocks.sculk_block, 0, 2);
@@ -64,7 +59,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 4, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 13, k + 5, Blocks.air, 0, 2);
+			world.setBlock(i, j + 13, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 13, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 13, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 13, k + 5, Blocks.air, 0, 2);
@@ -79,7 +74,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 5, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 13, k + 6, Blocks.air, 0, 2);
+			world.setBlock(i, j + 13, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 13, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 13, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 13, k + 6, Blocks.air, 0, 2);
@@ -94,7 +89,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 6, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 13, k + 7, Blocks.air, 0, 2);
+			world.setBlock(i, j + 13, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 13, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 13, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 13, k + 7, Blocks.air, 0, 2);
@@ -109,7 +104,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 7, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 13, k + 8, Blocks.air, 0, 2);
+			world.setBlock(i, j + 13, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 13, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 13, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 13, k + 8, Blocks.air, 0, 2);
@@ -124,7 +119,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 8, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 13, k + 9, Blocks.air, 0, 2);
+			world.setBlock(i, j + 13, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 13, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 13, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 13, k + 9, Blocks.air, 0, 2);
@@ -139,7 +134,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 9, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 13, k + 10, Blocks.air, 0, 2);
+			world.setBlock(i, j + 13, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 13, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 13, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 13, k + 10, NovaCraftBlocks.sculk_block, 0, 2);
@@ -154,7 +149,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 10, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 13, k + 11, Blocks.air, 0, 2);
+			world.setBlock(i, j + 13, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 13, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 13, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 13, k + 11, Blocks.air, 0, 2);
@@ -169,7 +164,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 11, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 13, k + 12, Blocks.air, 0, 2);
+			world.setBlock(i, j + 13, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 13, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 13, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 13, k + 12, Blocks.air, 0, 2);
@@ -184,7 +179,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 12, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 13, k + 13, Blocks.air, 0, 2);
+			world.setBlock(i, j + 13, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 13, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 13, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 13, k + 13, Blocks.air, 0, 2);
@@ -199,7 +194,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 13, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 13, k + 14, Blocks.air, 0, 2);
+			world.setBlock(i, j + 13, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 13, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 13, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 13, k + 14, Blocks.air, 0, 2);
@@ -214,22 +209,22 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 13, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 13, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 13, k + 14, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 1, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 2, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 3, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 5, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 6, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 8, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 9, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 11, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 12, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 13, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 14, j + 14, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 1, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 1, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 2, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 3, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 4, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 5, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 6, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 7, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 8, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 9, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 10, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 11, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 12, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 13, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i + 14, j + 14, k, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 1, Blocks.air, 0, 2);
@@ -244,7 +239,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 1, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 2, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 2, Blocks.air, 0, 2);
@@ -259,7 +254,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 2, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 3, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 3, Blocks.air, 0, 2);
@@ -274,7 +269,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 3, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 4, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 4, Blocks.air, 0, 2);
@@ -289,7 +284,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 4, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 5, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 5, Blocks.air, 0, 2);
@@ -304,7 +299,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 5, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 6, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 6, Blocks.air, 0, 2);
@@ -319,7 +314,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 6, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 7, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 7, Blocks.air, 0, 2);
@@ -334,7 +329,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 7, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 8, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 8, Blocks.air, 0, 2);
@@ -348,7 +343,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 8, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 9, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 9, Blocks.air, 0, 2);
@@ -363,7 +358,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 9, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 10, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 10, Blocks.air, 0, 2);
@@ -378,7 +373,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 10, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 11, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 11, Blocks.air, 0, 2);
@@ -393,7 +388,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 11, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 12, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 12, Blocks.air, 0, 2);
@@ -408,7 +403,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 12, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 13, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 13, Blocks.air, 0, 2);
@@ -423,7 +418,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 13, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 14, k + 14, Blocks.air, 0, 2);
+			world.setBlock(i, j + 14, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 14, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 14, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 14, k + 14, Blocks.air, 0, 2);
@@ -438,22 +433,22 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 14, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 14, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 14, k + 14, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 1, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 2, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 3, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 5, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 6, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 8, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 9, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 11, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 12, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 13, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 14, j + 15, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 1, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 1, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 2, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 3, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 4, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 5, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 6, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 7, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 8, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 9, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 10, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 11, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 12, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 13, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i + 14, j + 15, k, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 1, Blocks.air, 0, 2);
@@ -468,7 +463,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 1, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 2, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 2, Blocks.air, 0, 2);
@@ -483,7 +478,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 2, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 3, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 3, Blocks.air, 0, 2);
@@ -498,7 +493,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 3, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 4, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 4, Blocks.air, 0, 2);
@@ -513,7 +508,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 4, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 5, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 5, Blocks.air, 0, 2);
@@ -528,7 +523,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 5, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 6, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 6, Blocks.air, 0, 2);
@@ -543,7 +538,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 6, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 7, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 7, Blocks.air, 0, 2);
@@ -558,7 +553,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 7, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 8, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 8, Blocks.air, 0, 2);
@@ -573,7 +568,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 8, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 9, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 9, Blocks.air, 0, 2);
@@ -588,7 +583,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 9, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 10, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 10, Blocks.air, 0, 2);
@@ -603,7 +598,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 10, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 11, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 11, Blocks.air, 0, 2);
@@ -618,7 +613,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 11, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 12, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 12, Blocks.air, 0, 2);
@@ -633,7 +628,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 12, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 13, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 13, Blocks.air, 0, 2);
@@ -648,7 +643,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 13, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 15, k + 14, Blocks.air, 0, 2);
+			world.setBlock(i, j + 15, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 15, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 15, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 15, k + 14, Blocks.air, 0, 2);
@@ -663,22 +658,22 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 15, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 15, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 15, k + 14, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 1, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 2, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 3, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 5, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 6, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 8, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 9, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 11, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 12, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 13, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 14, j + 16, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 1, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 1, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 2, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 3, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 4, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 5, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 6, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 7, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 8, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 9, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 10, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 11, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 12, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 13, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i + 14, j + 16, k, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 1, Blocks.air, 0, 2);
@@ -693,7 +688,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 1, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 2, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 2, Blocks.air, 0, 2);
@@ -708,7 +703,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 2, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 2, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 3, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 3, Blocks.air, 0, 2);
@@ -723,7 +718,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 3, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 3, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 4, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 4, Blocks.air, 0, 2);
@@ -738,7 +733,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 4, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 4, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 5, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 5, Blocks.air, 0, 2);
@@ -753,7 +748,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 5, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 5, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 6, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 6, Blocks.air, 0, 2);
@@ -768,7 +763,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 6, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 7, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 7, Blocks.air, 0, 2);
@@ -783,7 +778,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 7, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 7, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 8, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 8, Blocks.air, 0, 2);
@@ -798,7 +793,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 8, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 8, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 9, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 9, Blocks.air, 0, 2);
@@ -813,7 +808,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 9, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 9, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 10, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 10, Blocks.air, 0, 2);
@@ -828,7 +823,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 10, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 10, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 11, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 11, Blocks.air, 0, 2);
@@ -843,7 +838,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 11, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 11, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 12, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 12, Blocks.air, 0, 2);
@@ -858,7 +853,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 12, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 13, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 13, Blocks.air, 0, 2);
@@ -873,7 +868,7 @@ public class AncientCityFurnaceRoomGen2 extends WorldGenerator
 			world.setBlock(i + 12, j + 16, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 13, j + 16, k + 13, Blocks.air, 0, 2);
 			world.setBlock(i + 14, j + 16, k + 13, Blocks.air, 0, 2);
-			world.setBlock(i + 0, j + 16, k + 14, Blocks.air, 0, 2);
+			world.setBlock(i, j + 16, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 16, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 16, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 16, k + 14, Blocks.air, 0, 2);

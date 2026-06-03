@@ -3,18 +3,14 @@ package com.NovaCraft.entity.misc;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import java.util.List;
-
-import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.EntitySculkIncinerator;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S12PacketEntityVelocity;
 import net.minecraft.network.play.server.S2BPacketChangeGameState;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.ItemStack;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MovingObjectPosition;
@@ -44,8 +40,8 @@ public class EntitySculkLaser extends Entity implements IProjectile
     private int ticksInAir;
     private double damage;
     
-    public EntitySculkLaser(final World par1World) {
-        super(par1World);
+    public EntitySculkLaser(final World world) {
+        super(world);
         this.field_145791_d = -1;
         this.field_145792_e = -1;
         this.field_145789_f = -1;
@@ -142,10 +138,7 @@ public class EntitySculkLaser extends Entity implements IProjectile
     public boolean canBePushed() {
     	return false; 
     }
-    
-    /**
-     * Gets how bright this entity is.
-     */
+
     @SideOnly(Side.CLIENT)
     public float getBrightness(float p_70013_1_)
     {
@@ -415,17 +408,17 @@ public class EntitySculkLaser extends Entity implements IProjectile
         }
     }
     
-    public void readEntityFromNBT(final NBTTagCompound par1NBTTagCompound) {
-        this.field_145791_d = par1NBTTagCompound.getShort("xTile");
-        this.field_145792_e = par1NBTTagCompound.getShort("yTile");
-        this.field_145789_f = par1NBTTagCompound.getShort("zTile");
-        this.ticksInGround = par1NBTTagCompound.getShort("life");
-        this.field_145790_g = Block.getBlockById(par1NBTTagCompound.getByte("inTile") & 0xFF);
-        this.inData = (par1NBTTagCompound.getByte("inData") & 0xFF);
-        this.arrowShake = (par1NBTTagCompound.getByte("shake") & 0xFF);
-        this.inGround = (par1NBTTagCompound.getByte("inGround") == 1);
-        if (par1NBTTagCompound.hasKey("damage", 99)) {
-            this.damage = par1NBTTagCompound.getDouble("damage");
+    public void readEntityFromNBT(final NBTTagCompound compound) {
+        this.field_145791_d = compound.getShort("xTile");
+        this.field_145792_e = compound.getShort("yTile");
+        this.field_145789_f = compound.getShort("zTile");
+        this.ticksInGround = compound.getShort("life");
+        this.field_145790_g = Block.getBlockById(compound.getByte("inTile") & 0xFF);
+        this.inData = (compound.getByte("inData") & 0xFF);
+        this.arrowShake = (compound.getByte("shake") & 0xFF);
+        this.inGround = (compound.getByte("inGround") == 1);
+        if (compound.hasKey("damage", 99)) {
+            this.damage = compound.getDouble("damage");
         }
     }
     
@@ -483,16 +476,16 @@ public class EntitySculkLaser extends Entity implements IProjectile
         }
     }
     
-    public void writeEntityToNBT(final NBTTagCompound par1NBTTagCompound) {
-        par1NBTTagCompound.setShort("xTile", (short)this.field_145791_d);
-        par1NBTTagCompound.setShort("yTile", (short)this.field_145792_e);
-        par1NBTTagCompound.setShort("zTile", (short)this.field_145789_f);
-        par1NBTTagCompound.setShort("life", (short)this.ticksInGround);
-        par1NBTTagCompound.setByte("inTile", (byte)Block.getIdFromBlock(this.field_145790_g));
-        par1NBTTagCompound.setByte("inData", (byte)this.inData);
-        par1NBTTagCompound.setByte("shake", (byte)this.arrowShake);
-        par1NBTTagCompound.setByte("inGround", (byte)(byte)(this.inGround ? 1 : 0));
-        par1NBTTagCompound.setDouble("damage", this.damage);
+    public void writeEntityToNBT(final NBTTagCompound compound) {
+        compound.setShort("xTile", (short)this.field_145791_d);
+        compound.setShort("yTile", (short)this.field_145792_e);
+        compound.setShort("zTile", (short)this.field_145789_f);
+        compound.setShort("life", (short)this.ticksInGround);
+        compound.setByte("inTile", (byte)Block.getIdFromBlock(this.field_145790_g));
+        compound.setByte("inData", (byte)this.inData);
+        compound.setByte("shake", (byte)this.arrowShake);
+        compound.setByte("inGround", (byte)(byte)(this.inGround ? 1 : 0));
+        compound.setDouble("damage", this.damage);
     }
     
 }

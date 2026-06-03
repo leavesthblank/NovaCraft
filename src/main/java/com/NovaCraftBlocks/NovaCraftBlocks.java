@@ -103,18 +103,8 @@ import com.NovaCraftBlocks.sculk.BlockSculkVein;
 import com.NovaCraftBlocks.sculk.BlockUnknownPortal;
 import com.NovaCraftBlocks.sculk.BlockUnknownPortalActivator;
 import com.NovaCraftBlocks.sculk.BlockUnknownPortalSealed;
-import com.NovaCraftBlocks.stalactites.BlockIcicle;
-import com.NovaCraftBlocks.stalactites.BlockLargeNullstoneStalactite;
-import com.NovaCraftBlocks.stalactites.BlockLargeStoneStalactite;
-import com.NovaCraftBlocks.stalactites.BlockNullstoneStalactite;
-import com.NovaCraftBlocks.stalactites.BlockStoneStalactite;
-import com.NovaCraftBlocks.stalagmites.BlockLargeNullstoneStalagmite;
-import com.NovaCraftBlocks.stalagmites.BlockLargePherithiumStalagmite;
-import com.NovaCraftBlocks.stalagmites.BlockLargeStoneStalagmite;
-import com.NovaCraftBlocks.stalagmites.BlockNullstoneStalagmite;
-import com.NovaCraftBlocks.stalagmites.BlockPherithium;
-import com.NovaCraftBlocks.stalagmites.BlockSmallPherithiumStalagmite;
-import com.NovaCraftBlocks.stalagmites.BlockStoneStalagmite;
+import com.NovaCraftBlocks.stalactites.*;
+import com.NovaCraftBlocks.stalagmites.*;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -130,6 +120,8 @@ public class NovaCraftBlocks {
 	public static Block grimstone, cobbled_grimstone, grimstone_bricks, cracked_grimstone_bricks, grimstone_tiles, cracked_grimstone_tiles, chiseled_grimstone, polished_grimstone;
 	public static Block nullstone, cobbled_nullstone, nullstone_bricks, cracked_nullstone_bricks, nullstone_tiles, cracked_nullstone_tiles, chiseled_nullstone, polished_nullstone;
 	public static Block etherstone, cobbled_etherstone, etherstone_bricks, cracked_etherstone_bricks, etherstone_tiles, cracked_etherstone_tiles, chiseled_etherstone;
+	public static Block cinnabar, cinnabar_bricks;
+	public static Block stibnite, stibnite_bricks;
 	public static Block basal, basal_bricks, cracked_basal_bricks, glowing_basal, chiseled_basal, basal_scrap;
 	public static Block sculk_bricks, cracked_sculk_bricks, sculk_tiles, cracked_sculk_tiles, chiseled_sculk;
 	public static Block tuff_bricks, cracked_tuff_bricks, tuff_tiles, cracked_tuff_tiles, chiseled_tuff;
@@ -158,6 +150,10 @@ public class NovaCraftBlocks {
 	public static Block etherstone_brick_slab, etherstone_brick_double_slab, etherstone_brick_stairs, etherstone_brick_wall;
 	public static Block cobbled_etherstone_slab, cobbled_etherstone_double_slab, cobbled_etherstone_stairs, cobbled_etherstone_wall;
 	public static Block etherstone_tiled_slab, etherstone_tiled_double_slab, etherstone_tiled_stairs, etherstone_tiled_wall;
+
+	public static Block cinnabar_slab, cinnabar_double_slab, cinnabar_stairs, cinnabar_wall;
+	public static Block cinnabar_brick_slab, cinnabar_brick_double_slab, cinnabar_brick_stairs, cinnabar_brick_wall;
+	public static Block stibnite_brick_slab, stibnite_brick_double_slab, stibnite_brick_stairs, stibnite_brick_wall;
 	
 	public static Block basal_slab, basal_double_slab, basal_stairs, basal_wall;
 	public static Block basal_brick_slab, basal_brick_double_slab, basal_brick_stairs, basal_brick_wall;
@@ -193,7 +189,7 @@ public class NovaCraftBlocks {
 	public static Block meteorite_block, iridium_ore, block_of_iridium;
 	
 	//Explosives
-	public static Block brimstone_ore, block_of_brimstone, brimstone_wire, PETN, PETN_wire;
+	public static Block brimstone_ore, cinnabar_brimstone, block_of_brimstone, brimstone_wire, PETN, PETN_wire;
 	public static Block xancium_ore, block_of_xancium, xancium_TNT, xancium_wire;
 	
 	//Tophinite & Klangite
@@ -202,13 +198,12 @@ public class NovaCraftBlocks {
 	
 	//Vanilla Ores
 	public static Block grimstone_diamond, grimstone_emerald, grimstone_gold, grimstone_iron, grimstone_lapis;
-	public static Block grimstone_redstone, lit_grimstone_redstone;	
+	public static Block grimstone_redstone, lit_grimstone_redstone;
 	public static Block nullstone_diamond, nullstone_emerald, nullstone_gold, nullstone_iron, nullstone_lapis;
 	public static Block nullstone_redstone, lit_nullstone_redstone;
 	public static Block etherstone_coal, etherstone_emerald, etherstone_gold, etherstone_iron, etherstone_brimstone;
 	
 	public static Block iron_pile, gold_pile, diamond_pile, lapis_pile, emerald_pile, vanite_pile, iridium_pile, crystal_pile;
-	
 	
 	//End Building/World Gen Blocks
 	public static Block frontierslate, frontierslate_bricks, carved_frontierslate_bricks;	
@@ -234,14 +229,21 @@ public class NovaCraftBlocks {
 	//Cave Plants
 	public static Block glow_lichen, grim_lichen, dark_lichen, bright_lichen;
 	public static Block moss_block, moss_carpet, arctic_moss_block, arctic_moss_carpet;
-	public static Block null_wart, deep_roots; 
+	public static Block null_wart, deep_roots, glow_vines, bloomed_glow_vines, cave_bloom, blue_cave_bloom, magenta_cave_bloom;
 	public static Block calvatia_mushroom, hydnum_mushroom, lentius_mushroom, rozite_mushroom, pleurotus_mushroom;
 	
 	//Cave Decoration
-	public static Block large_pherithium_stalagmite, small_pherithium_stalagmite, block_of_pherithium, pherithium_glass, pherithium_ore;	
-	public static Block stone_stalagmite, stone_stalactite, large_stone_stalagmite, large_stone_stalactite; 	
-	public static Block nullstone_stalagmite, nullstone_stalactite, large_nullstone_stalagmite, large_nullstone_stalactite;	
+	public static Block large_pherithium_stalagmite, small_pherithium_stalagmite, block_of_pherithium, pherithium_glass, pherithium_ore;
+	public static Block cinnabar_pherithium_stalagmite, cinnabar_pherithium_stalactite;
+	public static Block stone_stalagmite, stone_stalactite, large_stone_stalagmite, large_stone_stalactite;
+	public static Block grimstone_stalagmite, grimstone_stalactite, large_grimstone_stalagmite, large_grimstone_stalactite;
+	public static Block massive_stone_stalactite_top, massive_stone_stalactite_bottom;
+	public static Block massive_stone_stalagmite_top, massive_stone_stalagmite_bottom;
+	public static Block nullstone_stalagmite, nullstone_stalactite, large_nullstone_stalagmite, large_nullstone_stalactite;
+	public static Block massive_nullstone_stalactite_top, massive_nullstone_stalactite_bottom;
+	public static Block massive_nullstone_stalagmite_top, massive_nullstone_stalagmite_bottom;
 	public static Block icicle;
+	public static Block cinnabar_stalagmite, cinnabar_stalactite, large_cinnabar_stalagmite, large_cinnabar_stalactite;
 	
 	//Surface Plants
 	public static Block rich_etherstone, rich_etherstone_spike;
@@ -268,14 +270,16 @@ public class NovaCraftBlocks {
 	public static Block deepoid_bricks, deepoid_power_core, deepoid_furnace, lit_deepoid_furnace;
 	public static Block iridium_bricks, cracked_iridium_bricks, infused_iridium_bricks, iridium_power_core, iridium_trapdoor, iridium_furnace, lit_iridium_furnace, cracked_iridium_furnace;
 	public static Block vanite_anvil, cracked_end_portal_frame;
+	public static Block lava_sponge;
 	
 	//9x Duplication Structure
 	public static Block raw_divineral, raw_netherite;
 	
 	//Amplified Potions
 	public static Block deepfire, blazlinite_blend, blazlinite, molten_vanite;	
-	public static Block vanite_cauldron, lava_vanite_cauldron, potion_vanite_cauldron, molten_vanite_cauldron, molten_vanite_crystal_cauldron, cracked_vanite_crystal_cauldron;
-	
+	public static Block vanite_cauldron, lava_vanite_cauldron, potion_vanite_cauldron, mercury_vanite_cauldron, molten_vanite_cauldron, molten_vanite_crystal_cauldron, cracked_vanite_crystal_cauldron;
+	public static Block mercury;
+
 	//Tile Entity Renders
 	public static int UnbreakableAncientChestRenderId;
 	public static int AncientChestRenderId;
@@ -340,7 +344,16 @@ public class NovaCraftBlocks {
 		etherstone_gold = register("etherstone_gold", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("etherstone_gold_ore")));
 		etherstone_iron = register("etherstone_iron", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("etherstone_iron_ore")));
 		etherstone_brimstone = register("etherstone_brimstone", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("etherstone_brimstone_ore")));
-		
+
+		cinnabar = register("cinnabar", new BlockCinnabar().setBlockTextureName(NovaCraft.find("cinnabar")));
+		cinnabar_brimstone = register("cinnabar_brimstone", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("cinnabar_brimstone_ore")));
+		cinnabar_bricks = register("cinnabar_bricks", new BlockCinnabar().setBlockTextureName(NovaCraft.find("cinnabar_bricks")));
+
+		stibnite = register("stibnite", new BlockCinnabar().setBlockTextureName(NovaCraft.find("stibnite")));
+		stibnite_bricks = register("stibnite_bricks", new BlockCinnabar().setBlockTextureName(NovaCraft.find("stibnite_bricks")));
+
+		mercury = registerHidden("mercury", new BlockMercury());
+
 		glowing_obsidian = registerMeta("glowing_obsidian", new BlockGlowingObsidian());
 		
 		basal = register("basal", new BlockBasal());
@@ -425,25 +438,27 @@ public class NovaCraftBlocks {
 		dim_vanite_torch = register("dim_vanite_torch", new BlockDimVaniteTorch().setBlockTextureName(NovaCraft.find("dim_vanite_torch")));
 		
 		if (!(ConfigsWorld.enableNullstone) && !(ConfigsCompact.enableDeepslateOreGeneration)) {
-		stone_tophinite_ore = registerItemBlock("stone_tophinite_ore", new BlockStoneTophiniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("stone_tophinite_ore"));		
+		stone_tophinite_ore = registerItemBlockHidden("stone_tophinite_ore", new BlockStoneTophiniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("stone_tophinite_ore"));
 		}
 		
 		if (!(ConfigsWorld.enableNullstone) && Loader.isModLoaded("etfuturum") && !(ConfigsCompact.enableDeepslateOreGeneration)) {
-		deepslate_tophinite_ore = registerItemBlock("deepslate_tophinite_ore", new BlockDeepslateTophiniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("deepslate_tophinite_ore"));			
+		deepslate_tophinite_ore = registerItemBlockHidden("deepslate_tophinite_ore", new BlockDeepslateTophiniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("deepslate_tophinite_ore"));
 		}
 		
-		nullstone_tophinite_ore = registerItemBlock("nullstone_tophinite_ore", new BlockNullstoneTophiniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("nullstone_tophinite_ore"));		
+		nullstone_tophinite_ore = registerItemBlockHidden("nullstone_tophinite_ore", new BlockNullstoneTophiniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("nullstone_tophinite_ore"));
 		nether_tophinite_ore = registerItemBlock("nether_tophinite_ore", new BlockNetherTophiniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("nether_tophinite_ore"));				
 		block_of_tophinite = registerItemBlock("block_of_tophinite", new BlockTophinite(), ItemBlockFireProof.class);
 		
 		trap_tophinite = registerHidden("trap_tophinite", new BlockTrapTophinite());
 		blazing_coal_block = register("blazing_coal_block", new BlockBlazingCoal().setBlockTextureName(NovaCraft.find("blazing_coal_block")));
+		lava_sponge = registerItemBlock("lava_sponge", new BlockLavaSponge(), ItemBlockLavaSponge.class);
 		
 		deepfire = registerHidden("deepfire", new BlockDeepFire().setCreativeTab(null));
 		blazlinite_blend = register("blazlinite_blend", new BlockBlazliniteBlend().setBlockTextureName(NovaCraft.find("blazlinite_blend")));
 		blazlinite = registerHidden("blazlinite", new BlockBlazlinite().setCreativeTab(null));
 		potion_vanite_cauldron = registerHidden("potion_vanite_cauldron", new BlockPotionVaniteCauldron().setCreativeTab(null));
 		lava_vanite_cauldron = registerHidden("lava_vanite_cauldron", new BlockLavaVaniteCauldron().setCreativeTab(null));
+		mercury_vanite_cauldron = registerHidden("mercury_vanite_cauldron", new BlockMercuryVaniteCauldron().setCreativeTab(null));
 		vanite_cauldron = registerHidden("vanite_cauldron", new BlockVaniteCauldron().setCreativeTab(null));
 		molten_vanite_cauldron = registerHidden("molten_vanite_cauldron", new BlockMoltenVaniteCauldron().setCreativeTab(null));
 		molten_vanite_crystal_cauldron = registerHidden("molten_vanite_crystal_cauldron", new BlockMoltenVaniteCrystalCauldron().setCreativeTab(null));
@@ -493,14 +508,14 @@ public class NovaCraftBlocks {
 		xancium_wire = registerHidden("xancium_wire", new BlockXanciumWire().setBlockTextureName(NovaCraft.find("xancium_dust_cross")));
 		
 		if (!(ConfigsWorld.enableNullstone) && !(ConfigsCompact.enableDeepslateOreGeneration)) {
-		stone_klangite_ore = registerItemBlock("stone_klangite_ore", new BlockStoneKlangiteOre(), ItemBlockFireProof.class);	
+		stone_klangite_ore = registerItemBlockHidden("stone_klangite_ore", new BlockStoneKlangiteOre(), ItemBlockFireProof.class);
 		}
 		
 		if (!(ConfigsWorld.enableNullstone) && Loader.isModLoaded("etfuturum") && ConfigsCompact.enableDeepslateOreGeneration) {
-		deepslate_klangite_ore = registerItemBlock("deepslate_klangite_ore", new BlockDeepslateKlangiteOre(), ItemBlockFireProof.class);	
+		deepslate_klangite_ore = registerItemBlockHidden("deepslate_klangite_ore", new BlockDeepslateKlangiteOre(), ItemBlockFireProof.class);
 		}
 		
-		klangite_ore = registerItemBlock("klangite_ore", new BlockKlangiteOre(), ItemBlockFireProof.class);		
+		klangite_ore = registerItemBlockHidden("klangite_ore", new BlockKlangiteOre(), ItemBlockFireProof.class);
 		end_klangite_ore = registerItemBlock("end_klangite_ore", new BlockEndKlangiteOre(), ItemBlockFireProof.class);
 		frontierslate_klangite_ore = registerItemBlock("frontierslate_klangite_ore", new BlockFrontierslateKlangiteOre(), ItemBlockFireProof.class);
 		block_of_raw_klangite = registerItemBlock("block_of_raw_klangite", new BlockRawKlangite(), ItemBlockFireProof.class);
@@ -565,7 +580,13 @@ public class NovaCraftBlocks {
 				}
 			}
 		}
-		
+
+		glow_vines = register("glow_vines", new BlockGlowVines().setBlockTextureName(NovaCraft.find("fruitless_glow_vines")));
+		bloomed_glow_vines = register("bloomed_glow_vines", new BlockBloomedGlowVines().setBlockTextureName(NovaCraft.find("glow_vines")));
+		cave_bloom = register("cave_bloom", new BlockCaveFlower().setBlockTextureName(NovaCraft.find("white_cave_bloom")));
+		blue_cave_bloom = register("blue_cave_bloom", new BlockCaveFlower().setBlockTextureName(NovaCraft.find("blue_cave_bloom")));
+		magenta_cave_bloom = register("magenta_cave_bloom", new BlockCaveFlower().setBlockTextureName(NovaCraft.find("magenta_cave_bloom")));
+
 		deep_roots = register("deep_roots", new BlockDeepRoot().setBlockTextureName(NovaCraft.find("deep_roots")));
 		
 		sculk_vein = register("sculk_vein", new BlockSculkVein());
@@ -588,7 +609,7 @@ public class NovaCraftBlocks {
 		glow_lichen = registerMeta("glow_lichen", new BlockGlowLichen().setBlockTextureName(NovaCraft.find("glow_lichen")));
 		grim_lichen = registerMeta("grim_lichen", new BlockGrimLichen().setBlockTextureName(NovaCraft.find("grim_lichen")));
 		dark_lichen = registerMeta("dark_lichen", new BlockDarkLichen().setBlockTextureName(NovaCraft.find("dark_lichen")));	
-		bright_lichen = registerMeta("bright_lichen", new BlockBrightLichen().setBlockTextureName(NovaCraft.find("bright_lichen")));
+		bright_lichen = registerMeta("bright_lichen", new BlockBrightLichen().setBlockTextureName(NovaCraft.find("brimstone_lichen")));
 		
 		rich_etherstone = register("rich_etherstone", new BlockRichEtherstone());
 		rich_etherstone_spike = register("rich_etherstone_spike", new BlockRichEtherstoneSpike().setBlockTextureName(NovaCraft.find("rich_etherstone_spike")));
@@ -725,11 +746,35 @@ public class NovaCraftBlocks {
 		stone_stalagmite = register("stone_stalagmite", new BlockStoneStalagmite().setBlockTextureName(NovaCraft.find("stone_stalagmite")));
 		stone_stalactite = register("stone_stalactite", new BlockStoneStalactite().setBlockTextureName(NovaCraft.find("stone_stalactite")));
 		large_stone_stalagmite = register("large_stone_stalagmite", new BlockLargeStoneStalagmite().setBlockTextureName(NovaCraft.find("large_stone_stalagmite")));
-		large_stone_stalactite = register("large_stone_stalactite", new BlockLargeStoneStalactite().setBlockTextureName(NovaCraft.find("large_stone_stalactite")));		
+		large_stone_stalactite = register("large_stone_stalactite", new BlockLargeStoneStalactite().setBlockTextureName(NovaCraft.find("large_stone_stalactite")));
+		massive_stone_stalagmite_bottom = registerHidden("massive_stone_stalagmite_bottom", new BlockMassiveStoneStalagmiteBottom().setBlockTextureName(NovaCraft.find("massive_stone_stalagmite_bottom")));
+		massive_stone_stalagmite_top = registerHidden("massive_stone_stalagmite_top", new BlockMassiveStoneStalagmiteTop().setBlockTextureName(NovaCraft.find("massive_stone_stalagmite_top")));
+		massive_stone_stalactite_bottom = registerHidden("massive_stone_stalactite_bottom", new BlockMassiveStoneStalactiteBottom().setBlockTextureName(NovaCraft.find("massive_stone_stalactite_bottom")));
+		massive_stone_stalactite_top = registerHidden("massive_stone_stalactite_top", new BlockMassiveStoneStalactiteTop().setBlockTextureName(NovaCraft.find("massive_stone_stalactite_top")));
+
+		grimstone_stalagmite = register("grimstone_stalagmite", new BlockStoneStalagmite().setBlockTextureName(NovaCraft.find("grimstone_stalagmite")));
+		grimstone_stalactite = register("grimstone_stalactite", new BlockStoneStalactite().setBlockTextureName(NovaCraft.find("grimstone_stalactite")));
+		large_grimstone_stalagmite = register("large_grimstone_stalagmite", new BlockLargeStoneStalagmite().setBlockTextureName(NovaCraft.find("large_grimstone_stalagmite")));
+		large_grimstone_stalactite = register("large_grimstone_stalactite", new BlockLargeStoneStalactite().setBlockTextureName(NovaCraft.find("large_grimstone_stalactite")));
+
 		nullstone_stalagmite = register("nullstone_stalagmite", new BlockNullstoneStalagmite().setBlockTextureName(NovaCraft.find("nullstone_stalagmite")));
 		nullstone_stalactite = register("nullstone_stalactite", new BlockNullstoneStalactite().setBlockTextureName(NovaCraft.find("nullstone_stalactite")));		
 		large_nullstone_stalagmite = register("large_nullstone_stalagmite", new BlockLargeNullstoneStalagmite().setBlockTextureName(NovaCraft.find("large_nullstone_stalagmite")));
 		large_nullstone_stalactite = register("large_nullstone_stalactite", new BlockLargeNullstoneStalactite().setBlockTextureName(NovaCraft.find("large_nullstone_stalactite")));
+
+		massive_nullstone_stalactite_top = registerHidden("massive_nullstone_stalactite_top", new BlockMassiveNullstoneStalactiteTop().setBlockTextureName(NovaCraft.find("massive_nullstone_stalactite_top")));
+		massive_nullstone_stalactite_bottom = registerHidden("massive_nullstone_stalactite_bottom", new BlockMassiveNullstoneStalactiteBottom().setBlockTextureName(NovaCraft.find("massive_nullstone_stalactite_bottom")));
+		massive_nullstone_stalagmite_bottom = registerHidden("massive_nullstone_stalagmite_bottom", new BlockMassiveNullstoneStalagmiteBottom().setBlockTextureName(NovaCraft.find("massive_nullstone_stalagmite_bottom")));
+		massive_nullstone_stalagmite_top = registerHidden("massive_nullstone_stalagmite_top", new BlockMassiveNullstoneStalagmiteTop().setBlockTextureName(NovaCraft.find("massive_nullstone_stalagmite_top")));
+
+		cinnabar_stalagmite = register("cinnabar_stalagmite", new BlockStoneStalagmite().setBlockTextureName(NovaCraft.find("cinnabar_stalagmite")));
+		large_cinnabar_stalagmite = register("large_cinnabar_stalagmite", new BlockLargeStoneStalagmite().setBlockTextureName(NovaCraft.find("large_cinnabar_stalagmite")));
+		cinnabar_stalactite = register("cinnabar_stalactite", new BlockStoneStalactite().setBlockTextureName(NovaCraft.find("cinnabar_stalactite")));
+		large_cinnabar_stalactite = register("large_cinnabar_stalactite", new BlockLargeStoneStalactite().setBlockTextureName(NovaCraft.find("large_cinnabar_stalactite")));
+
+		cinnabar_pherithium_stalagmite = register("cinnabar_pherithium_stalagmite", new BlockCinnabarPherithiumStalagmite().setBlockTextureName(NovaCraft.find("cinnabar_pherithium_stalagmite")));
+		cinnabar_pherithium_stalactite = register("cinnabar_pherithium_stalactite", new BlockCinnabarPherithiumStalactite().setBlockTextureName(NovaCraft.find("cinnabar_pherithium_stalactite")));
+
 		icicle = register("icicle", new BlockIcicle().setBlockTextureName(NovaCraft.find("icicle")));
 		
 		//Stairs
@@ -747,7 +792,11 @@ public class NovaCraftBlocks {
 		cobbled_etherstone_stairs = register("cobbled_etherstone_stairs", new BlockNovaCraftStairs(cobbled_etherstone));
 		etherstone_brick_stairs = register("etherstone_brick_stairs", new BlockNovaCraftStairs(etherstone_bricks));
 		etherstone_tiled_stairs = register("etherstone_tiled_stairs", new BlockNovaCraftStairs(etherstone_tiles));
-		
+
+		cinnabar_stairs = register("cinnabar_stairs", new BlockNovaCraftStairs(cinnabar));
+		cinnabar_brick_stairs = register("cinnabar_brick_stairs", new BlockNovaCraftStairs(cinnabar_bricks));
+		stibnite_brick_stairs = register("stibnite_brick_stairs", new BlockNovaCraftStairs(stibnite_bricks));
+
 		basal_stairs = register("basal_stairs", new BlockNovaCraftStairs(basal));
 		basal_brick_stairs = register("basal_brick_stairs", new BlockNovaCraftStairs(basal_bricks));
 
@@ -808,7 +857,11 @@ public class NovaCraftBlocks {
 		cobbled_etherstone_wall = register("cobbled_etherstone_wall", new BlockNovaCraftWall(cobbled_etherstone));
 		etherstone_brick_wall = register("etherstone_brick_wall", new BlockNovaCraftWall(etherstone_bricks));
 		etherstone_tiled_wall = register("etherstone_tiled_wall", new BlockNovaCraftWall(etherstone_tiles));
-		
+
+		cinnabar_wall = register("cinnabar_wall", new BlockNovaCraftWall(cinnabar));
+		cinnabar_brick_wall = register("cinnabar_brick_wall", new BlockNovaCraftWall(cinnabar_bricks));
+		stibnite_brick_wall = register("stibnite_brick_wall", new BlockNovaCraftWall(stibnite_bricks));
+
 		basal_wall = register("basal_wall", new BlockNovaCraftWall(basal));
 		basal_brick_wall = register("basal_brick_wall", new BlockNovaCraftWall(basal_bricks));
 		
@@ -871,7 +924,16 @@ public class NovaCraftBlocks {
 		
 		nullwart_brick_double_slab = register("nullwart_brick_double_slab", new BlocksNovaCraftSlab("nullwart_brick_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("nullwart_brick")).setHardness(1.5F).setResistance(3.0F)).setCreativeTab(null);
 		nullwart_brick_slab = registerSlab("nullwart_brick_slab", new BlocksNovaCraftSlab("nullwart_brick_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("nullwart_brick")).setHardness(1.5F).setResistance(3.0F), nullwart_brick_double_slab);
-		
+
+		cinnabar_double_slab = register("cinnabar_double_slab", new BlocksNovaCraftSlab("cinnabar_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("cinnabar")).setHardness(1.5F).setResistance(2.0F)).setCreativeTab(null);
+		cinnabar_slab = registerSlab("cinnabar_slab", new BlocksNovaCraftSlab("cinnabar_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("cinnabar")).setHardness(1.5F).setResistance(2.0F), cinnabar_double_slab);
+
+		cinnabar_brick_double_slab = register("cinnabar_brick_double_slab", new BlocksNovaCraftSlab("cinnabar_brick_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("cinnabar_bricks")).setHardness(1.5F).setResistance(2.0F)).setCreativeTab(null);
+		cinnabar_brick_slab = registerSlab("cinnabar_brick_slab", new BlocksNovaCraftSlab("cinnabar_brick_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("cinnabar_bricks")).setHardness(1.5F).setResistance(2.0F), cinnabar_brick_double_slab);
+
+		stibnite_brick_double_slab = register("stibnite_brick_double_slab", new BlocksNovaCraftSlab("stibnite_brick_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("stibnite_bricks")).setHardness(1.5F).setResistance(2.0F)).setCreativeTab(null);
+		stibnite_brick_slab = registerSlab("stibnite_brick_slab", new BlocksNovaCraftSlab("stibnite_brick_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("stibnite_bricks")).setHardness(1.5F).setResistance(2.0F), stibnite_brick_double_slab);
+
 		basal_double_slab = register("basal_double_slab", new BlocksNovaCraftSlab("basal_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("basal")).setHardness(1.5F).setResistance(12.0F)).setCreativeTab(null);
 		basal_slab = registerSlab("basal_slab", new BlocksNovaCraftSlab("basal_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("basal")).setHardness(1.5F).setResistance(12.0F), basal_double_slab);		
 		basal_brick_double_slab = register("basal_brick_double_slab", new BlocksNovaCraftSlab("basal_brick_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("basal_bricks")).setHardness(1.5F).setResistance(12.0F)).setCreativeTab(null);
@@ -1100,6 +1162,13 @@ public class NovaCraftBlocks {
 	        GameRegistry.registerBlock(block, (Class)itemBlockClass, block.getUnlocalizedName().replace("tile.", ""));
 	        return block;
 	    }
+
+	public static Block registerItemBlockHidden(String name, final Block block, final Class<? extends ItemBlock> itemBlockClass) {
+		block.setBlockName(name);
+
+		GameRegistry.registerBlock(block, (Class)itemBlockClass, block.getUnlocalizedName().replace("tile.", ""));
+		return block;
+	}
 
 	public static Block register(String name, Block block) {
 		block.setBlockName(name);

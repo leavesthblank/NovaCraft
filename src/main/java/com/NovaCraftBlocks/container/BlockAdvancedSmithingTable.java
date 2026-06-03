@@ -2,9 +2,7 @@ package com.NovaCraftBlocks.container;
 
 import net.minecraft.block.*;
 import net.minecraft.util.*;
-
 import com.NovaCraft.NovaCraft;
-
 import cpw.mods.fml.relauncher.*;
 import net.minecraft.block.material.*;
 import net.minecraft.creativetab.*;

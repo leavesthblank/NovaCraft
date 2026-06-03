@@ -2,8 +2,6 @@ package com.NovaCraft.Items;
 
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -18,9 +16,9 @@ public class ItemPETNPowder extends Item
         this.setCreativeTab(NovaCraftCreativeTabs.items);
     }
 
-    public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
+    public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
     {
-        if (p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_) != Blocks.snow_layer)
+        if (world.getBlock(p_77648_4_, p_77648_5_, p_77648_6_) != Blocks.snow_layer)
         {
             if (p_77648_7_ == 0)
             {
@@ -52,22 +50,22 @@ public class ItemPETNPowder extends Item
                 ++p_77648_4_;
             }
 
-            if (!p_77648_3_.isAirBlock(p_77648_4_, p_77648_5_, p_77648_6_))
+            if (!world.isAirBlock(p_77648_4_, p_77648_5_, p_77648_6_))
             {
                 return false;
             }
         }
 
-        if (!p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_))
+        if (!player.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, itemStack))
         {
             return false;
         }
         else
         {
-            if (NovaCraftBlocks.PETN_wire.canPlaceBlockAt(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_))
+            if (NovaCraftBlocks.PETN_wire.canPlaceBlockAt(world, p_77648_4_, p_77648_5_, p_77648_6_))
             {
-                --p_77648_1_.stackSize;
-                p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, NovaCraftBlocks.PETN_wire);
+                --itemStack.stackSize;
+                world.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, NovaCraftBlocks.PETN_wire);
             }
 
             return true;

@@ -1,9 +1,7 @@
 package com.NovaCraft.entity.renderer.hardmode;
 
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.hardmode.EntityHardmodeZombie;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.entity.RenderBiped;
@@ -15,8 +13,8 @@ public class HardmodeZombieRenderer extends RenderBiped
 {
 	public static final ResourceLocation texture;
 	private float scale;
-	protected ModelBiped field_82437_k; //modelArmourChestplate
-	protected ModelBiped field_82435_l; //modelArmor
+	protected ModelBiped field_82437_k;
+	protected ModelBiped field_82435_l;
 	
 	public HardmodeZombieRenderer() {
 		super(new ModelZombie(), 0.4f);
@@ -31,7 +29,7 @@ public class HardmodeZombieRenderer extends RenderBiped
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(final Entity p_110775_1_) {
+	protected ResourceLocation getEntityTexture(final Entity entity) {
 		return texture;
 	}
 	static {

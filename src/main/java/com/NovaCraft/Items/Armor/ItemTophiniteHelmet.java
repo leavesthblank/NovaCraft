@@ -1,16 +1,12 @@
 package com.NovaCraft.Items.Armor;
 
 import cpw.mods.fml.common.FMLLog;
-
 import java.util.List;
-
 import org.apache.logging.log4j.Level;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,8 +16,6 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
-import net.minecraftforge.common.ISpecialArmor.ArmorProperties;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemArmor;
 
 public class ItemTophiniteHelmet extends ItemArmor implements ISpecialArmor

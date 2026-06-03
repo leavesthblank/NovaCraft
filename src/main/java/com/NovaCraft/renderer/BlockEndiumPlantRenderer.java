@@ -1,10 +1,8 @@
 package com.NovaCraft.renderer;
 
 import java.util.Random;
-
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.plants.end.BlockLacunaLog;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;

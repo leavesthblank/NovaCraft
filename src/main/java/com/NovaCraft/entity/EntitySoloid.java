@@ -1,30 +1,21 @@
 package com.NovaCraft.entity;
 
 import java.util.Random;
-
-import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.AI.EntityAIDeepoidBreathAttack;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntitySoloid extends EntityMob {
 
-    public EntitySoloid(World p_i1743_1_) {
-        super(p_i1743_1_);
+    public EntitySoloid(World world) {
+        super(world);
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0F, false));
         this.tasks.addTask(6, new EntityAIWander(this, 1.0F));

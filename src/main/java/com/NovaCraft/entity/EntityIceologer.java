@@ -1,11 +1,7 @@
 package com.NovaCraft.entity;
 
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.misc.EntityIceProjectile;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -13,26 +9,18 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -43,8 +31,8 @@ public class EntityIceologer extends EntityMob {
 	private int angerLevel;
 	private Entity lastAggroTarget;
 	
-	public EntityIceologer(final World p_i1745_1_) {
-		super(p_i1745_1_);
+	public EntityIceologer(final World world) {
+		super(world);
 		getNavigator().setBreakDoors(true);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
@@ -118,15 +106,15 @@ public class EntityIceologer extends EntityMob {
 		}
 	}
 	
-	private boolean shouldAttackPlayer(EntityPlayer p_70821_1_)
+	private boolean shouldAttackPlayer(EntityPlayer entityPlayer)
     {
         
-            Vec3 vec3 = p_70821_1_.getLook(1.0F).normalize();
-            Vec3 vec31 = Vec3.createVectorHelper(this.posX - p_70821_1_.posX, this.boundingBox.minY + (double)(this.height / 2.0F) - (p_70821_1_.posY + (double)p_70821_1_.getEyeHeight()), this.posZ - p_70821_1_.posZ);
+            Vec3 vec3 = entityPlayer.getLook(1.0F).normalize();
+            Vec3 vec31 = Vec3.createVectorHelper(this.posX - entityPlayer.posX, this.boundingBox.minY + (double)(this.height / 2.0F) - (entityPlayer.posY + (double)entityPlayer.getEyeHeight()), this.posZ - entityPlayer.posZ);
             double d0 = vec31.lengthVector();
             vec31 = vec31.normalize();
             double d1 = vec3.dotProduct(vec31);
-            return d1 > 1.0D - 0.025D / d0 && p_70821_1_.canEntityBeSeen(this);
+            return d1 > 1.0D - 0.025D / d0 && entityPlayer.canEntityBeSeen(this);
         
     }
 
@@ -173,11 +161,11 @@ public class EntityIceologer extends EntityMob {
 		return super.getBrightness(p_70013_1_);
 	}
 
-	protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {
+	protected void dropFewItems(boolean p_70628_1_, int chance) {
 		int j;
 		int k;
 		{
-			j = this.rand.nextInt(3 + p_70628_2_);
+			j = this.rand.nextInt(3 + chance);
 
 			for (k = 0; k < j; ++k)
 			{
@@ -185,12 +173,9 @@ public class EntityIceologer extends EntityMob {
 			}
 		}
 
-		int chance = (int)(1 + Math.random() * 5);
-		switch (chance) {
-			case 1: this.dropItem(NovaCraftItems.vindicator_insignia, 1);
-				break;
-			default:
-				break;
+		int chance_insignia = (int)(1 + Math.random() * 5);
+		if (chance_insignia == 1) {
+			this.dropItem(NovaCraftItems.vindicator_insignia, 1);
 		}
 	}
 

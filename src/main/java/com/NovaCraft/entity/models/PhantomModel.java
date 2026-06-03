@@ -4,6 +4,7 @@ import net.minecraft.client.model.*;
 import net.minecraft.entity.*;
 import net.minecraft.util.*;
 
+//Credit to Delirus for the model and animation port
 public class PhantomModel extends ModelBase
 {
     private final ModelRenderer body;

@@ -1,21 +1,8 @@
 package com.NovaCraft.world.ancient_city;
 
 import java.util.Random;
-
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import cpw.mods.fml.common.Loader;
 import net.minecraft.block.Block;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentData;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 

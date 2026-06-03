@@ -22,9 +22,9 @@ import net.minecraft.world.World;
 
 public class EntityIonizatiorProjectile extends EntityFireball {
 
-    public EntityIonizatiorProjectile(World p_i1770_1_)
+    public EntityIonizatiorProjectile(World world)
     {
-        super(p_i1770_1_);
+        super(world);
         this.setSize(0.3125F, 0.3125F);
     }
 
@@ -161,7 +161,7 @@ public class EntityIonizatiorProjectile extends EntityFireball {
         return true;
     }
 
-    public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_)
+    public boolean attackEntityFrom(DamageSource source, float p_70097_2_)
     {
         return false;
     }

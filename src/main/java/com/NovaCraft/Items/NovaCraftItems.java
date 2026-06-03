@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.NovaCraft.Item.Block.ItemBlockDeepoidBrewingStand;
+import com.NovaCraft.Items.Buckets.ItemMercuryVaniteBucket;
+import com.NovaCraft.Items.Food.*;
 import com.NovaCraft.Items.Potions.*;
+import com.NovaCraft.Items.Spikes.ItemMassiveNullstoneStalactite;
+import com.NovaCraft.Items.Spikes.ItemMassiveNullstoneStalagmite;
+import com.NovaCraft.Items.Spikes.ItemMassiveStoneStalactite;
+import com.NovaCraft.Items.Spikes.ItemMassiveStoneStalagmite;
 import com.NovaCraft.Items.Staffs.*;
 import com.NovaCraft.Items.Tools.*;
 import com.NovaCraft.NovaCraft;
@@ -63,20 +69,6 @@ import com.NovaCraft.Items.Armor.crown.ItemVaniteRedCrown;
 import com.NovaCraft.Items.Buckets.ItemBlazliniteBucket;
 import com.NovaCraft.Items.Buckets.ItemMoltenVaniteBucket;
 import com.NovaCraft.Items.Buckets.ItemVaniteBucket;
-import com.NovaCraft.Items.Food.ItemCaveStew;
-import com.NovaCraft.Items.Food.ItemCookedBlazingCharger;
-import com.NovaCraft.Items.Food.ItemCookedChevon;
-import com.NovaCraft.Items.Food.ItemCookedEnderAvis;
-import com.NovaCraft.Items.Food.ItemCookedFrogLeg;
-import com.NovaCraft.Items.Food.ItemCookedGlowSquid;
-import com.NovaCraft.Items.Food.ItemLuminantApple;
-import com.NovaCraft.Items.Food.ItemPherithiumCarrot;
-import com.NovaCraft.Items.Food.ItemRawBlazingCharger;
-import com.NovaCraft.Items.Food.ItemRawChevon;
-import com.NovaCraft.Items.Food.ItemRawEnderAvis;
-import com.NovaCraft.Items.Food.ItemRawFrogLeg;
-import com.NovaCraft.Items.Food.ItemRawGlowSquid;
-import com.NovaCraft.Items.Food.ItemSculkFlesh;
 import com.NovaCraft.Items.Music.ItemDisk5;
 import com.NovaCraft.Items.Shards.ItemAnomalousShard;
 import com.NovaCraft.Items.Shards.ItemInfusedAetherShard;
@@ -100,11 +92,13 @@ import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemStack;
 
 public class NovaCraftItems {
@@ -152,6 +146,7 @@ public class NovaCraftItems {
 	//Potions
 	public static Item nullwart, nullwart_blend;
 	public static Item vanite_bucket, vanite_bucket_lava, vanite_bucket_water, vanite_bucket_blazlinite, vanite_bucket_molten_vanite;
+	public static Item vanite_bucket_mercury, bucket_mercury;
 	public static Item vanite_bottle, vanite_crystal, vanite_cauldron_item, crystallized_vanite_alloy, nullified_vanite_alloy;
 	public static Item blazinite_powder, deepfire_blend, static_blend, end_portal_sealent;
 
@@ -165,13 +160,17 @@ public class NovaCraftItems {
 	public static Item potion_water_breathing_extended, potion_night_vision_extended, potion_invisibility_extended, potion_fire_resistance_extended;
 	
 	//Food
-	public static Item cave_stew, sculk_flesh, luminant_apple, pherithium_carrot;
+	public static Item cave_berry, cave_stew, sculk_flesh, luminant_apple, pherithium_carrot;
 	public static Item raw_chevon, cooked_chevon;
 	public static Item raw_frog_leg, cooked_frog_leg;
 	public static Item raw_glow_squid, cooked_glow_squid;
 	public static Item raw_octoqus, cooked_octoqus;
 	public static Item raw_blazing_charger, cooked_blazing_charger;
 	public static Item raw_enderavis, cooked_enderavis;
+
+	//Massive Stalagmites and Stalactites
+	public static Item massive_stone_stalagmite, massive_nullstone_stalagmite;
+	public static Item massive_stone_stalactite, massive_nullstone_stalactite;
 	
 	//-------------------------------------------------------------------------------------------------------------------------------
 	//Weapons and Tools Overworld
@@ -240,9 +239,15 @@ public class NovaCraftItems {
 		infused_yttrlinsite_shard = register("infused_yttrlinsite_shard", new ItemInfusedYttrlinsiteShard().setTextureName(NovaCraft.find("darkyttrillnite")));
 		infused_aether_shard = register("infused_aether_shard", new ItemInfusedAetherShard().setTextureName(NovaCraft.find("darkaether")));
 		crystallized_end_shard = register("crystallized_end_shard", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("crystallized_end_shard")));
-				
+
 		brimstone_dust = register("brimstone_dust", new ItemBrimstonePowder().setTextureName(NovaCraft.find("brimstone_dust")));
 		petn_powder = register("petn_powder", new ItemPETNPowder().setTextureName(NovaCraft.find("petn_powder")));
+
+		massive_stone_stalagmite = register("massive_stone_stalagmite", new ItemMassiveStoneStalagmite().setTextureName(NovaCraft.find("massive_stone_stalagmite_item")));
+		massive_nullstone_stalagmite = register("massive_nullstone_stalagmite", new ItemMassiveNullstoneStalagmite().setTextureName(NovaCraft.find("massive_nullstone_stalagmite_item")));
+		massive_stone_stalactite = register("massive_stone_stalactite", new ItemMassiveStoneStalactite().setTextureName(NovaCraft.find("massive_stone_stalactite_item")));
+		massive_nullstone_stalactite = register("massive_nullstone_stalactite", new ItemMassiveNullstoneStalactite().setTextureName(NovaCraft.find("massive_nullstone_stalactite_item")));
+
 		pherithium_scraps = register("pherithium_scraps", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("pherithium_scraps")));
 		pherithium_lump = register("pherithium_lump", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("pherithium_lump")));
 		pherithium_ingot = register("pherithium_ingot", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("pherithium_ingot")));
@@ -322,13 +327,15 @@ public class NovaCraftItems {
 		unknown_star = register("unknown_star", new ItemNullifiedDust().setTextureName(NovaCraft.find("unknown_star")));
 		impure_outsider_ingot = register("impure_outsider_ingot", new ItemImpureOutsiderIngot().setTextureName(NovaCraft.find("impure_outsider_ingot")));
 		outsider_ingot = register("outsider_ingot", new ItemOutsiderIngot().setTextureName(NovaCraft.find("outsider_ingot")));
-		
+
 		vanite_bucket = register("vanite_bucket", new ItemVaniteBucket(Blocks.air).setMaxStackSize(16).setTextureName(NovaCraft.find("vanite_bucket")));
 		vanite_bucket_water = register("vanite_bucket_water", new ItemVaniteBucket(Blocks.flowing_water).setTextureName(NovaCraft.find("vanite_bucket_water")));
 		vanite_bucket_lava = register("vanite_bucket_lava", new ItemVaniteBucket(Blocks.flowing_lava).setTextureName(NovaCraft.find("vanite_bucket_lava")));
 		vanite_bucket_blazlinite = register("vanite_bucket_blazlinite", new ItemBlazliniteBucket(NovaCraftBlocks.blazlinite).setTextureName(NovaCraft.find("vanite_bucket_blazlinite")));
 		vanite_bucket_molten_vanite = register("vanite_bucket_molten_vanite", new ItemMoltenVaniteBucket(NovaCraftBlocks.molten_vanite).setTextureName(NovaCraft.find("vanite_bucket_molten_vanite")));
-		
+		vanite_bucket_mercury = register("vanite_bucket_mercury", new ItemMercuryVaniteBucket(NovaCraftBlocks.mercury).setTextureName(NovaCraft.find("vanite_bucket_mercury")));
+		bucket_mercury = register("bucket_mercury", new ItemBucket(NovaCraftBlocks.mercury).setContainerItem(Items.bucket).setCreativeTab(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("bucket_mercury")));
+
 		vanite_crystal = register("vanite_crystal", new ItemNovaCraft(NovaCraftCreativeTabs.potions).setTextureName(NovaCraft.find("vanite_crystal")));
 		crystallized_vanite_alloy = register("crystallized_vanite_alloy", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("crystallized_vanite_alloy")));
 		nullified_vanite_alloy = register("nullified_vanite_alloy", new ItemNullifiedVaniteAlloy().setTextureName(NovaCraft.find("nullified_vanite_alloy")));
@@ -380,8 +387,9 @@ public class NovaCraftItems {
 		nullwart = register("nullwart", new ItemNullWart().setTextureName(NovaCraft.find("nullwart")));
 		disc_fragment_5 = register("disc_fragment_5", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("disc_fragment_5")));
 		
-		disc_5 = register("disc_5", new ItemDisk5("5").setTextureName(NovaCraft.find("music_disc_5")));		
-		
+		disc_5 = register("disc_5", new ItemDisk5("5").setTextureName(NovaCraft.find("music_disc_5")));
+
+		cave_berry = register("cave_berry", new ItemCaveBerry().setTextureName(NovaCraft.find("cave_berry")));
 		luminant_apple = register("luminant_apple", new ItemLuminantApple().setTextureName(NovaCraft.find("luminant_apple")));
 		luminant_tree_sap = register("luminant_tree_sap", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("luminant_tree_sap")));
 		luminant_gel = register("luminant_gel", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("luminant_gel")));

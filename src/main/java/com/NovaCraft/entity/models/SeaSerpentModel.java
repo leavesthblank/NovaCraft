@@ -5,7 +5,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
@@ -166,45 +165,17 @@ public class SeaSerpentModel extends ModelBase
         this.Teeth2.render(f5);
         this.Head3.render(f5);
         this.Head4.render(f5);
-        //this.Head5.render(f5);
         this.Body1.render(f5);
         this.Body2.render(f5);
         this.Body3.render(f5);
         this.Body4.render(f5);
         this.Body5.render(f5);
-        //this.Tail1.render(f5);
-        //this.Tail2.render(f5);
-        //this.Fin1.render(f5);
-        //this.Fin2.render(f5);
-        //this.Fin3.render(f5);
-        //this.Fin4.render(f5);
         this.Upperfin1.render(f5);
         this.Upperfin2.render(f5);
         this.Upperfin3.render(f5);
         this.Upperfin4.render(f5);
         this.Upperfin5.render(f5);
     }
-    
-    //public void Entity(final EntityLivingBase par1EntityLiving, final float par2, final float par3, final float par4) { //final md par1EntityLiving, final float par2, final float par3, final float par4
-        //final float f1 = (0.5f + Math.max(par3, par4 - 1.0f)) * 0.25f;
-        //final float f2 = par2 * 0.3f;
-        //this.Body1.rotateAngleX = MathHelper.cos(f2 - 0.6f) * f1;
-        //this.Upperfin1.rotateAngleX = MathHelper.cos(f2 - 0.6f) * f1;
-        //this.Body2.rotateAngleX = MathHelper.cos(f2 - 0.67499995f) * f1;
-        //this.Upperfin2.rotateAngleX = MathHelper.cos(f2 - 0.67499995f) * f1;
-        //this.Fin1.rotateAngleX = MathHelper.cos(f2 - 0.67499995f) * f1;
-        //this.Fin2.rotateAngleX = MathHelper.cos(f2 - 0.67499995f) * f1;
-        //this.Body3.rotateAngleX = MathHelper.cos(f2 - 0.75f) * f1;
-        //this.Upperfin3.rotateAngleX = MathHelper.cos(f2 - 0.75f) * f1;
-        //this.Body4.rotateAngleX = MathHelper.cos(f2 - 0.82500005f) * f1;
-        //this.Upperfin4.rotateAngleX = MathHelper.cos(f2 - 0.82500005f) * f1;
-        //this.Fin3.rotateAngleX = MathHelper.cos(f2 - 0.82500005f) * f1;
-        //this.Fin4.rotateAngleX = MathHelper.cos(f2 - 0.82500005f) * f1;
-        //this.Body5.rotateAngleX = MathHelper.cos(f2 - 0.90000004f) * f1;
-        //this.Upperfin5.rotateAngleX = MathHelper.cos(f2 - 0.90000004f) * f1;
-        //this.Tail1.rotateAngleX = MathHelper.cos(f2 - 0.97499996f) * f1;
-        //this.Tail2.rotateAngleX = MathHelper.cos(f2 - 0.97499996f) * f1;
-    //}
     
     private void setRotation(final ModelRenderer model, final float x, final float y, final float z) {
         model.rotateAngleX = x;
@@ -223,8 +194,6 @@ public class SeaSerpentModel extends ModelBase
         this.Head3.rotateAngleY = netHeadYaw * 0.017453292f;
         this.Head4.rotateAngleX = headPitch * 0.017453292f;
         this.Head4.rotateAngleY = netHeadYaw * 0.017453292f;
-        //this.Head5.rotateAngleX = headPitch * 0.017453292f; //17
-        //this.Head5.rotateAngleY = netHeadYaw * 0.017453292f;
         this.Teeth1.rotateAngleX = headPitch * 0.017453292f;
         this.Teeth1.rotateAngleY = netHeadYaw * 0.017453292f;
         this.Teeth2.rotateAngleX = headPitch * 0.017453292f;

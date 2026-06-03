@@ -1,10 +1,6 @@
 package com.NovaCraft.entity.illager;
 
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -12,25 +8,16 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class EntityVindicator extends EntityMob
@@ -38,8 +25,8 @@ public class EntityVindicator extends EntityMob
 	private int angerLevel;
 	private Entity lastAggroTarget;
 	
-	public EntityVindicator(final World p_i1745_1_) {
-		super(p_i1745_1_);
+	public EntityVindicator(final World world) {
+		super(world);
 		getNavigator().setBreakDoors(true);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
@@ -70,8 +57,8 @@ public class EntityVindicator extends EntityMob
 	@Override
 	protected void addRandomArmor()
 	{		
-		int rand = (int)(1 + Math.random() * 12);
-		switch (rand)
+		int weapon_type = (int)(1 + Math.random() * 12);
+		switch (weapon_type)
         {
         	case 1:
         		this.setCurrentItemOrArmor(0, new ItemStack(Items.iron_axe));
@@ -125,11 +112,11 @@ public class EntityVindicator extends EntityMob
 	    return this.angerLevel > 0;
 	}
 
-	protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {
+	protected void dropFewItems(boolean p_70628_1_, int random) {
 		int j;
 		int k;
 		{
-			j = this.rand.nextInt(3 + p_70628_2_);
+			j = this.rand.nextInt(3 + random);
 
 			for (k = 0; k < j; ++k)
 			{
@@ -138,11 +125,8 @@ public class EntityVindicator extends EntityMob
 		}
 
 		int chance = (int)(1 + Math.random() * 4);
-		switch (chance) {
-			case 1: this.dropItem(NovaCraftItems.vindicator_insignia, 1);
-				break;
-			default:
-				break;
+		if (chance == 1) {
+			this.dropItem(NovaCraftItems.vindicator_insignia, 1);
 		}
 	}
 	
@@ -161,28 +145,19 @@ public class EntityVindicator extends EntityMob
     {
         return EnumCreatureAttribute.UNDEFINED;
     }
-	
-	/**
-     * Returns the sound this mob makes while it's alive.
-     */
+
 	@Override
     protected String getLivingSound()
     {
         return "nova_craft:vindicator.living";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
 	@Override
     protected String getHurtSound()
     {
         return "nova_craft:vindicator.hurt";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
 	@Override
     protected String getDeathSound()
     {

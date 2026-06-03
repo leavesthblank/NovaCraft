@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
-
 import com.NovaCraft.config.Configs;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
@@ -16,7 +15,6 @@ import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.structure.MapGenStronghold;
-import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureStart;
 
@@ -33,9 +31,9 @@ public class MapGenNCStronghold extends MapGenStronghold
     public MapGenNCStronghold()
     {
         allowedBiomeGenBases = allowedBiomes.toArray(new BiomeGenBase[0]);
-        structureCoords = new ChunkCoordIntPair[6]; //Six Strongholds per world
+        structureCoords = new ChunkCoordIntPair[3]; //Three Strongholds per world
         field_82671_h = 128.0D;
-        field_82672_i = 6;
+        field_82672_i = 3;
     }
 
     @SuppressWarnings("rawtypes")

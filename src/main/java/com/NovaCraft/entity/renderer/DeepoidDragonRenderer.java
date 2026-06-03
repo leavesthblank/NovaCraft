@@ -33,17 +33,17 @@ public class DeepoidDragonRenderer extends RenderLiving
         this.setRenderPassModel(this.mainModel);
     }
 
-    protected void rotateCorpse(EntityDeepoidDragon p_77043_1_, float p_77043_2_, float p_77043_3_, float p_77043_4_)
+    protected void rotateCorpse(EntityDeepoidDragon entity, float p_77043_2_, float p_77043_3_, float p_77043_4_)
     {
-        float f3 = (float)p_77043_1_.getMovementOffsets(7, p_77043_4_)[0];
-        float f4 = (float)(p_77043_1_.getMovementOffsets(5, p_77043_4_)[1] - p_77043_1_.getMovementOffsets(10, p_77043_4_)[1]);
+        float f3 = (float)entity.getMovementOffsets(7, p_77043_4_)[0];
+        float f4 = (float)(entity.getMovementOffsets(5, p_77043_4_)[1] - entity.getMovementOffsets(10, p_77043_4_)[1]);
         GL11.glRotatef(-f3, 0.0F, 1.0F, 0.0F);
         GL11.glRotatef(f4 * 10.0F, 1.0F, 0.0F, 0.0F);
         GL11.glTranslatef(0.0F, 0.0F, 1.0F);
 
-        if (p_77043_1_.deathTime > 0)
+        if (entity.deathTime > 0)
         {
-            float f5 = ((float)p_77043_1_.deathTime + p_77043_4_ - 1.0F) / 20.0F * 1.6F;
+            float f5 = ((float)entity.deathTime + p_77043_4_ - 1.0F) / 20.0F * 1.6F;
             f5 = MathHelper.sqrt_float(f5);
 
             if (f5 > 1.0F)
@@ -51,7 +51,7 @@ public class DeepoidDragonRenderer extends RenderLiving
                 f5 = 1.0F;
             }
 
-            GL11.glRotatef(f5 * this.getDeathMaxRotation(p_77043_1_), 0.0F, 0.0F, 1.0F);
+            GL11.glRotatef(f5 * this.getDeathMaxRotation(entity), 0.0F, 0.0F, 1.0F);
         }
     }
     
@@ -62,57 +62,57 @@ public class DeepoidDragonRenderer extends RenderLiving
         GL11.glScalef(2.8F, 2.8F, 2.8F);
     }
 
-    protected void renderModel(EntityDeepoidDragon p_77036_1_, float p_77036_2_, float p_77036_3_, float p_77036_4_, float p_77036_5_, float p_77036_6_, float p_77036_7_)
+    protected void renderModel(EntityDeepoidDragon entity, float p_77036_2_, float p_77036_3_, float p_77036_4_, float p_77036_5_, float p_77036_6_, float p_77036_7_)
     {
-        if (p_77036_1_.deathTicks > 0)
+        if (entity.deathTicks > 0)
         {
-            float f6 = (float)p_77036_1_.deathTicks / 200.0F;
+            float f6 = (float)entity.deathTicks / 200.0F;
             GL11.glDepthFunc(GL11.GL_LEQUAL);
             GL11.glEnable(GL11.GL_ALPHA_TEST);
             GL11.glAlphaFunc(GL11.GL_GREATER, f6);
             this.bindTexture(DeepoidDragonExplodingTextures);
-            this.mainModel.render(p_77036_1_, p_77036_2_, p_77036_3_, p_77036_4_, p_77036_5_, p_77036_6_, p_77036_7_);
+            this.mainModel.render(entity, p_77036_2_, p_77036_3_, p_77036_4_, p_77036_5_, p_77036_6_, p_77036_7_);
             GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
             GL11.glDepthFunc(GL11.GL_EQUAL);
         }
 
-        this.bindEntityTexture(p_77036_1_);
-        this.mainModel.render(p_77036_1_, p_77036_2_, p_77036_3_, p_77036_4_, p_77036_5_, p_77036_6_, p_77036_7_);
+        this.bindEntityTexture(entity);
+        this.mainModel.render(entity, p_77036_2_, p_77036_3_, p_77036_4_, p_77036_5_, p_77036_6_, p_77036_7_);
 
-        if (p_77036_1_.hurtTime > 0)
+        if (entity.hurtTime > 0)
         {
             GL11.glDepthFunc(GL11.GL_EQUAL);
             GL11.glDisable(GL11.GL_TEXTURE_2D);
             GL11.glEnable(GL11.GL_BLEND);
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
             GL11.glColor4f(1.0F, 0.0F, 0.0F, 0.5F);
-            this.mainModel.render(p_77036_1_, p_77036_2_, p_77036_3_, p_77036_4_, p_77036_5_, p_77036_6_, p_77036_7_);
+            this.mainModel.render(entity, p_77036_2_, p_77036_3_, p_77036_4_, p_77036_5_, p_77036_6_, p_77036_7_);
             GL11.glEnable(GL11.GL_TEXTURE_2D);
             GL11.glDisable(GL11.GL_BLEND);
             GL11.glDepthFunc(GL11.GL_LEQUAL);
         }
     }
 
-    public void doRender(EntityDeepoidDragon p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(EntityDeepoidDragon entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-    	BossStatus.setBossStatus(p_76986_1_, false);
-        super.doRender((EntityLiving)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+    	BossStatus.setBossStatus(entity, false);
+        super.doRender((EntityLiving)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    protected ResourceLocation getEntityTexture(EntityDeepoidDragon p_110775_1_)
+    protected ResourceLocation getEntityTexture(EntityDeepoidDragon entity)
     {
         return DeepoidDragonTextures;
     }
 
-    protected void renderEquippedItems(EntityDeepoidDragon p_77029_1_, float p_77029_2_)
+    protected void renderEquippedItems(EntityDeepoidDragon entity, float p_77029_2_)
     {
-        super.renderEquippedItems(p_77029_1_, p_77029_2_);
+        super.renderEquippedItems(entity, p_77029_2_);
         Tessellator tessellator = Tessellator.instance;
 
-        if (p_77029_1_.deathTicks > 0)
+        if (entity.deathTicks > 0)
         {
             RenderHelper.disableStandardItemLighting();
-            float f1 = ((float)p_77029_1_.deathTicks + p_77029_2_) / 200.0F;
+            float f1 = ((float)entity.deathTicks + p_77029_2_) / 200.0F;
             float f2 = 0.0F;
 
             if (f1 > 0.8F)
@@ -164,7 +164,7 @@ public class DeepoidDragonRenderer extends RenderLiving
         }
     }
 
-    protected int shouldRenderPass(EntityDeepoidDragon p_77032_1_, int p_77032_2_, float p_77032_3_)
+    protected int shouldRenderPass(EntityDeepoidDragon entity, int p_77032_2_, float p_77032_3_)
     {
         if (p_77032_2_ == 1)
         {
@@ -193,44 +193,44 @@ public class DeepoidDragonRenderer extends RenderLiving
         }
     }
 
-    public void doRender(EntityLiving p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(EntityLiving entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-        this.doRender((EntityDeepoidDragon)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        this.doRender((EntityDeepoidDragon)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    protected int shouldRenderPass(EntityLivingBase p_77032_1_, int p_77032_2_, float p_77032_3_)
+    protected int shouldRenderPass(EntityLivingBase entity, int p_77032_2_, float p_77032_3_)
     {
-        return this.shouldRenderPass((EntityDeepoidDragon)p_77032_1_, p_77032_2_, p_77032_3_);
+        return this.shouldRenderPass((EntityDeepoidDragon)entity, p_77032_2_, p_77032_3_);
     }
 
-    protected void renderEquippedItems(EntityLivingBase p_77029_1_, float p_77029_2_)
+    protected void renderEquippedItems(EntityLivingBase entity, float p_77029_2_)
     {
-        this.renderEquippedItems((EntityDeepoidDragon)p_77029_1_, p_77029_2_);
+        this.renderEquippedItems((EntityDeepoidDragon)entity, p_77029_2_);
     }
 
-    protected void rotateCorpse(EntityLivingBase p_77043_1_, float p_77043_2_, float p_77043_3_, float p_77043_4_)
+    protected void rotateCorpse(EntityLivingBase entity, float p_77043_2_, float p_77043_3_, float p_77043_4_)
     {
-        this.rotateCorpse((EntityDeepoidDragon)p_77043_1_, p_77043_2_, p_77043_3_, p_77043_4_);
+        this.rotateCorpse((EntityDeepoidDragon)entity, p_77043_2_, p_77043_3_, p_77043_4_);
     }
 
-    protected void renderModel(EntityLivingBase p_77036_1_, float p_77036_2_, float p_77036_3_, float p_77036_4_, float p_77036_5_, float p_77036_6_, float p_77036_7_)
+    protected void renderModel(EntityLivingBase entity, float p_77036_2_, float p_77036_3_, float p_77036_4_, float p_77036_5_, float p_77036_6_, float p_77036_7_)
     {
-        this.renderModel((EntityDeepoidDragon)p_77036_1_, p_77036_2_, p_77036_3_, p_77036_4_, p_77036_5_, p_77036_6_, p_77036_7_);
+        this.renderModel((EntityDeepoidDragon)entity, p_77036_2_, p_77036_3_, p_77036_4_, p_77036_5_, p_77036_6_, p_77036_7_);
     }
 
-    public void doRender(EntityLivingBase p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(EntityLivingBase entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-        this.doRender((EntityDeepoidDragon)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        this.doRender((EntityDeepoidDragon)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    protected ResourceLocation getEntityTexture(Entity p_110775_1_)
+    protected ResourceLocation getEntityTexture(Entity entity)
     {
-        return this.getEntityTexture((EntityDeepoidDragon)p_110775_1_);
+        return this.getEntityTexture((EntityDeepoidDragon)entity);
     }
 
-    public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+    public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-        this.doRender((EntityDeepoidDragon)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        this.doRender((EntityDeepoidDragon)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
 

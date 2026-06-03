@@ -1,10 +1,10 @@
 package com.NovaCraft.world.floating_island;
+
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
 import java.util.Random;
 
 public class FloatingIslandBuriedTreasure extends WorldGenAbstractTree
@@ -21,11 +21,11 @@ public class FloatingIslandBuriedTreasure extends WorldGenAbstractTree
         world.setBlock(i + 2, j - 4, k + 2, NovaCraftBlocks.rich_etherstone, 0, 2);
         world.setBlock(i + 3, j - 4, k + 2, NovaCraftBlocks.rich_etherstone, 0, 2);
         world.setBlock(i + 2, j - 4, k + 3, NovaCraftBlocks.rich_etherstone, 0, 2);
-        world.setBlock(i + 2, j - 3, k + 0, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
+        world.setBlock(i + 2, j - 3, k, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
         world.setBlock(i + 1, j - 3, k + 1, NovaCraftBlocks.etherstone_bricks, 0, 2);
         world.setBlock(i + 2, j - 3, k + 1, NovaCraftBlocks.rich_etherstone_spike, 0, 2);
         world.setBlock(i + 3, j - 3, k + 1, NovaCraftBlocks.etherstone_bricks, 0, 2);
-        world.setBlock(i + 0, j - 3, k + 2, NovaCraftBlocks.etherstone_bricks, 0, 2);
+        world.setBlock(i, j - 3, k + 2, NovaCraftBlocks.etherstone_bricks, 0, 2);
         world.setBlock(i + 1, j - 3, k + 2, NovaCraftBlocks.rich_etherstone_spike, 0, 2);
         world.setBlock(i + 3, j - 3, k + 2, NovaCraftBlocks.rich_etherstone_spike, 0, 2);
         world.setBlock(i + 4, j - 3, k + 2, NovaCraftBlocks.etherstone_bricks, 0, 2);
@@ -33,11 +33,11 @@ public class FloatingIslandBuriedTreasure extends WorldGenAbstractTree
         world.setBlock(i + 2, j - 3, k + 3, NovaCraftBlocks.rich_etherstone_spike, 0, 2);
         world.setBlock(i + 3, j - 3, k + 3, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
         world.setBlock(i + 2, j - 3, k + 4, NovaCraftBlocks.etherstone_bricks, 0, 2);
-        world.setBlock(i + 2, j - 2, k + 0, NovaCraftBlocks.etherstone_bricks, 0, 2);
+        world.setBlock(i + 2, j - 2, k, NovaCraftBlocks.etherstone_bricks, 0, 2);
         world.setBlock(i + 1, j - 2, k + 1, NovaCraftBlocks.etherstone_bricks, 0, 2);
         world.setBlock(i + 2, j - 2, k + 1, Blocks.air, 0, 2);
         world.setBlock(i + 3, j - 2, k + 1, NovaCraftBlocks.etherstone_bricks, 0, 2);
-        world.setBlock(i + 0, j - 2, k + 2, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
+        world.setBlock(i, j - 2, k + 2, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
         world.setBlock(i + 1, j - 2, k + 2, Blocks.air, 0, 2);
         world.setBlock(i + 2, j - 2, k + 2, Blocks.air, 0, 2);
         world.setBlock(i + 3, j - 2, k + 2, Blocks.air, 0, 2);
@@ -46,11 +46,11 @@ public class FloatingIslandBuriedTreasure extends WorldGenAbstractTree
         world.setBlock(i + 2, j - 2, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 3, j - 2, k + 3, NovaCraftBlocks.etherstone_bricks, 0, 2);
         world.setBlock(i + 2, j - 2, k + 4, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
-        world.setBlock(i + 2, j - 1, k + 0, NovaCraftBlocks.rich_etherstone, 0, 2);
+        world.setBlock(i + 2, j - 1, k, NovaCraftBlocks.rich_etherstone, 0, 2);
         world.setBlock(i + 1, j - 1, k + 1, NovaCraftBlocks.rich_etherstone, 0, 2);
         world.setBlock(i + 2, j - 1, k + 1, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
         world.setBlock(i + 3, j - 1, k + 1, NovaCraftBlocks.rich_etherstone, 0, 2);
-        world.setBlock(i + 0, j - 1, k + 2, NovaCraftBlocks.rich_etherstone, 0, 2);
+        world.setBlock(i, j - 1, k + 2, NovaCraftBlocks.rich_etherstone, 0, 2);
         world.setBlock(i + 1, j - 1, k + 2, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
         world.setBlock(i + 2, j - 1, k + 2, NovaCraftBlocks.etherstone_bricks, 0, 2);
         world.setBlock(i + 3, j - 1, k + 2, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);

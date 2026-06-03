@@ -14,7 +14,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
 import java.util.Random;
 
 public class MansionFloor3Gen2 extends WorldGenerator {

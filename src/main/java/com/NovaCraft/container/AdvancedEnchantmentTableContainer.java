@@ -4,16 +4,11 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
-
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
@@ -21,90 +16,68 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
-public class AdvancedEnchantmentTableContainer extends Container
-{
-    /** SlotEnchantmentTable object with ItemStack to be enchanted */
-    public IInventory tableInventory = new InventoryBasic("Enchant", true, 1)
-    {
-        private static final String __OBFID = "CL_00001746";
-        /**
-         * Returns the maximum stack size for a inventory slot.
-         */
+public class AdvancedEnchantmentTableContainer extends Container {
+    public IInventory tableInventory = new InventoryBasic("Enchant", true, 1) {
+
         public int getInventoryStackLimit()
         {
             return 1;
         }
-        /**
-         * For tile entities, ensures the chunk containing the tile entity is saved to disk later - the game won't think
-         * it hasn't changed and skip it.
-         */
+
         public void markDirty()
         {
             super.markDirty();
             AdvancedEnchantmentTableContainer.this.onCraftMatrixChanged(this);
         }
     };
-    /** current world (for bookshelf counting) */
     private World worldPointer;
     private int posX;
     private int posY;
     private int posZ;
     private Random rand = new Random();
-    /** used as seed for EnchantmentNameParts (see GuiEnchantment) */
     public long nameSeed;
-    /** 3-member array storing the enchantment levels of each slot */
-    public int[] enchantLevels = new int[6]; //3
-    private static final String __OBFID = "CL_00001745";
+    public int[] enchantLevels = new int[6];
 
-    public AdvancedEnchantmentTableContainer(InventoryPlayer p_i1811_1_, World p_i1811_2_, int p_i1811_3_, int p_i1811_4_, int p_i1811_5_)
+    public AdvancedEnchantmentTableContainer(InventoryPlayer inventory, World world, int x, int y, int z)
     {
-        this.worldPointer = p_i1811_2_;
-        this.posX = p_i1811_3_;
-        this.posY = p_i1811_4_;
-        this.posZ = p_i1811_5_;
-        this.addSlotToContainer(new Slot(this.tableInventory, 0, 25, 47)
-        {
-            private static final String __OBFID = "CL_00001747";
-            /**
-             * Check if the stack is a valid item for this slot. Always true beside for the armor slots.
-             */
+        this.worldPointer = world;
+        this.posX = x;
+        this.posY = y;
+        this.posZ = z;
+        this.addSlotToContainer(new Slot(this.tableInventory, 0, 25, 47) {
             public boolean isItemValid(ItemStack p_75214_1_)
             {
                 return true;
             }
         });
+        
         int l;
 
         for (l = 0; l < 3; ++l) 
         {
             for (int i1 = 0; i1 < 9; ++i1)
             {
-                this.addSlotToContainer(new Slot(p_i1811_1_, i1 + l * 9 + 9, 8 + i1 * 18, 84 + l * 18));
+                this.addSlotToContainer(new Slot(inventory, i1 + l * 9 + 9, 8 + i1 * 18, 84 + l * 18));
             }
         }
 
         for (l = 0; l < 9; ++l)
         {
-            this.addSlotToContainer(new Slot(p_i1811_1_, l, 8 + l * 18, 142));
+            this.addSlotToContainer(new Slot(inventory, l, 8 + l * 18, 142));
         }
     }
 
-    public void addCraftingToCrafters(ICrafting p_75132_1_)
+    public void addCraftingToCrafters(ICrafting crafting)
     {
-        super.addCraftingToCrafters(p_75132_1_);
-        p_75132_1_.sendProgressBarUpdate(this, 0, this.enchantLevels[0]);
-        p_75132_1_.sendProgressBarUpdate(this, 1, this.enchantLevels[1]);
-        p_75132_1_.sendProgressBarUpdate(this, 2, this.enchantLevels[2]);
+        super.addCraftingToCrafters(crafting);
+        crafting.sendProgressBarUpdate(this, 0, this.enchantLevels[0]);
+        crafting.sendProgressBarUpdate(this, 1, this.enchantLevels[1]);
+        crafting.sendProgressBarUpdate(this, 2, this.enchantLevels[2]);
     }
 
-    /**
-     * Looks for changes made in the container, sends them to every listener.
-     */
     public void detectAndSendChanges()
     {
         super.detectAndSendChanges();
@@ -123,17 +96,14 @@ public class AdvancedEnchantmentTableContainer extends Container
     {
         if (p_75137_1_ >= 0 && p_75137_1_ <= 2)
         {
-            this.enchantLevels[p_75137_1_] = 50; //p_75137_2_
+            this.enchantLevels[p_75137_1_] = 50;
         }
         else
         {
-            super.updateProgressBar(p_75137_1_, p_75137_2_); //p_75137_2_
+            super.updateProgressBar(p_75137_1_, p_75137_2_);
         }
     }
 
-    /**
-     * Callback for when the crafting matrix is changed.
-     */
     public void onCraftMatrixChanged(IInventory p_75130_1_)
     {
         if (p_75130_1_ == this.tableInventory)
@@ -189,23 +159,20 @@ public class AdvancedEnchantmentTableContainer extends Container
         }
     }
 
-    /**
-     * enchants the item on the table using the specified slot; also deducts XP from player
-     */
     public boolean enchantItem(EntityPlayer p_75140_1_, int p_75140_2_)
     {
         ItemStack itemstack = this.tableInventory.getStackInSlot(0);
 
-        if (this.enchantLevels[p_75140_2_] > 0 && itemstack != null && (p_75140_1_.experienceLevel >= 50 || p_75140_1_.capabilities.isCreativeMode)) //this.enchantLevels[p_75140_2_]
+        if (this.enchantLevels[p_75140_2_] > 0 && itemstack != null && (p_75140_1_.experienceLevel >= 50 || p_75140_1_.capabilities.isCreativeMode))
         {
             if (!this.worldPointer.isRemote)
             {
-                List list = EnchantmentHelper.buildEnchantmentList(this.rand, itemstack, this.enchantLevels[p_75140_2_]); //this.enchantLevels[p_75140_2_]
+                List list = EnchantmentHelper.buildEnchantmentList(this.rand, itemstack, this.enchantLevels[p_75140_2_]);
                 boolean flag = itemstack.getItem() == Items.book;
 
                 if (list != null)
                 {
-                    p_75140_1_.addExperienceLevel(-50); //this.enchantLevels[p_75140_2_]
+                    p_75140_1_.addExperienceLevel(-50);
  
                     if (flag)
                     {
@@ -226,7 +193,7 @@ public class AdvancedEnchantmentTableContainer extends Container
                             }
                             else
                             {
-                                itemstack.addEnchantment(enchantmentdata.enchantmentobj, RandomLevel()); //
+                                itemstack.addEnchantment(enchantmentdata.enchantmentobj, RandomLevel());
                             }
                        }
                     }
@@ -261,9 +228,6 @@ public class AdvancedEnchantmentTableContainer extends Container
     	
     }
 
-    /**
-     * Called when the container is closed.
-     */
     public void onContainerClosed(EntityPlayer p_75134_1_)
     {
         super.onContainerClosed(p_75134_1_);
@@ -284,9 +248,6 @@ public class AdvancedEnchantmentTableContainer extends Container
         return this.worldPointer.getBlock(this.posX, this.posY, this.posZ) != NovaCraftBlocks.advanced_enchantment_table ? false : p_75145_1_.getDistanceSq((double)this.posX + 0.5D, (double)this.posY + 0.5D, (double)this.posZ + 0.5D) <= 64.0D;
     }
 
-    /**
-     * Called when a player shift-clicks on a slot. You must override this or you will crash when someone does that.
-     */
     public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int p_82846_2_)
     {
         ItemStack itemstack = null;

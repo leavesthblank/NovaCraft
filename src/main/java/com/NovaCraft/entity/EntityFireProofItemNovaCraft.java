@@ -9,27 +9,26 @@ import net.minecraft.block.material.*;
 import net.minecraftforge.event.entity.item.*;
 import net.minecraftforge.common.*;
 import cpw.mods.fml.common.eventhandler.*;
-import java.util.*;
 
 public class EntityFireProofItemNovaCraft extends EntityItem
 {
     private int health;
     
-    public EntityFireProofItemNovaCraft(final World par1World, final double par2, final double par4, final double par6) {
-        super(par1World, par2, par4, par6);
+    public EntityFireProofItemNovaCraft(final World world, final double par2, final double par4, final double par6) {
+        super(world, par2, par4, par6);
         this.isImmuneToFire = true;
         this.health = 5;
         this.lifespan = 6000;
     }
     
-    public EntityFireProofItemNovaCraft(final World par1World, final double par2, final double par4, final double par6, final ItemStack par8ItemStack) {
-        this(par1World, par2, par4, par6);
+    public EntityFireProofItemNovaCraft(final World world, final double par2, final double par4, final double par6, final ItemStack par8ItemStack) {
+        this(world, par2, par4, par6);
         this.setEntityItemStack(par8ItemStack);
         this.lifespan = 6000;
     }
     
-    public EntityFireProofItemNovaCraft(final World par1World) {
-        super(par1World);
+    public EntityFireProofItemNovaCraft(final World world) {
+        super(world);
         this.isImmuneToFire = true;
         this.health = 5;
         this.lifespan = 6000;
@@ -50,11 +49,11 @@ public class EntityFireProofItemNovaCraft extends EntityItem
         this.lifespan = 6000;
     }
     
-    public boolean attackEntityFrom(final DamageSource p_70097_1_, final float p_70097_2_) {
+    public boolean attackEntityFrom(final DamageSource source, final float p_70097_2_) {
         if (this.isEntityInvulnerable()) {
             return false;
         }
-        if (p_70097_1_.isFireDamage()) {
+        if (source.isFireDamage()) {
             return false;
         }
         this.setBeenAttacked();
@@ -139,15 +138,15 @@ public class EntityFireProofItemNovaCraft extends EntityItem
         }
     }
     
-    public boolean combineItems(final EntityItem p_70289_1_) {
-        if (p_70289_1_ == this) {
+    public boolean combineItems(final EntityItem item) {
+        if (item == this) {
             return false;
         }
-        if (!p_70289_1_.isEntityAlive() || !this.isEntityAlive()) {
+        if (!item.isEntityAlive() || !this.isEntityAlive()) {
             return false;
         }
         final ItemStack itemstack = this.getEntityItem();
-        final ItemStack itemstack2 = p_70289_1_.getEntityItem();
+        final ItemStack itemstack2 = item.getEntityItem();
         if (itemstack2.getItem() != itemstack.getItem()) {
             return false;
         }
@@ -164,16 +163,16 @@ public class EntityFireProofItemNovaCraft extends EntityItem
             return false;
         }
         if (itemstack2.stackSize < itemstack.stackSize) {
-            return p_70289_1_.combineItems((EntityItem)this);
+            return item.combineItems((EntityItem)this);
         }
         if (itemstack2.stackSize + itemstack.stackSize > itemstack2.getMaxStackSize()) {
             return false;
         }
         final ItemStack itemStack = itemstack2;
         itemStack.stackSize += itemstack.stackSize;
-        p_70289_1_.delayBeforeCanPickup = Math.max(p_70289_1_.delayBeforeCanPickup, this.delayBeforeCanPickup);
-        p_70289_1_.age = Math.min(p_70289_1_.age, this.age);
-        p_70289_1_.setEntityItemStack(itemstack2);
+        item.delayBeforeCanPickup = Math.max(item.delayBeforeCanPickup, this.delayBeforeCanPickup);
+        item.age = Math.min(item.age, this.age);
+        item.setEntityItemStack(itemstack2);
         this.setDead();
         return true;
     }

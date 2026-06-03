@@ -21,8 +21,8 @@ public class DeepoidRenderer extends RenderLiving
         this.setRenderPassModel((ModelBase)new DeepoidModel());
     }
 
-	public void doRender(final Entity par1Entity, final double par2, final double par3, final double par4, final float par5, final float par6) {
-        this.doRender((EntityLiving)par1Entity, par2, par3, par4, par5, par6);
+	public void doRender(final Entity entity, final double par2, final double par3, final double par4, final float par5, final float par6) {
+        this.doRender((EntityLiving)entity, par2, par3, par4, par5, par6);
     }
     
     public void doRender(final EntityLivingBase par1EntityLivingBase, final double par2, final double par3, final double par4, final float par5, final float par6) {
@@ -33,7 +33,7 @@ public class DeepoidRenderer extends RenderLiving
         return this.getEntityTexture((EntityDeepoid)par1Entity);
     }
     
-    protected ResourceLocation getEntityTexture(final EntityDeepoid par1EntityDeepoid) {
+    protected ResourceLocation getEntityTexture(final EntityDeepoid entity) {
         return DeepoidRenderer.mobTextures;
     }
     

@@ -9,9 +9,9 @@ public class EntityAICrystalSlimeSwell extends EntityAIBase
     EntityCrystalSlime swellingUro;
     EntityLivingBase uroAttackTarget;
 
-    public EntityAICrystalSlimeSwell(EntityCrystalSlime p_i1655_1_)
+    public EntityAICrystalSlimeSwell(EntityCrystalSlime slime)
     {
-        this.swellingUro = p_i1655_1_;
+        this.swellingUro = slime;
         this.setMutexBits(1);
     }
 

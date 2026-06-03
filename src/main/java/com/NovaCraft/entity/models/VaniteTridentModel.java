@@ -3,7 +3,6 @@ package com.NovaCraft.entity.models;
 import net.minecraft.entity.Entity;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.util.ResourceLocation;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 
 public class VaniteTridentModel extends ModelBase

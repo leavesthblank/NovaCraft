@@ -19,7 +19,7 @@ public class FireflyRenderer extends RenderLiving
         this.setRenderPassModel((ModelBase)renderPassModel);
     }
     
-    protected ResourceLocation getEntityTexture(final Entity p_110775_1_) {
+    protected ResourceLocation getEntityTexture(final Entity entity) {
         return FireflyRenderer.EntityTexture;
     }
     

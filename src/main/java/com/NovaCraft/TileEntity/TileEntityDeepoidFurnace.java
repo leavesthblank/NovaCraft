@@ -1,7 +1,6 @@
 package com.NovaCraft.TileEntity;
 
 import com.NovaCraftBlocks.container.BlockDeepoidFurnace;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -21,20 +20,15 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.event.ForgeEventFactory;
 
 public class TileEntityDeepoidFurnace extends TileEntity implements ISidedInventory
 {
     private static final int[] slotsTop = new int[] {0};
     private static final int[] slotsBottom = new int[] {2, 1};
     private static final int[] slotsSides = new int[] {1};
-    /** The ItemStacks that hold the items currently being used in the furnace */
     private ItemStack[] furnaceItemStacks = new ItemStack[3];
-    /** The number of ticks that the furnace will keep burning */
     public int furnaceBurnTime;
-    /** The number of ticks that a fresh copy of the currently-burning item would keep the furnace burning for */
     public int currentItemBurnTime;
-    /** The number of ticks that the current item has been cooking for */
     public int furnaceCookTime;
     private String field_145958_o;
 
@@ -92,13 +86,13 @@ public class TileEntityDeepoidFurnace extends TileEntity implements ISidedInvent
         }
     }
 
-    public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_)
+    public void setInventorySlotContents(int p_70299_1_, ItemStack itemStack)
     {
-        this.furnaceItemStacks[p_70299_1_] = p_70299_2_;
+        this.furnaceItemStacks[p_70299_1_] = itemStack;
 
-        if (p_70299_2_ != null && p_70299_2_.stackSize > this.getInventoryStackLimit())
+        if (itemStack != null && itemStack.stackSize > this.getInventoryStackLimit())
         {
-            p_70299_2_.stackSize = this.getInventoryStackLimit();
+            itemStack.stackSize = this.getInventoryStackLimit();
         }
     }
 
@@ -117,10 +111,10 @@ public class TileEntityDeepoidFurnace extends TileEntity implements ISidedInvent
         this.field_145958_o = p_145951_1_;
     }
 
-    public void readFromNBT(NBTTagCompound p_145839_1_)
+    public void readFromNBT(NBTTagCompound compound)
     {
-        super.readFromNBT(p_145839_1_);
-        NBTTagList nbttaglist = p_145839_1_.getTagList("Items", 10);
+        super.readFromNBT(compound);
+        NBTTagList nbttaglist = compound.getTagList("Items", 10);
         this.furnaceItemStacks = new ItemStack[this.getSizeInventory()];
 
         for (int i = 0; i < nbttaglist.tagCount(); ++i)
@@ -134,21 +128,21 @@ public class TileEntityDeepoidFurnace extends TileEntity implements ISidedInvent
             }
         }
 
-        this.furnaceBurnTime = p_145839_1_.getShort("BurnTime");
-        this.furnaceCookTime = p_145839_1_.getShort("CookTime");
+        this.furnaceBurnTime = compound.getShort("BurnTime");
+        this.furnaceCookTime = compound.getShort("CookTime");
         this.currentItemBurnTime = getItemBurnTime(this.furnaceItemStacks[1]);
 
-        if (p_145839_1_.hasKey("CustomName", 8))
+        if (compound.hasKey("CustomName", 8))
         {
-            this.field_145958_o = p_145839_1_.getString("CustomName");
+            this.field_145958_o = compound.getString("CustomName");
         }
     }
 
-    public void writeToNBT(NBTTagCompound p_145841_1_)
+    public void writeToNBT(NBTTagCompound compound)
     {
-        super.writeToNBT(p_145841_1_);
-        p_145841_1_.setShort("BurnTime", (short)this.furnaceBurnTime);
-        p_145841_1_.setShort("CookTime", (short)this.furnaceCookTime);
+        super.writeToNBT(compound);
+        compound.setShort("BurnTime", (short)this.furnaceBurnTime);
+        compound.setShort("CookTime", (short)this.furnaceCookTime);
         NBTTagList nbttaglist = new NBTTagList();
 
         for (int i = 0; i < this.furnaceItemStacks.length; ++i)
@@ -162,11 +156,11 @@ public class TileEntityDeepoidFurnace extends TileEntity implements ISidedInvent
             }
         }
 
-        p_145841_1_.setTag("Items", nbttaglist);
+        compound.setTag("Items", nbttaglist);
 
         if (this.hasCustomInventoryName())
         {
-            p_145841_1_.setString("CustomName", this.field_145958_o);
+            compound.setString("CustomName", this.field_145958_o);
         }
     }
 
@@ -290,7 +284,7 @@ public class TileEntityDeepoidFurnace extends TileEntity implements ISidedInvent
             }
             else if (this.furnaceItemStacks[2].getItem() == itemstack.getItem())
             {
-                this.furnaceItemStacks[2].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
+                this.furnaceItemStacks[2].stackSize += itemstack.stackSize;
             }
 
             --this.furnaceItemStacks[0].stackSize;
@@ -302,11 +296,11 @@ public class TileEntityDeepoidFurnace extends TileEntity implements ISidedInvent
         }
     }
 
-    public static int getItemBurnTime(final ItemStack p_145952_0_) {
-        if (p_145952_0_ == null) {
+    public static int getItemBurnTime(final ItemStack itemStack) {
+        if (itemStack == null) {
             return 0;
         }
-        final Item item = p_145952_0_.getItem();
+        final Item item = itemStack.getItem();
         if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air) {
             final Block block = Block.getBlockFromItem(item);
             if (block == Blocks.wooden_slab) {
@@ -343,27 +337,27 @@ public class TileEntityDeepoidFurnace extends TileEntity implements ISidedInvent
         if (item == Items.blaze_rod) {
             return 400;
         }
-        return GameRegistry.getFuelValue(p_145952_0_)/6;
+        return GameRegistry.getFuelValue(itemStack)/6;
     }
 
-    public static boolean isItemFuel(ItemStack p_145954_0_)
+    public static boolean isItemFuel(ItemStack itemStack)
     {
 
-        return getItemBurnTime(p_145954_0_) > 0;
+        return getItemBurnTime(itemStack) > 0;
     }
 
-    public boolean isUseableByPlayer(EntityPlayer p_70300_1_)
+    public boolean isUseableByPlayer(EntityPlayer entityPlayer)
     {
-        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : p_70300_1_.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : entityPlayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
     }
 
     public void openInventory() {}
 
     public void closeInventory() {}
 
-    public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_)
+    public boolean isItemValidForSlot(int p_94041_1_, ItemStack itemStack)
     {
-        return p_94041_1_ == 2 ? false : (p_94041_1_ == 1 ? isItemFuel(p_94041_2_) : true);
+        return p_94041_1_ == 2 ? false : (p_94041_1_ == 1 ? isItemFuel(itemStack) : true);
     }
 
     public int[] getAccessibleSlotsFromSide(int p_94128_1_)
@@ -371,13 +365,13 @@ public class TileEntityDeepoidFurnace extends TileEntity implements ISidedInvent
         return p_94128_1_ == 0 ? slotsBottom : (p_94128_1_ == 1 ? slotsTop : slotsSides);
     }
 
-    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_)
+    public boolean canInsertItem(int p_102007_1_, ItemStack itemStack, int p_102007_3_)
     {
-        return this.isItemValidForSlot(p_102007_1_, p_102007_2_);
+        return this.isItemValidForSlot(p_102007_1_, itemStack);
     }
 
-    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_)
+    public boolean canExtractItem(int p_102008_1_, ItemStack itemStack, int p_102008_3_)
     {
-        return p_102008_3_ != 0 || p_102008_1_ != 1 || p_102008_2_.getItem() == Items.bucket;
+        return p_102008_3_ != 0 || p_102008_1_ != 1 || itemStack.getItem() == Items.bucket;
     }
 }

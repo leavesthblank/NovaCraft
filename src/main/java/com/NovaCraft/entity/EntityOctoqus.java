@@ -14,9 +14,9 @@ public class EntityOctoqus extends EntityMob {
     private int heightOffsetUpdateTime;
     private int field_70846_g;
 
-    public EntityOctoqus(World p_i1731_1_)
+    public EntityOctoqus(World world)
     {
-        super(p_i1731_1_);
+        super(world);
         this.experienceValue = 5;
     }
 
@@ -86,18 +86,18 @@ public class EntityOctoqus extends EntityMob {
         super.onLivingUpdate();
     }
 
-    protected void attackEntity(Entity p_70785_1_, float p_70785_2_)
+    protected void attackEntity(Entity entity, float p_70785_2_)
     {
-        if (this.attackTime <= 0 && p_70785_2_ < 2.0F && p_70785_1_.boundingBox.maxY > this.boundingBox.minY && p_70785_1_.boundingBox.minY < this.boundingBox.maxY)
+        if (this.attackTime <= 0 && p_70785_2_ < 2.0F && entity.boundingBox.maxY > this.boundingBox.minY && entity.boundingBox.minY < this.boundingBox.maxY)
         {
             this.attackTime = 20;
-            this.attackEntityAsMob(p_70785_1_);
+            this.attackEntityAsMob(entity);
         }
         else if (p_70785_2_ < 30.0F)
         {
-            double d0 = p_70785_1_.posX - this.posX;
-            double d1 = p_70785_1_.boundingBox.minY + (double)(p_70785_1_.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
-            double d2 = p_70785_1_.posZ - this.posZ;
+            double d0 = entity.posX - this.posX;
+            double d1 = entity.boundingBox.minY + (double)(entity.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
+            double d2 = entity.posZ - this.posZ;
 
             if (this.attackTime == 0)
             {

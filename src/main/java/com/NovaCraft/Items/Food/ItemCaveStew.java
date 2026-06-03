@@ -9,9 +9,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.creativetab.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-
 import java.util.*;
-
 import com.NovaCraft.Items.ItemNovaCraftFood;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;

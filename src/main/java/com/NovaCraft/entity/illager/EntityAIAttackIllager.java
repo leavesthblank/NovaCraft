@@ -4,7 +4,6 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.command.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
-import net.minecraft.init.*;
 import net.minecraft.world.*;
 import java.util.*;
 
@@ -17,24 +16,22 @@ public class EntityAIAttackIllager extends EntityAITarget
     private final Sorter theNearestAttackableTargetSorter;
     private final IEntitySelector targetEntitySelector;
     private EntityLivingBase targetEntity;
-    private static final String __OBFID = "CL_00001620";
     
-    public EntityAIAttackIllager(final EntityCreature p_i1663_1_, final Class p_i1663_2_, final int p_i1663_3_, final boolean p_i1663_4_) {
-        this(p_i1663_1_, p_i1663_2_, p_i1663_3_, p_i1663_4_, false);
+    public EntityAIAttackIllager(final EntityCreature entity, final Class p_i1663_2_, final int p_i1663_3_, final boolean p_i1663_4_) {
+        this(entity, p_i1663_2_, p_i1663_3_, p_i1663_4_, false);
     }
     
-    public EntityAIAttackIllager(final EntityCreature p_i1664_1_, final Class p_i1664_2_, final int p_i1664_3_, final boolean p_i1664_4_, final boolean p_i1664_5_) {
-        this(p_i1664_1_, p_i1664_2_, p_i1664_3_, p_i1664_4_, p_i1664_5_, null);
+    public EntityAIAttackIllager(final EntityCreature entity, final Class p_i1664_2_, final int p_i1664_3_, final boolean p_i1664_4_, final boolean p_i1664_5_) {
+        this(entity, p_i1664_2_, p_i1664_3_, p_i1664_4_, p_i1664_5_, null);
     }
     
-    public EntityAIAttackIllager(final EntityCreature p_i1665_1_, final Class p_i1665_2_, final int p_i1665_3_, final boolean p_i1665_4_, final boolean p_i1665_5_, final IEntitySelector p_i1665_6_) {
-        super(p_i1665_1_, p_i1665_4_, p_i1665_5_);
+    public EntityAIAttackIllager(final EntityCreature entity, final Class p_i1665_2_, final int p_i1665_3_, final boolean p_i1665_4_, final boolean p_i1665_5_, final IEntitySelector p_i1665_6_) {
+        super(entity, p_i1665_4_, p_i1665_5_);
         this.targetClass = p_i1665_2_;
         this.targetChance = p_i1665_3_;
-        this.theNearestAttackableTargetSorter = new Sorter((Entity)p_i1665_1_);
+        this.theNearestAttackableTargetSorter = new Sorter((Entity)entity);
         this.setMutexBits(1);
         this.targetEntitySelector = (IEntitySelector)new IEntitySelector() {
-            private static final String __OBFID = "CL_00001621";
             
             public boolean isEntityApplicable(final Entity p_82704_1_) {
                 return (!(p_82704_1_ instanceof IEntityOwnable) || !(((IEntityOwnable)p_82704_1_).getOwner() instanceof EntityPlayer)) && 
@@ -92,7 +89,6 @@ public class EntityAIAttackIllager extends EntityAITarget
     public static class Sorter implements Comparator
     {
         private final Entity theEntity;
-        private static final String __OBFID = "CL_00001622";
         
         public Sorter(final Entity p_i1662_1_) {
             this.theEntity = p_i1662_1_;

@@ -2,9 +2,7 @@ package com.NovaCraft.Items.Armor;
 
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
 import net.minecraft.entity.Entity;
-import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;

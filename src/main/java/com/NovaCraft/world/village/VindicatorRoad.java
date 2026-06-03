@@ -334,29 +334,21 @@ public class VindicatorRoad extends WorldGenerator
 				}
 			}
 
-		/**
-		 * Front Road
-		 */
+		//Front Road
 		new VindicatorHouseMedium().generate(world, rand, i + 13, j - 1, k - 11);
 		new VindicatorHouseSmallNoDoor().generate(world, rand, i + 15 , j - 1, k + 5);
 
-		/**
-		 * Back Road
-		 */
+		//Back Road
 		new VindicatorChiefChurch().generate(world, rand, i - 18, j - 1, k - 9);
 		new VindicatorHouseSmallNoDoor().generate(world, rand, i - 7 , j - 1, k + 5);
 		new VindicatorFarm().generate(world, rand, i - 22 , j, k + 5);
 
-		/**
-		 * Left Road
-		 */
+		//Left Road
 		new VindicatorHouseSmallLadder().generate(world, rand, i + 5, j, k - 6);
 		new VindicatorLargeHouse().generate(world, rand, i - 11 , j - 1, k - 11);
 		new VindicatorHouseSmallDoor().generate(world, rand, i + 5, j - 1, k - 12);
 
-		/**
-		 * Right Road
-		 */
+		//Right Road
 		new VindicatorLaboratory().generate(world, rand, i - 8, j - 1, k + 13);
 		new VindicatorHouseSmallDoor().generate(world, rand, i + 5, j - 1, k + 20);
 		new VindicatorBlacksmith().generate(world, rand, i + 5, j - 1, k + 8);

@@ -4,7 +4,6 @@ import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -28,8 +27,8 @@ import net.minecraft.world.World;
 
 public class EntitySculkDweller extends EntityMob
 {		
-	public EntitySculkDweller(final World p_i1745_1_) {
-		super(p_i1745_1_);
+	public EntitySculkDweller(final World world) {
+		super(world);
 		getNavigator().setBreakDoors(true);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
@@ -92,12 +91,12 @@ public class EntitySculkDweller extends EntityMob
 		return super.getBrightness(p_70013_1_);
 	}
 	
-	 protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+	 protected void dropFewItems(boolean p_70628_1_, int chance)
 	    {
 	        int j;
 	        int k;
 	        {
-	            j = this.rand.nextInt(3 + p_70628_2_);
+	            j = this.rand.nextInt(3 + chance);
 
 	            for (k = 0; k < j; ++k)
 	            {
@@ -105,31 +104,28 @@ public class EntitySculkDweller extends EntityMob
 	            }
 	        }
 
-	        j = this.rand.nextInt(3 + p_70628_2_);
+	        j = this.rand.nextInt(3 + chance);
 
 	        for (k = 0; k < j; ++k)
 	        {
 	        	this.dropItem(Item.getItemFromBlock(NovaCraftBlocks.sculk_block), 1);
 	        }
 	        
-	        j = this.rand.nextInt(2 + p_70628_2_);
+	        j = this.rand.nextInt(2 + chance);
 
 	        for (k = 0; k < j; ++k)
 	        {
 	        	this.dropItem(NovaCraftItems.anomalous_essence, 1);
 	        }
 	    }
-	 
-	 	/**
-	     * Called when the mob's health reaches 0.
-	     */
-	    public void onDeath(DamageSource p_70645_1_)
-	    {
-	        super.onDeath(p_70645_1_);
 
-	        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+	    public void onDeath(DamageSource source)
+	    {
+	        super.onDeath(source);
+
+	        if (source.getEntity() instanceof EntityPlayer)
 	        {
-	            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+	            EntityPlayer entityplayer = (EntityPlayer)source.getEntity();
 	            
 	            entityplayer.triggerAchievement(AchievementsNovaCraft.kill_sculk_dweller);
 	            
@@ -161,28 +157,19 @@ public class EntitySculkDweller extends EntityMob
                 this.dropItem(NovaCraftItems.sculk_boots, 1);
         }
     }
-	
-	/**
-     * Returns the sound this mob makes while it's alive.
-     */
+
 	@Override
     protected String getLivingSound()
     {
         return "nova_craft:sculk_abomination.living";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
 	@Override
     protected String getHurtSound()
     {
         return "nova_craft:warden_altar.shriek";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
 	@Override
     protected String getDeathSound()
     {
@@ -206,8 +193,6 @@ public class EntitySculkDweller extends EntityMob
         final int k = MathHelper.floor_double(this.posZ);
         final boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes((Entity)this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);          
         return (this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.nullstone_bricks || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.grimstone_bricks || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_bricks || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_block || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_stone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_grimstone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_deepslate || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_nullstone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_endstone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.inked_sculk_block  || this.worldObj.getBlock(i, j - 1, k) == Blocks.end_stone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_tentacle_1 || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_tentacle_2 || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.nullstone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.carved_vanite_bricks || this.worldObj.getBlock(i, j - 1, k) == OtherModBlocks.deepslate_bricks) && this.worldObj.getBlockLightValue(i, j, k) < 8 && this.posY <= 50.0D && canSpawn;
-        
-     
                
     }
 

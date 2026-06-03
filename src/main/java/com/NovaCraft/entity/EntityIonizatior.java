@@ -9,7 +9,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -17,15 +16,13 @@ import net.minecraft.world.World;
 
 public class EntityIonizatior extends EntityMob
 {
-    /** Random offset used in floating behaviour */
     private float heightOffset = 0.5F;
-    /** ticks until heightOffset is randomized */
     private int heightOffsetUpdateTime;
     private int field_70846_g;
 
-    public EntityIonizatior(World p_i1731_1_)
+    public EntityIonizatior(World world)
     {
-        super(p_i1731_1_);
+        super(world);
         this.isImmuneToFire = true;
         this.experienceValue = 15;
     }
@@ -126,7 +123,6 @@ public class EntityIonizatior extends EntityMob
 
     protected void attackEntity(Entity target, float distance) {
         if (this.attackTime <= 0 && distance < 2.0F && target.boundingBox.maxY > this.boundingBox.minY && target.boundingBox.minY < this.boundingBox.maxY) {
-            // Melee attack
             this.attackTime = 5;
             this.attackEntityAsMob(target);
         }

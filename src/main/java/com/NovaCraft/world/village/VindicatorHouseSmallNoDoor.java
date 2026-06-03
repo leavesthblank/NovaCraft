@@ -1,11 +1,9 @@
 package com.NovaCraft.world.village;
 
 import java.util.Random;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.illager.EntityIllagerTrader;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -63,15 +61,6 @@ public class VindicatorHouseSmallNoDoor extends WorldGenerator
 	}
 
 	public VindicatorHouseSmallNoDoor() { }
-
-	public boolean checkAllLocations(World world, int i, int j, int k){
-		if(!LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 4, j, k) || !LocationIsValidSpawn(world, i + 4, j, k + 5) || !LocationIsValidSpawn(world, i, j, k + 5) || !AirLocationIsValidSpawn(world, i, j + 5, k) || !AirLocationIsValidSpawn(world, i + 4, j + 5, k) || !AirLocationIsValidSpawn(world, i + 4, j + 5, k + 5) || !AirLocationIsValidSpawn(world, i, j + 5, k + 5))
-		{
-			return false;
-		}
-
-		return true;
-	}
 	
 	public boolean AirLocationIsValidSpawn(World world, int i, int j, int k){
 		Block blockID = world.getBlock(i, j, k);
@@ -85,7 +74,7 @@ public class VindicatorHouseSmallNoDoor extends WorldGenerator
 	}
 
 	public boolean generate(World world, Random rand, int i, int j, int k) {
-		//check that each corner is one of the valid spawn blocks
+		//Checks that each corner is one of the valid spawn blocks
 		if(!LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 4, j, k) || !LocationIsValidSpawn(world, i + 4, j, k + 5) || !LocationIsValidSpawn(world, i, j, k + 5) || !AirLocationIsValidSpawn(world, i, j + 5, k) || !AirLocationIsValidSpawn(world, i + 4, j + 5, k) || !AirLocationIsValidSpawn(world, i + 4, j + 5, k + 5) || !AirLocationIsValidSpawn(world, i, j + 5, k + 5))
 		{
 			return false;

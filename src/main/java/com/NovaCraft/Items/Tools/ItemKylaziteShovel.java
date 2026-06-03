@@ -1,15 +1,12 @@
 package com.NovaCraft.Items.Tools;
 
 import java.util.List;
-
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;

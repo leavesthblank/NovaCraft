@@ -3,11 +3,6 @@ package com.NovaCraft.entity.models;
 import net.minecraft.util.MathHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.client.model.ModelRenderer;
-
-import org.lwjgl.opengl.GL11;
-
-import com.NovaCraft.entity.EntityDeathStalker;
-
 import net.minecraft.client.model.ModelBase;
 
 public class DeathStalkerModel extends ModelBase

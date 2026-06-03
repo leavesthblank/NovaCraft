@@ -1,10 +1,6 @@
 package com.NovaCraft.registry;
 
-import net.minecraft.block.*;
 import net.minecraft.item.*;
-
-import com.NovaCraft.config.Configs;
-
 import cpw.mods.fml.common.registry.*;
 
 public class OtherModItems

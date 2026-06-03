@@ -14,7 +14,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.IMob;
@@ -56,9 +55,9 @@ public class EntityCrimsonDragon extends EntityFlying implements IBossDisplayDat
     public boolean rotateForBurst = false;
     private final float base = (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F;
 
-    public EntityCrimsonDragon(final World p_i1700_1_)
+    public EntityCrimsonDragon(final World world)
     {
-        super(p_i1700_1_);
+        super(world);
         this.dragonPartArray = new EntityDeepoidDragonPart[] {this.dragonPartHead = new EntityDeepoidDragonPart(this, "head", 6.0F, 6.0F), this.dragonPartBody = new EntityDeepoidDragonPart(this, "body", 8.0F, 8.0F), this.dragonPartTail1 = new EntityDeepoidDragonPart(this, "tail", 4.0F, 4.0F), this.dragonPartTail2 = new EntityDeepoidDragonPart(this, "tail", 4.0F, 4.0F), this.dragonPartTail3 = new EntityDeepoidDragonPart(this, "tail", 4.0F, 4.0F), this.dragonPartWing1 = new EntityDeepoidDragonPart(this, "wing", 4.0F, 4.0F), this.dragonPartWing2 = new EntityDeepoidDragonPart(this, "wing", 4.0F, 4.0F)};
         this.setHealth(this.getMaxHealth());
         this.setSize(8.0F, 4.0F);
@@ -151,21 +150,18 @@ public class EntityCrimsonDragon extends EntityFlying implements IBossDisplayDat
         float f;
         float f1;
 
-        int rand2 = (int)(1 + Math.random() * 4);
-        switch (rand2)
-        {
-            case 1:
-                if (this.rand.nextInt(75) == 1 && !this.worldObj.isRemote) {
-                    EntityWyrmling var = new EntityWyrmling(this.worldObj);
-                    var.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
-                    var.setAttackTarget(this.getAttackTarget());
+        int summon_entity = (int)(1 + Math.random() * 4);
+        if (summon_entity == 1) {
+            if (this.rand.nextInt(75) == 1 && !this.worldObj.isRemote) {
+                EntityWyrmling var = new EntityWyrmling(this.worldObj);
+                var.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+                var.setAttackTarget(this.getAttackTarget());
 
-                    if (!this.worldObj.isRemote) {
-                        this.worldObj.spawnEntityInWorld(var);
-                    }
-
-                    break;
+                if (!this.worldObj.isRemote) {
+                    this.worldObj.spawnEntityInWorld(var);
                 }
+
+            }
         }
 
         if (this.worldObj.isRemote)
@@ -454,10 +450,10 @@ public class EntityCrimsonDragon extends EntityFlying implements IBossDisplayDat
             this.FireBreath();
     }
 
-    private void attackEntitiesInList(List p_70971_1_) {
-        for (int i = 0; i < p_70971_1_.size(); ++i)
+    private void attackEntitiesInList(List entities) {
+        for (int i = 0; i < entities.size(); ++i)
         {
-            Entity entity = (Entity)p_70971_1_.get(i);
+            Entity entity = (Entity)entities.get(i);
             if(!((entity instanceof EntityWyrmling) || (entity instanceof EntitySoloid))) {
 
                 if (entity instanceof EntityLivingBase)
@@ -519,8 +515,8 @@ public class EntityCrimsonDragon extends EntityFlying implements IBossDisplayDat
         return (float)MathHelper.wrapAngleTo180_double(p_70973_1_);
     }
 
-    public boolean aattackEntityFromPart(EntityDeepoidDragonPart p_70965_1_, DamageSource p_70965_2_, float p_70965_3_) {
-        if (p_70965_1_ != this.dragonPartHead)
+    public boolean aattackEntityFromPart(EntityDeepoidDragonPart entityPart, DamageSource source, float p_70965_3_) {
+        if (entityPart != this.dragonPartHead)
         {
             p_70965_3_ = p_70965_3_ / 4.0F + 1.0F;
         }
@@ -533,10 +529,10 @@ public class EntityCrimsonDragon extends EntityFlying implements IBossDisplayDat
         this.targetZ = this.posZ - (double)(f3 * 5.0F) + (double)((this.rand.nextFloat() - 0.5F) * 2.0F);
         this.target = null;
 
-        if (p_70965_2_.getEntity() instanceof EntityPlayer || p_70965_2_.isExplosion())
+        if (source.getEntity() instanceof EntityPlayer || source.isExplosion())
         {
-            this.func_82195_e(p_70965_2_, p_70965_3_);
-            this.attackEntityFrom(p_70965_2_, p_70965_3_);
+            this.func_82195_e(source, p_70965_3_);
+            this.attackEntityFrom(source, p_70965_3_);
         }
 
         return true;

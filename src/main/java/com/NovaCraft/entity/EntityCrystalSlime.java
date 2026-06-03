@@ -1,7 +1,6 @@
 package com.NovaCraft.entity;
 
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.entity.misc.EntityAICrystalSlimeSwell;
 import com.NovaCraft.entity.misc.EnumCrystalSlimeType;
@@ -14,18 +13,13 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
 
 public class EntityCrystalSlime extends EntityLiving implements IMob {
     public float squishAmount;
@@ -37,9 +31,9 @@ public class EntityCrystalSlime extends EntityLiving implements IMob {
     private int fuseTime = 25;
     private int explosionRadius = 2;
 
-    public EntityCrystalSlime(World p_i1742_1_)
+    public EntityCrystalSlime(World world)
     {
-        super(p_i1742_1_);
+        super(world);
         this.tasks.addTask(2, new EntityAICrystalSlimeSwell(this));
         int i = 1 << this.rand.nextInt(3);
         this.yOffset = 0.0F;
@@ -66,14 +60,14 @@ public class EntityCrystalSlime extends EntityLiving implements IMob {
     public void fall(float distance) {
     }
 
-    protected void setSlimeSize(int p_70799_1_)
+    protected void setSlimeSize(int size)
     {
-        this.dataWatcher.updateObject(16, (byte)p_70799_1_);
-        this.setSize(0.6F * (float)p_70799_1_, 0.6F * (float)p_70799_1_);
+        this.dataWatcher.updateObject(16, (byte)size);
+        this.setSize(0.6F * (float)size, 0.6F * (float)size);
         this.setPosition(this.posX, this.posY, this.posZ);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(p_70799_1_ * p_70799_1_);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(size * size);
         this.setHealth(this.getMaxHealth());
-        this.experienceValue = p_70799_1_;
+        this.experienceValue = size;
     }
 
     public int getSlimeSize()
@@ -87,32 +81,32 @@ public class EntityCrystalSlime extends EntityLiving implements IMob {
         this.dataWatcher.updateObject(21, (byte) id);
     }
 
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    public void writeEntityToNBT(NBTTagCompound compound)
     {
-        super.writeEntityToNBT(p_70014_1_);
-        p_70014_1_.setInteger("Size", this.getSlimeSize() - 1);
+        super.writeEntityToNBT(compound);
+        compound.setInteger("Size", this.getSlimeSize() - 1);
 
         if (this.dataWatcher.getWatchableObjectByte(17) == 1)
         {
-            p_70014_1_.setBoolean("powered", true);
+            compound.setBoolean("powered", true);
         }
 
-        p_70014_1_.setShort("Fuse", (short)this.fuseTime);
-        p_70014_1_.setByte("ExplosionRadius", (byte)this.explosionRadius);
-        p_70014_1_.setBoolean("ignited", this.func_146078_ca());
-        p_70014_1_.setInteger("CrystalSlimeType", this.getType().getId());
+        compound.setShort("Fuse", (short)this.fuseTime);
+        compound.setByte("ExplosionRadius", (byte)this.explosionRadius);
+        compound.setBoolean("ignited", this.func_146078_ca());
+        compound.setInteger("CrystalSlimeType", this.getType().getId());
     }
 
-    public void onStruckByLightning(EntityLightningBolt p_70077_1_)
+    public void onStruckByLightning(EntityLightningBolt entityLightningBolt)
     {
-        super.onStruckByLightning(p_70077_1_);
+        super.onStruckByLightning(entityLightningBolt);
         this.dataWatcher.updateObject(17, (byte) 1);
     }
 
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(p_70037_1_);
-        int i = p_70037_1_.getInteger("Size");
+        super.readEntityFromNBT(compound);
+        int i = compound.getInteger("Size");
 
         if (i < 0)
         {
@@ -121,24 +115,24 @@ public class EntityCrystalSlime extends EntityLiving implements IMob {
 
         this.setSlimeSize(i + 1);
 
-        this.dataWatcher.updateObject(17, (byte) (p_70037_1_.getBoolean("powered") ? 1 : 0));
+        this.dataWatcher.updateObject(17, (byte) (compound.getBoolean("powered") ? 1 : 0));
 
-        if (p_70037_1_.hasKey("Fuse", 99))
+        if (compound.hasKey("Fuse", 99))
         {
-            this.fuseTime = p_70037_1_.getShort("Fuse");
+            this.fuseTime = compound.getShort("Fuse");
         }
 
-        if (p_70037_1_.hasKey("ExplosionRadius", 99))
+        if (compound.hasKey("ExplosionRadius", 99))
         {
-            this.explosionRadius = p_70037_1_.getByte("ExplosionRadius");
+            this.explosionRadius = compound.getByte("ExplosionRadius");
         }
 
-        if (p_70037_1_.getBoolean("ignited"))
+        if (compound.getBoolean("ignited"))
         {
             this.func_146079_cb();
         }
 
-        this.setType(p_70037_1_.getInteger("CrystalSlimeType"));
+        this.setType(compound.getInteger("CrystalSlimeType"));
     }
 
     protected String getJumpSound()
@@ -293,13 +287,13 @@ public class EntityCrystalSlime extends EntityLiving implements IMob {
         super.setDead();
     }
 
-    public void onCollideWithPlayer(EntityPlayer p_70100_1_)
+    public void onCollideWithPlayer(EntityPlayer entity)
     {
         if (this.canDamagePlayer())
         {
             int i = this.getSlimeSize();
 
-            if (this.canEntityBeSeen(p_70100_1_) && this.getDistanceSqToEntity(p_70100_1_) < 0.6D * (double)i * 0.6D * (double)i && p_70100_1_.attackEntityFrom(DamageSource.causeMobDamage(this), (float)this.getAttackStrength()))
+            if (this.canEntityBeSeen(entity) && this.getDistanceSqToEntity(entity) < 0.6D * (double)i * 0.6D * (double)i && entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)this.getAttackStrength()))
             {
                 this.playSound("mob.attack", 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
             }
@@ -354,7 +348,7 @@ public class EntityCrystalSlime extends EntityLiving implements IMob {
         return "mob.slime." + (this.getSlimeSize() > 1 ? "big" : "small");
     }
 
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {
+    protected void dropFewItems(boolean p_70628_1_, int chance) {
         int k;
         k = 1 + this.rand.nextInt(1);
 
@@ -418,24 +412,24 @@ public class EntityCrystalSlime extends EntityLiving implements IMob {
 
     }
 
-    protected boolean interact(EntityPlayer p_70085_1_)
+    protected boolean interact(EntityPlayer entityPlayer)
     {
-        ItemStack itemstack = p_70085_1_.inventory.getCurrentItem();
+        ItemStack itemstack = entityPlayer.inventory.getCurrentItem();
 
         if (itemstack != null && itemstack.getItem() == Items.flint_and_steel)
         {
             this.worldObj.playSoundEffect(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, "ambient.cave.cave", 1.0F, this.rand.nextFloat() * 0.4F + 0.4F);
-            p_70085_1_.swingItem();
+            entityPlayer.swingItem();
 
             if (!this.worldObj.isRemote)
             {
                 this.func_146079_cb();
-                itemstack.damageItem(1, p_70085_1_);
+                itemstack.damageItem(1, entityPlayer);
                 return true;
             }
         }
 
-        return super.interact(p_70085_1_);
+        return super.interact(entityPlayer);
     }
 
     protected float getSoundVolume()

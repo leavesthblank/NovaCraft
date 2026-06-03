@@ -2,10 +2,8 @@ package com.NovaCraft.entity.renderer;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.EntityEnderRay;
 import com.NovaCraft.entity.models.EnderRayModel;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -25,16 +23,16 @@ public class EnderRayRenderer extends RenderLiving
     }
     
     @Override
-    protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+    protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
         GL11.glScalef(3.00F, 3.00F, 3.00F);
     }
     
-    protected int setGlowstuffBrightness(final EntityEnderRay par1EntityRay, final int par2, final float par3) {
+    protected int setGlowstuffBrightness(final EntityEnderRay entity, final int par2, final float par3) {
         if (par2 != 0) {
             GL11.glDepthMask(true);
             return -1;
         }
-        if (par1EntityRay.hasSpecialTexture) {
+        if (entity.hasSpecialTexture) {
             this.bindTexture(enderRayScarsGlow);
         }
         else {
@@ -54,8 +52,8 @@ public class EnderRayRenderer extends RenderLiving
         return 1;
     }
     
-    protected int shouldRenderPass(final EntityLiving par1EntityLiving, final int par2, final float par3) {
-        return this.setGlowstuffBrightness((EntityEnderRay)par1EntityLiving, par2, par3);
+    protected int shouldRenderPass(final EntityLiving entity, final int par2, final float par3) {
+        return this.setGlowstuffBrightness((EntityEnderRay)entity, par2, par3);
     }
 
 	@Override

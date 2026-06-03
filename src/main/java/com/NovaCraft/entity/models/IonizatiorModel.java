@@ -10,10 +10,8 @@ import net.minecraft.util.MathHelper;
 @SideOnly(Side.CLIENT)
 public class IonizatiorModel extends ModelBase
 {
-    /** The sticks that fly around the Blaze. */
     private ModelRenderer[] blazeSticks = new ModelRenderer[12];
     private ModelRenderer blazeHead;
-    private static final String __OBFID = "CL_00000831";
 
     public IonizatiorModel()
     {
@@ -21,9 +19,6 @@ public class IonizatiorModel extends ModelBase
         {
             this.blazeSticks[i] = new ModelRenderer(this, 0, 8);
             this.blazeSticks[i].addBox(0.0F, 0.0F, 0.0F, 2, 8, 2);
-            
-            //this.blazeSticks[i] = new ModelRenderer(this, 0, 8);
-            //this.blazeSticks[i].addBox(0.0F, -2.0F, 0.0F, 2, 8, 2);
         }
 
         this.blazeHead = new ModelRenderer(this, 0, 0);
@@ -39,9 +34,6 @@ public class IonizatiorModel extends ModelBase
         return 8;
     }
 
-    /**
-     * Sets the models various rotation angles then renders the model.
-     */
     public void render(Entity p_78088_1_, float p_78088_2_, float p_78088_3_, float p_78088_4_, float p_78088_5_, float p_78088_6_, float p_78088_7_)
     {
         this.setRotationAngles(p_78088_2_, p_78088_3_, p_78088_4_, p_78088_5_, p_78088_6_, p_78088_7_, p_78088_1_);
@@ -53,11 +45,6 @@ public class IonizatiorModel extends ModelBase
         }
     }
 
-    /**
-     * Sets the model's various rotation angles. For bipeds, par1 and par2 are used for animating the movement of arms
-     * and legs, where par1 represents the time(so that arms and legs swing back and forth) and par2 represents how
-     * "far" arms and legs can swing at most.
-     */
     public void setRotationAngles(float p_78087_1_, float p_78087_2_, float p_78087_3_, float p_78087_4_, float p_78087_5_, float p_78087_6_, Entity p_78087_7_)
     {
         float f6 = p_78087_3_ * (float)Math.PI * -0.1F;

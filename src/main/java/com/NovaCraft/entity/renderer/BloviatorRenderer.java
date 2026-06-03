@@ -23,14 +23,14 @@ public class BloviatorRenderer extends RenderLiving
         super(new BloviatorModel(), 2.0F);
     }
 
-    protected ResourceLocation getEntityTexture(EntityBloviator p_110775_1_)
+    protected ResourceLocation getEntityTexture(EntityBloviator entity)
     {
-        return p_110775_1_.func_110182_bF() ? ghastShootingTextures : ghastTextures;
+        return entity.func_110182_bF() ? ghastShootingTextures : ghastTextures;
     }
 
-    protected void preRenderCallback(EntityBloviator p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityBloviator entity, float p_77041_2_)
     {
-        float f1 = ((float)p_77041_1_.prevAttackCounter + (float)(p_77041_1_.attackCounter - p_77041_1_.prevAttackCounter) * p_77041_2_) / 20.0F;
+        float f1 = ((float)entity.prevAttackCounter + (float)(entity.attackCounter - entity.prevAttackCounter) * p_77041_2_) / 20.0F;
 
         if (f1 < 0.0F)
         {
@@ -44,32 +44,32 @@ public class BloviatorRenderer extends RenderLiving
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
     }
 
-    protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityLivingBase entity, float p_77041_2_)
     {
-        this.preRenderCallback((EntityBloviator)p_77041_1_, p_77041_2_);
+        this.preRenderCallback((EntityBloviator)entity, p_77041_2_);
         GL11.glScalef(0.5F, 0.5F, 0.5F);
     }
     
-    public void doRender(EntityBloviator p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
-        BossStatus.setBossStatus(p_76986_1_, true);	        
+    public void doRender(EntityBloviator entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
+        BossStatus.setBossStatus(entity, true);
 
-        super.doRender((EntityLiving)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+        super.doRender((EntityLiving)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
     
-    public void doRender(EntityLiving p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
-        this.doRender((EntityBloviator)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+    public void doRender(EntityLiving entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
+        this.doRender((EntityBloviator)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
  
-    public void doRender(EntityLivingBase p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
-        this.doRender((EntityBloviator)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+    public void doRender(EntityLivingBase entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
+        this.doRender((EntityBloviator)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
  	}
  
-    public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
-        this.doRender((EntityBloviator)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+    public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
+        this.doRender((EntityBloviator)entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    protected ResourceLocation getEntityTexture(Entity p_110775_1_)
+    protected ResourceLocation getEntityTexture(Entity entity)
     {
-        return this.getEntityTexture((EntityBloviator)p_110775_1_);
+        return this.getEntityTexture((EntityBloviator)entity);
     }
 }

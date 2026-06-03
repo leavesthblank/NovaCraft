@@ -1,7 +1,6 @@
 package com.NovaCraft.entity.models.hardmode;
 
 import com.NovaCraft.entity.hardmode.EntityHardmodeMagmaCube;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
@@ -41,10 +40,6 @@ public class HardmodeMagmaCubeModel extends ModelBase
         this.field_78108_b.addBox(-2.0F, 18.0F, -2.0F, 4, 4, 4);
     }
 
-    /**
-     * Used for easily adding entity-dependent animations. The second and third float params here are the same second
-     * and third as in the setRotationAngles method.
-     */
     public void setLivingAnimations(EntityLivingBase p_78086_1_, float p_78086_2_, float p_78086_3_, float p_78086_4_)
     {
         EntityHardmodeMagmaCube EntityHardmodeMagmaCube = (EntityHardmodeMagmaCube)p_78086_1_;
@@ -61,9 +56,6 @@ public class HardmodeMagmaCubeModel extends ModelBase
         }
     }
 
-    /**
-     * Sets the models various rotation angles then renders the model.
-     */
     public void render(Entity p_78088_1_, float p_78088_2_, float p_78088_3_, float p_78088_4_, float p_78088_5_, float p_78088_6_, float p_78088_7_)
     {
         this.setRotationAngles(p_78088_2_, p_78088_3_, p_78088_4_, p_78088_5_, p_78088_6_, p_78088_7_, p_78088_1_);

@@ -3,30 +3,17 @@ package com.NovaCraftBlocks.potion;
 import net.minecraft.util.*;
 import net.minecraftforge.fluids.*;
 import net.minecraft.block.material.*;
-import net.minecraft.creativetab.*;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.registry.NovaCraftCreativeTabs;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.ores.BlockReinforcedVanite;
-
 import net.minecraft.block.*;
 import cpw.mods.fml.relauncher.*;
 
-public class BlockMoltenVanite extends BlockFluidClassic
-{
+public class BlockMoltenVanite extends BlockFluidClassic {
     public static IIcon MoltenVaniteStillIcon;
     public static IIcon MoltenVaniteFlowingIcon;
-    
     public static IIcon MoltenVaniteCrystal;
     
     public BlockMoltenVanite() {

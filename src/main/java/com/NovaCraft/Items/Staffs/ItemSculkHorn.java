@@ -4,9 +4,7 @@ import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.Items.Tools.NCToolMaterial;
 import com.NovaCraft.entity.misc.EntitySculkHornProjectile;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.world.World;

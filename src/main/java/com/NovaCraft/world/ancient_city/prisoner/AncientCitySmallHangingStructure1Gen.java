@@ -2,51 +2,37 @@ package com.NovaCraft.world.ancient_city.prisoner;
 
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.world.*;
 import java.util.*;
-
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.EntityWardenVessel;
-import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagFloat;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityMobSpawner;
-import net.minecraft.util.MathHelper;
 
 public class AncientCitySmallHangingStructure1Gen extends WorldGenerator
 {
 	public AncientCitySmallHangingStructure1Gen() {
-
 	}
 	
 	 public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
 		 
 			world.setBlock(i + 2, j + 1, k + 2, NovaCraftBlocks.nullstone_brick_wall, 0, 2);
 			world.setBlock(i + 2, j + 2, k + 2, NovaCraftBlocks.nullstone_brick_wall, 0, 2);
-			world.setBlock(i + 1, j + 3, k + 0, NovaCraftBlocks.nullstone_tiles, 0, 2);
-			world.setBlock(i + 2, j + 3, k + 0, NovaCraftBlocks.nullstone_tiles, 0, 2);
-			world.setBlock(i + 3, j + 3, k + 0, NovaCraftBlocks.nullstone_tiles, 0, 2);
-			world.setBlock(i + 0, j + 3, k + 1, NovaCraftBlocks.nullstone_tiles, 0, 2);
+			world.setBlock(i + 1, j + 3, k, NovaCraftBlocks.nullstone_tiles, 0, 2);
+			world.setBlock(i + 2, j + 3, k, NovaCraftBlocks.nullstone_tiles, 0, 2);
+			world.setBlock(i + 3, j + 3, k, NovaCraftBlocks.nullstone_tiles, 0, 2);
+			world.setBlock(i, j + 3, k + 1, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 1, j + 3, k + 1, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 2, j + 3, k + 1, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 3, j + 3, k + 1, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 4, j + 3, k + 1, NovaCraftBlocks.nullstone_tiles, 0, 2);
-			world.setBlock(i + 0, j + 3, k + 2, NovaCraftBlocks.nullstone_tiles, 0, 2);
+			world.setBlock(i, j + 3, k + 2, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 1, j + 3, k + 2, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 2, j + 3, k + 2, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 3, j + 3, k + 2, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 4, j + 3, k + 2, NovaCraftBlocks.nullstone_tiles, 0, 2);
-			world.setBlock(i + 0, j + 3, k + 3, NovaCraftBlocks.nullstone_tiles, 0, 2);
+			world.setBlock(i, j + 3, k + 3, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 1, j + 3, k + 3, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 2, j + 3, k + 3, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 3, j + 3, k + 3, NovaCraftBlocks.nullstone_tiles, 0, 2);
@@ -54,49 +40,49 @@ public class AncientCitySmallHangingStructure1Gen extends WorldGenerator
 			world.setBlock(i + 1, j + 3, k + 4, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 2, j + 3, k + 4, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 3, j + 3, k + 4, NovaCraftBlocks.nullstone_tiles, 0, 2);
-			world.setBlock(i + 0, j + 4, k + 0, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 1, j + 4, k + 0, NovaCraftBlocks.nullstone_bricks, 0, 2);
-			world.setBlock(i + 2, j + 4, k + 0, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 3, j + 4, k + 0, NovaCraftBlocks.nullstone_bricks, 0, 2);
-			world.setBlock(i + 4, j + 4, k + 0, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 0, j + 4, k + 1, NovaCraftBlocks.nullstone_bricks, 0, 2);
+			world.setBlock(i, j + 4, k, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i + 1, j + 4, k, NovaCraftBlocks.nullstone_bricks, 0, 2);
+			world.setBlock(i + 2, j + 4, k, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i + 3, j + 4, k, NovaCraftBlocks.nullstone_bricks, 0, 2);
+			world.setBlock(i + 4, j + 4, k, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i, j + 4, k + 1, NovaCraftBlocks.nullstone_bricks, 0, 2);
 			world.setBlock(i + 4, j + 4, k + 1, NovaCraftBlocks.nullstone_bricks, 0, 2);
-			world.setBlock(i + 0, j + 4, k + 2, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i, j + 4, k + 2, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
 			world.setBlock(i + 4, j + 4, k + 2, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 0, j + 4, k + 3, NovaCraftBlocks.nullstone_bricks, 0, 2);
+			world.setBlock(i, j + 4, k + 3, NovaCraftBlocks.nullstone_bricks, 0, 2);
 			world.setBlock(i + 4, j + 4, k + 3, NovaCraftBlocks.nullstone_bricks, 0, 2);
-			world.setBlock(i + 0, j + 4, k + 4, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i, j + 4, k + 4, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
 			world.setBlock(i + 1, j + 4, k + 4, NovaCraftBlocks.nullstone_bricks, 0, 2);
 			world.setBlock(i + 2, j + 4, k + 4, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
 			world.setBlock(i + 3, j + 4, k + 4, NovaCraftBlocks.nullstone_bricks, 0, 2);
 			world.setBlock(i + 4, j + 4, k + 4, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 0, j + 5, k + 0, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 1, j + 5, k + 0, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 3, j + 5, k + 0, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 4, j + 5, k + 0, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 0, j + 5, k + 1, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i, j + 5, k, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i + 1, j + 5, k, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i + 3, j + 5, k, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i + 4, j + 5, k, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i, j + 5, k + 1, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
 			world.setBlock(i + 4, j + 5, k + 1, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 0, j + 5, k + 2, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+			world.setBlock(i, j + 5, k + 2, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 			world.setBlock(i + 4, j + 5, k + 2, NovaCraftBlocks.dim_vanite_torch, 5, 2);
-			world.setBlock(i + 0, j + 5, k + 3, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i, j + 5, k + 3, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
 			world.setBlock(i + 4, j + 5, k + 3, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 0, j + 5, k + 4, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i, j + 5, k + 4, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
 			world.setBlock(i + 1, j + 5, k + 4, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
 			world.setBlock(i + 2, j + 5, k + 4, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 			world.setBlock(i + 3, j + 5, k + 4, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
 			world.setBlock(i + 4, j + 5, k + 4, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 0, j + 6, k + 0, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 1, j + 6, k + 0, NovaCraftBlocks.nullstone_tiles, 0, 2);
-			world.setBlock(i + 2, j + 6, k + 0, NovaCraftBlocks.nullstone_tiles, 0, 2);
-			world.setBlock(i + 3, j + 6, k + 0, NovaCraftBlocks.nullstone_tiles, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 0, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
-			world.setBlock(i + 0, j + 6, k + 1, NovaCraftBlocks.nullstone_tiles, 0, 2);
+			world.setBlock(i, j + 6, k, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i + 1, j + 6, k, NovaCraftBlocks.nullstone_tiles, 0, 2);
+			world.setBlock(i + 2, j + 6, k, NovaCraftBlocks.nullstone_tiles, 0, 2);
+			world.setBlock(i + 3, j + 6, k, NovaCraftBlocks.nullstone_tiles, 0, 2);
+			world.setBlock(i + 4, j + 6, k, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i, j + 6, k + 1, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 4, j + 6, k + 1, NovaCraftBlocks.nullstone_tiles, 0, 2);
-			world.setBlock(i + 0, j + 6, k + 2, NovaCraftBlocks.nullstone_tiles, 0, 2);
+			world.setBlock(i, j + 6, k + 2, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 4, j + 6, k + 2, NovaCraftBlocks.nullstone_tiles, 0, 2);
-			world.setBlock(i + 0, j + 6, k + 3, NovaCraftBlocks.nullstone_tiles, 0, 2);
+			world.setBlock(i, j + 6, k + 3, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 4, j + 6, k + 3, NovaCraftBlocks.nullstone_tiles, 0, 2);
-			world.setBlock(i + 0, j + 6, k + 4, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
+			world.setBlock(i, j + 6, k + 4, NovaCraftBlocks.nullstone_tiled_wall, 0, 2);
 			world.setBlock(i + 1, j + 6, k + 4, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 4, NovaCraftBlocks.nullstone_tiles, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 4, NovaCraftBlocks.nullstone_tiles, 0, 2);
@@ -138,8 +124,8 @@ public class AncientCitySmallHangingStructure1Gen extends WorldGenerator
 			
 			world.setBlock(i + 2, j + 4, k + 2, NovaCraftBlocks.cracked_nullstone_deactivator, 0, 2);
 			
-			world.setBlock(i + 2, j + 0, k + 2, Blocks.mob_spawner, 0, 2);
-			TileEntityMobSpawner tileentitymobspawner2 = (TileEntityMobSpawner)world.getTileEntity(i + 2, j + 0, k + 2);
+			world.setBlock(i + 2, j, k + 2, Blocks.mob_spawner, 0, 2);
+			TileEntityMobSpawner tileentitymobspawner2 = (TileEntityMobSpawner)world.getTileEntity(i + 2, j, k + 2);
 			
 			if (tileentitymobspawner2 != null)
 			{

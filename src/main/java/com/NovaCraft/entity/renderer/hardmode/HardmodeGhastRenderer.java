@@ -7,7 +7,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.hardmode.EntityHardmodeGhast;
 import com.NovaCraft.entity.models.hardmode.HardmodeGhastModel;
 
@@ -22,14 +21,14 @@ public class HardmodeGhastRenderer extends RenderLiving
         super(new HardmodeGhastModel(), 0.5F);
     }
 
-    protected ResourceLocation getEntityTexture(EntityHardmodeGhast p_110775_1_)
+    protected ResourceLocation getEntityTexture(EntityHardmodeGhast entity)
     {
-        return p_110775_1_.func_110182_bF() ? ghastShootingTextures : ghastTextures;
+        return entity.func_110182_bF() ? ghastShootingTextures : ghastTextures;
     }
 
-    protected void preRenderCallback(EntityHardmodeGhast p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityHardmodeGhast entity, float p_77041_2_)
     {
-        float f1 = ((float)p_77041_1_.prevAttackCounter + (float)(p_77041_1_.attackCounter - p_77041_1_.prevAttackCounter) * p_77041_2_) / 20.0F;
+        float f1 = ((float)entity.prevAttackCounter + (float)(entity.attackCounter - entity.prevAttackCounter) * p_77041_2_) / 20.0F;
 
         if (f1 < 0.0F)
         {
@@ -43,13 +42,13 @@ public class HardmodeGhastRenderer extends RenderLiving
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
     }
     
-    protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityLivingBase entity, float p_77041_2_)
     {
-        this.preRenderCallback((EntityHardmodeGhast)p_77041_1_, p_77041_2_);
+        this.preRenderCallback((EntityHardmodeGhast)entity, p_77041_2_);
     }
 
-    protected ResourceLocation getEntityTexture(Entity p_110775_1_)
+    protected ResourceLocation getEntityTexture(Entity entity)
     {
-        return this.getEntityTexture((EntityHardmodeGhast)p_110775_1_);
+        return this.getEntityTexture((EntityHardmodeGhast)entity);
     }
 }

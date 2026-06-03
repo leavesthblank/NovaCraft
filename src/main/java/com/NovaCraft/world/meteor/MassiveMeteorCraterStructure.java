@@ -9,7 +9,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
 import java.util.Random;
 
 public class MassiveMeteorCraterStructure extends WorldGenerator {
@@ -399,7 +398,7 @@ public class MassiveMeteorCraterStructure extends WorldGenerator {
                     int realX = x + dx;
                     int realZ = z + dz;
 
-                    // Clear liquids above crater
+                    //Clear liquids above crater
                     for (int dy = y + 1; dy < world.getActualHeight(); ++dy) {
                         if (!world.blockExists(realX, dy, realZ)) continue;
 
@@ -409,7 +408,7 @@ public class MassiveMeteorCraterStructure extends WorldGenerator {
                         }
                     }
 
-                    // Clear liquids inside crater
+                    //Clear liquids inside crater
                     for (int dy = -24; dy <= 1; ++dy) {
                         int realY = y + dy;
                         if (realY < 0 || !world.blockExists(realX, realY, realZ)) continue;

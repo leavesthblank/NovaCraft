@@ -9,7 +9,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.hardmode.EntityHardmodeCreeper;
 import com.NovaCraft.entity.models.hardmode.HardmodeCreeperModel;
 
@@ -25,9 +24,9 @@ public class HardmodeCreeperRenderer extends RenderLiving
         super(new HardmodeCreeperModel(), 0.5F);
     }
 
-    protected void preRenderCallback(EntityHardmodeCreeper p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityHardmodeCreeper entity, float p_77041_2_)
     {
-        float f1 = p_77041_1_.getCreeperFlashIntensity(p_77041_2_);
+        float f1 = entity.getCreeperFlashIntensity(p_77041_2_);
         float f2 = 1.0F + MathHelper.sin(f1 * 100.0F) * f1 * 0.01F;
 
         if (f1 < 0.0F)
@@ -47,9 +46,9 @@ public class HardmodeCreeperRenderer extends RenderLiving
         GL11.glScalef(f3, f4, f3);
     }
 
-    protected int getColorMultiplier(EntityHardmodeCreeper p_77030_1_, float p_77030_2_, float p_77030_3_)
+    protected int getColorMultiplier(EntityHardmodeCreeper entity, float p_77030_2_, float p_77030_3_)
     {
-        float f2 = p_77030_1_.getCreeperFlashIntensity(p_77030_3_);
+        float f2 = entity.getCreeperFlashIntensity(p_77030_3_);
 
         if ((int)(f2 * 10.0F) % 2 == 0)
         {
@@ -76,11 +75,11 @@ public class HardmodeCreeperRenderer extends RenderLiving
         }
     }
 
-    protected int shouldRenderPass(EntityHardmodeCreeper p_77032_1_, int p_77032_2_, float p_77032_3_)
+    protected int shouldRenderPass(EntityHardmodeCreeper entity, int p_77032_2_, float p_77032_3_)
     {
-        if (p_77032_1_.getPowered())
+        if (entity.getPowered())
         {
-            if (p_77032_1_.isInvisible())
+            if (entity.isInvisible())
             {
                 GL11.glDepthMask(false);
             }
@@ -91,7 +90,7 @@ public class HardmodeCreeperRenderer extends RenderLiving
 
             if (p_77032_2_ == 1)
             {
-                float f1 = (float)p_77032_1_.ticksExisted + p_77032_3_;
+                float f1 = (float)entity.ticksExisted + p_77032_3_;
                 this.bindTexture(armoredCreeperTextures);
                 GL11.glMatrixMode(GL11.GL_TEXTURE);
                 GL11.glLoadIdentity();
@@ -121,38 +120,38 @@ public class HardmodeCreeperRenderer extends RenderLiving
         return -1;
     }
 
-    protected int inheritRenderPass(EntityHardmodeCreeper p_77035_1_, int p_77035_2_, float p_77035_3_)
+    protected int inheritRenderPass(EntityHardmodeCreeper entity, int p_77035_2_, float p_77035_3_)
     {
         return -1;
     }
 
-    protected ResourceLocation getEntityTexture(EntityHardmodeCreeper p_110775_1_)
+    protected ResourceLocation getEntityTexture(EntityHardmodeCreeper entity)
     {
         return creeperTextures;
     }
 
-    protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityLivingBase entity, float p_77041_2_)
     {
-        this.preRenderCallback((EntityHardmodeCreeper)p_77041_1_, p_77041_2_);
+        this.preRenderCallback((EntityHardmodeCreeper)entity, p_77041_2_);
     }
 
-    protected int getColorMultiplier(EntityLivingBase p_77030_1_, float p_77030_2_, float p_77030_3_)
+    protected int getColorMultiplier(EntityLivingBase entity, float p_77030_2_, float p_77030_3_)
     {
-        return this.getColorMultiplier((EntityHardmodeCreeper)p_77030_1_, p_77030_2_, p_77030_3_);
+        return this.getColorMultiplier((EntityHardmodeCreeper)entity, p_77030_2_, p_77030_3_);
     }
 
-    protected int shouldRenderPass(EntityLivingBase p_77032_1_, int p_77032_2_, float p_77032_3_)
+    protected int shouldRenderPass(EntityLivingBase entity, int p_77032_2_, float p_77032_3_)
     {
-        return this.shouldRenderPass((EntityHardmodeCreeper)p_77032_1_, p_77032_2_, p_77032_3_);
+        return this.shouldRenderPass((EntityHardmodeCreeper)entity, p_77032_2_, p_77032_3_);
     }
 
-    protected int inheritRenderPass(EntityLivingBase p_77035_1_, int p_77035_2_, float p_77035_3_)
+    protected int inheritRenderPass(EntityLivingBase entity, int p_77035_2_, float p_77035_3_)
     {
-        return this.inheritRenderPass((EntityHardmodeCreeper)p_77035_1_, p_77035_2_, p_77035_3_);
+        return this.inheritRenderPass((EntityHardmodeCreeper)entity, p_77035_2_, p_77035_3_);
     }
 
-    protected ResourceLocation getEntityTexture(Entity p_110775_1_)
+    protected ResourceLocation getEntityTexture(Entity entity)
     {
-        return this.getEntityTexture((EntityHardmodeCreeper)p_110775_1_);
+        return this.getEntityTexture((EntityHardmodeCreeper)entity);
     }
 }

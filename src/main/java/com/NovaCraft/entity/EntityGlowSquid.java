@@ -3,15 +3,11 @@ package com.NovaCraft.entity;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.sounds.Reference;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIMate;
-import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -25,26 +21,20 @@ public class EntityGlowSquid extends EntityWaterMob
     public float prevSquidPitch;
     public float squidYaw;
     public float prevSquidYaw;
-    /** appears to be rotation in radians; we already have pitch & yaw, so this completes the triumvirate. */
     public float squidRotation;
-    /** previous squidRotation in radians */
     public float prevSquidRotation;
-    /** angle of the tentacles in radians */
     public float tentacleAngle;
-    /** the last calculated angle of the tentacles in radians */
     public float lastTentacleAngle;
     private float randomMotionSpeed;
-    /** change in squidRotation in radians. */
     private float rotationVelocity;
     private float field_70871_bB;
     private float randomMotionVecX;
     private float randomMotionVecY;
     private float randomMotionVecZ;
-    private static final String __OBFID = "CL_00001651";
 
-    public EntityGlowSquid(World p_i1693_1_)
+    public EntityGlowSquid(World world)
     {
-        super(p_i1693_1_);
+        super(world);
         this.setSize(0.95F, 0.95F);
         this.rotationVelocity = 1.0F / (this.rand.nextFloat() + 1.0F) * 0.2F;
     }
@@ -54,34 +44,22 @@ public class EntityGlowSquid extends EntityWaterMob
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(10.0D);
     }
-    
-    /**
-     * Returns the sound this mob makes while it's alive.
-     */
+
     protected String getLivingSound()
     {
         return "nova_craft:glow_squid.living";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
     protected String getHurtSound()
     {
         return "nova_craft:glow_squid.hurt";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
     protected String getDeathSound()
     {
         return "nova_craft:glow_squid.death";
     }
 
-    /**
-     * Returns the volume for the sounds this mob makes.
-     */
     protected float getSoundVolume()
     {
         return 0.6F;
@@ -98,30 +76,19 @@ public class EntityGlowSquid extends EntityWaterMob
         return 15728880;
     }
 
-    /**
-     * Gets how bright this entity is.
-     */
     public float getBrightness(float p_70013_1_)
     {
         return 1.0F;
     }
 
-    /**
-     * returns if this entity triggers Block.onEntityWalking on the blocks they walk on. used for spiders and wolves to
-     * prevent them from trampling crops
-     */
     protected boolean canTriggerWalking()
     {
         return false;
     }
 
-    /**
-     * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
-     * par2 - Level of Looting used to kill this mob.
-     */
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+    protected void dropFewItems(boolean p_70628_1_, int chance)
     {
-        int j = this.rand.nextInt(4 + p_70628_2_) + 1;
+        int j = this.rand.nextInt(4 + chance) + 1;
 
         for (int k = 0; k < j; ++k)
         {
@@ -134,19 +101,11 @@ public class EntityGlowSquid extends EntityWaterMob
         }
     }
 
-    /**
-     * Checks if this entity is inside water (if inWater field is true as a result of handleWaterMovement() returning
-     * true)
-     */
     public boolean isInWater()
     {
         return this.worldObj.handleMaterialAcceleration(this.boundingBox.expand(0.0D, -0.6000000238418579D, 0.0D), Material.water, this);
     }
 
-    /**
-     * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
-     * use this to react to sunlight and start to burn.
-     */
     public void onLivingUpdate()
     {
         super.onLivingUpdate();
@@ -241,9 +200,6 @@ public class EntityGlowSquid extends EntityWaterMob
     	}
     }
 
-    /**
-     * Moves the entity based on the specified heading.  Args: strafe, forward
-     */
     public void moveEntityWithHeading(float p_70612_1_, float p_70612_2_)
     {
         this.moveEntity(this.motionX, this.motionY, this.motionZ);
@@ -268,9 +224,6 @@ public class EntityGlowSquid extends EntityWaterMob
         this.despawnEntity();
     }
 
-    /**
-     * Checks if the entity's current position is a valid location to spawn this entity.
-     */
     public boolean getCanSpawnHere()
     {
         return this.posY > 30.0D && this.posY < 48.0D && super.getCanSpawnHere();
@@ -281,13 +234,9 @@ public class EntityGlowSquid extends EntityWaterMob
         return new EntityGlowSquid(this.worldObj);
     }
 
-    /**
-     * Checks if the parameter is an item which this animal can be fed to breed it (wheat, carrots or seeds depending on
-     * the animal type)
-     */
-    public boolean isBreedingItem(ItemStack p_70877_1_)
+    public boolean isBreedingItem(ItemStack item)
     {
-        return p_70877_1_ != null && p_70877_1_.getItem() == Items.fish;
+        return item != null && item.getItem() == Items.fish;
     }
     
     

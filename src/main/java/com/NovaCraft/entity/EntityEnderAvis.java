@@ -2,10 +2,7 @@ package com.NovaCraft.entity;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -13,13 +10,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
@@ -28,37 +21,18 @@ import net.minecraft.world.World;
 
 public class EntityEnderAvis extends EntityAnimal {
 
-    public float wingFold;
-
-    public float wingAngle;
-
-    private float aimingForFold;
-
     public int jumpsRemaining;
-
-    private int ticks;
-    
     public int ticksFlying;
-    
     public float wingRotation, destPos, prevDestPos, prevWingRotation;
-    
-    protected int ticksUntilFlap;
-    
     protected float jumpPower;
-
 	protected int field_110285_bP;
-
 	protected boolean mountJumping;
-
-	protected boolean playStepSound = false;
-
-	protected boolean canJumpMidAir = false;
+	protected boolean canJumpMidAir;
 
     public EntityEnderAvis(World world) {
         super(world);
         
         this.ticksFlying = 0;
-        this.ticks = 0;
         this.jumpsRemaining = 0;
         this.stepHeight = 1.0F;
         this.ignoreFrustumCheck = true;
@@ -416,27 +390,18 @@ public class EntityEnderAvis extends EntityAnimal {
         }
     }
 
-    /**
-     * Returns the sound this mob makes while it's alive.
-     */
 	@Override
     protected String getLivingSound()
     {
         return "nova_craft:ender_avis.living";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
 	@Override
     protected String getHurtSound()
     {
         return "nova_craft:ender_avis.death";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
 	@Override
     protected String getDeathSound()
     {
@@ -497,7 +462,7 @@ public class EntityEnderAvis extends EntityAnimal {
 		this.setSaddled(compound.getBoolean("isSaddled"));
 	}
 
-    public EntityEnderAvis createChild(EntityAgeable p_90011_1_)
+    public EntityEnderAvis createChild(EntityAgeable entityAgeable)
     {
     	EntityEnderAvis avis = new EntityEnderAvis(this.worldObj);
 

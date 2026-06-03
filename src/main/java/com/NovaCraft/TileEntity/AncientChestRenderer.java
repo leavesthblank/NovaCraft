@@ -4,9 +4,7 @@ import cpw.mods.fml.client.registry.*;
 import net.minecraft.block.*;
 import net.minecraft.client.renderer.*;
 import org.lwjgl.opengl.*;
-
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.client.renderer.tileentity.*;
 import net.minecraft.world.*;
 

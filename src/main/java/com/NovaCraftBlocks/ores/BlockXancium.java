@@ -1,26 +1,14 @@
 package com.NovaCraftBlocks.ores;
 
-import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
-import com.ibm.icu.impl.duration.impl.Utils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.Explosion;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockXancium extends Block {
@@ -71,9 +59,9 @@ public class BlockXancium extends Block {
         }
     }
     
-    public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_)
+    public boolean canPlaceBlockAt(World world, int p_149742_2_, int p_149742_3_, int p_149742_4_)
     {
-        return World.doesBlockHaveSolidTopSurface(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_) || p_149742_1_.getBlock(p_149742_2_, p_149742_3_ - 1, p_149742_4_) == Blocks.glowstone;
+        return World.doesBlockHaveSolidTopSurface(world, p_149742_2_, p_149742_3_ - 1, p_149742_4_) || world.getBlock(p_149742_2_, p_149742_3_ - 1, p_149742_4_) == Blocks.glowstone;
     }
     
     public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion p_149723_5_)
@@ -84,7 +72,7 @@ public class BlockXancium extends Block {
         }
     }
 	
-	public boolean canDropFromExplosion(Explosion p_149659_1_)
+	public boolean canDropFromExplosion(Explosion explosion)
     {
         return false;
     }

@@ -1,12 +1,10 @@
 package com.NovaCraft.Items.Potions;
 
 import java.util.List;
-
 import com.NovaCraft.Items.ItemNovaCraftFood;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -90,16 +88,34 @@ public class ItemPotionStrengthExtended extends ItemNovaCraftFood {
 		}
 	}
 
-	public ItemStack onEaten(ItemStack p_77654_1_, World p_77654_2_, EntityPlayer p_77654_3_)
-	{
-	    super.onEaten(p_77654_1_, p_77654_2_, p_77654_3_);
-	    p_77654_3_.triggerAchievement(AchievementsNovaCraft.super_buff);
-	    
-	    if (p_77654_1_.stackSize >= 1) {	    	
-	    p_77654_3_.inventory.addItemStackToInventory(new ItemStack(NovaCraftItems.vanite_bottle));
-	    
-	    }
-	    return p_77654_1_.stackSize <= 0 ? new ItemStack(NovaCraftItems.vanite_bottle) : p_77654_1_;
+	@Override
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+		player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+		return stack;
+	}
+
+	@Override
+	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
+		boolean creative = player.capabilities.isCreativeMode;
+
+		if (!creative) {
+			--stack.stackSize;
+		}
+
+		if (!world.isRemote) {
+			this.onFoodEaten(stack, world, player);
+			player.triggerAchievement(AchievementsNovaCraft.super_buff);
+		}
+
+		if (!creative) {
+			if (stack.stackSize <= 0) {
+				return new ItemStack(NovaCraftItems.vanite_bottle);
+			}
+
+			player.inventory.addItemStackToInventory(new ItemStack(NovaCraftItems.vanite_bottle));
+		}
+
+		return stack;
 	}
 	
 	public EnumAction getItemUseAction(ItemStack p_77661_1_)

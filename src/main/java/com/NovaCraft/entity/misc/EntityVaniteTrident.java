@@ -3,23 +3,18 @@ package com.NovaCraft.entity.misc;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.Items.Staffs.NovaCraftDamageSource;
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.particles.ParticleHandler;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.S2BPacketChangeGameState;
@@ -30,7 +25,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
+public class EntityVaniteTrident extends EntityArrow
 {
     private int field_145791_d = -1;
     private int field_145792_e = -1;
@@ -38,35 +33,32 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
     private Block field_145790_g;
     private int inData;
     private boolean inGround;
-    /** 1 if the player can pick up the arrow */
     public int canBePickedUp;
-    /** The owner of this arrow. */
     public Entity shootingEntity;
     private int ticksInGround;
     private int ticksInAir;
     private double damage = 2.5D;
-    /** The amount of knockback an arrow applies when it hits a mob. */
     private int knockbackStrength;
 
-    public EntityVaniteTrident(World p_i1753_1_)
+    public EntityVaniteTrident(World world)
     {
-        super(p_i1753_1_);
+        super(world);
         this.renderDistanceWeight = 10.0D;
         this.setSize(1.0F, 1.0F);
     }
 
-    public EntityVaniteTrident(World p_i1754_1_, double p_i1754_2_, double p_i1754_4_, double p_i1754_6_)
+    public EntityVaniteTrident(World world, double x, double y, double z)
     {
-        super(p_i1754_1_);
+        super(world);
         this.renderDistanceWeight = 10.0D;
         this.setSize(1.0F, 1.0F);
-        this.setPosition(p_i1754_2_, p_i1754_4_, p_i1754_6_);
+        this.setPosition(x, y, z);
         this.yOffset = 0.0F;
     }
 
-    public EntityVaniteTrident(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_)
+    public EntityVaniteTrident(World world, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_)
     {
-        super(p_i1755_1_);
+        super(world);
         this.renderDistanceWeight = 10.0D;
         this.shootingEntity = p_i1755_2_;
 
@@ -94,9 +86,9 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
         }
     }
 
-    public EntityVaniteTrident(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_)
+    public EntityVaniteTrident(World world, EntityLivingBase p_i1756_2_, float p_i1756_3_)
     {
-        super(p_i1756_1_);
+        super(world);
         this.renderDistanceWeight = 10.0D;
         this.shootingEntity = p_i1756_2_;
 
@@ -123,9 +115,6 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
         this.dataWatcher.addObject(16, Byte.valueOf((byte)0));
     }
 
-    /**
-     * Similar to setArrowHeading, it's point the throwable entity to a x, y, z direction.
-     */
     public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
     {
         float f2 = MathHelper.sqrt_double(p_70186_1_ * p_70186_1_ + p_70186_3_ * p_70186_3_ + p_70186_5_ * p_70186_5_);
@@ -147,21 +136,18 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
         this.ticksInGround = 0;
     }
 
-    /**
-     * Sets the velocity to the args. Args: x, y, z
-     */
     @SideOnly(Side.CLIENT)
-    public void setVelocity(double p_70016_1_, double p_70016_3_, double p_70016_5_)
+    public void setVelocity(double x, double y, double z)
     {
-        this.motionX = p_70016_1_;
-        this.motionY = p_70016_3_;
-        this.motionZ = p_70016_5_;
+        this.motionX = x;
+        this.motionY = y;
+        this.motionZ = z;
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {
-            float f = MathHelper.sqrt_double(p_70016_1_ * p_70016_1_ + p_70016_5_ * p_70016_5_);
-            this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(p_70016_1_, p_70016_5_) * 180.0D / Math.PI);
-            this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(p_70016_3_, (double)f) * 180.0D / Math.PI);
+            float f = MathHelper.sqrt_double(x * x + z * z);
+            this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(x, z) * 180.0D / Math.PI);
+            this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(y, (double)f) * 180.0D / Math.PI);
             this.prevRotationPitch = this.rotationPitch;
             this.prevRotationYaw = this.rotationYaw;
             this.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
@@ -169,9 +155,6 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
         }
     }
 
-    /**
-     * Called to update the entity's position/logic.
-     */
     public void onUpdate()
     {
     	
@@ -207,11 +190,6 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
             if (block == this.field_145790_g && j == this.inData)
             {
                 ++this.ticksInGround;
-
-                //if (this.ticksInGround == 5000) //Should it Despawn?
-                //{
-                    //this.setDead();
-                //}
             }
             else
             {
@@ -341,11 +319,6 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
                         }
 
                         this.playSound("nova_craft:trident.thrown", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
-
-                        //if (!(movingobjectposition.entityHit instanceof EntityEnderman))
-                       // {
-                            //this.setDead();
-                        //}
                     }
                     else
                     {
@@ -466,62 +439,53 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
     	}
     }
 
-    /**
-     * (abstract) Protected helper method to write subclass entity data to NBT.
-     */
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    public void writeEntityToNBT(NBTTagCompound compound)
     {
-        p_70014_1_.setShort("xTile", (short)this.field_145791_d);
-        p_70014_1_.setShort("yTile", (short)this.field_145792_e);
-        p_70014_1_.setShort("zTile", (short)this.field_145789_f);
-        p_70014_1_.setShort("life", (short)this.ticksInGround);
-        p_70014_1_.setByte("inTile", (byte)Block.getIdFromBlock(this.field_145790_g));
-        p_70014_1_.setByte("inData", (byte)this.inData);
-        p_70014_1_.setByte("shake", (byte)this.arrowShake);
-        p_70014_1_.setByte("inGround", (byte)(this.inGround ? 1 : 0));
-        p_70014_1_.setByte("pickup", (byte)this.canBePickedUp);
-        p_70014_1_.setDouble("damage", this.damage);
+        compound.setShort("xTile", (short)this.field_145791_d);
+        compound.setShort("yTile", (short)this.field_145792_e);
+        compound.setShort("zTile", (short)this.field_145789_f);
+        compound.setShort("life", (short)this.ticksInGround);
+        compound.setByte("inTile", (byte)Block.getIdFromBlock(this.field_145790_g));
+        compound.setByte("inData", (byte)this.inData);
+        compound.setByte("shake", (byte)this.arrowShake);
+        compound.setByte("inGround", (byte)(this.inGround ? 1 : 0));
+        compound.setByte("pickup", (byte)this.canBePickedUp);
+        compound.setDouble("damage", this.damage);
     }
 
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        this.field_145791_d = p_70037_1_.getShort("xTile");
-        this.field_145792_e = p_70037_1_.getShort("yTile");
-        this.field_145789_f = p_70037_1_.getShort("zTile");
-        this.ticksInGround = p_70037_1_.getShort("life");
-        this.field_145790_g = Block.getBlockById(p_70037_1_.getByte("inTile") & 255);
-        this.inData = p_70037_1_.getByte("inData") & 255;
-        this.arrowShake = p_70037_1_.getByte("shake") & 255;
-        this.inGround = p_70037_1_.getByte("inGround") == 1;
+        this.field_145791_d = compound.getShort("xTile");
+        this.field_145792_e = compound.getShort("yTile");
+        this.field_145789_f = compound.getShort("zTile");
+        this.ticksInGround = compound.getShort("life");
+        this.field_145790_g = Block.getBlockById(compound.getByte("inTile") & 255);
+        this.inData = compound.getByte("inData") & 255;
+        this.arrowShake = compound.getByte("shake") & 255;
+        this.inGround = compound.getByte("inGround") == 1;
 
-        if (p_70037_1_.hasKey("damage", 99))
+        if (compound.hasKey("damage", 99))
         {
-            this.damage = p_70037_1_.getDouble("damage");
+            this.damage = compound.getDouble("damage");
         }
 
-        if (p_70037_1_.hasKey("pickup", 99))
+        if (compound.hasKey("pickup", 99))
         {
-            this.canBePickedUp = p_70037_1_.getByte("pickup");
+            this.canBePickedUp = compound.getByte("pickup");
         }
-        else if (p_70037_1_.hasKey("player", 99))
+        else if (compound.hasKey("player", 99))
         {
-            this.canBePickedUp = p_70037_1_.getBoolean("player") ? 1 : 0;
+            this.canBePickedUp = compound.getBoolean("player") ? 1 : 0;
         }
     }
 
-    /**
-     * Called by a player entity when they collide with an entity
-     */
-    public void onCollideWithPlayer(EntityPlayer p_70100_1_)
+    public void onCollideWithPlayer(EntityPlayer entityPlayer)
     {
         if (!this.worldObj.isRemote && this.inGround && this.arrowShake <= 0)
         {
-            boolean flag = this.canBePickedUp == 1 || this.canBePickedUp == 2 && p_70100_1_.capabilities.isCreativeMode;
+            boolean flag = this.canBePickedUp == 1 || this.canBePickedUp == 2 && entityPlayer.capabilities.isCreativeMode;
 
-            if (this.canBePickedUp == 1 && !p_70100_1_.inventory.addItemStackToInventory(new ItemStack(NovaCraftItems.vanite_trident, 1)))
+            if (this.canBePickedUp == 1 && !entityPlayer.inventory.addItemStackToInventory(new ItemStack(NovaCraftItems.vanite_trident, 1)))
             {
                 flag = false;
             }
@@ -529,7 +493,7 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
             if (flag)
             {
                 this.playSound("nova_craft:trident.pickup", 1.2F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F); //random.pop
-                p_70100_1_.onItemPickup(this, 1);
+                entityPlayer.onItemPickup(this, 1);
                 this.setDead();
             }
         }
@@ -550,10 +514,6 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
         return "nova_craft:trident.pickup";
     }
 
-    /**
-     * returns if this entity triggers Block.onEntityWalking on the blocks they walk on. used for spiders and wolves to
-     * prevent them from trampling crops
-     */
     protected boolean canTriggerWalking()
     {
         return false;
@@ -575,25 +535,16 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
         return this.damage;
     }
 
-    /**
-     * Sets the amount of knockback the arrow applies when it hits a mob.
-     */
     public void setKnockbackStrength(int p_70240_1_)
     {
         this.knockbackStrength = p_70240_1_;
     }
 
-    /**
-     * If returns false, the item will not inflict any damage against entities.
-     */
     public boolean canAttackWithItem()
     {
         return true;
     }
 
-    /**
-     * Whether the arrow has a stream of critical hit particles flying behind it.
-     */
     public void setIsCritical(boolean p_70243_1_)
     {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);
@@ -608,9 +559,6 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
         }
     }
 
-    /**
-     * Whether the arrow has a stream of critical hit particles flying behind it.
-     */
     public boolean getIsCritical()
     {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);

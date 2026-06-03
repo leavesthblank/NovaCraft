@@ -9,14 +9,12 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.entity.EntityWardenVessel;
+import com.NovaCraft.entity.EntityWardling;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
 import net.minecraft.item.ItemStack;
@@ -2643,7 +2641,7 @@ public class AncientCityNegativeXShrineGen1 extends WorldGenerator
 			}
 		}
 		
-		EntityWardenVessel warden = new EntityWardenVessel(world);
+		EntityWardling warden = new EntityWardling(world);
 		warden.setPosition(i + 1, j + 6, k + 12);
 
 		if (!world.isRemote) {

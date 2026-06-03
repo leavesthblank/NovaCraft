@@ -16,13 +16,13 @@ public class DeepoidBrewingStandContainer extends Container {
 
     private final Slot ingredientSlot;
 
-    public DeepoidBrewingStandContainer(InventoryPlayer playerInv, TileEntityDeepoidBrewingStand te) {
-        this.tileBrewingStand = te;
+    public DeepoidBrewingStandContainer(InventoryPlayer playerInv, TileEntityDeepoidBrewingStand tileBrewingStand) {
+        this.tileBrewingStand = tileBrewingStand;
 
-        this.addSlotToContainer(new Potion(playerInv.player, te, 0, 56, 46));
-        this.addSlotToContainer(new Potion(playerInv.player, te, 1, 79, 53));
-        this.addSlotToContainer(new Potion(playerInv.player, te, 2, 102, 46));
-        this.ingredientSlot = this.addSlotToContainer(new Ingredient(te, 3, 79, 17));
+        this.addSlotToContainer(new Potion(playerInv.player, tileBrewingStand, 0, 56, 46));
+        this.addSlotToContainer(new Potion(playerInv.player, tileBrewingStand, 1, 79, 53));
+        this.addSlotToContainer(new Potion(playerInv.player, tileBrewingStand, 2, 102, 46));
+        this.ingredientSlot = this.addSlotToContainer(new Ingredient(tileBrewingStand, 3, 79, 17));
 
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {

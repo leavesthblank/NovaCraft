@@ -1,8 +1,6 @@
 package com.NovaCraft.entity;
 
 import com.NovaCraft.Items.NovaCraftItems;
-
-import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIFollowParent;
@@ -16,16 +14,15 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class EntityGoat extends EntityAnimal
 {
 
-    public EntityGoat(World p_i1683_1_)
+    public EntityGoat(World world)
     {
-        super(p_i1683_1_);
+        super(world);
         this.setSize(0.7F, 0.9F);
         this.getNavigator().setAvoidsWater(true);
         this.tasks.addTask(0, new EntityAISwimming(this));
@@ -84,8 +81,8 @@ public class EntityGoat extends EntityAnimal
     
     protected void dropRareDrop(int p_70600_1_)
     {
-    	int rand = (int)(1 + Math.random() * 8);
-		switch (rand)
+    	int horn_drop = (int)(1 + Math.random() * 8);
+		switch (horn_drop)
         {
         case 1:
             this.entityDropItem(new ItemStack(NovaCraftItems.goat_horn_ponder), 0.0F);
@@ -114,26 +111,26 @@ public class EntityGoat extends EntityAnimal
         }
     }
 
-    public boolean interact(EntityPlayer p_70085_1_)
+    public boolean interact(EntityPlayer entityPlayer)
     {
-        ItemStack itemstack = p_70085_1_.inventory.getCurrentItem();
+        ItemStack itemstack = entityPlayer.inventory.getCurrentItem();
 
-        if (itemstack != null && itemstack.getItem() == Items.bucket && !p_70085_1_.capabilities.isCreativeMode)
+        if (itemstack != null && itemstack.getItem() == Items.bucket && !entityPlayer.capabilities.isCreativeMode)
         {
             if (itemstack.stackSize-- == 1)
             {
-                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, new ItemStack(Items.milk_bucket));
+                entityPlayer.inventory.setInventorySlotContents(entityPlayer.inventory.currentItem, new ItemStack(Items.milk_bucket));
             }
-            else if (!p_70085_1_.inventory.addItemStackToInventory(new ItemStack(Items.milk_bucket)))
+            else if (!entityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.milk_bucket)))
             {
-                p_70085_1_.dropPlayerItemWithRandomChoice(new ItemStack(Items.milk_bucket, 1, 0), false);
+                entityPlayer.dropPlayerItemWithRandomChoice(new ItemStack(Items.milk_bucket, 1, 0), false);
             }
 
             return true;
         }
         else
         {
-            return super.interact(p_70085_1_);
+            return super.interact(entityPlayer);
         }
     }
 

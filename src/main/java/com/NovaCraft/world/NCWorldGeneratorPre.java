@@ -5,7 +5,6 @@ import java.util.Random;
 import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.config.ConfigsWorld;
 import org.apache.commons.lang3.ArrayUtils;
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
@@ -31,7 +30,10 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 	protected final WorldGenMinable endstoneGen = new WorldGenMinable(Blocks.end_stone, 64, Blocks.air);
 	protected final WorldGenMinable frontierslateGen = new WorldGenMinable(NovaCraftBlocks.frontierslate, 64, Blocks.air);
 	protected final WorldGenMinable vaccumSandGen = new WorldGenMinable(NovaCraftBlocks.vacuum_sand, 32, Blocks.end_stone);
-	
+
+	public static final WorldGenMinable cinnabarGen = new WorldGenMinable(NovaCraftBlocks.cinnabar, 64, Blocks.stone);
+	public static final WorldGenMinable stibniteGen = new WorldGenMinable(NovaCraftBlocks.stibnite, 64, Blocks.stone);
+
 	public NCWorldGeneratorPre() {
 	}
 	

@@ -6,11 +6,8 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
 
@@ -104,7 +101,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 11, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 12, Blocks.air, 0, 2);
@@ -131,7 +128,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 12, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 13, Blocks.air, 0, 2);
@@ -158,7 +155,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 13, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 14, Blocks.air, 0, 2);
@@ -185,7 +182,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 14, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 15, Blocks.air, 0, 2);
@@ -212,7 +209,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 15, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 16, Blocks.air, 0, 2);
@@ -239,7 +236,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 16, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 17, Blocks.air, 0, 2);
@@ -266,7 +263,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 17, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 18, Blocks.air, 0, 2);
@@ -293,7 +290,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 18, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 19, Blocks.air, 0, 2);
@@ -320,7 +317,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 19, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 20, Blocks.air, 0, 2);
@@ -347,7 +344,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 20, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 21, Blocks.air, 0, 2);
@@ -374,7 +371,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 21, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 22, Blocks.air, 0, 2);
@@ -401,7 +398,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 22, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 23, Blocks.air, 0, 2);
@@ -428,7 +425,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 23, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 24, Blocks.air, 0, 2);
@@ -455,7 +452,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 24, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 25, Blocks.air, 0, 2);
@@ -482,7 +479,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 25, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 26, Blocks.air, 0, 2);
@@ -509,7 +506,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 26, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 27, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 27, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 27, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 27, Blocks.air, 0, 2);
@@ -536,7 +533,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 27, PlaceDeepslateTileStairs, 6, 2);
 		world.setBlock(i + 25, j + 13, k + 27, PlaceDeepslateTileStairs, 6, 2);
 		world.setBlock(i + 26, j + 13, k + 27, PlaceDeepslateTileStairs, 6, 2);
-		world.setBlock(i + 0, j + 13, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 28, Blocks.air, 0, 2);
@@ -563,7 +560,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 28, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 28, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 28, PlaceDeepslateTileStairs, 5, 2);
-		world.setBlock(i + 0, j + 13, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 29, Blocks.air, 0, 2);
@@ -590,7 +587,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 29, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 29, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 29, PlaceDeepslateTileStairs, 5, 2);
-		world.setBlock(i + 0, j + 13, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 30, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 30, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 30, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 30, Blocks.air, 0, 2);
@@ -617,7 +614,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 30, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 30, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 30, PlaceDeepslateTileStairs, 5, 2);
-		world.setBlock(i + 0, j + 13, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 31, Blocks.air, 0, 2);
@@ -644,7 +641,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 31, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 31, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 31, PlaceDeepslateTileStairs, 5, 2);
-		world.setBlock(i + 0, j + 13, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 32, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 32, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 32, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 32, Blocks.air, 0, 2);
@@ -671,7 +668,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 32, PlaceDeepslateTileStairs, 7, 2);
 		world.setBlock(i + 25, j + 13, k + 32, PlaceDeepslateTileStairs, 7, 2);
 		world.setBlock(i + 26, j + 13, k + 32, PlaceDeepslateTileStairs, 5, 2);
-		world.setBlock(i + 0, j + 13, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 33, Blocks.air, 0, 2);
@@ -698,7 +695,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 33, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 34, Blocks.air, 0, 2);
@@ -725,7 +722,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 34, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 13, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i, j + 13, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 13, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 13, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 13, k + 35, Blocks.air, 0, 2);
@@ -752,34 +749,34 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 13, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 13, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 13, k + 35, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 1, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 2, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 3, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 4, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 5, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 6, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 7, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 8, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 9, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 10, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 11, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 12, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 13, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 14, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 15, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 16, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 17, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 18, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 19, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 20, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 21, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 22, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 23, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 24, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 25, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 26, j + 14, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 11, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 14, k, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 1, Blocks.air, 0, 2);
@@ -806,7 +803,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 1, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 2, Blocks.air, 0, 2);
@@ -833,7 +830,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 2, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 3, Blocks.air, 0, 2);
@@ -860,7 +857,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 3, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 4, Blocks.air, 0, 2);
@@ -887,7 +884,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 4, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 5, Blocks.air, 0, 2);
@@ -914,7 +911,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 5, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 6, Blocks.air, 0, 2);
@@ -941,7 +938,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 6, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 7, Blocks.air, 0, 2);
@@ -968,7 +965,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 7, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 8, Blocks.air, 0, 2);
@@ -995,7 +992,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 8, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 9, Blocks.air, 0, 2);
@@ -1022,7 +1019,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 9, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 10, Blocks.air, 0, 2);
@@ -1049,7 +1046,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 10, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 11, Blocks.air, 0, 2);
@@ -1076,7 +1073,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 11, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 12, Blocks.air, 0, 2);
@@ -1103,7 +1100,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 12, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 13, Blocks.air, 0, 2);
@@ -1130,7 +1127,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 13, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 14, Blocks.air, 0, 2);
@@ -1157,7 +1154,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 14, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 15, Blocks.air, 0, 2);
@@ -1184,7 +1181,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 15, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 16, Blocks.air, 0, 2);
@@ -1211,7 +1208,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 16, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 17, Blocks.air, 0, 2);
@@ -1238,7 +1235,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 17, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 18, Blocks.air, 0, 2);
@@ -1265,7 +1262,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 18, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 19, Blocks.air, 0, 2);
@@ -1292,7 +1289,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 19, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 20, Blocks.air, 0, 2);
@@ -1319,7 +1316,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 20, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 21, Blocks.air, 0, 2);
@@ -1346,7 +1343,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 21, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 22, Blocks.air, 0, 2);
@@ -1373,7 +1370,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 22, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 23, Blocks.air, 0, 2);
@@ -1400,7 +1397,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 23, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 24, Blocks.air, 0, 2);
@@ -1427,7 +1424,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 24, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 25, Blocks.air, 0, 2);
@@ -1454,7 +1451,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 25, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 26, Blocks.air, 0, 2);
@@ -1481,7 +1478,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 26, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 27, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 27, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 27, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 27, Blocks.air, 0, 2);
@@ -1508,7 +1505,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 27, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 27, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 27, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 28, Blocks.air, 0, 2);
@@ -1535,7 +1532,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 28, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 28, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 28, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 29, Blocks.air, 0, 2);
@@ -1562,7 +1559,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 29, NovaCraftBlocks.sculk_block, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 29, NovaCraftBlocks.sculk_block, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 29, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 30, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 30, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 30, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 30, Blocks.air, 0, 2);
@@ -1589,7 +1586,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 30, NovaCraftBlocks.sculk_block, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 30, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 30, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 31, Blocks.air, 0, 2);
@@ -1616,7 +1613,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 31, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 31, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 31, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 32, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 32, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 32, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 32, Blocks.air, 0, 2);
@@ -1643,7 +1640,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 32, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 32, NovaCraftBlocks.sculk_block, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 32, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 33, Blocks.air, 0, 2);
@@ -1670,7 +1667,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 33, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 34, Blocks.air, 0, 2);
@@ -1697,7 +1694,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 34, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 14, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i, j + 14, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 14, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 14, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 35, Blocks.air, 0, 2);
@@ -1724,34 +1721,34 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 14, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 14, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 14, k + 35, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 1, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 2, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 3, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 4, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 5, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 6, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 7, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 8, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 9, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 10, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 11, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 12, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 13, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 14, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 15, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 16, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 17, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 18, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 19, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 20, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 21, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 22, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 23, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 24, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 25, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 26, j + 15, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 11, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 15, k, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 1, Blocks.air, 0, 2);
@@ -1778,7 +1775,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 1, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 2, Blocks.air, 0, 2);
@@ -1805,7 +1802,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 2, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 3, Blocks.air, 0, 2);
@@ -1832,7 +1829,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 3, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 4, Blocks.air, 0, 2);
@@ -1859,7 +1856,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 4, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 5, Blocks.air, 0, 2);
@@ -1886,7 +1883,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 5, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 6, Blocks.air, 0, 2);
@@ -1913,7 +1910,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 6, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 7, Blocks.air, 0, 2);
@@ -1940,7 +1937,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 7, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 8, Blocks.air, 0, 2);
@@ -1967,7 +1964,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 8, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 9, Blocks.air, 0, 2);
@@ -1994,7 +1991,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 9, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 10, Blocks.air, 0, 2);
@@ -2021,7 +2018,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 10, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 11, Blocks.air, 0, 2);
@@ -2048,7 +2045,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 11, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 12, Blocks.air, 0, 2);
@@ -2075,7 +2072,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 12, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 13, Blocks.air, 0, 2);
@@ -2102,7 +2099,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 13, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 14, Blocks.air, 0, 2);
@@ -2129,7 +2126,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 14, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 15, Blocks.air, 0, 2);
@@ -2156,7 +2153,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 15, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 16, Blocks.air, 0, 2);
@@ -2183,7 +2180,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 16, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 17, Blocks.air, 0, 2);
@@ -2210,7 +2207,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 17, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 18, Blocks.air, 0, 2);
@@ -2237,7 +2234,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 18, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 19, Blocks.air, 0, 2);
@@ -2264,7 +2261,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 19, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 20, Blocks.air, 0, 2);
@@ -2291,7 +2288,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 20, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 21, Blocks.air, 0, 2);
@@ -2318,7 +2315,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 21, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 21, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 22, Blocks.air, 0, 2);
@@ -2345,7 +2342,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 22, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 23, Blocks.air, 0, 2);
@@ -2372,7 +2369,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 23, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 24, Blocks.air, 0, 2);
@@ -2399,7 +2396,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 24, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 25, Blocks.air, 0, 2);
@@ -2426,7 +2423,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 25, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 26, Blocks.air, 0, 2);
@@ -2453,7 +2450,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 26, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 27, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 27, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 27, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 27, Blocks.air, 0, 2);
@@ -2480,7 +2477,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 27, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 27, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 27, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 28, Blocks.air, 0, 2);
@@ -2507,7 +2504,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 28, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 29, Blocks.air, 0, 2);
@@ -2534,7 +2531,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 29, NovaCraftBlocks.sculk_vein, 1, 2);
 		world.setBlock(i + 25, j + 15, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 29, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 30, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 30, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 30, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 30, Blocks.air, 0, 2);
@@ -2561,7 +2558,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 30, NovaCraftBlocks.sculk_spike, 1, 2);
 		world.setBlock(i + 25, j + 15, k + 30, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 30, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 31, Blocks.air, 0, 2);
@@ -2588,7 +2585,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 31, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 32, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 32, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 32, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 32, Blocks.air, 0, 2);
@@ -2615,7 +2612,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 32, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 32, NovaCraftBlocks.sculk_vein, 1, 2);
 		world.setBlock(i + 26, j + 15, k + 32, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 33, Blocks.air, 0, 2);
@@ -2642,7 +2639,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 33, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 33, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 34, Blocks.air, 0, 2);
@@ -2669,7 +2666,7 @@ public class AncientCityPositiveXLeftBranch3Gen7 extends WorldGenerator
 		world.setBlock(i + 24, j + 15, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 15, k + 34, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 15, k + 34, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 15, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i, j + 15, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 15, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 15, k + 35, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 35, Blocks.air, 0, 2);

@@ -1,8 +1,6 @@
 package com.NovaCraft.particles;
 
 import com.NovaCraft.particles.entity.EntityDarkLichenParticleOne;
-
-import net.minecraft.client.particle.EntityPortalFX;
 import net.minecraft.world.World;
 
 public class ParticleDarkLichenTwo extends EntityDarkLichenParticleOne {

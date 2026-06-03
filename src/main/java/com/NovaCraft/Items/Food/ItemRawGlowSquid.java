@@ -1,6 +1,5 @@
 package com.NovaCraft.Items.Food;
 
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.Items.ItemNovaCraftFood;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;

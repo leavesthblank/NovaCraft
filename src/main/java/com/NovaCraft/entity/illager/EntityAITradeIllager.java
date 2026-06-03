@@ -9,8 +9,8 @@ public class EntityAITradeIllager extends EntityAIBase
 {
     private EntityIllagerTrader villager;
     
-    public EntityAITradeIllager(final EntityIllagerTrader p_i1658_1_) {
-        this.villager = p_i1658_1_;
+    public EntityAITradeIllager(final EntityIllagerTrader entity) {
+        this.villager = entity;
         this.setMutexBits(5);
     }
     

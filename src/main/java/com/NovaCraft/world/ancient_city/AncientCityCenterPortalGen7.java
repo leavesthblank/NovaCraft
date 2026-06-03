@@ -7,11 +7,8 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.init.*;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 
@@ -20,11 +17,6 @@ public class AncientCityCenterPortalGen7 extends WorldGenerator
 	public AncientCityCenterPortalGen7() {
 
 	}
-	//0 -> deepslate bricks
-	//1 -> cracked deepslate bricks
-	//2 -> deepslate tiles
-	//3 -> cracked deepslate bricks
-	//4 -> chiseled deepslate bricks
 	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
 	private Block PlaceDeepslate;
 	private Block PlaceDeepslateBricks;
@@ -1297,11 +1289,11 @@ public class AncientCityCenterPortalGen7 extends WorldGenerator
 		world.setBlock(i + 23, j + 1, k + 68, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 24, j + 1, k + 68, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 25, j + 1, k + 68, PlacePolishedDeepslateStairs, 1, 2);
-		world.setBlock(i + 21, j + 2, k + 0, PlacePolishedDeepslateStairs, 0, 2);
-		world.setBlock(i + 22, j + 2, k + 0, Blocks.wool, 7, 2);
-		world.setBlock(i + 23, j + 2, k + 0, Blocks.wool, 7, 2);
-		world.setBlock(i + 24, j + 2, k + 0, Blocks.wool, 7, 2);
-		world.setBlock(i + 25, j + 2, k + 0, PlacePolishedDeepslateStairs, 1, 2);
+		world.setBlock(i + 21, j + 2, k, PlacePolishedDeepslateStairs, 0, 2);
+		world.setBlock(i + 22, j + 2, k, Blocks.wool, 7, 2);
+		world.setBlock(i + 23, j + 2, k, Blocks.wool, 7, 2);
+		world.setBlock(i + 24, j + 2, k, Blocks.wool, 7, 2);
+		world.setBlock(i + 25, j + 2, k, PlacePolishedDeepslateStairs, 1, 2);
 		world.setBlock(i + 1, j + 2, k + 1, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 2, j + 2, k + 1, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 3, j + 2, k + 1, PlaceDeepslate, 0, 2);
@@ -2204,7 +2196,7 @@ public class AncientCityCenterPortalGen7 extends WorldGenerator
 		world.setBlock(i + 42, j + 2, k + 32, Blocks.wool, 7, 2);
 		world.setBlock(i + 43, j + 2, k + 32, Blocks.wool, 7, 2);
 		world.setBlock(i + 44, j + 2, k + 32, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 33, PlacePolishedDeepslateStairs, 2, 2);
+		world.setBlock(i, j + 2, k + 33, PlacePolishedDeepslateStairs, 2, 2);
 		world.setBlock(i + 1, j + 2, k + 33, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 2, j + 2, k + 33, Blocks.wool, 7, 2);
 		world.setBlock(i + 3, j + 2, k + 33, Blocks.wool, 7, 2);
@@ -2233,7 +2225,7 @@ public class AncientCityCenterPortalGen7 extends WorldGenerator
 		world.setBlock(i + 42, j + 2, k + 33, PlaceDeepslateBrickStairs, 3, 2);
 		world.setBlock(i + 43, j + 2, k + 33, Blocks.wool, 7, 2);
 		world.setBlock(i + 44, j + 2, k + 33, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 34, Blocks.wool, 7, 2);
+		world.setBlock(i, j + 2, k + 34, Blocks.wool, 7, 2);
 		world.setBlock(i + 1, j + 2, k + 34, PlacePolishedDeepslateStairs, 1, 2);
 		world.setBlock(i + 10, j + 2, k + 34, PlaceDeepslateBrickStairs, 2, 2);
 		world.setBlock(i + 11, j + 2, k + 34, PlaceDeepslate, 0, 2);
@@ -2261,7 +2253,7 @@ public class AncientCityCenterPortalGen7 extends WorldGenerator
 		world.setBlock(i + 38, j + 2, k + 34, Blocks.planks, 5, 2);
 		world.setBlock(i + 43, j + 2, k + 34, Blocks.wool, 7, 2);
 		world.setBlock(i + 44, j + 2, k + 34, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 35, Blocks.wool, 7, 2);
+		world.setBlock(i, j + 2, k + 35, Blocks.wool, 7, 2);
 		world.setBlock(i + 1, j + 2, k + 35, PlacePolishedDeepslateStairs, 1, 2);
 		world.setBlock(i + 10, j + 2, k + 35, Blocks.wool, 7, 2);
 		world.setBlock(i + 12, j + 2, k + 35, Blocks.wool, 7, 2);
@@ -2287,7 +2279,7 @@ public class AncientCityCenterPortalGen7 extends WorldGenerator
 		world.setBlock(i + 42, j + 2, k + 35, PlaceDeepslateBrickStairs, 2, 2);
 		world.setBlock(i + 43, j + 2, k + 35, Blocks.wool, 7, 2);
 		world.setBlock(i + 44, j + 2, k + 35, PlaceCrackedDeepslateBricks, 1, 2);
-		world.setBlock(i + 0, j + 2, k + 36, Blocks.wool, 7, 2);
+		world.setBlock(i, j + 2, k + 36, Blocks.wool, 7, 2);
 		world.setBlock(i + 1, j + 2, k + 36, PlacePolishedDeepslateStairs, 1, 2);
 		world.setBlock(i + 10, j + 2, k + 36, Blocks.wool, 7, 2);
 		world.setBlock(i + 11, j + 2, k + 36, PlaceDeepslate, 0, 2);
@@ -2314,7 +2306,7 @@ public class AncientCityCenterPortalGen7 extends WorldGenerator
 		world.setBlock(i + 42, j + 2, k + 36, Blocks.wool, 7, 2);
 		world.setBlock(i + 43, j + 2, k + 36, Blocks.wool, 7, 2);
 		world.setBlock(i + 44, j + 2, k + 36, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 37, PlacePolishedDeepslateStairs, 3, 2);
+		world.setBlock(i, j + 2, k + 37, PlacePolishedDeepslateStairs, 3, 2);
 		world.setBlock(i + 1, j + 2, k + 37, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 2, k + 37, Blocks.wool, 7, 2);
 		world.setBlock(i + 3, j + 2, k + 37, Blocks.wool, 7, 2);

@@ -5,8 +5,9 @@ import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.world.caves.MapGenCavesOverride;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
+import com.NovaCraftBlocks.potion.NovaCraftLiquids;
 import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.ReflectionHelper;
@@ -22,6 +23,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayer.EnumStatus;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
@@ -31,11 +33,12 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
+import net.minecraftforge.event.entity.player.FillBucketEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.event.world.BlockEvent;
-
-import java.lang.reflect.Field;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 
 public class NovaCraftClientEvents {
 
@@ -296,6 +299,22 @@ public class NovaCraftClientEvents {
 			if (player.worldObj.rand.nextInt(8) <= 3) {
 				event.setCanceled(true);
 			}
+		}
+	}
+
+	@SubscribeEvent
+	public void handleBucketFillEvent(final FillBucketEvent event) {
+		final ItemStack bucket = new ItemStack(NovaCraftItems.bucket_mercury);
+		final World world = event.world;
+		final int x = event.target.blockX;
+		final int y = event.target.blockY;
+		final int z = event.target.blockZ;
+		final int meta = world.getBlockMetadata(x, y, z);
+		final Fluid fluid = FluidRegistry.lookupFluidForBlock(world.getBlock(x, y, z));
+		if (fluid != null && fluid == NovaCraftLiquids.mercury && meta == 0) {
+			world.setBlockToAir(x, y, z);
+			event.result = bucket;
+			event.setResult(Event.Result.ALLOW);
 		}
 	}
 }

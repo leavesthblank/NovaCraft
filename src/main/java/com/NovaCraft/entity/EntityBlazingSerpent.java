@@ -1,14 +1,9 @@
 package com.NovaCraft.entity;
 
-import com.NovaCraft.Hardmode;
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.AI.EntityAILavaSwimming;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,33 +12,24 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class EntityBlazingSerpent extends EntityMob
 {		
-	public EntityBlazingSerpent(final World p_i1745_1_) {
-		super(p_i1745_1_);
+	public EntityBlazingSerpent(final World world) {
+		super(world);
 		this.isImmuneToFire = true;
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
 		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
@@ -142,9 +128,6 @@ public class EntityBlazingSerpent extends EntityMob
         return 15728880;
     }
 
-    /**
-     * Gets how bright this entity is.
-     */
     public float getBrightness(float p_70013_1_)
     {
         return 0.45F;
@@ -181,10 +164,6 @@ public class EntityBlazingSerpent extends EntityMob
     
     protected String getDeathSound() {
         return "nova_craft:blazing_serpent.hurt";
-    }
-    
-    protected String getChargeSound() {
-        return null;
     }
 	
 	@Override

@@ -3,9 +3,7 @@ package com.NovaCraft.core;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
 import com.NovaCraft.sounds.Reference;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,6 +18,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
+//Credit to Roadhog360 for this I believe
 public class Utils {
 
 	public static String getUnlocalisedName(String name) {

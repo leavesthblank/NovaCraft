@@ -158,6 +158,19 @@ public enum ParticleHandler
             return new Object[] { 0, 0.28f * world.rand.nextFloat(), -1, this.texture, 1 };
         }
 	},
+
+    PHERITHIUM((Class)EntitySculkParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
+        private final ResourceLocation texture;
+
+        {
+            this.texture = new ResourceLocation("nova_craft:textures/particles/pherithium_sparkle.png");
+        }
+
+        @Override
+        protected Object[] getAdditionalArgs(final World world, final Object... data) {
+            return new Object[] { 0, 0.12f * world.rand.nextFloat(), -1, this.texture, 1 };
+        }
+    },
 	
 	TREASURE_SMALL((Class)EntitySculkParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
         private final ResourceLocation texture;

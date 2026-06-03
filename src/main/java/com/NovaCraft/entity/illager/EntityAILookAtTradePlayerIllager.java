@@ -7,11 +7,10 @@ import net.minecraft.entity.*;
 public class EntityAILookAtTradePlayerIllager extends EntityAIWatchClosest
 {
     private final EntityIllagerTrader theMerchant;
-    private static final String __OBFID = "CL_00001593";
     
-    public EntityAILookAtTradePlayerIllager(final EntityIllagerTrader p_i1633_1_) {
-        super((EntityLiving)p_i1633_1_, (Class)EntityPlayer.class, 8.0f);
-        this.theMerchant = p_i1633_1_;
+    public EntityAILookAtTradePlayerIllager(final EntityIllagerTrader entity) {
+        super((EntityLiving)entity, (Class)EntityPlayer.class, 8.0f);
+        this.theMerchant = entity;
     }
     
     public boolean shouldExecute() {

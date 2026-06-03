@@ -1,14 +1,9 @@
 package com.NovaCraft.entity.models;
 
-import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
-
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 
 public class TheDeepOneModel extends ModelBase {
@@ -58,7 +53,7 @@ public class TheDeepOneModel extends ModelBase {
 	private final ModelRenderer left_wing_1;
 	private final ModelRenderer left_wing_2;
 	
-	public TheDeepOneModel() { //+x left -xright //-z forward +z back
+	public TheDeepOneModel() {
 		textureWidth = 192;
 		textureHeight = 192;
 
@@ -223,7 +218,7 @@ public class TheDeepOneModel extends ModelBase {
         this.setRotationAngle(this.left_wing_base_1, 0.0F, 0.0F, -0.6545F);
         body.addChild(left_wing_base_1);
         
-        (this.left_wing_base_2 = new ModelRenderer((ModelBase)this, 35, 104)).setRotationPoint(33.75F, 0.35F, 0.0F); //21.75F, 0.35F, 0.0F
+        (this.left_wing_base_2 = new ModelRenderer((ModelBase)this, 35, 104)).setRotationPoint(33.75F, 0.35F, 0.0F);
         this.left_wing_base_2.addBox(-1.0F, -2.0F, -1.0F, 34, 2, 2, 0.0f);
         this.setRotationAngle(this.left_wing_base_2, 0.0F, 0.0F, 0.48F);
         left_wing_base_1.addChild(left_wing_base_2);

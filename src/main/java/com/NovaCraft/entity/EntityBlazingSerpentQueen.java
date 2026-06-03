@@ -1,17 +1,12 @@
 package com.NovaCraft.entity;
 
-import com.NovaCraft.Hardmode;
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.AI.EntityAIDeepoidBreathAttack;
 import com.NovaCraft.entity.AI.EntityAILavaSwimming;
 import com.NovaCraft.entity.AI.IDeepoidBreathAttacker;
 import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,30 +14,16 @@ import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
@@ -53,8 +34,8 @@ public class EntityBlazingSerpentQueen extends EntityMob implements IDeepoidBrea
     public static final int BREATH_DAMAGE = 3;
     public static final int BREATH_DAMAGE_NOTFIRE = 3;
 	
-	public EntityBlazingSerpentQueen(final World p_i1745_1_) {
-		super(p_i1745_1_);
+	public EntityBlazingSerpentQueen(final World world) {
+		super(world);
 		
 		this.tasks.addTask(0, new EntityAILavaSwimming(this));
 		this.tasks.addTask(2, new EntityAIDeepoidBreathAttack(this, 1.0F, 5F, 30, 0.1F));
@@ -247,16 +228,16 @@ public class EntityBlazingSerpentQueen extends EntityMob implements IDeepoidBrea
         return 0.45F;
     }
 	
-	 protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+	 protected void dropFewItems(boolean p_70628_1_, int chance)
 	    {
 	        int j;
 	        int k;
 	        {
-	            j = this.rand.nextInt(1 + p_70628_2_);
+	            j = this.rand.nextInt(1 + chance);
 
 	            for (k = 0; k < j; ++k)
 	            {
-	                this.dropItem(NovaCraftItems.blazing_serpent_scales, 1 + p_70628_2_);
+	                this.dropItem(NovaCraftItems.blazing_serpent_scales, 1 + chance);
 	            }
 	        }
 	        
@@ -280,10 +261,6 @@ public class EntityBlazingSerpentQueen extends EntityMob implements IDeepoidBrea
     
     protected String getDeathSound() {
         return "nova_craft:blazing_serpent.hurt";
-    }
-    
-    protected String getChargeSound() {
-        return null;
     }
 	
 	@Override

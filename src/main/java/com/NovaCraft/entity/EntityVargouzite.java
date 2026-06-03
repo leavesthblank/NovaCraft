@@ -15,9 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 
-public class EntityVargouzite extends EntityFlying implements IMob
-{
-    public int flapSoundTime;
+public class EntityVargouzite extends EntityFlying implements IMob {
     public int courseChangeCooldown;
     public double waypointX;
     public double waypointY;
@@ -27,8 +25,8 @@ public class EntityVargouzite extends EntityFlying implements IMob
     public float animTime;
     public float prevAnimTime;
     
-    public EntityVargouzite(final World p_i1731_1_) {
-        super(p_i1731_1_);
+    public EntityVargouzite(final World world) {
+        super(world);
         this.targetObstructedTicks = 0;
         this.tasks.addTask(0, (EntityAIBase)new EntityAIWatchClosest((EntityLiving)this, (Class)EntityPlayer.class, 8.0f));
         this.tasks.addTask(1, (EntityAIBase)new EntityAILookIdle((EntityLiving)this));
@@ -269,33 +267,19 @@ public class EntityVargouzite extends EntityFlying implements IMob
     public boolean isOnLadder() {
         return false;
     }
-    
-    protected String getBreathSound()
-    {
-        return "nova_craft:deepoid.breath";
-    }
-    
-    /**
-     * Returns the sound this mob makes while it's alive.
-     */
+
 	@Override
     protected String getLivingSound()
     {
         return "nova_craft:deepoid.living";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
 	@Override
     protected String getHurtSound()
     {
         return "nova_craft:deepoid.hurt";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
 	@Override
     protected String getDeathSound()
     {

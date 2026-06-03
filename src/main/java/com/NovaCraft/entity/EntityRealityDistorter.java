@@ -2,25 +2,19 @@ package com.NovaCraft.entity;
 
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Blocks;
 import net.minecraft.entity.ai.*;
 import net.minecraft.world.*;
 import net.minecraft.util.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 
-public class EntityRealityDistorter extends EntityFlying implements IMob
-{
-    public int flapSoundTime;
+public class EntityRealityDistorter extends EntityFlying implements IMob {
     public int courseChangeCooldown;
     public double waypointX;
     public double waypointY;
@@ -32,8 +26,8 @@ public class EntityRealityDistorter extends EntityFlying implements IMob
     private int field_82222_j;
 	private int[] field_82224_i = new int[2];
     
-    public EntityRealityDistorter(final World p_i1731_1_) {
-        super(p_i1731_1_);
+    public EntityRealityDistorter(final World world) {
+        super(world);
         this.targetObstructedTicks = 0;
         this.tasks.addTask(0, (EntityAIBase)new EntityAIWatchClosest((EntityLiving)this, (Class)EntityPlayer.class, 8.0f));
         this.tasks.addTask(1, (EntityAIBase)new EntityAILookIdle((EntityLiving)this));
@@ -323,9 +317,9 @@ public class EntityRealityDistorter extends EntityFlying implements IMob
         return "nova_craft:reality_distorter.death";
     }
     
-    protected void dropFewItems(final boolean p_70628_1_, final int p_70628_2_) {
+    protected void dropFewItems(final boolean p_70628_1_, final int source) {
         if (p_70628_1_) {
-            for (int j = 2 + this.rand.nextInt(3) + p_70628_2_, k = 0; k < j; ++k) {
+            for (int j = 2 + this.rand.nextInt(3) + source, k = 0; k < j; ++k) {
                this.entityDropItem(new ItemStack(NovaCraftItems.static_essence), 1.5f);
             }
         }

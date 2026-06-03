@@ -1,12 +1,9 @@
 package com.NovaCraft.entity;
 
 import java.util.Random;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.misc.EntitySculkedMonitorProjectile;
-
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -14,9 +11,7 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
@@ -35,9 +30,9 @@ public class EntitySculkedMonitor extends EntityMob
 	public int attackCounter;	
 	private final float base;
 
-    public EntitySculkedMonitor(World p_i1743_1_)
+    public EntitySculkedMonitor(World world)
     {
-        super(p_i1743_1_);
+        super(world);
         this.timeUntilShoot = 30;
         this.attackTime = this.timeUntilShoot;
         this.base = (this.getRNG().nextFloat() - this.getRNG().nextFloat()) * 0.2F + 1.0F;
@@ -50,9 +45,6 @@ public class EntitySculkedMonitor extends EntityMob
         this.dataWatcher.addObject(16, new Byte((byte)0));
     }
 
-    /**
-     * Called to update the entity's position/logic.
-     */
     public void onUpdate()
     {
         super.onUpdate();
@@ -103,10 +95,6 @@ public class EntitySculkedMonitor extends EntityMob
         return 8;
     }
 
-    /**
-     * Finds the closest player within 16 blocks to attack, or null if this Entity isn't interested in attacking
-     * (Animals, Spiders at day, peaceful PigZombies).
-     */
     protected Entity findPlayerToAttack()
     {
         float f = this.getBrightness(1.0F);
@@ -134,9 +122,6 @@ public class EntitySculkedMonitor extends EntityMob
     	return null;
     }
 
-    /**
-     * Basic mob attack. Default to touch of death in EntityCreature. Overridden by each mob to define their attack.
-     */
     protected void attackEntity(Entity p_70785_1_, float p_70785_2_)
     {
         float f1 = this.getBrightness(1.0F);
@@ -317,10 +302,7 @@ public class EntitySculkedMonitor extends EntityMob
             this.worldObj.spawnEntityInWorld(projectile);
         }
     }
-    
-    /**
-     * Called when the mob's health reaches 0.
-     */
+
     public void onDeath(DamageSource p_70645_1_)
     {
         super.onDeath(p_70645_1_);
@@ -339,10 +321,6 @@ public class EntitySculkedMonitor extends EntityMob
         return NovaCraftItems.sculked_monitor_scales;
     }
 
-    /**
-     * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
-     * par2 - Level of Looting used to kill this mob.
-     */
     protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
     {
         super.dropFewItems(p_70628_1_, p_70628_2_);
@@ -358,22 +336,13 @@ public class EntitySculkedMonitor extends EntityMob
         }
     }
 
-    /**
-     * returns true if this entity is by a ladder, false otherwise
-     */
     public boolean isOnLadder()
     {
         return this.isBesideClimbableBlock();
     }
 
-    /**
-     * Sets the Entity inside a web block.
-     */
     public void setInWeb() {}
 
-    /**
-     * Get this Entity's EnumCreatureAttribute
-     */
     public EnumCreatureAttribute getCreatureAttribute()
     {
         return EnumCreatureAttribute.UNDEFINED;
@@ -384,19 +353,11 @@ public class EntitySculkedMonitor extends EntityMob
         return p_70687_1_.getPotionID() == Potion.poison.id ? false : super.isPotionApplicable(p_70687_1_);
     }
 
-    /**
-     * Returns true if the WatchableObject (Byte) is 0x01 otherwise returns false. The WatchableObject is updated using
-     * setBesideClimableBlock.
-     */
     public boolean isBesideClimbableBlock()
     {
         return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
     }
 
-    /**
-     * Updates the WatchableObject (Byte) created in entityInit(), setting it to 0x01 if par1 is true or 0x00 if it is
-     * false.
-     */
     public void setBesideClimbableBlock(boolean p_70839_1_)
     {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);
@@ -416,7 +377,6 @@ public class EntitySculkedMonitor extends EntityMob
     public static class GroupData implements IEntityLivingData
         {
             public int field_111105_a;
-            private static final String __OBFID = "CL_00001700";
 
             public void func_111104_a(Random p_111104_1_)
             {

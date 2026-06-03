@@ -3,7 +3,6 @@ package com.NovaCraft.world.mansion;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
 import java.util.Random;
 
 public class MansionFloor2Gen6 extends WorldGenerator {

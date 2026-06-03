@@ -17,9 +17,9 @@ public class EntityVindicatorEye extends Entity {
     private int despawnTimer;
     private boolean shatterOrDrop;
 
-    public EntityVindicatorEye(World p_i1757_1_)
+    public EntityVindicatorEye(World world)
     {
-        super(p_i1757_1_);
+        super(world);
         this.setSize(0.25F, 0.25F);
     }
 
@@ -33,19 +33,19 @@ public class EntityVindicatorEye extends Entity {
         return p_70112_1_ < d1 * d1;
     }
 
-    public EntityVindicatorEye(World p_i1758_1_, double p_i1758_2_, double p_i1758_4_, double p_i1758_6_)
+    public EntityVindicatorEye(World world, double x, double y, double z)
     {
-        super(p_i1758_1_);
+        super(world);
         this.despawnTimer = 0;
         this.setSize(0.25F, 0.25F);
-        this.setPosition(p_i1758_2_, p_i1758_4_, p_i1758_6_);
+        this.setPosition(x, y, z);
         this.yOffset = 0.0F;
     }
 
-    public void moveTowards(double p_70220_1_, int p_70220_3_, double p_70220_4_)
+    public void moveTowards(double x, int y, double z)
     {
-        double d2 = p_70220_1_ - this.posX;
-        double d3 = p_70220_4_ - this.posZ;
+        double d2 = x - this.posX;
+        double d3 = z - this.posZ;
         float f = MathHelper.sqrt_double(d2 * d2 + d3 * d3);
 
         if (f > 12.0F)
@@ -56,9 +56,9 @@ public class EntityVindicatorEye extends Entity {
         }
         else
         {
-            this.targetX = p_70220_1_;
-            this.targetY = (double)p_70220_3_;
-            this.targetZ = p_70220_4_;
+            this.targetX = x;
+            this.targetY = (double)y;
+            this.targetZ = z;
         }
 
         this.despawnTimer = 0;
@@ -66,17 +66,17 @@ public class EntityVindicatorEye extends Entity {
     }
 
     @SideOnly(Side.CLIENT)
-    public void setVelocity(double p_70016_1_, double p_70016_3_, double p_70016_5_)
+    public void setVelocity(double x, double y, double z)
     {
-        this.motionX = p_70016_1_;
-        this.motionY = p_70016_3_;
-        this.motionZ = p_70016_5_;
+        this.motionX = x;
+        this.motionY = y;
+        this.motionZ = z;
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {
-            float f = MathHelper.sqrt_double(p_70016_1_ * p_70016_1_ + p_70016_5_ * p_70016_5_);
-            this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(p_70016_1_, p_70016_5_) * 180.0D / Math.PI);
-            this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(p_70016_3_, (double)f) * 180.0D / Math.PI);
+            float f = MathHelper.sqrt_double(x * x + z * z);
+            this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(x, z) * 180.0D / Math.PI);
+            this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(y, (double)f) * 180.0D / Math.PI);
         }
     }
 
@@ -151,10 +151,6 @@ public class EntityVindicatorEye extends Entity {
                 this.worldObj.spawnParticle("bubble", this.posX - this.motionX * (double)f3, this.posY - this.motionY * (double)f3, this.posZ - this.motionZ * (double)f3, this.motionX, this.motionY, this.motionZ);
             }
         }
-        //else
-        //{
-            //this.worldObj.spawnParticle("townaura", this.posX - this.motionX * (double)f3 + this.rand.nextDouble() * 0.6D - 0.3D, this.posY - this.motionY * (double)f3 + 0.0D, this.posZ - this.motionZ * (double)f3 + this.rand.nextDouble() * 0.6D - 0.3D, this.motionX, this.motionY, this.motionZ);
-        //}
 
         if (!this.worldObj.isRemote)
         {
@@ -177,15 +173,14 @@ public class EntityVindicatorEye extends Entity {
         }
     }
 
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_) {}
+    public void writeEntityToNBT(NBTTagCompound compound) {}
 
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_) {}
+    public void readEntityFromNBT(NBTTagCompound compound) {}
 
     @SideOnly(Side.CLIENT)
     public float getShadowSize() {
         return 0.0F;
     }
-
 
     public float getBrightness(float p_70013_1_) {
         return 1.0F;

@@ -1,5 +1,6 @@
 package com.NovaCraft.world.mansion;
 
+import com.NovaCraft.config.ConfigsStructures;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -16,11 +17,25 @@ import java.util.Random;
 
 public class MansionGen implements IWorldGenerator {
 
-    @Override //Need to add config option at some point, so they can generate in other dimensions at some point
+    @Override
     public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-        if (world.provider.dimensionId == 0) {
+        if (isValidDimension(world.provider.dimensionId)) {
             this.generateOverworld(world, rand, chunkX * 16, chunkZ * 16);
         }
+    }
+
+    private boolean isValidDimension(int dim) {
+        if (ConfigsStructures.MansionValidDimension == null) {
+            return false;
+        }
+
+        for (int id : ConfigsStructures.MansionValidDimension) {
+            if (id == dim) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     //When the vindicator insignia is trying to find the ancient city it points to locations where there are no ancient cities in the negative quadrants
@@ -32,7 +47,7 @@ public class MansionGen implements IWorldGenerator {
     }
     public void generateOverworld(World world, Random rand, int x, int z) {
 
-        if (Math.abs(x) >= 12000 && Math.abs(z) >= 12000) {
+        if (Math.abs(x) >= ConfigsStructures.MansionGenerationDistance && Math.abs(z) >= ConfigsStructures.MansionGenerationDistance) {
 
             BiomeGenBase biome = world.getBiomeGenForCoords(x, z);
             BiomeDictionary.Type[] biomeList = BiomeDictionary.getTypesForBiome(biome);
@@ -65,7 +80,7 @@ public class MansionGen implements IWorldGenerator {
                 //Make sure generator runs only in the chunk containing baseX/baseZ
                 if ((x >> 4) == (baseX >> 4) && (z >> 4) == (baseZ >> 4)) {
                     //If baseX and baseZ coords are less than 12k in x or z fail to generate
-                    if (Math.abs(baseX) < 12000 || Math.abs(baseZ) < 12000) return;
+                    if (Math.abs(baseX) < ConfigsStructures.MansionGenerationDistance || Math.abs(baseZ) < ConfigsStructures.MansionGenerationDistance) return;
 
                     int x1 = baseX + regionRand.nextInt(8) + 8;
                     int z1 = baseZ + regionRand.nextInt(8) + 8;

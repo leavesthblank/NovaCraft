@@ -1,12 +1,10 @@
 package com.NovaCraft.world.village;
 
 import java.util.Random;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.illager.EntityIllagerTrader;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -73,15 +71,6 @@ public class VindicatorBlacksmith extends WorldGenerator
 
 	public VindicatorBlacksmith() { }
 	
-	public boolean checkAllLocations(World world, int i, int j, int k){
-		if(!LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 7, j, k) || !LocationIsValidSpawn(world, i + 7, j, k + 9) || !LocationIsValidSpawn(world, i, j, k + 9) || !AirLocationIsValidSpawn(world, i, j + 6, k) || !AirLocationIsValidSpawn(world, i + 7, j + 6, k) || !AirLocationIsValidSpawn(world, i + 7, j + 6, k + 9) || !AirLocationIsValidSpawn(world, i, j + 6, k + 9))
-		{
-			return false;
-		}
-		
-		return true;
-	}
-	
 	public boolean AirLocationIsValidSpawn(World world, int i, int j, int k){
 		Block blockID = world.getBlock(i, j, k);
 		Block blockIDAbove = world.getBlock(i, j+1, k);
@@ -94,7 +83,7 @@ public class VindicatorBlacksmith extends WorldGenerator
 	}
 
 	public boolean generate(World world, Random rand, int i, int j, int k) {
-		//check that each corner is one of the valid spawn blocks
+		//Checks that each corner is one of the valid spawn blocks
 		if(!LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 7, j, k) || !LocationIsValidSpawn(world, i + 7, j, k + 9) || !LocationIsValidSpawn(world, i, j, k + 9) || !AirLocationIsValidSpawn(world, i, j + 6, k) || !AirLocationIsValidSpawn(world, i + 7, j + 6, k) || !AirLocationIsValidSpawn(world, i + 7, j + 6, k + 9) || !AirLocationIsValidSpawn(world, i, j + 6, k + 9))
 		{
 			return false;

@@ -17,7 +17,7 @@ public class VindicatorRenderer extends RenderBiped
 	}
 	
 	@Override
-	protected ResourceLocation getEntityTexture(final Entity p_110775_1_) {
+	protected ResourceLocation getEntityTexture(final Entity entity) {
 		return VindicatorRenderer.texture;
 	}
 	

@@ -1,7 +1,6 @@
 package com.NovaCraft.entity.AI;
 
 import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;

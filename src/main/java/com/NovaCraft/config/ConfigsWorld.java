@@ -54,6 +54,7 @@ public class ConfigsWorld {
     public static int diamondOreRarity;
 
     public static boolean enableMossGeneration;
+    public static boolean enableAdditionalMossGeneration;
     public static boolean enableGlowLichenGeneration;
     public static boolean enableGrimLichenGeneration;
     public static boolean enableDarkLichenGeneration;
@@ -65,6 +66,7 @@ public class ConfigsWorld {
     public static boolean enableOverworldFlowersGeneration;
     public static boolean enableTorchflowerGeneration;
     public static boolean enableDeeprootGeneration;
+    public static boolean enableAdditionalSculkGeneration;
 
     public static boolean enableXanciumOre;
     public static boolean enableTophiniteOre;
@@ -136,10 +138,10 @@ public class ConfigsWorld {
 
         enableAdditonalDiamondOreGeneration = conf.getBoolean("enableAdditonalDiamondOreGeneration", "Overworld Decoration", false, "Enables More Diamond Ore to generate within Caves.(Enable if you wants diamonds rarer than vanilla but not as rare as in NovaCraft.)");
         enableAdditonalLapisOreGeneration = conf.getBoolean("enableAdditonalLapisOreGeneration", "Overworld Decoration", false, "Enables More Lapis Ore to generate within Caves.(Not sure why you want more lapis but it here if you want more in world gen.)");
-        enableAdditonalIronOreGeneration = conf.getBoolean("enableAdditonalIronOreGeneration", "Overworld Decoration", true, "Enables More Iron Ore to generate within Caves.");
+        enableAdditonalIronOreGeneration = conf.getBoolean("enableAdditonalIronOreGeneration", "Overworld Decoration", false, "Enables More Iron Ore to generate within Caves.");
         enableAdditonalGoldOreGeneration = conf.getBoolean("enableAdditonalGoldOreGeneration", "Overworld Decoration", false, "Enables More Gold Ore to generate within Caves.");
         enableAdditonalRedstoneOreGeneration = conf.getBoolean("enableAdditonalRedstoneOreGeneration", "Overworld Decoration", false, "Enables More Redstone Ore to generate within Caves.");
-        enableAdditonalCoalOreGeneration = conf.getBoolean("enableAdditonalCoalOreGeneration", "Overworld Decoration", true, "Enables More Coal Ore to generate within Caves.");
+        enableAdditonalCoalOreGeneration = conf.getBoolean("enableAdditonalCoalOreGeneration", "Overworld Decoration", false, "Enables More Coal Ore to generate within Caves.");
         diamondOreRarity = conf.get("If you do not disable the ore generation changes, Default is 1 attempt per chunk", "diamondOreRarity", 1).getInt();
 
         enableMountainOres = conf.getBoolean("enableMountainOres", "Overworld Decoration", true, "Enables Coal, Iron, Gold, and Emerald generating above y = 90.");
@@ -149,12 +151,16 @@ public class ConfigsWorld {
         enableGlowLichenGeneration = conf.getBoolean("enableGlowLichenGeneration", "Overworld Decoration", true, "Enables Glow lichen generation.");
         enableDarkLichenGeneration = conf.getBoolean("enableDarkLichenGeneration", "Overworld Decoration", true, "Enables Dark lichen generation.");
         enableStalagAndStalacGeneration = conf.getBoolean("enableStalagAndStalacGeneration", "Overworld Decoration", true, "Enables Stalagmites and Stalactites in world generation.");
-        enableMossGeneration = conf.getBoolean("enableMossGeneration", "Overworld Decoration", true, "Enables moss blocks and carpets to generate on the surface and in caves close to the surface.");
+        enableMossGeneration = conf.getBoolean("enableMossGeneration", "Overworld Decoration", true, "Enables Moss Cave generation.");
+        enableAdditionalMossGeneration = conf.getBoolean("enableAdditionalMossGeneration", "Overworld Decoration", false, "Enables moss blocks and carpets to generate on the surface and in caves close to the surface.");
+
         enableOverworldMushrooomGeneration = conf.getBoolean("enableOverworldMushrooomGeneration", "Overworld Decoration", true, "Enables all the new types of mushrooms to generate.");
         enableIcicleGeneration = conf.getBoolean("enableIcicleGeneration", "Overworld Decoration", true, "Enables icicle generation in cold biomes.");
         enableOverworldFlowersGeneration = conf.getBoolean("enableOverworldFlowersGeneration", "Overworld Decoration", true, "Enables surface flowers to generate.");
         enableTorchflowerGeneration = conf.getBoolean("enableTorchflowerGeneration", "Overworld Decoration", true, "Enables Torch Flowers to generate.");
         enableDeeprootGeneration = conf.getBoolean("enableDeeprootGeneration", "Overworld Decoration", true, "Enables Deep Roots to generate.");
+        enableAdditionalSculkGeneration = conf.getBoolean("enableAdditionalSculkGeneration", "Overworld Decoration", false, "Enables Sculk to generate outside the deep dark randomly.");
+
 
         enableExtraEmeraldOreGeneration = conf.getBoolean("enableExtraEmeraldOreGeneration", "Overworld Decoration", true, "Enables Emerald Ore to rarely generate in all biomes from y = 0 to y = 90");
         enableBrimstoneOre = conf.getBoolean("enableBrimstoneOre", "Overworld Decoration", true, "Enables Brimstone Ore generation");

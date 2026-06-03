@@ -10,16 +10,16 @@ public class EntityPrimedPETN extends Entity
     public int fuse;
     private EntityLivingBase tntPlacedBy;
     
-    public EntityPrimedPETN(final World p_i1729_1_) {
-        super(p_i1729_1_);
+    public EntityPrimedPETN(final World world) {
+        super(world);
         this.preventEntitySpawning = true;
         this.fuse = 240;
         this.setSize(0.98f, 0.98f);
         this.yOffset = this.height / 2.0f;
     }
     
-    public EntityPrimedPETN(final World p_i1730_1_, final double p_i1730_2_, final double p_i1730_4_, final double p_i1730_6_, final EntityLivingBase p_i1730_8_) {
-        this(p_i1730_1_);
+    public EntityPrimedPETN(final World world, final double p_i1730_2_, final double p_i1730_4_, final double p_i1730_6_, final EntityLivingBase p_i1730_8_) {
+        this(world);
         this.setPosition(p_i1730_2_, p_i1730_4_, p_i1730_6_);
         final float f = (float)(Math.random() * 3.141592653589793 * 2.0);
         this.motionX = -(float)Math.sin(f) * 0.02f;
@@ -84,12 +84,12 @@ public class EntityPrimedPETN extends Entity
         }
     }
     
-    protected void readEntityFromNBT(final NBTTagCompound p_70037_1_) {
-        this.fuse = p_70037_1_.getByte("Fuse");
+    protected void readEntityFromNBT(final NBTTagCompound compound) {
+        this.fuse = compound.getByte("Fuse");
     }
     
-    protected void writeEntityToNBT(final NBTTagCompound p_70014_1_) {
-        p_70014_1_.setByte("Fuse", (byte)this.fuse);
+    protected void writeEntityToNBT(final NBTTagCompound compound) {
+        compound.setByte("Fuse", (byte)this.fuse);
     }
 }
 

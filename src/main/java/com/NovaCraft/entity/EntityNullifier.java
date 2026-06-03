@@ -2,19 +2,14 @@ package com.NovaCraft.entity;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.misc.EntityAINulliferSwell;
 import com.NovaCraft.entity.misc.EntityRayfireball;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAICreeperSwell;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
@@ -23,7 +18,6 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -32,22 +26,15 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityNullifier extends EntityMob
-{
-    /**
-     * Time when this creeper was last in an active state (Messed up code here, probably causes creeper animation to go
-     * weird)
-     */
+public class EntityNullifier extends EntityMob {
     private int lastActiveTime;
-    /** The amount of time since the creeper was close enough to the player to ignite */
     private int timeSinceIgnited;
     private int fuseTime = 30;
-    /** Explosion radius for this creeper. */
     private int explosionRadius = 4;
 
-    public EntityNullifier(World p_i1733_1_)
+    public EntityNullifier(World world)
     {
-        super(p_i1733_1_);
+        super(world);
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAINulliferSwell(this));
         this.tasks.addTask(3, new EntityAIAvoidEntity(this, EntityPhantom.class, 6.0F, 1.0D, 1.2D));
@@ -67,25 +54,16 @@ public class EntityNullifier extends EntityMob
 		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
     }
 
-    /**
-     * Returns true if the newer Entity AI code should be run
-     */
     public boolean isAIEnabled()
     {
         return true;
     }
 
-    /**
-     * The number of iterations PathFinder.getSafePoint will execute before giving up.
-     */
     public int getMaxSafePointTries()
     {
         return this.getAttackTarget() == null ? 3 : 3 + (int)(this.getHealth() - 1.0F);
     }
 
-    /**
-     * Called when the mob is falling. Calculates and applies fall damage.
-     */
     protected void fall(float p_70069_1_)
     {
         super.fall(p_70069_1_);
@@ -105,50 +83,41 @@ public class EntityNullifier extends EntityMob
         this.dataWatcher.addObject(18, Byte.valueOf((byte)0));
     }
 
-    /**
-     * (abstract) Protected helper method to write subclass entity data to NBT.
-     */
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    public void writeEntityToNBT(NBTTagCompound compound)
     {
-        super.writeEntityToNBT(p_70014_1_);
+        super.writeEntityToNBT(compound);
 
         if (this.dataWatcher.getWatchableObjectByte(17) == 1)
         {
-            p_70014_1_.setBoolean("powered", true);
+            compound.setBoolean("powered", true);
         }
 
-        p_70014_1_.setShort("Fuse", (short)this.fuseTime);
-        p_70014_1_.setByte("ExplosionRadius", (byte)this.explosionRadius);
-        p_70014_1_.setBoolean("ignited", this.func_146078_ca());
+        compound.setShort("Fuse", (short)this.fuseTime);
+        compound.setByte("ExplosionRadius", (byte)this.explosionRadius);
+        compound.setBoolean("ignited", this.func_146078_ca());
     }
 
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(p_70037_1_);
-        this.dataWatcher.updateObject(17, Byte.valueOf((byte)(p_70037_1_.getBoolean("powered") ? 1 : 0)));
+        super.readEntityFromNBT(compound);
+        this.dataWatcher.updateObject(17, Byte.valueOf((byte)(compound.getBoolean("powered") ? 1 : 0)));
 
-        if (p_70037_1_.hasKey("Fuse", 99))
+        if (compound.hasKey("Fuse", 99))
         {
-            this.fuseTime = p_70037_1_.getShort("Fuse");
+            this.fuseTime = compound.getShort("Fuse");
         }
 
-        if (p_70037_1_.hasKey("ExplosionRadius", 99))
+        if (compound.hasKey("ExplosionRadius", 99))
         {
-            this.explosionRadius = p_70037_1_.getByte("ExplosionRadius");
+            this.explosionRadius = compound.getByte("ExplosionRadius");
         }
 
-        if (p_70037_1_.getBoolean("ignited"))
+        if (compound.getBoolean("ignited"))
         {
             this.func_146079_cb();
         }
     }
 
-    /**
-     * Called to update the entity's position/logic.
-     */
     public void onUpdate()
     {
         if (this.isEntityAlive())
@@ -184,30 +153,21 @@ public class EntityNullifier extends EntityMob
         super.onUpdate();
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
     protected String getHurtSound()
     {
         return "mob.creeper.say";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
     protected String getDeathSound()
     {
         return "mob.creeper.death";
     }
 
-    /**
-     * Called when the mob's health reaches 0.
-     */
-    public void onDeath(DamageSource p_70645_1_)
+    public void onDeath(DamageSource source)
     {
-        super.onDeath(p_70645_1_);
+        super.onDeath(source);
 
-        if (p_70645_1_.getEntity() instanceof EntityRayfireball)
+        if (source.getEntity() instanceof EntityRayfireball)
         {
             int i = Item.getIdFromItem(Items.record_13);
             int j = Item.getIdFromItem(Items.record_11);
@@ -215,9 +175,9 @@ public class EntityNullifier extends EntityMob
             this.dropItem(Item.getItemById(k), 1);
         }
        if(this.getPowered()) { 
-        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        if (source.getEntity() instanceof EntityPlayer)
         {
-            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            EntityPlayer entityplayer = (EntityPlayer)source.getEntity();
             
             entityplayer.triggerAchievement(AchievementsNovaCraft.electro_nullified);
             
@@ -242,29 +202,23 @@ public class EntityNullifier extends EntityMob
         return true;
     }
 
-    /**
-     * Returns true if the creeper is powered by a lightning bolt.
-     */
     public boolean getPowered()
     {
         return this.dataWatcher.getWatchableObjectByte(17) == 1;
     }
 
-    /**
-     * Params: (Float)Render tick. Returns the intensity of the creeper's flash when it is ignited.
-     */
     @SideOnly(Side.CLIENT)
     public float getCreeperFlashIntensity(float p_70831_1_)
     {
         return ((float)this.lastActiveTime + (float)(this.timeSinceIgnited - this.lastActiveTime) * p_70831_1_) / (float)(this.fuseTime - 2);
     }
 
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+    protected void dropFewItems(boolean p_70628_1_, int chance)
     {
         int j;
         int k;
         {
-            j = this.rand.nextInt(3 + p_70628_2_);
+            j = this.rand.nextInt(3 + chance);
 
             for (k = 0; k < j; ++k)
             {
@@ -272,13 +226,9 @@ public class EntityNullifier extends EntityMob
             }
         }
         
-        int chance = (int)(1 + Math.random() * 9);
-		switch (chance) {
-        case 1:
+        int core_chance = (int)(1 + Math.random() * 9);
+        if (core_chance == 1) {
             this.dropItem(NovaCraftItems.nullifier_core, 1);
-            break;
-        default:
-            break;
         }
 		
 		if(this.getPowered()) { 
@@ -286,52 +236,40 @@ public class EntityNullifier extends EntityMob
 		}
     }
 
-    /**
-     * Returns the current state of creeper, -1 is idle, 1 is 'in fuse'
-     */
     public int getCreeperState()
     {
         return this.dataWatcher.getWatchableObjectByte(16);
     }
 
-    /**
-     * Sets the state of creeper, -1 to idle and 1 to be 'in fuse'
-     */
     public void setCreeperState(int p_70829_1_)
     {
         this.dataWatcher.updateObject(16, Byte.valueOf((byte)p_70829_1_));
     }
 
-    /**
-     * Called when a lightning bolt hits the entity.
-     */
     public void onStruckByLightning(EntityLightningBolt p_70077_1_)
     {
         super.onStruckByLightning(p_70077_1_);
         this.dataWatcher.updateObject(17, Byte.valueOf((byte)1));
     }
 
-    /**
-     * Called when a player interacts with a mob. e.g. gets milk from a cow, gets into the saddle on a pig.
-     */
-    protected boolean interact(EntityPlayer p_70085_1_)
+    protected boolean interact(EntityPlayer entityPlayer)
     {
-        ItemStack itemstack = p_70085_1_.inventory.getCurrentItem();
+        ItemStack itemstack = entityPlayer.inventory.getCurrentItem();
 
         if (itemstack != null && itemstack.getItem() == Items.flint_and_steel)
         {
             this.worldObj.playSoundEffect(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, "fire.ignite", 1.0F, this.rand.nextFloat() * 0.8F + 0.4F);
-            p_70085_1_.swingItem();
+            entityPlayer.swingItem();
 
             if (!this.worldObj.isRemote)
             {
                 this.func_146079_cb();
-                itemstack.damageItem(1, p_70085_1_);
+                itemstack.damageItem(1, entityPlayer);
                 return true;
             }
         }
 
-        return super.interact(p_70085_1_);
+        return super.interact(entityPlayer);
     }  
 
     private void func_146077_cc()

@@ -21,7 +21,7 @@ public class RealityDistorterRenderer extends RenderLiving
 	}
 	
 	@Override
-	protected ResourceLocation getEntityTexture(final Entity p_110775_1_) {
+	protected ResourceLocation getEntityTexture(final Entity entity) {
 		return RealityDistorterRenderer.texture;
 	}
 	

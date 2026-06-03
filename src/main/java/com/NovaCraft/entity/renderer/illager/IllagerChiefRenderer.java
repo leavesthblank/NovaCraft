@@ -19,12 +19,12 @@ public class IllagerChiefRenderer extends RenderBiped
 	}
 	
 	@Override
-	protected ResourceLocation getEntityTexture(final Entity p_110775_1_) {
+	protected ResourceLocation getEntityTexture(final Entity entity) {
 		return IllagerChiefRenderer.texture;
 	}
 	
 	@Override
-	protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+	protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
 	    GL11.glScalef(1.05F, 1.05F, 1.05F);
 	}
 	

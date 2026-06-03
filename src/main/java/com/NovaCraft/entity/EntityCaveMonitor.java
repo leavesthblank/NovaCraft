@@ -1,24 +1,16 @@
 package com.NovaCraft.entity;
 
 import java.util.Random;
-
-import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityCaveMonitor extends EntityMob
@@ -129,11 +121,11 @@ public class EntityCaveMonitor extends EntityMob
         return NovaCraftItems.cave_monitor_scales;
     }
 
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+    protected void dropFewItems(boolean p_70628_1_, int chance)
     {
-        super.dropFewItems(p_70628_1_, p_70628_2_);
+        super.dropFewItems(p_70628_1_, chance);
 
-        if (p_70628_1_ && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + p_70628_2_) > 0))
+        if (p_70628_1_ && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + chance) > 0))
         {
             this.dropItem(NovaCraftItems.cave_monitor_tongue, 1);
         }
@@ -181,9 +173,9 @@ public class EntityCaveMonitor extends EntityMob
         {
             public int field_111105_a;
 
-            public void func_111104_a(Random p_111104_1_)
+            public void func_111104_a(Random chance)
             {
-                int i = p_111104_1_.nextInt(5);
+                int i = chance.nextInt(5);
 
                 if (i <= 1)
                 {

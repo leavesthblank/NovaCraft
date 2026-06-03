@@ -15,8 +15,8 @@ public class SculkLaserRenderer extends Render
 {
     private static final ResourceLocation Texture;
     
-    public void doRender(final Entity par1Entity, final double par2, final double par3, final double par4, final float par5, final float par6) {
-        this.doRender((EntitySculkLaser)par1Entity, par2, par3, par4, par5, par6);
+    public void doRender(final Entity entity, final double par2, final double par3, final double par4, final float par5, final float par6) {
+        this.doRender((EntitySculkLaser)entity, par2, par3, par4, par5, par6);
     }
     
     public void doRender(final EntitySculkLaser laser, final double par2, final double par3, final double par4, final float par5, final float par6) {
@@ -77,8 +77,8 @@ public class SculkLaserRenderer extends Render
         return SculkLaserRenderer.Texture;
     }
     
-    protected ResourceLocation getEntityTexture(final Entity par1Entity) {
-        return this.getArrowTextures((EntitySculkLaser)par1Entity);
+    protected ResourceLocation getEntityTexture(final Entity entity) {
+        return this.getArrowTextures((EntitySculkLaser)entity);
     }
     
     static {

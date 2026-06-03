@@ -1,9 +1,7 @@
 package com.NovaCraft.TileEntity;
 
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.models.DeepOneEggModel;
-
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;

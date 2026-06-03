@@ -1,19 +1,14 @@
 package com.NovaCraft.world.ancient_city;
 
 import java.util.Random;
-
+import com.NovaCraft.config.ConfigsStructures;
 import org.apache.commons.lang3.ArrayUtils;
-
 import com.NovaCraft.world.ancient_city.prisoner.AncientCityLargeHangingStructureGen;
 import com.NovaCraft.world.ancient_city.prisoner.AncientCityMediumHangingStructureGen;
 import com.NovaCraft.world.ancient_city.prisoner.AncientCitySmallHangingStructure1Gen;
 import com.NovaCraft.world.ancient_city.prisoner.AncientCitySmallHangingStructure2Gen;
 import com.NovaCraft.world.ancient_city.prisoner.AncientCitySmallHangingStructure3Gen;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.IWorldGenerator;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -22,12 +17,26 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class AncientCityGen implements IWorldGenerator {
 
-	@Override //Need to add config option at some point, so they can generate in other dimensions
+	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if (world.provider.dimensionId == 0) {
-	         this.generateOverworld(world, rand, chunkX * 16, chunkZ * 16);
-	      }
-	   }
+		if (isValidDimension(world.provider.dimensionId)) {
+			this.generateOverworld(world, rand, chunkX * 16, chunkZ * 16);
+		}
+	}
+
+	private boolean isValidDimension(int dim) {
+		if (ConfigsStructures.AncientCityValidDimension == null) {
+			return false;
+		}
+
+		for (int id : ConfigsStructures.AncientCityValidDimension) {
+			if (id == dim) {
+				return true;
+			}
+		}
+
+		return false;
+	}
 
 	   //When the echo eye is trying to find the ancient city it points to locations where there are no ancient cities in the negative quadrants
 	   //Without this if x<0 or z<0 it chooses the wrong quadrant as the true position and position the echo eye points to become misaligned due to a truncation error
@@ -38,11 +47,10 @@ public class AncientCityGen implements IWorldGenerator {
 	}
 	public void generateOverworld(World world, Random rand, int x, int z) {
 		//If x and z coords are less than 5k fail to generate
-		if (Math.abs(x) >= 5000 && Math.abs(z) >= 5000) {
+		if (Math.abs(x) >= ConfigsStructures.AncientCityGenerationDistance && Math.abs(z) >= ConfigsStructures.AncientCityGenerationDistance) {
 
 			int chunkX = x + rand.nextInt(8) + 8;
 			int chunkZ = z + rand.nextInt(8) + 8;
-
 
 			//Need to check for invalid biomes due to lack of vertical space in 1.7.10: Mainly only an issue for Deep Oceans, Oceans, and Swamps
 			//The Ancient City is Massive(About 400 blocks across) Need to check along the plane and in the diagonals for invaild biomes
@@ -100,7 +108,7 @@ public class AncientCityGen implements IWorldGenerator {
 				//Make sure generator runs only in the chunk containing baseX/baseZ
 				if ((x >> 4) == (baseX >> 4) && (z >> 4) == (baseZ >> 4)) {
 					//If baseX and baseZ coords are less than 5k in x or z fail to generate
-					if (Math.abs(baseX) < 5000 || Math.abs(baseZ) < 5000) return;
+					if (Math.abs(baseX) < ConfigsStructures.AncientCityGenerationDistance || Math.abs(baseZ) < ConfigsStructures.AncientCityGenerationDistance) return;
 
 					int x1 = baseX + regionRand.nextInt(8) + 8;
 					int y1 = yBase;
@@ -337,7 +345,9 @@ public class AncientCityGen implements IWorldGenerator {
 					new AncientCityCenterPortalGen1().generate(world, rand, x1, y1 - 17, z1);
 
 					new AncientCityStairsGen().generate(world, rand, x1 + 20, y1 - 7, z1 + 23);
-					new AncientCityWardenAltarGen().generate(world, rand, x1 - 8, y1, z1 + 10);
+
+					new AncientCityWardenAltarNewGen1().generate(world, rand, x1 - 45, y1 - 1, z1 + 5);
+					new AncientCityWardenAltarNewGen2().generate(world, rand, x1 - 45, y1 - 1, z1 + 5);
 
 					new AncientCityCelingSculkGen().generate(world, rand, x1 + 7, y1 + 14, z1 + 9);
 					new AncientCitySculkPortalGen().generate(world, rand, x1 + 14, y1 - 10, z1 + 14);

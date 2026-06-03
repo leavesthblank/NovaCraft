@@ -1,7 +1,6 @@
 package com.NovaCraft.Item.Block;
 
 import com.NovaCraft.core.Utils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -13,8 +12,8 @@ public class ItemEchoCluster extends ItemBlock {
 	
 	private static final String[] item_names = new String[] {"echo_bud", "small_echo_bud", "medium_large_echo_bud", "echo_cluster"};
 
-	public ItemEchoCluster(Block p_i45328_1_) {
-		super(p_i45328_1_);
+	public ItemEchoCluster(Block block) {
+		super(block);
 		setHasSubtypes(true);
 	}
 	
@@ -29,8 +28,8 @@ public class ItemEchoCluster extends ItemBlock {
     	return field_150939_a.getIcon(0, p_77617_1_);
     }
 	
-	public String getUnlocalizedName(ItemStack p_77667_1_)
+	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return "tile." + Utils.getUnlocalisedName(item_names[p_77667_1_.getItemDamage() % 4]);
+		return "tile." + Utils.getUnlocalisedName(item_names[itemStack.getItemDamage() % 4]);
 	}
 }

@@ -1,7 +1,6 @@
 package com.NovaCraft.entity.models;
 
 import com.NovaCraft.entity.illager.EntityIllagerChief;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBiped;
@@ -12,7 +11,6 @@ import net.minecraft.util.MathHelper;
 @SideOnly(Side.CLIENT)
 public class IllagerChiefModel extends ModelBiped
 {
-
     public IllagerChiefModel()
     {
         this(0.0F, 0.0F, false);

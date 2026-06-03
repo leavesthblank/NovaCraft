@@ -1,9 +1,7 @@
 package com.NovaCraft.entity.hardmode;
 
 import java.util.Random;
-
 import com.NovaCraft.achievements.AchievementsNovaCraft;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,9 +21,9 @@ import net.minecraft.world.World;
 
 public class EntityHardmodeSpider extends EntityMob
 {
-    public EntityHardmodeSpider(World p_i1743_1_)
+    public EntityHardmodeSpider(World world)
     {
-        super(p_i1743_1_);
+        super(world);
         this.setSize(1.4F, 0.9F);
     }
 
@@ -35,9 +33,6 @@ public class EntityHardmodeSpider extends EntityMob
         this.dataWatcher.addObject(16, new Byte((byte)0));
     }
 
-    /**
-     * Called to update the entity's position/logic.
-     */
     public void onUpdate()
     {
         super.onUpdate();
@@ -58,9 +53,9 @@ public class EntityHardmodeSpider extends EntityMob
     }
     
     @Override
-    public boolean attackEntityAsMob(Entity p_70652_1_)
+    public boolean attackEntityAsMob(Entity entity)
     {
-        boolean flag = super.attackEntityAsMob(p_70652_1_);
+        boolean flag = super.attackEntityAsMob(entity);
 
         if (flag)
         {
@@ -68,17 +63,17 @@ public class EntityHardmodeSpider extends EntityMob
 
             if (this.getHeldItem() == null && this.isBurning() && this.rand.nextFloat() < (float)i * 0.3F)
             {
-                p_70652_1_.setFire(2 * i);
+                entity.setFire(2 * i);
             }
         }
         
-        if (p_70652_1_ instanceof EntityPlayer) {
-			
-        	p_70652_1_.attackEntityFrom(DamageSource.generic, 10.0f);
-        	p_70652_1_.attackEntityFrom(DamageSource.magic, 2.0F);            
+        if (entity instanceof EntityPlayer) {
+
+            entity.attackEntityFrom(DamageSource.generic, 10.0f);
+            entity.attackEntityFrom(DamageSource.magic, 2.0F);
         }
         
-        ((EntityLivingBase) p_70652_1_).addPotionEffect(new PotionEffect(Potion.poison.id, 60, 2));
+        ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.poison.id, 60, 2));
 
         return flag;
     }
@@ -93,10 +88,6 @@ public class EntityHardmodeSpider extends EntityMob
         }
     }
 
-    /**
-     * Finds the closest player within 16 blocks to attack, or null if this Entity isn't interested in attacking
-     * (Animals, Spiders at day, peaceful PigZombies).
-     */
     protected Entity findPlayerToAttack()
     {
         float f = this.getBrightness(1.0F);
@@ -111,42 +102,30 @@ public class EntityHardmodeSpider extends EntityMob
             return null;
         }
     }
-    
-    /**
-     * Called when the mob's health reaches 0.
-     */
-    public void onDeath(DamageSource p_70645_1_)
+
+    public void onDeath(DamageSource source)
     {
-        super.onDeath(p_70645_1_);
+        super.onDeath(source);
         
-        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        if (source.getEntity() instanceof EntityPlayer)
         {
-            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            EntityPlayer entityplayer = (EntityPlayer)source.getEntity();
             
             entityplayer.triggerAchievement(AchievementsNovaCraft.a_new_encounter);
             
         }
     }
 
-    /**
-     * Returns the sound this mob makes while it's alive.
-     */
     protected String getLivingSound()
     {
         return "mob.spider.say";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
     protected String getHurtSound()
     {
         return "mob.spider.say";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
     protected String getDeathSound()
     {
         return "mob.spider.death";
@@ -157,10 +136,7 @@ public class EntityHardmodeSpider extends EntityMob
         this.playSound("mob.spider.step", 0.25F, 1.0F);
     }
 
-    /**
-     * Basic mob attack. Default to touch of death in EntityCreature. Overridden by each mob to define their attack.
-     */
-    protected void attackEntity(Entity p_70785_1_, float p_70785_2_)
+    protected void attackEntity(Entity entity, float p_70785_2_)
     {
         float f1 = this.getBrightness(1.0F);
 
@@ -174,8 +150,8 @@ public class EntityHardmodeSpider extends EntityMob
             {
                 if (this.onGround)
                 {
-                    double d0 = p_70785_1_.posX - this.posX;
-                    double d1 = p_70785_1_.posZ - this.posZ;
+                    double d0 = entity.posX - this.posX;
+                    double d1 = entity.posZ - this.posZ;
                     float f2 = MathHelper.sqrt_double(d0 * d0 + d1 * d1);
                     this.motionX = d0 / (double)f2 * 0.5D * 0.800000011920929D + this.motionX * 0.20000000298023224D;
                     this.motionZ = d1 / (double)f2 * 0.5D * 0.800000011920929D + this.motionZ * 0.20000000298023224D;
@@ -184,7 +160,7 @@ public class EntityHardmodeSpider extends EntityMob
             }
             else
             {
-                super.attackEntity(p_70785_1_, p_70785_2_);
+                super.attackEntity(entity, p_70785_2_);
             }
         }
     }
@@ -194,10 +170,6 @@ public class EntityHardmodeSpider extends EntityMob
         return Items.string;
     }
 
-    /**
-     * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
-     * par2 - Level of Looting used to kill this mob.
-     */
     protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
     {
         super.dropFewItems(p_70628_1_, p_70628_2_);
@@ -208,22 +180,13 @@ public class EntityHardmodeSpider extends EntityMob
         }
     }
 
-    /**
-     * returns true if this entity is by a ladder, false otherwise
-     */
     public boolean isOnLadder()
     {
         return this.isBesideClimbableBlock();
     }
 
-    /**
-     * Sets the Entity inside a web block.
-     */
     public void setInWeb() {}
 
-    /**
-     * Get this Entity's EnumCreatureAttribute
-     */
     public EnumCreatureAttribute getCreatureAttribute()
     {
         return EnumCreatureAttribute.ARTHROPOD;
@@ -234,19 +197,11 @@ public class EntityHardmodeSpider extends EntityMob
         return p_70687_1_.getPotionID() == Potion.poison.id ? false : super.isPotionApplicable(p_70687_1_);
     }
 
-    /**
-     * Returns true if the WatchableObject (Byte) is 0x01 otherwise returns false. The WatchableObject is updated using
-     * setBesideClimableBlock.
-     */
     public boolean isBesideClimbableBlock()
     {
         return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
     }
 
-    /**
-     * Updates the WatchableObject (Byte) created in entityInit(), setting it to 0x01 if par1 is true or 0x00 if it is
-     * false.
-     */
     public void setBesideClimbableBlock(boolean p_70839_1_)
     {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);

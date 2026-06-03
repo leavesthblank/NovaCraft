@@ -2,9 +2,7 @@ package com.NovaCraft.achievements;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.FMLCommonHandler;
-import net.minecraft.init.Blocks;
 import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
 

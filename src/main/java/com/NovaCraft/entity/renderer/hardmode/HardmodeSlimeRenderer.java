@@ -8,7 +8,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.hardmode.EntityHardmodeSlime;
 
 @SideOnly(Side.CLIENT)
@@ -23,9 +22,9 @@ public class HardmodeSlimeRenderer extends RenderLiving
         this.scaleAmount = p_i1267_2_;
     }
 
-    protected int shouldRenderPass(EntityHardmodeSlime p_77032_1_, int p_77032_2_, float p_77032_3_)
+    protected int shouldRenderPass(EntityHardmodeSlime entity, int p_77032_2_, float p_77032_3_)
     {
-        if (p_77032_1_.isInvisible())
+        if (entity.isInvisible())
         {
             return 0;
         }
@@ -49,31 +48,31 @@ public class HardmodeSlimeRenderer extends RenderLiving
         }
     }
 
-    protected void preRenderCallback(EntityHardmodeSlime p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityHardmodeSlime entity, float p_77041_2_)
     {
-        float f1 = (float)p_77041_1_.getSlimeSize();
-        float f2 = (p_77041_1_.prevSquishFactor + (p_77041_1_.squishFactor - p_77041_1_.prevSquishFactor) * p_77041_2_) / (f1 * 0.5F + 1.0F);
+        float f1 = (float)entity.getSlimeSize();
+        float f2 = (entity.prevSquishFactor + (entity.squishFactor - entity.prevSquishFactor) * p_77041_2_) / (f1 * 0.5F + 1.0F);
         float f3 = 1.0F / (f2 + 1.0F);
         GL11.glScalef(f3 * f1, 1.0F / f3 * f1, f3 * f1);
     }
 
-    protected ResourceLocation getEntityTexture(EntityHardmodeSlime p_110775_1_)
+    protected ResourceLocation getEntityTexture(EntityHardmodeSlime entity)
     {
         return slimeTextures;
     }
 
-    protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
+    protected void preRenderCallback(EntityLivingBase entity, float p_77041_2_)
     {
-        this.preRenderCallback((EntityHardmodeSlime)p_77041_1_, p_77041_2_);
+        this.preRenderCallback((EntityHardmodeSlime)entity, p_77041_2_);
     }
 
-    protected int shouldRenderPass(EntityLivingBase p_77032_1_, int p_77032_2_, float p_77032_3_)
+    protected int shouldRenderPass(EntityLivingBase entity, int p_77032_2_, float p_77032_3_)
     {
-        return this.shouldRenderPass((EntityHardmodeSlime)p_77032_1_, p_77032_2_, p_77032_3_);
+        return this.shouldRenderPass((EntityHardmodeSlime)entity, p_77032_2_, p_77032_3_);
     }
 
-    protected ResourceLocation getEntityTexture(Entity p_110775_1_)
+    protected ResourceLocation getEntityTexture(Entity entity)
     {
-        return this.getEntityTexture((EntityHardmodeSlime)p_110775_1_);
+        return this.getEntityTexture((EntityHardmodeSlime)entity);
     }
 }

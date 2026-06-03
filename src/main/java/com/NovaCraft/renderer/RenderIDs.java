@@ -28,6 +28,7 @@ public class RenderIDs {
 	public static final int VANITE_CAULDRON = RenderingRegistry.getNextAvailableRenderId();
 	public static final int MOLTEN_VANITE_CAULDRON = RenderingRegistry.getNextAvailableRenderId();
 	public static final int MOLTEN_VANITE_CRYSTAL_CAULDRON = RenderingRegistry.getNextAvailableRenderId();
+	public static final int MERCURY_VANITE_CAULDRON = RenderingRegistry.getNextAvailableRenderId();
 	
 	public static final int VANITE_CLUSTER = RenderingRegistry.getNextAvailableRenderId();
 

@@ -1,32 +1,25 @@
 package com.NovaCraft.world;
 
 import java.util.Random;
-
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class WorldGenAdditonalLapis extends WorldGenerator
-{
+public class WorldGenAdditonalLapis extends WorldGenerator {
     private Block field_150552_a;
     private int field_150551_b;
-    private static final String __OBFID = "CL_00000410";
 
-    public WorldGenAdditonalLapis(Block p_i45452_1_)
+    public WorldGenAdditonalLapis(Block block)
     {
-        this.field_150552_a = p_i45452_1_;
+        this.field_150552_a = block;
         
     }
 
-    public void func_150550_a(Block p_150550_1_, int p_150550_2_)
+    public void func_150550_a(Block block, int p_150550_2_)
     {
-        this.field_150552_a = p_150550_1_;
+        this.field_150552_a = block;
         this.field_150551_b = p_150550_2_;
     }
     
@@ -51,27 +44,27 @@ public class WorldGenAdditonalLapis extends WorldGenerator
             int k1 = z + random.nextInt(8) - random.nextInt(8);
 
             if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 +1, k1) == Blocks.stone) && world.getBlock(i1, j1 +1, k1).isSideSolid(world, i1, j1 +1, k1, ForgeDirection.getOrientation(0))) {
-            	world.setBlock(i1, j1 + 1, k1, this.Ore, 0, 2); //1
+            	world.setBlock(i1, j1 + 1, k1, this.Ore, 0, 2);
             }
             
             else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 -1, k1) == Blocks.stone) && world.getBlock(i1, j1 -1, k1).isSideSolid(world, i1, j1 -1, k1, ForgeDirection.getOrientation(0))) {
-            	world.setBlock(i1, j1 - 1, k1, this.Ore, 0, 2); //7
+            	world.setBlock(i1, j1 - 1, k1, this.Ore, 0, 2);
             }
             
             else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 , k1 +1) == Blocks.stone) && world.getBlock(i1, j1 , k1 +1).isSideSolid(world, i1, j1 , k1 +1, ForgeDirection.getOrientation(0))) {
-            	world.setBlock(i1, j1, k1 + 1, this.Ore, 0, 2); //8
+            	world.setBlock(i1, j1, k1 + 1, this.Ore, 0, 2);
             }
             
             else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 , k1 -1) == Blocks.stone) && world.getBlock(i1, j1 , k1 -1).isSideSolid(world, i1, j1 , k1 -1, ForgeDirection.getOrientation(0))) {
-            	world.setBlock(i1, j1, k1 - 1, this.Ore, 0, 2); //9
+            	world.setBlock(i1, j1, k1 - 1, this.Ore, 0, 2);
             }
             
             else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1 +1, j1 , k1) == Blocks.stone) && world.getBlock(i1+1, j1 , k1).isSideSolid(world, i1+1, j1 , k1, ForgeDirection.getOrientation(0))) {
-            	world.setBlock(i1 + 1, j1, k1, this.Ore, 0, 2); //10
+            	world.setBlock(i1 + 1, j1, k1, this.Ore, 0, 2);
             }
             
             else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1 -1, j1 , k1) == Blocks.stone) && world.getBlock(i1-1, j1 , k1).isSideSolid(world, i1-1, j1 , k1, ForgeDirection.getOrientation(0))) {
-            	world.setBlock(i1 - 1, j1, k1, this.Ore, 0, 2); //11
+            	world.setBlock(i1 - 1, j1, k1, this.Ore, 0, 2);
             }
             
         }

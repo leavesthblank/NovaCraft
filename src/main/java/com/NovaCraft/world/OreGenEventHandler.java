@@ -2,9 +2,7 @@ package com.NovaCraft.world;
 
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType;
-
 import com.NovaCraft.config.Configs;
-
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -24,60 +22,60 @@ public class OreGenEventHandler
             return;
         }
 
-        // Disable ALL vanilla generation, including dirt and gravel pockets.
+        //Disable ALL vanilla generation, including dirt and gravel pockets.
         if (Configs.disableRegularVanillaGen == true)
         {
             event.setResult(Event.Result.DENY);
             return;
         }
 
-        // Individual ore types
+        //Individual ore types
         switch(event.type)
         {
             case DIRT:
-                if (Configs.disableDirt == true)
+                if (Configs.disableDirt)
                 {
                     event.setResult(Event.Result.DENY);
                 }
                 break;
             case GRAVEL:
-                if (Configs.disableGravel == true)
+                if (Configs.disableGravel)
                 {
                     event.setResult(Event.Result.DENY);
                 }
                 break;
             case COAL:
-                if (Configs.disableCoal == true)
+                if (Configs.disableCoal)
                 {
                     event.setResult(Event.Result.DENY);
                 }
                 break;
             case DIAMOND:
-                if (Configs.disableDiamond == true)
+                if (Configs.disableDiamond)
                 {
                     event.setResult(Event.Result.DENY);
                 }
                 break;
             case GOLD:
-                if (Configs.disableGold == true)
+                if (Configs.disableGold)
                 {
                     event.setResult(Event.Result.DENY);
                 }
                 break;
             case IRON:
-                if (Configs.disableIron == true)
+                if (Configs.disableIron)
                 {
                     event.setResult(Event.Result.DENY);
                 }
                 break;
             case LAPIS:
-                if (Configs.disableLapis == true)
+                if (Configs.disableLapis)
                 {
                     event.setResult(Event.Result.DENY);
                 }
                 break;
             case REDSTONE:
-                if (Configs.disableRedstone == true)
+                if (Configs.disableRedstone)
                 {
                     event.setResult(Event.Result.DENY);
                 }

@@ -1,7 +1,6 @@
 package com.NovaCraftBlocks.decorative;
 
 import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockWall;
 import net.minecraft.creativetab.CreativeTabs;
@@ -30,8 +29,8 @@ public class BlockNovaCraftWall extends BlockWall {
 	@Override
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({"unchecked", "rawtypes"})
-	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {
-		p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
+	public void getSubBlocks(Item item, CreativeTabs tabs, List list) {
+		list.add(new ItemStack(item, 1, 0));
 	}
 
 	@Override

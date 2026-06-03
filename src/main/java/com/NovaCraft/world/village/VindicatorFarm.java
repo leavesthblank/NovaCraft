@@ -58,18 +58,9 @@ public class VindicatorFarm extends WorldGenerator
 	}
 
 	public VindicatorFarm() { }
-	
-	public boolean checkAllLocations(World world, int i, int j, int k){
-		if(!LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 12, j, k) || !LocationIsValidSpawn(world, i + 12, j, k + 8) || !LocationIsValidSpawn(world, i, j, k + 8))
-		{
-			return false;
-		}
-		
-		return true;
-	}
 
 	public boolean generate(World world, Random rand, int i, int j, int k) {
-		//check that each corner is one of the valid spawn blocks
+		//Checks that each corner is one of the valid spawn blocks
 		if(!LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 12, j, k) || !LocationIsValidSpawn(world, i + 12, j, k + 8) || !LocationIsValidSpawn(world, i, j, k + 8))
 		{
 			return false;

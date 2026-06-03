@@ -34,25 +34,20 @@ public class BlockMoltenVaniteCauldronRenderer implements ISimpleBlockRenderingH
 		IIcon side = cauldron.side;
 		float f4 = 0.125F;
 
-		// outer walls (same as vanilla)
+		//outer walls
 		renderer.renderFaceXPos(block, x - 1 + f4, y, z, side);
 		renderer.renderFaceXNeg(block, x + 1 - f4, y, z, side);
 		renderer.renderFaceZPos(block, x, y, z - 1 + f4, side);
 		renderer.renderFaceZNeg(block, x, y, z + 1 - f4, side);
 
-		// inner
+		//inner walls
 		IIcon inner = cauldron.inner;
 		renderer.renderFaceYPos(block, x, y - 1 + 0.25F, z, inner);
 		renderer.renderFaceYNeg(block, x, y + 1 - 0.75F, z, inner);
 
-		// liquid level
-		//int meta = world.getBlockMetadata(x, y, z);
-		//if (meta == 0)
-		//{
-			IIcon liquid = BlockMoltenVanite.MoltenVaniteStillIcon;
-			float level = 0.95F; //+ //meta * 0.1875F;
-			renderer.renderFaceYPos(block, x, y - 1 + level, z, liquid);
-		//}
+		IIcon liquid = BlockMoltenVanite.MoltenVaniteStillIcon;
+		float level = 0.95F;
+		renderer.renderFaceYPos(block, x, y - 1 + level, z, liquid);
 
 		return true;
 	}

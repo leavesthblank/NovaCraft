@@ -1,11 +1,7 @@
 package com.NovaCraft.Items;
 
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
-import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemFood;
-
-import net.minecraft.item.ItemStack;
 
 public class ItemNovaCraftFood extends ItemFood {
 

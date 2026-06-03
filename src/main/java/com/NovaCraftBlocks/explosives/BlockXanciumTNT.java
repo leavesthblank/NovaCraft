@@ -10,10 +10,8 @@ import net.minecraft.entity.player.*;
 import net.minecraft.init.*;
 import net.minecraft.entity.projectile.*;
 import java.util.*;
-
 import com.NovaCraft.entity.EntityPrimedXanciumTNT;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
 import net.minecraft.client.renderer.texture.*;
 
 public class BlockXanciumTNT extends Block

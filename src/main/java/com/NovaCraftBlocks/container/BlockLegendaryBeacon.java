@@ -4,9 +4,7 @@ import com.NovaCraft.NovaCraft;
 import com.NovaCraft.TileEntity.TileEntityLegendaryBeacon;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.renderer.RenderIDs;
-
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
 import net.minecraft.world.*;
 import net.minecraft.tileentity.*;
 import net.minecraft.entity.player.*;
@@ -22,7 +20,7 @@ public class BlockLegendaryBeacon extends BlockBeacon
         this.setCreativeTab(NovaCraftCreativeTabs.blocks);
     }
     
-    public TileEntity createNewTileEntity(final World p_149915_1_, final int p_149915_2_) {
+    public TileEntity createNewTileEntity(final World world, final int p_149915_2_) {
         return (TileEntity)new TileEntityLegendaryBeacon();
     }
     
@@ -46,10 +44,10 @@ public class BlockLegendaryBeacon extends BlockBeacon
         return RenderIDs.LEGENDARY_BEACON;
     }
     
-    public void onBlockPlacedBy(final World p_149689_1_, final int p_149689_2_, final int p_149689_3_, final int p_149689_4_, final EntityLivingBase p_149689_5_, final ItemStack p_149689_6_) {
-        super.onBlockPlacedBy(p_149689_1_, p_149689_2_, p_149689_3_, p_149689_4_, p_149689_5_, p_149689_6_);
-        if (p_149689_6_.hasDisplayName()) {
-            ((TileEntityLegendaryBeacon)p_149689_1_.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_)).func_145999_a(p_149689_6_.getDisplayName());
+    public void onBlockPlacedBy(final World world, final int p_149689_2_, final int p_149689_3_, final int p_149689_4_, final EntityLivingBase entityLivingBase, final ItemStack stack) {
+        super.onBlockPlacedBy(world, p_149689_2_, p_149689_3_, p_149689_4_, entityLivingBase, stack);
+        if (stack.hasDisplayName()) {
+            ((TileEntityLegendaryBeacon)world.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_)).func_145999_a(stack.getDisplayName());
         }
     }
 }

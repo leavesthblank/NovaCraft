@@ -1,13 +1,9 @@
 package com.NovaCraft.entity;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.misc.EnumCreakingType;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -22,28 +18,24 @@ import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraft.entity.EntityLivingBase;
 
 public class EntityCreaking extends EntityMob
 {
 	private int attackTimer;
 
-    public EntityCreaking(World p_i1743_1_)
+    public EntityCreaking(World world)
     {
-        super(p_i1743_1_);
+        super(world);
         this.setSize(0.7F, 1.45F);
         this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, IMob.mobSelector));
     }
@@ -74,14 +66,14 @@ public class EntityCreaking extends EntityMob
         this.setHealth(30.0F);
     }
     
-    protected void collideWithEntity(Entity p_82167_1_)
+    protected void collideWithEntity(Entity entity)
     {
-        if (p_82167_1_ instanceof IMob && this.getRNG().nextInt(20) == 0)
+        if (entity instanceof IMob && this.getRNG().nextInt(20) == 0)
         {
-            this.setAttackTarget((EntityLivingBase)p_82167_1_);
+            this.setAttackTarget((EntityLivingBase)entity);
         }
 
-        super.collideWithEntity(p_82167_1_);
+        super.collideWithEntity(entity);
     }
     
     @Override
@@ -178,7 +170,7 @@ public class EntityCreaking extends EntityMob
         return super.getSoundPitch() * 0.55f;
     }
 
-    public void attackEntity(Entity p_70785_1_, float p_70785_2_)
+    public void attackEntity(Entity entity, float p_70785_2_)
     {
         float f1 = this.getBrightness(1.0F);
 
@@ -192,8 +184,8 @@ public class EntityCreaking extends EntityMob
             {
                 if (this.onGround)
                 {
-                    double d0 = p_70785_1_.posX - this.posX;
-                    double d1 = p_70785_1_.posZ - this.posZ;
+                    double d0 = entity.posX - this.posX;
+                    double d1 = entity.posZ - this.posZ;
                     float f2 = MathHelper.sqrt_double(d0 * d0 + d1 * d1);
                     this.motionX = d0 / (double)f2 * 0.5D * 0.900000011920929D + this.motionX * 0.30000000298023224D;
                     this.motionZ = d1 / (double)f2 * 0.5D * 0.900000011920929D + this.motionZ * 0.30000000298023224D;
@@ -201,7 +193,7 @@ public class EntityCreaking extends EntityMob
             }
             else
             {
-                super.attackEntity(p_70785_1_, p_70785_2_);
+                super.attackEntity(entity, p_70785_2_);
             }
         }
     }
@@ -215,7 +207,7 @@ public class EntityCreaking extends EntityMob
     	}
     }
 
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+    protected void dropFewItems(boolean p_70628_1_, int chance)
     {
      if (this.getType() == EnumCreakingType.OAK)
        {
@@ -289,7 +281,7 @@ public class EntityCreaking extends EntityMob
       }
     }
     
-    protected void dropRareDrop(int p_70600_1_)
+    protected void dropRareDrop(int chance)
     {
     	if (this.getType() == EnumCreakingType.LUMINANT) {
     		this.dropItem(NovaCraftItems.luminant_apple, 1);
@@ -311,9 +303,9 @@ public class EntityCreaking extends EntityMob
         return EnumCreatureAttribute.UNDEFINED;
     }
 
-    public boolean isPotionApplicable(PotionEffect p_70687_1_)
+    public boolean isPotionApplicable(PotionEffect potionEffect)
     {
-        return p_70687_1_.getPotionID() == Potion.poison.id ? false : super.isPotionApplicable(p_70687_1_);
+        return potionEffect.getPotionID() == Potion.poison.id ? false : super.isPotionApplicable(potionEffect);
     }
 
     public boolean isBesideClimbableBlock()
@@ -464,7 +456,7 @@ public class EntityCreaking extends EntityMob
         } else {
             int blockLight = this.worldObj.getBlockLightValue(i, j, k);
             int skyLight = this.worldObj.getSavedLightValue(EnumSkyBlock.Sky, i, j, k);
-            return blockLight < 8 && skyLight <= this.rand.nextInt(32) ? canSpawn : false;
+            return blockLight < 8 && skyLight <= this.rand.nextInt(32) && canSpawn;
         }
     }
 }

@@ -10,7 +10,7 @@ public class MapGenSculkMineshaft extends MapGenMineshaft {
 	protected StructureStart getStructureStart(int chunkX, int chunkZ) {
 		Random rand = new Random(this.worldObj.getSeed() ^ ((long)chunkX << 32) ^ chunkZ);
 
-		if (rand.nextInt(4) == 0) {
+		if (rand.nextInt(9) == 0) {
 			return new StructureSculkMineshaftStart(this.worldObj, rand, chunkX, chunkZ);
 		}
 

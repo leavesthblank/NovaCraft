@@ -88,8 +88,8 @@ public class DrifterModel extends ModelBase
     
     private void setRotation(final ModelRenderer model, final float x, final float y, final float z) {
         model.rotateAngleX = x;
-        model.rotateAngleY = y; //g
-        model.rotateAngleZ = z; //h
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
     }
     
     public void setRotationAngles(final float f, final float f1, final float f2, final float f3, final float f4, final float f5, final Entity ent) {

@@ -1,35 +1,24 @@
 package com.NovaCraft.Items.Armor;
 
 import cpw.mods.fml.common.FMLLog;
-
 import java.util.List;
-
 import org.apache.logging.log4j.Level;
-
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.Items.Armor.NCArmorMaterial;
-import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
-import net.minecraftforge.common.ISpecialArmor.ArmorProperties;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemArmor;
 
 public class ItemIridiumBoots extends ItemArmor implements ISpecialArmor

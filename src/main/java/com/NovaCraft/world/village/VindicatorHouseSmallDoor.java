@@ -1,7 +1,6 @@
 package com.NovaCraft.world.village;
 
 import java.util.Random;
-
 import com.NovaCraft.entity.illager.EntityIllagerTrader;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import net.minecraft.block.Block;
@@ -61,15 +60,6 @@ public class VindicatorHouseSmallDoor extends WorldGenerator
 	}
 
 	public VindicatorHouseSmallDoor() { }
-
-	public boolean checkAllLocations(World world, int i, int j, int k){
-		if(!LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 5, j, k) || !LocationIsValidSpawn(world, i + 5, j, k + 3) || !LocationIsValidSpawn(world, i, j, k + 3) || !AirLocationIsValidSpawn(world, i, j + 6, k) || !AirLocationIsValidSpawn(world, i + 5, j + 6, k) || !AirLocationIsValidSpawn(world, i + 5, j + 6, k + 3) || !AirLocationIsValidSpawn(world, i, j + 6, k + 3))
-		{
-			return false;
-		}
-
-		return true;
-	}
 
 	public boolean AirLocationIsValidSpawn(World world, int i, int j, int k){
 		Block blockID = world.getBlock(i, j, k);

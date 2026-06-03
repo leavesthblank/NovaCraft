@@ -1,18 +1,11 @@
 package com.NovaCraft.world.end;
 
 import java.util.Random;
-
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenBigTree;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class DestitudeIsland extends WorldGenerator {
    int bumpsWide1;
@@ -350,7 +343,7 @@ public class DestitudeIsland extends WorldGenerator {
          if (world.getBlock(x1, y1, z1).isReplaceableOreGen(world, x, y, z, Blocks.end_stone)) {
             world.setBlock(x1, y1, z1, NovaCraftBlocks.crystallized_end);
 
-            for(int yTest = y1; yTest < 128; ++yTest) { //128
+            for(int yTest = y1; yTest < 128; ++yTest) {
                if (world.getBlock(x1, yTest, z1).isReplaceable(world, x1, yTest, z1) && (world.getBlock(x1, yTest - 1, z1) == NovaCraftBlocks.destitude_growth || world.getBlock(x1, yTest - 1, z1) == NovaCraftBlocks.destitude_block)) {
                   world.setBlock(x1, yTest, z1, NovaCraftBlocks.destitude_bloom);
                   break;

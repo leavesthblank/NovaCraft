@@ -9,7 +9,7 @@ import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntitySculkAbomination;
 import com.NovaCraft.entity.EntitySculkSymbiote;
-import com.NovaCraft.entity.EntityWardenVessel;
+import com.NovaCraft.entity.EntityWardling;
 import com.NovaCraft.particles.ParticleDarkLichenThree;
 import com.NovaCraft.particles.ParticleGlowLichen;
 import com.NovaCraft.particles.ParticleHandler;
@@ -153,7 +153,7 @@ public class BlockSculk extends Block {
  			int rand3 = (int)(1 + Math.random() * 250);
  			if (rand3 == 20 && !entity.isSneaking()) {
  	 			world.playSoundEffect(x, y, z, "nova_craft:boss.Wardensummoning", 3.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.25F + 0.95F);
- 	 			EntityWardenVessel sculk3 = new EntityWardenVessel(world);
+ 	 			EntityWardling sculk3 = new EntityWardling(world);
  	 			sculk3.setPosition(x + 0.5D, y + 1D, z + 0.5D);
 
  					if (!world.isRemote) {

@@ -6,11 +6,8 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
 
@@ -50,7 +47,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 16, j + 29, k + 7, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 17, j + 29, k + 7, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 18, j + 29, k + 7, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 29, k + 8, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 29, k + 8, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 29, k + 8, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 29, k + 8, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 29, k + 8, PlaceDeepslate, 0, 2);
@@ -70,7 +67,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 17, j + 29, k + 8, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 18, j + 29, k + 8, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 19, j + 29, k + 8, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 29, k + 9, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 29, k + 9, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 29, k + 9, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 29, k + 9, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 29, k + 9, PlaceDeepslate, 0, 2);
@@ -91,7 +88,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 18, j + 29, k + 9, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 19, j + 29, k + 9, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 20, j + 29, k + 9, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 29, k + 10, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 29, k + 10, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 29, k + 10, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 29, k + 10, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 29, k + 10, PlaceDeepslate, 0, 2);
@@ -113,7 +110,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 29, k + 10, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 20, j + 29, k + 10, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 21, j + 29, k + 10, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 29, k + 11, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 29, k + 11, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 29, k + 11, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 29, k + 11, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 29, k + 11, PlaceDeepslate, 0, 2);
@@ -135,7 +132,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 29, k + 11, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 20, j + 29, k + 11, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 21, j + 29, k + 11, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 29, k + 12, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 29, k + 12, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 29, k + 12, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 29, k + 12, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 29, k + 12, PlaceDeepslate, 0, 2);
@@ -157,7 +154,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 29, k + 12, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 20, j + 29, k + 12, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 21, j + 29, k + 12, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 29, k + 13, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 29, k + 13, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 29, k + 13, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 29, k + 13, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 29, k + 13, PlaceDeepslate, 0, 2);
@@ -179,7 +176,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 29, k + 13, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 20, j + 29, k + 13, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 21, j + 29, k + 13, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 29, k + 14, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 29, k + 14, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 29, k + 14, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 29, k + 14, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 29, k + 14, PlaceDeepslate, 0, 2);
@@ -201,7 +198,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 29, k + 14, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 20, j + 29, k + 14, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 21, j + 29, k + 14, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 29, k + 15, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 29, k + 15, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 29, k + 15, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 29, k + 15, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 29, k + 15, PlaceDeepslate, 0, 2);
@@ -223,7 +220,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 29, k + 15, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 20, j + 29, k + 15, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 21, j + 29, k + 15, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 29, k + 16, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 29, k + 16, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 29, k + 16, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 29, k + 16, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 29, k + 16, PlaceDeepslate, 0, 2);
@@ -246,7 +243,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 29, k + 16, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 21, j + 29, k + 16, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 22, j + 29, k + 16, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 29, k + 17, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 29, k + 17, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 29, k + 17, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 29, k + 17, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 29, k + 17, PlaceDeepslate, 0, 2);
@@ -305,21 +302,21 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 16, j + 29, k + 19, sculk_block, 0, 2);
 		world.setBlock(i + 17, j + 29, k + 19, sculk_block, 0, 2);
 		world.setBlock(i + 18, j + 29, k + 19, sculk_block, 0, 2);
-		world.setBlock(i + 3, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 4, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 5, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 6, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 7, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 8, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 9, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 10, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 11, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 12, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 13, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 14, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 15, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 16, j + 30, k + 0, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 17, j + 30, k + 0, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 3, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 4, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 5, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 6, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 7, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 8, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 9, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 10, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 11, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 12, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 13, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 14, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 15, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 16, j + 30, k, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 17, j + 30, k, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 1, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 1, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 4, j + 30, k + 1, PlaceDeepslate, 0, 2);
@@ -355,7 +352,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 16, j + 30, k + 2, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 17, j + 30, k + 2, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 18, j + 30, k + 2, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 3, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 30, k + 3, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 3, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 3, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 3, PlaceDeepslate, 0, 2);
@@ -374,7 +371,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 16, j + 30, k + 3, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 17, j + 30, k + 3, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 18, j + 30, k + 3, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 4, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 30, k + 4, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 4, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 4, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 4, PlaceDeepslate, 0, 2);
@@ -393,7 +390,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 16, j + 30, k + 4, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 17, j + 30, k + 4, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 18, j + 30, k + 4, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 5, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 30, k + 5, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 5, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 5, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 5, PlaceDeepslate, 0, 2);
@@ -412,7 +409,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 16, j + 30, k + 5, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 17, j + 30, k + 5, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 18, j + 30, k + 5, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 6, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 30, k + 6, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 6, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 6, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 6, PlaceDeepslate, 0, 2);
@@ -431,7 +428,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 16, j + 30, k + 6, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 17, j + 30, k + 6, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 18, j + 30, k + 6, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 7, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 30, k + 7, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 7, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 7, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 7, PlaceDeepslate, 0, 2);
@@ -450,7 +447,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 16, j + 30, k + 7, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 17, j + 30, k + 7, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 18, j + 30, k + 7, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 8, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 30, k + 8, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 8, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 8, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 8, PlaceDeepslate, 0, 2);
@@ -470,7 +467,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 17, j + 30, k + 8, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 18, j + 30, k + 8, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 19, j + 30, k + 8, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 9, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 30, k + 9, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 9, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 9, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 9, PlaceDeepslate, 0, 2);
@@ -491,7 +488,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 18, j + 30, k + 9, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 19, j + 30, k + 9, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 20, j + 30, k + 9, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 10, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 30, k + 10, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 10, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 10, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 10, PlaceDeepslate, 0, 2);
@@ -513,7 +510,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 30, k + 10, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 20, j + 30, k + 10, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 21, j + 30, k + 10, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 11, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 30, k + 11, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 11, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 11, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 11, PlaceDeepslate, 0, 2);
@@ -535,7 +532,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 30, k + 11, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 20, j + 30, k + 11, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 21, j + 30, k + 11, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 12, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 30, k + 12, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 12, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 12, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 12, PlaceDeepslate, 0, 2);
@@ -557,7 +554,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 30, k + 12, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 20, j + 30, k + 12, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 21, j + 30, k + 12, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 13, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 30, k + 13, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 13, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 13, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 13, PlaceDeepslate, 0, 2);
@@ -579,7 +576,7 @@ public class AncientCityColumnGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 30, k + 13, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 20, j + 30, k + 13, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 21, j + 30, k + 13, PlaceDeepslate, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 14, PlaceDeepslate, 0, 2);
+		world.setBlock(i, j + 30, k + 14, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 14, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 14, PlaceDeepslate, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 14, PlaceDeepslate, 0, 2);

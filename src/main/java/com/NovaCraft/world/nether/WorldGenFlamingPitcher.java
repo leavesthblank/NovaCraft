@@ -11,15 +11,15 @@ public class WorldGenFlamingPitcher extends WorldGenerator
     private Block field_150552_a;
     private int field_150551_b;
 
-    public WorldGenFlamingPitcher(Block p_i45452_1_)
+    public WorldGenFlamingPitcher(Block block)
     {
-        this.field_150552_a = p_i45452_1_;
+        this.field_150552_a = block;
         
     }
 
-    public void func_150550_a(Block p_150550_1_, int p_150550_2_)
+    public void func_150550_a(Block block, int p_150550_2_)
     {
-        this.field_150552_a = p_150550_1_;
+        this.field_150552_a = block;
         this.field_150551_b = p_150550_2_;
     }
     

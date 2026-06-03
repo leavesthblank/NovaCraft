@@ -1,5 +1,7 @@
 package com.NovaCraft.world.mansion;
 
+import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsStructures;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -7,6 +9,7 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import org.apache.commons.lang3.ArrayUtils;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class MansionFinder {
@@ -15,7 +18,33 @@ public class MansionFinder {
         return a >= 0 ? a / b : -((-a + b - 1) / b);
     }
 
+    private static boolean isValidDimension(int dim) {
+        if (ConfigsStructures.MansionValidDimension == null) {
+            return false;
+        }
+
+        for (int id : ConfigsStructures.MansionValidDimension) {
+            if (id == dim) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static ChunkCoordinates getNearestMansion(World world, int playerX, int playerZ) {
+        if (Configs.enableDebugMode) {
+            System.out.println("[MansionFinder] isRemote=" + world.isRemote + ", dim=" + world.provider.dimensionId +
+                    ", name=" + world.provider.getDimensionName() + ", validDims=" + Arrays.toString(ConfigsStructures.MansionValidDimension));
+
+            System.out.println("[MansionFinder] Dimension passed config whitelist.");
+        }
+
+        if (!isValidDimension(world.provider.dimensionId)) {
+            if (Configs.enableDebugMode) System.out.println("[MansionFinder] Dimension failed config whitelist.");
+
+            return null;
+        }
 
         final int spacing = 500;
         int playerRegionX = floorDiv(playerX, spacing);
@@ -37,7 +66,7 @@ public class MansionFinder {
                     int baseX = regionX * spacing + regionRand.nextInt(spacing);
                     int baseZ = regionZ * spacing + regionRand.nextInt(spacing);
 
-                    if (Math.abs(baseX) < 12000 || Math.abs(baseZ) < 12000) continue;
+                    if (Math.abs(baseX) < ConfigsStructures.MansionGenerationDistance || Math.abs(baseZ) < ConfigsStructures.MansionGenerationDistance) continue;
 
                     int chunkCornerX = baseX >> 4 << 4;
                     int chunkCornerZ = baseZ >> 4 << 4;

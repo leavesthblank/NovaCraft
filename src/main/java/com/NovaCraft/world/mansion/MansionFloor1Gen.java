@@ -10,9 +10,7 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ChestGenHooks;
-
 import java.util.Random;
-
 import static net.minecraftforge.common.ChestGenHooks.DUNGEON_CHEST;
 
 public class MansionFloor1Gen extends WorldGenerator

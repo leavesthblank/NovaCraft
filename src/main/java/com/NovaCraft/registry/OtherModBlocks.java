@@ -1,9 +1,6 @@
 package com.NovaCraft.registry;
 
 import net.minecraft.block.*;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.*;
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.*;
 
 public class OtherModBlocks
@@ -66,6 +63,7 @@ public class OtherModBlocks
     public static Block magma;
     public static Block chain;
     public static Block lantern;
+    public static Block coarse_dirt;
     
     //Netherlicious
     public static Block Nether_Gravel;
@@ -168,6 +166,7 @@ public class OtherModBlocks
     	OtherModBlocks.lantern = GameRegistry.findBlock("etfuturum", "lantern");
         OtherModBlocks.banner = GameRegistry.findBlock("etfuturum", "banner");
         OtherModBlocks.fence_birch = GameRegistry.findBlock("etfuturum", "fence_birch");
+        OtherModBlocks.coarse_dirt = GameRegistry.findBlock("etfuturum", "coarse_dirt");
     	
     	OtherModBlocks.Nether_Gravel = GameRegistry.findBlock("netherlicious", "Nether_Gravel");
     	OtherModBlocks.Blackstone = GameRegistry.findBlock("netherlicious", "Blackstone");    	

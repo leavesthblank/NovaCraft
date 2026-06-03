@@ -7,9 +7,9 @@ public class EntityAIOpenAllDoor extends EntityAIAllDoorInteract
     boolean field_75361_i;
     int field_75360_j;
     
-    public EntityAIOpenAllDoor(final EntityLiving p_i1644_1_, final boolean p_i1644_2_) {
-        super(p_i1644_1_);
-        this.theEntity = p_i1644_1_;
+    public EntityAIOpenAllDoor(final EntityLiving entityLiving, final boolean p_i1644_2_) {
+        super(entityLiving);
+        this.theEntity = entityLiving;
         this.field_75361_i = p_i1644_2_;
     }
     

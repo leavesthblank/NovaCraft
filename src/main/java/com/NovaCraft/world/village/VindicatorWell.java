@@ -69,7 +69,7 @@ public class VindicatorWell extends WorldGenerator
 
 	public boolean generate(World world, Random rand, int i, int j, int k) {
 		Block cobbledGrimstone = NovaCraftBlocks.cobbled_grimstone;
-		//check that each corner is one of the valid spawn blocks
+		//Checks that each corner is one of the valid spawn blocks
 		if(!LocationIsValidSpawn(world, i, j, k) || !LocationIsValidSpawn(world, i + 5, j, k) || !LocationIsValidSpawn(world, i + 5, j, k + 5) || !LocationIsValidSpawn(world, i, j, k + 5) ||          !AirLocationIsValidSpawn(world, i, j + 4, k) || !AirLocationIsValidSpawn(world, i + 5, j + 4, k) || !AirLocationIsValidSpawn(world, i + 5, j + 4, k + 5) || !AirLocationIsValidSpawn(world, i, j + 4, k + 5))
 		{
 			return false;

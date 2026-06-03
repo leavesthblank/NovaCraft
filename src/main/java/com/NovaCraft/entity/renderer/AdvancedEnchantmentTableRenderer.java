@@ -9,9 +9,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.TileEntity.TileEntityAdvancedEnchantmentTable;
-
 
 @SideOnly(Side.CLIENT)
 public class AdvancedEnchantmentTableRenderer extends TileEntitySpecialRenderer
@@ -19,15 +17,15 @@ public class AdvancedEnchantmentTableRenderer extends TileEntitySpecialRenderer
     private static final ResourceLocation texture = new ResourceLocation("nova_craft","textures/entity/advanced_enchanting_table_book.png");
     private ModelBook field_147541_c = new ModelBook();
 
-    public void renderTileEntityAt(TileEntityAdvancedEnchantmentTable p_147500_1_, double p_147500_2_, double p_147500_4_, double p_147500_6_, float p_147500_8_)
+    public void renderTileEntityAt(TileEntityAdvancedEnchantmentTable tile_entity, double p_147500_2_, double p_147500_4_, double p_147500_6_, float p_147500_8_)
     {
         GL11.glPushMatrix();
         GL11.glTranslatef((float)p_147500_2_ + 0.5F, (float)p_147500_4_ + 0.75F, (float)p_147500_6_ + 0.5F);
-        float f1 = (float)p_147500_1_.field_145926_a + p_147500_8_;
+        float f1 = (float)tile_entity.field_145926_a + p_147500_8_;
         GL11.glTranslatef(0.0F, 0.1F + MathHelper.sin(f1 * 0.1F) * 0.01F, 0.0F);
         float f2;
 
-        for (f2 = p_147500_1_.field_145928_o - p_147500_1_.field_145925_p; f2 >= (float)Math.PI; f2 -= ((float)Math.PI * 2F))
+        for (f2 = tile_entity.field_145928_o - tile_entity.field_145925_p; f2 >= (float)Math.PI; f2 -= ((float)Math.PI * 2F))
         {
             ;
         }
@@ -37,12 +35,12 @@ public class AdvancedEnchantmentTableRenderer extends TileEntitySpecialRenderer
             f2 += ((float)Math.PI * 2F);
         }
 
-        float f3 = p_147500_1_.field_145925_p + f2 * p_147500_8_;
+        float f3 = tile_entity.field_145925_p + f2 * p_147500_8_;
         GL11.glRotatef(-f3 * 180.0F / (float)Math.PI, 0.0F, 1.0F, 0.0F);
         GL11.glRotatef(80.0F, 0.0F, 0.0F, 1.0F);
         this.bindTexture(texture);
-        float f4 = p_147500_1_.field_145931_j + (p_147500_1_.field_145933_i - p_147500_1_.field_145931_j) * p_147500_8_ + 0.25F;
-        float f5 = p_147500_1_.field_145931_j + (p_147500_1_.field_145933_i - p_147500_1_.field_145931_j) * p_147500_8_ + 0.75F;
+        float f4 = tile_entity.field_145931_j + (tile_entity.field_145933_i - tile_entity.field_145931_j) * p_147500_8_ + 0.25F;
+        float f5 = tile_entity.field_145931_j + (tile_entity.field_145933_i - tile_entity.field_145931_j) * p_147500_8_ + 0.75F;
         f4 = (f4 - (float)MathHelper.truncateDoubleToInt((double)f4)) * 1.6F - 0.3F;
         f5 = (f5 - (float)MathHelper.truncateDoubleToInt((double)f5)) * 1.6F - 0.3F;
 
@@ -66,14 +64,14 @@ public class AdvancedEnchantmentTableRenderer extends TileEntitySpecialRenderer
             f5 = 1.0F;
         }
 
-        float f6 = p_147500_1_.field_145927_n + (p_147500_1_.field_145930_m - p_147500_1_.field_145927_n) * p_147500_8_;
+        float f6 = tile_entity.field_145927_n + (tile_entity.field_145930_m - tile_entity.field_145927_n) * p_147500_8_;
         GL11.glEnable(GL11.GL_CULL_FACE);
         this.field_147541_c.render((Entity)null, f1, f4, f5, f6, 0.0F, 0.0625F);
         GL11.glPopMatrix();
     }
 
-    public void renderTileEntityAt(TileEntity p_147500_1_, double p_147500_2_, double p_147500_4_, double p_147500_6_, float p_147500_8_)
+    public void renderTileEntityAt(TileEntity tile_entity, double p_147500_2_, double p_147500_4_, double p_147500_6_, float p_147500_8_)
     {
-        this.renderTileEntityAt((TileEntityAdvancedEnchantmentTable)p_147500_1_, p_147500_2_, p_147500_4_, p_147500_6_, p_147500_8_);
+        this.renderTileEntityAt((TileEntityAdvancedEnchantmentTable)tile_entity, p_147500_2_, p_147500_4_, p_147500_6_, p_147500_8_);
     }
 }

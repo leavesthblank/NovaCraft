@@ -1,15 +1,10 @@
 package com.NovaCraft.entity;
 
 import java.util.IdentityHashMap;
-import java.util.Random;
 import java.util.UUID;
-
-import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.particles.ParticleHandler;
-import com.google.common.collect.Maps;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -25,7 +20,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
@@ -39,18 +33,16 @@ public class EntityEnderLord extends EntityMob
 {
     private static final UUID attackingSpeedBoostModifierUUID = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291A0");
     private static final AttributeModifier attackingSpeedBoostModifier = (new AttributeModifier(attackingSpeedBoostModifierUUID, "Attacking speed boost", 6.199999809265137D, 0)).setSaved(false);
-    @Deprecated //DO NOT TOUCH THIS EVER
+    @Deprecated
     private static boolean[] carriableBlocks = new boolean[256];
-    /** Counter to delay the teleportation of an enderman towards the currently attacked target */
     private int teleportDelay;
-    /** A player must stare at an enderman for 5 ticks before it becomes aggressive. This field counts those ticks. */
     private int stareTimer;
     private Entity lastEntityToAttack;
     private boolean isAggressive;
 
-    public EntityEnderLord(World p_i1734_1_)
+    public EntityEnderLord(World world)
     {
-        super(p_i1734_1_);
+        super(world);
         this.setSize(0.6F, 2.9F);
         this.stepHeight = 1.0F;
     }
@@ -80,30 +72,20 @@ public class EntityEnderLord extends EntityMob
         this.dataWatcher.addObject(18, new Byte((byte)0));
     }
 
-    /**
-     * (abstract) Protected helper method to write subclass entity data to NBT.
-     */
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    public void writeEntityToNBT(NBTTagCompound compound)
     {
-        super.writeEntityToNBT(p_70014_1_);
-        p_70014_1_.setShort("carried", (short)Block.getIdFromBlock(this.func_146080_bZ()));
-        p_70014_1_.setShort("carriedData", (short)this.getCarryingData());
+        super.writeEntityToNBT(compound);
+        compound.setShort("carried", (short)Block.getIdFromBlock(this.func_146080_bZ()));
+        compound.setShort("carriedData", (short)this.getCarryingData());
     }
 
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(p_70037_1_);
-        this.func_146081_a(Block.getBlockById(p_70037_1_.getShort("carried")));
-        this.setCarryingData(p_70037_1_.getShort("carriedData"));
+        super.readEntityFromNBT(compound);
+        this.func_146081_a(Block.getBlockById(compound.getShort("carried")));
+        this.setCarryingData(compound.getShort("carriedData"));
     }
 
-    /**
-     * Finds the closest player within 16 blocks to attack, or null if this Entity isn't interested in attacking
-     * (Animals, Spiders at day, peaceful PigZombies).
-     */
     protected Entity findPlayerToAttack()
     {
         EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
@@ -135,12 +117,9 @@ public class EntityEnderLord extends EntityMob
         return null;
     }
 
-    /**
-     * Checks to see if this enderman should be attacking this player
-     */
-    private boolean shouldAttackPlayer(EntityPlayer p_70821_1_)
+    private boolean shouldAttackPlayer(EntityPlayer entity)
     {
-        ItemStack itemstack = p_70821_1_.inventory.armorInventory[3];
+        ItemStack itemstack = entity.inventory.armorInventory[3];
 
         if (itemstack != null && itemstack.getItem() == Item.getItemFromBlock(Blocks.pumpkin))
         {
@@ -148,19 +127,15 @@ public class EntityEnderLord extends EntityMob
         }
         else
         {
-            Vec3 vec3 = p_70821_1_.getLook(1.0F).normalize();
-            Vec3 vec31 = Vec3.createVectorHelper(this.posX - p_70821_1_.posX, this.boundingBox.minY + (double)(this.height / 2.0F) - (p_70821_1_.posY + (double)p_70821_1_.getEyeHeight()), this.posZ - p_70821_1_.posZ);
+            Vec3 vec3 = entity.getLook(1.0F).normalize();
+            Vec3 vec31 = Vec3.createVectorHelper(this.posX - entity.posX, this.boundingBox.minY + (double)(this.height / 2.0F) - (entity.posY + (double)entity.getEyeHeight()), this.posZ - entity.posZ);
             double d0 = vec31.lengthVector();
             vec31 = vec31.normalize();
             double d1 = vec3.dotProduct(vec31);
-            return d1 > 1.0D - 0.025D / d0 && p_70821_1_.canEntityBeSeen(this);
+            return d1 > 1.0D - 0.025D / d0 && entity.canEntityBeSeen(this);
         }
     }
 
-    /**
-     * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
-     * use this to react to sunlight and start to burn.
-     */
     public void onLivingUpdate()
     {
         if (this.isWet())
@@ -304,9 +279,6 @@ public class EntityEnderLord extends EntityMob
     	}
     }
 
-    /**
-     * Teleport the enderman to a random nearby position
-     */
     protected boolean teleportRandomly()
     {
         double d0 = this.posX + (this.rand.nextDouble() - 0.5D) * 64.0D;
@@ -315,12 +287,9 @@ public class EntityEnderLord extends EntityMob
         return this.teleportTo(d0, d1, d2);
     }
 
-    /**
-     * Teleport the enderman to another entity
-     */
-    protected boolean teleportToEntity(Entity p_70816_1_)
+    protected boolean teleportToEntity(Entity entity)
     {
-        Vec3 vec3 = Vec3.createVectorHelper(this.posX - p_70816_1_.posX, this.boundingBox.minY + (double)(this.height / 2.0F) - p_70816_1_.posY + (double)p_70816_1_.getEyeHeight(), this.posZ - p_70816_1_.posZ);
+        Vec3 vec3 = Vec3.createVectorHelper(this.posX - entity.posX, this.boundingBox.minY + (double)(this.height / 2.0F) - entity.posY + (double)entity.getEyeHeight(), this.posZ - entity.posZ);
         vec3 = vec3.normalize();
         double d0 = 16.0D;
         double d1 = this.posX + (this.rand.nextDouble() - 0.5D) * 8.0D - vec3.xCoord * d0;
@@ -329,12 +298,9 @@ public class EntityEnderLord extends EntityMob
         return this.teleportTo(d1, d2, d3);
     }
 
-    /**
-     * Teleport the enderman
-     */
-    protected boolean teleportTo(double p_70825_1_, double p_70825_3_, double p_70825_5_)
+    protected boolean teleportTo(double x, double y, double z)
     {
-        EnderTeleportEvent event = new EnderTeleportEvent(this, p_70825_1_, p_70825_3_, p_70825_5_, 0);
+        EnderTeleportEvent event = new EnderTeleportEvent(this, x, y, z, 0);
         if (MinecraftForge.EVENT_BUS.post(event)){
             return false;
         }
@@ -406,25 +372,16 @@ public class EntityEnderLord extends EntityMob
         }
     }
 
-    /**
-     * Returns the sound this mob makes while it's alive.
-     */
     protected String getLivingSound()
     {
         return this.isScreaming() ? "mob.endermen.scream" : "mob.endermen.idle";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
     protected String getHurtSound()
     {
         return "mob.endermen.hit";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
     protected String getDeathSound()
     {
         return "mob.endermen.death";
@@ -440,17 +397,13 @@ public class EntityEnderLord extends EntityMob
         return Items.ender_pearl;
     }
 
-    /**
-     * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
-     * par2 - Level of Looting used to kill this mob.
-     */
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+    protected void dropFewItems(boolean p_70628_1_, int chance)
     {
         Item item = this.getDropItem();
 
         if (item != null)
         {
-            int j = this.rand.nextInt(2 + p_70628_2_);
+            int j = this.rand.nextInt(2 + chance);
 
             for (int k = 0; k < j; ++k)
             {
@@ -459,11 +412,8 @@ public class EntityEnderLord extends EntityMob
         }
     }
     
-    protected void dropRareDrop(int p_70600_1_)
-    {
-
+    protected void dropRareDrop(int p_70600_1_) {
        this.dropItem(NovaCraftItems.fractured_heart_of_the_end, 1);
-
     }
 
     public void func_146081_a(Block p_146081_1_)
@@ -476,26 +426,17 @@ public class EntityEnderLord extends EntityMob
         return Block.getBlockById(this.dataWatcher.getWatchableObjectByte(16));
     }
 
-    /**
-     * Set the metadata of the block an enderman carries
-     */
     public void setCarryingData(int p_70817_1_)
     {
         this.dataWatcher.updateObject(17, Byte.valueOf((byte)(p_70817_1_ & 255)));
     }
 
-    /**
-     * Get the metadata of the block an enderman carries
-     */
     public int getCarryingData()
     {
         return this.dataWatcher.getWatchableObjectByte(17);
     }
 
-    /**
-     * Called when the entity is attacked.
-     */
-    public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_)
+    public boolean attackEntityFrom(DamageSource source, float p_70097_2_)
     {
         if (this.isEntityInvulnerable())
         {
@@ -505,12 +446,12 @@ public class EntityEnderLord extends EntityMob
         {
             this.setScreaming(true);
 
-            if (p_70097_1_ instanceof EntityDamageSource && p_70097_1_.getEntity() instanceof EntityPlayer)
+            if (source instanceof EntityDamageSource && source.getEntity() instanceof EntityPlayer)
             {
                 this.isAggressive = true;
             }
 
-            if (p_70097_1_ instanceof EntityDamageSourceIndirect)
+            if (source instanceof EntityDamageSourceIndirect)
             {
                 this.isAggressive = false;
 
@@ -522,11 +463,11 @@ public class EntityEnderLord extends EntityMob
                     }
                 }
 
-                return super.attackEntityFrom(p_70097_1_, p_70097_2_);
+                return super.attackEntityFrom(source, p_70097_2_);
             }
             else
             {
-                return super.attackEntityFrom(p_70097_1_, p_70097_2_);
+                return super.attackEntityFrom(source, p_70097_2_);
             }
         }
     }
@@ -563,7 +504,6 @@ public class EntityEnderLord extends EntityMob
         }
     }
 
-    /*===================================== Forge Start ==============================*/
     private static IdentityHashMap<Block, Boolean> carriable;
     public static void setCarriable(Block block, boolean canCarry)
     {
@@ -575,5 +515,4 @@ public class EntityEnderLord extends EntityMob
         Boolean ret = carriable.get(block);
         return ret != null ? ret : false;
     }
-    /*===================================== Forge End ==============================*/
 }

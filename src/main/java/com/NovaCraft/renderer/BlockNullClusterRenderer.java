@@ -30,7 +30,6 @@ public class BlockNullClusterRenderer implements ISimpleBlockRenderingHandler {
 		
 		IBlockAccess world = renderer.blockAccess;
 	      tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-//	      tessellator.setBrightness(200);
 	      float f = 1.0F;
 	      int l = block.colorMultiplier(world, x, y, z);
 	      float f1 = (float)(l >> 16 & 255) / 255.0F;

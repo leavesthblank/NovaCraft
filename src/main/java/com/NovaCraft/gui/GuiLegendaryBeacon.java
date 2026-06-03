@@ -12,11 +12,9 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.client.resources.*;
 import java.util.*;
 import org.lwjgl.opengl.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.TileEntity.ContainerLegendaryBeacon;
 import com.NovaCraft.TileEntity.TileEntityLegendaryBeacon;
-
 import net.minecraft.item.*;
 import net.minecraft.init.*;
 import org.apache.logging.log4j.*;
@@ -32,9 +30,9 @@ public class GuiLegendaryBeacon extends GuiContainer
     private ConfirmButton beaconConfirmButton;
     private boolean buttonsNotDrawn;
     
-    public GuiLegendaryBeacon(final InventoryPlayer p_i1078_1_, final TileEntityLegendaryBeacon p_i1078_2_) {
-        super((Container)new ContainerLegendaryBeacon(p_i1078_1_, p_i1078_2_));
-        this.tileBeacon = p_i1078_2_;
+    public GuiLegendaryBeacon(final InventoryPlayer inventoryPlayer, final TileEntityLegendaryBeacon tileBeacon) {
+        super((Container)new ContainerLegendaryBeacon(inventoryPlayer, tileBeacon));
+        this.tileBeacon = tileBeacon;
         this.xSize = 230;
         this.ySize = 219;
     }
@@ -137,7 +135,6 @@ public class GuiLegendaryBeacon extends GuiContainer
         RenderHelper.disableStandardItemLighting();
         this.drawCenteredString(this.fontRendererObj, I18n.format("tile.beacon.primary", new Object[0]), 62, 10, 14737632);
         this.drawCenteredString(this.fontRendererObj, I18n.format("tile.beacon.secondary", new Object[0]), 169, 10, 14737632);
-        //for (final GuiButton guibutton : this.buttonList) {
             Iterator iterator = this.buttonList.iterator();
             while(iterator.hasNext()) {
                 GuiButton guibutton = (GuiButton)iterator.next();
@@ -189,7 +186,6 @@ public class GuiLegendaryBeacon extends GuiContainer
         private final int field_146144_p;
         private final int field_146143_q;
         private boolean field_146142_r;
-        private static final String __OBFID = "CL_00000743";
         
         protected Button(final int p_i1077_1_, final int p_i1077_2_, final int p_i1077_3_, final ResourceLocation p_i1077_4_, final int p_i1077_5_, final int p_i1077_6_) {
             super(p_i1077_1_, p_i1077_2_, p_i1077_3_, 22, 22, "");
@@ -234,7 +230,6 @@ public class GuiLegendaryBeacon extends GuiContainer
     @SideOnly(Side.CLIENT)
     class CancelButton extends Button
     {
-        private static final String __OBFID = "CL_00000740";
         
         public CancelButton(final int p_i1074_2_, final int p_i1074_3_, final int p_i1074_4_) {
             super(p_i1074_2_, p_i1074_3_, p_i1074_4_, GuiLegendaryBeacon.beaconGuiTextures, 112, 220);
@@ -246,10 +241,7 @@ public class GuiLegendaryBeacon extends GuiContainer
     }
     
     @SideOnly(Side.CLIENT)
-    class ConfirmButton extends Button
-    {
-        private static final String __OBFID = "CL_00000741";
-        
+    class ConfirmButton extends Button {
         public ConfirmButton(final int p_i1075_2_, final int p_i1075_3_, final int p_i1075_4_) {
             super(p_i1075_2_, p_i1075_3_, p_i1075_4_, GuiLegendaryBeacon.beaconGuiTextures, 90, 220);
         }
@@ -260,11 +252,9 @@ public class GuiLegendaryBeacon extends GuiContainer
     }
     
     @SideOnly(Side.CLIENT)
-    class PowerButton extends Button
-    {
+    class PowerButton extends Button {
         private final int field_146149_p;
         private final int field_146148_q;
-        private static final String __OBFID = "CL_00000742";
         
         public PowerButton(final int p_i1076_2_, final int p_i1076_3_, final int p_i1076_4_, final int p_i1076_5_, final int p_i1076_6_) {
             super(p_i1076_2_, p_i1076_3_, p_i1076_4_, GuiLegendaryBeacon.field_147001_a, 0 + Potion.potionTypes[p_i1076_5_].getStatusIconIndex() % 8 * 18, 198 + Potion.potionTypes[p_i1076_5_].getStatusIconIndex() / 8 * 18);

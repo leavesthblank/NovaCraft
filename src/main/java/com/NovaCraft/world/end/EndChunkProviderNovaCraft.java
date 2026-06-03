@@ -2,10 +2,8 @@ package com.NovaCraft.world.end;
 
 import java.util.List;
 import java.util.Random;
-
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.plants.end.BlockLacunaFruit;
-
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -26,29 +24,18 @@ import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 
 public class EndChunkProviderNovaCraft implements IChunkProvider {
-	/** RNG. */
 	private Random rand;
 	protected static final Block END_STONE = Blocks.end_stone;
 	protected static final Block AIR = Blocks.air;
 	private final NoiseGeneratorOctaves lperlinNoise1;
 	private final NoiseGeneratorOctaves lperlinNoise2;
 	private final NoiseGeneratorOctaves perlinNoise1;
-
-	/** A NoiseGeneratorOctaves used in generating terrain */
 	public NoiseGeneratorOctaves noiseGen5;
-
-	/** A NoiseGeneratorOctaves used in generating terrain */
 	public NoiseGeneratorOctaves noiseGen6;
-
-	/** Reference to the World object. */
 	private final World worldObj;
-
-	/** are map structures going to be generated (e.g. strongholds) */
 	private final boolean mapFeaturesEnabled;
 	private final NoiseGeneratorSimplex islandNoise;
 	private double[] buffer;
-
-	/** The biomes that are used to generate the chunk */
 	private BiomeGenBase[] biomesForGeneration;
 	double[] pnr;
 	double[] ar;
@@ -58,7 +45,7 @@ public class EndChunkProviderNovaCraft implements IChunkProvider {
 	public EndChunkProviderNovaCraft(World worldObjIn, long seed)
 	{
 		this.worldObj = worldObjIn;
-		this.mapFeaturesEnabled = true; //come back to
+		this.mapFeaturesEnabled = true;
 		this.rand = new Random(seed);
 		this.lperlinNoise1 = new NoiseGeneratorOctaves(this.rand, 16);
 		this.lperlinNoise2 = new NoiseGeneratorOctaves(this.rand, 16);
@@ -89,9 +76,6 @@ public class EndChunkProviderNovaCraft implements IChunkProvider {
 		return chunk;
 	}
 
-	/**
-	 * Generates a bare-bones chunk of nothing but stone or ocean blocks, formed, but featureless.
-	 */
 	public void setBlocksInChunk(int x, int z, Block[] blocks)
 	{
 		int i = 2;
@@ -342,56 +326,33 @@ public class EndChunkProviderNovaCraft implements IChunkProvider {
 		return p_185963_1_;
 	}
 
-	/**
-	 * Checks to see if a chunk exists at x, y
-	 */
 	public boolean chunkExists(int p_73149_1_, int p_73149_2_)
 	{
 		return true;
 	}
 
-	/**
-	 * Two modes of operation: if passed true, save all Chunks in one go.  If passed false, save up to two chunks.
-	 * Return true if all chunks have been saved.
-	 */
 	public boolean saveChunks(boolean p_73151_1_, IProgressUpdate p_73151_2_)
 	{
 		return true;
 	}
 
-	/**
-	 * Save extra data not associated with any Chunk.  Not saved during autosave, only during world unload.  Currently
-	 * unimplemented.
-	 */
 	public void saveExtraData() {}
 
-	/**
-	 * Unloads chunks that are marked to be unloaded. This is not guaranteed to unload every such chunk.
-	 */
 	public boolean unloadQueuedChunks()
 	{
 		return false;
 	}
 
-	/**
-	 * Returns if the IChunkProvider supports saving.
-	 */
 	public boolean canSave()
 	{
 		return true;
 	}
 
-	/**
-	 * Converts the instance data to a readable string.
-	 */
 	public String makeString()
 	{
 		return "RandomLevelSource";
 	}
 
-	/**
-	 * Returns a list of creatures of the specified type that can spawn at the given location.
-	 */
 	public List getPossibleCreatures(EnumCreatureType creatureType, int x, int p_73155_3_, int z)
 	{
 		return this.worldObj.getBiomeGenForCoords(x, z).getSpawnableList(creatureType);

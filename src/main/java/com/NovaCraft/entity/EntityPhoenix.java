@@ -1,35 +1,18 @@
 package com.NovaCraft.entity;
 
-import java.util.List;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.AI.EntityAILavaSwimming;
-import com.NovaCraft.entity.misc.EntityRayfireball;
-
-import net.minecraft.item.Item;
-import java.util.ArrayList;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-
-import java.util.Iterator;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.Vec3;
-import net.minecraft.entity.projectile.EntityFireball;
-import net.minecraft.init.Items;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIFollowParent;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMate;
 import net.minecraft.entity.ai.EntityAIPanic;
-import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
@@ -38,13 +21,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.EntityFlying;
 
 public class EntityPhoenix extends EntityAnimal implements IMob
 {
@@ -53,9 +34,6 @@ public class EntityPhoenix extends EntityAnimal implements IMob
     public double waypointY;
     public double waypointZ;
     public boolean hasSpecialTexture;
-    private Entity targetedEntity;
-    private Entity attackedEntity;
-    private int aggroCooldown;
     public int prevAttackCounter;
     public int attackCounter;
     
@@ -64,9 +42,6 @@ public class EntityPhoenix extends EntityAnimal implements IMob
         this.isImmuneToFire = true;
         this.courseChangeCooldown = 0;
         this.hasSpecialTexture = false;
-        this.targetedEntity = null;
-        this.attackedEntity = null;
-        this.aggroCooldown = 0;
         this.prevAttackCounter = 0;
         this.attackCounter = 0;
         this.setSize(1.0f, 1.0f);
@@ -278,9 +253,6 @@ public class EntityPhoenix extends EntityAnimal implements IMob
         return 15728880;
     }
 
-    /**
-     * Gets how bright this entity is.
-     */
     public float getBrightness(float p_70013_1_)
     {
         return 0.45F;

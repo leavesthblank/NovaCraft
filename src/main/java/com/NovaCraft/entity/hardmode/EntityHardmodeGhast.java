@@ -1,7 +1,6 @@
 package com.NovaCraft.entity.hardmode;
 
 import com.NovaCraft.achievements.AchievementsNovaCraft;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
@@ -28,11 +27,9 @@ public class EntityHardmodeGhast extends EntityFlying implements IMob
     public double waypointY;
     public double waypointZ;
     private Entity targetedEntity;
-    /** Cooldown time between target loss and new target aquirement. */
     private int aggroCooldown;
     public int prevAttackCounter;
     public int attackCounter;
-    /** The explosion radius of spawned fireballs. */
     private int explosionStrength = 3;
 
     public EntityHardmodeGhast(World p_i1735_1_)
@@ -250,10 +247,7 @@ public class EntityHardmodeGhast extends EntityFlying implements IMob
             this.dropItem(Items.gunpowder, 1);
         }
     }
-    
-    /**
-     * Called when the mob's health reaches 0.
-     */
+
     public void onDeath(DamageSource p_70645_1_)
     {
         super.onDeath(p_70645_1_);
@@ -282,19 +276,19 @@ public class EntityHardmodeGhast extends EntityFlying implements IMob
         return 1;
     }
 
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    public void writeEntityToNBT(NBTTagCompound compound)
     {
-        super.writeEntityToNBT(p_70014_1_);
-        p_70014_1_.setInteger("ExplosionPower", this.explosionStrength);
+        super.writeEntityToNBT(compound);
+        compound.setInteger("ExplosionPower", this.explosionStrength);
     }
 
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(p_70037_1_);
+        super.readEntityFromNBT(compound);
 
-        if (p_70037_1_.hasKey("ExplosionPower", 99))
+        if (compound.hasKey("ExplosionPower", 99))
         {
-            this.explosionStrength = p_70037_1_.getInteger("ExplosionPower");
+            this.explosionStrength = compound.getInteger("ExplosionPower");
         }
     }
 }

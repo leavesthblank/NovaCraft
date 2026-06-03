@@ -12,13 +12,11 @@ import net.minecraftforge.common.util.*;
 import net.minecraft.tileentity.*;
 import net.minecraft.util.*;
 import java.util.*;
-
 import com.NovaCraft.TileEntity.TileEntityAncientChest;
 import com.NovaCraft.container.InventoryLargeAncientChest;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.inventory.*;
 import net.minecraft.client.renderer.texture.*;
 import cpw.mods.fml.relauncher.*;

@@ -5,9 +5,7 @@ import net.minecraft.block.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.init.*;
 import org.lwjgl.opengl.*;
-
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.world.*;
 
 public class BlockLegendaryBeaconRenderer implements ISimpleBlockRenderingHandler
@@ -19,10 +17,6 @@ public class BlockLegendaryBeaconRenderer implements ISimpleBlockRenderingHandle
                 renderer.setRenderBounds(0.125, 0.0, 0.125, 0.875, 0.1875, 0.875);
                 renderer.setOverrideBlockTexture(renderer.getBlockIcon(NovaCraftBlocks.crystallized_end));
             }
-            //else if (k == 1) {
-                //renderer.setRenderBounds(0.1875, 0.1875, 0.1875, 0.8125, 0.875, 0.8125);
-               // renderer.setOverrideBlockTexture(renderer.getBlockIcon(NovaCraftBlocks.legendary_beacon));
-            //}
             else if (k == 2) {
                 renderer.setRenderBounds(0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
                 renderer.setOverrideBlockTexture(renderer.getBlockIcon(NovaCraftBlocks.vanite_glass));

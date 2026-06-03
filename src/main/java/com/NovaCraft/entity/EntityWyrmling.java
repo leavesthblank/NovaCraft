@@ -5,15 +5,11 @@ import net.minecraft.entity.player.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.world.*;
 import net.minecraft.util.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
-
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 
-public class EntityWyrmling extends EntityFlying implements IMob
-{
-    public int flapSoundTime;
+public class EntityWyrmling extends EntityFlying implements IMob {
     public int courseChangeCooldown;
     public double waypointX;
     public double waypointY;
@@ -23,8 +19,8 @@ public class EntityWyrmling extends EntityFlying implements IMob
     public float animTime;
     public float prevAnimTime;
 
-    public EntityWyrmling(final World p_i1731_1_) {
-        super(p_i1731_1_);
+    public EntityWyrmling(final World world) {
+        super(world);
         this.targetObstructedTicks = 0;
         this.tasks.addTask(0, (EntityAIBase)new EntityAIWatchClosest((EntityLiving)this, (Class)EntityPlayer.class, 8.0f));
         this.tasks.addTask(1, (EntityAIBase)new EntityAILookIdle((EntityLiving)this));
@@ -76,16 +72,6 @@ public class EntityWyrmling extends EntityFlying implements IMob
                 }
             }
         }
-    }
-
-    public void onLivingUpdate()
-    {
-        if (this.worldObj.isDaytime() && !this.worldObj.isRemote && this.worldObj.provider.dimensionId != 1 && this.worldObj.canBlockSeeTheSky(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ))) {
-            //this.damageEntity(DamageSource.drown, 1.0f);
-            //this.setFire(1);
-        }
-
-        super.onLivingUpdate();
     }
 
     @Override

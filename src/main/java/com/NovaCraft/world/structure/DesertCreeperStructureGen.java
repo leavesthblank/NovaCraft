@@ -1,7 +1,6 @@
 package com.NovaCraft.world.structure;
 
 import java.util.Random;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -22,12 +21,12 @@ public class DesertCreeperStructureGen extends WorldGenerator {
 
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
 
-        world.setBlock(i + 1, j + 2, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 2, j + 2, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 3, j + 2, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 4, j + 2, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 5, j + 2, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 6, j + 2, k + 0, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 1, j + 2, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 2, j + 2, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 3, j + 2, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 4, j + 2, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 5, j + 2, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 6, j + 2, k, Blocks.sandstone, 2, 2);
         world.setBlock(i + 1, j + 2, k + 1, Blocks.sandstone, 2, 2);
         world.setBlock(i + 2, j + 2, k + 1, Blocks.sandstone, 0, 2);
         world.setBlock(i + 3, j + 2, k + 1, Blocks.sandstone, 0, 2);
@@ -70,12 +69,12 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 4, j + 2, k + 11, Blocks.sandstone, 2, 2);
         world.setBlock(i + 5, j + 2, k + 11, Blocks.sandstone, 2, 2);
         world.setBlock(i + 6, j + 2, k + 11, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 1, j + 3, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 2, j + 3, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 3, j + 3, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 4, j + 3, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 5, j + 3, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 6, j + 3, k + 0, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 1, j + 3, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 2, j + 3, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 3, j + 3, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 4, j + 3, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 5, j + 3, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 6, j + 3, k, Blocks.sandstone, 2, 2);
         world.setBlock(i + 1, j + 3, k + 1, Blocks.sandstone, 0, 2);
         world.setBlock(i + 2, j + 3, k + 1, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 3, k + 1, Blocks.air, 0, 2);
@@ -114,12 +113,12 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 4, j + 3, k + 11, Blocks.sandstone, 0, 2);
         world.setBlock(i + 5, j + 3, k + 11, Blocks.sandstone, 0, 2);
         world.setBlock(i + 6, j + 3, k + 11, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 1, j + 4, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 2, j + 4, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 3, j + 4, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 4, j + 4, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 5, j + 4, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 6, j + 4, k + 0, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 1, j + 4, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 2, j + 4, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 3, j + 4, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 4, j + 4, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 5, j + 4, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 6, j + 4, k, Blocks.sandstone, 2, 2);
         world.setBlock(i + 1, j + 4, k + 1, Blocks.sandstone, 0, 2);
         world.setBlock(i + 2, j + 4, k + 1, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 4, k + 1, Blocks.web, 0, 2);
@@ -162,12 +161,12 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 4, j + 4, k + 11, Blocks.sandstone, 0, 2);
         world.setBlock(i + 5, j + 4, k + 11, Blocks.sandstone, 0, 2);
         world.setBlock(i + 6, j + 4, k + 11, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 1, j + 5, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 2, j + 5, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 3, j + 5, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 4, j + 5, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 5, j + 5, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 6, j + 5, k + 0, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 1, j + 5, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 2, j + 5, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 3, j + 5, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 4, j + 5, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 5, j + 5, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 6, j + 5, k, Blocks.sandstone, 2, 2);
         world.setBlock(i + 1, j + 5, k + 1, Blocks.sandstone, 0, 2);
         world.setBlock(i + 2, j + 5, k + 1, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 5, k + 1, Blocks.air, 0, 2);
@@ -210,12 +209,12 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 4, j + 5, k + 11, Blocks.sandstone, 0, 2);
         world.setBlock(i + 5, j + 5, k + 11, Blocks.sandstone, 0, 2);
         world.setBlock(i + 6, j + 5, k + 11, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 1, j + 6, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 2, j + 6, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 3, j + 6, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 4, j + 6, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 5, j + 6, k + 0, Blocks.sandstone, 0, 2);
-        world.setBlock(i + 6, j + 6, k + 0, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 1, j + 6, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 2, j + 6, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 3, j + 6, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 4, j + 6, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 5, j + 6, k, Blocks.sandstone, 0, 2);
+        world.setBlock(i + 6, j + 6, k, Blocks.sandstone, 2, 2);
         world.setBlock(i + 1, j + 6, k + 1, Blocks.sandstone, 0, 2);
         world.setBlock(i + 2, j + 6, k + 1, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 6, k + 1, Blocks.air, 0, 2);
@@ -258,12 +257,12 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 4, j + 6, k + 11, Blocks.sandstone, 0, 2);
         world.setBlock(i + 5, j + 6, k + 11, Blocks.sandstone, 0, 2);
         world.setBlock(i + 6, j + 6, k + 11, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 1, j + 7, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 2, j + 7, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 3, j + 7, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 4, j + 7, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 5, j + 7, k + 0, Blocks.sandstone, 2, 2);
-        world.setBlock(i + 6, j + 7, k + 0, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 1, j + 7, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 2, j + 7, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 3, j + 7, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 4, j + 7, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 5, j + 7, k, Blocks.sandstone, 2, 2);
+        world.setBlock(i + 6, j + 7, k, Blocks.sandstone, 2, 2);
         world.setBlock(i + 1, j + 7, k + 1, Blocks.sandstone, 2, 2);
         world.setBlock(i + 2, j + 7, k + 1, Blocks.sandstone, 0, 2);
         world.setBlock(i + 3, j + 7, k + 1, Blocks.sandstone, 0, 2);
@@ -591,7 +590,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 4, j + 19, k + 7, placeSandstone(random), 2, 2);
         world.setBlock(i + 5, j + 19, k + 7, placeSandstone(random), 2, 2);
         world.setBlock(i + 6, j + 19, k + 7, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 20, k + 2, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 20, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 20, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 2, j + 20, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 3, j + 20, k + 2, placeSandstone(random), 2, 2);
@@ -599,7 +598,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 20, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 6, j + 20, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 7, j + 20, k + 2, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 20, k + 3, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 20, k + 3, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 20, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 20, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 20, k + 3, placeSandstone(random), 0, 2);
@@ -607,7 +606,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 20, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 20, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 20, k + 3, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 20, k + 4, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 20, k + 4, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 20, k + 4, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 20, k + 4, Blocks.stained_hardened_clay, 13, 2);
         world.setBlock(i + 3, j + 20, k + 4, placeSandstone(random), 2, 2);
@@ -615,7 +614,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 20, k + 4, Blocks.stained_hardened_clay, 13, 2);
         world.setBlock(i + 6, j + 20, k + 4, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 20, k + 4, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 20, k + 5, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 20, k + 5, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 20, k + 5, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 20, k + 5, placeSandstone(random), 2, 2);
         world.setBlock(i + 3, j + 20, k + 5, Blocks.air, 0, 2);
@@ -623,7 +622,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 20, k + 5, placeSandstone(random), 2, 2);
         world.setBlock(i + 6, j + 20, k + 5, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 20, k + 5, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 20, k + 6, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 20, k + 6, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 20, k + 6, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 20, k + 6, placeSandstone(random), 2, 2);
         world.setBlock(i + 3, j + 20, k + 6, Blocks.air, 0, 2);
@@ -631,7 +630,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 20, k + 6, placeSandstone(random), 2, 2);
         world.setBlock(i + 6, j + 20, k + 6, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 20, k + 6, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 20, k + 7, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 20, k + 7, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 20, k + 7, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 20, k + 7, Blocks.stained_hardened_clay, 13, 2);
         world.setBlock(i + 3, j + 20, k + 7, placeSandstone(random), 2, 2);
@@ -639,7 +638,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 20, k + 7, Blocks.stained_hardened_clay, 13, 2);
         world.setBlock(i + 6, j + 20, k + 7, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 20, k + 7, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 20, k + 8, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 20, k + 8, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 20, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 20, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 20, k + 8, placeSandstone(random), 0, 2);
@@ -647,7 +646,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 20, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 20, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 20, k + 8, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 20, k + 9, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 20, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 20, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 2, j + 20, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 3, j + 20, k + 9, placeSandstone(random), 2, 2);
@@ -655,7 +654,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 20, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 6, j + 20, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 7, j + 20, k + 9, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 21, k + 2, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 21, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 21, k + 2, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 21, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
         world.setBlock(i + 3, j + 21, k + 2, placeSandstone(random), 0, 2);
@@ -663,7 +662,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 21, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
         world.setBlock(i + 6, j + 21, k + 2, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 21, k + 2, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 21, k + 3, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 21, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 21, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 21, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 21, k + 3, Blocks.air, 0, 2);
@@ -671,7 +670,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 21, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 21, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 21, k + 3, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 21, k + 4, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 21, k + 4, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 21, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 21, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 21, k + 4, Blocks.air, 0, 2);
@@ -679,7 +678,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 21, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 21, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 21, k + 4, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 21, k + 5, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 21, k + 5, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 21, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 21, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 21, k + 5, Blocks.air, 0, 2);
@@ -687,7 +686,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 21, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 21, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 21, k + 5, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 21, k + 6, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 21, k + 6, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 21, k + 6, placeSandstone(random), 1, 2);
         world.setBlock(i + 2, j + 21, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 21, k + 6, Blocks.air, 0, 2);
@@ -695,7 +694,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 21, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 21, k + 6, placeSandstone(random), 1, 2);
         world.setBlock(i + 7, j + 21, k + 6, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 21, k + 7, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 21, k + 7, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 21, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 21, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 21, k + 7, Blocks.air, 0, 2);
@@ -703,7 +702,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 21, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 21, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 21, k + 7, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 21, k + 8, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 21, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 21, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 21, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 21, k + 8, Blocks.air, 0, 2);
@@ -711,7 +710,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 21, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 21, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 21, k + 8, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 21, k + 9, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 21, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 21, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 21, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 21, k + 9, placeSandstone(random), 0, 2);
@@ -719,7 +718,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 21, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 21, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 21, k + 9, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 22, k + 2, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 22, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 22, k + 2, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 22, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
         world.setBlock(i + 3, j + 22, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
@@ -727,7 +726,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 22, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
         world.setBlock(i + 6, j + 22, k + 2, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 22, k + 2, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 22, k + 3, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 22, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 22, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 22, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 22, k + 3, Blocks.air, 0, 2);
@@ -735,7 +734,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 22, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 22, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 22, k + 3, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 22, k + 4, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 22, k + 4, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 22, k + 4, Blocks.web, 0, 2);
         world.setBlock(i + 2, j + 22, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 22, k + 4, Blocks.air, 0, 2);
@@ -743,7 +742,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 22, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 22, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 22, k + 4, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 22, k + 5, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 22, k + 5, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 22, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 22, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 22, k + 5, Blocks.air, 0, 2);
@@ -751,7 +750,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 22, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 22, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 22, k + 5, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 22, k + 6, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 22, k + 6, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 22, k + 6, Blocks.flower_pot, 0, 2);
         world.setBlock(i + 2, j + 22, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 22, k + 6, Blocks.air, 0, 2);
@@ -759,7 +758,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 22, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 22, k + 6, Blocks.flower_pot, 0, 2);
         world.setBlock(i + 7, j + 22, k + 6, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 22, k + 7, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 22, k + 7, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 22, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 22, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 22, k + 7, Blocks.air, 0, 2);
@@ -767,7 +766,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 22, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 22, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 22, k + 7, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 22, k + 8, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 22, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 22, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 22, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 22, k + 8, Blocks.web, 0, 2);
@@ -775,7 +774,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 22, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 22, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 22, k + 8, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 22, k + 9, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 22, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 22, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 22, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 22, k + 9, placeSandstone(random), 0, 2);
@@ -783,7 +782,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 22, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 22, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 22, k + 9, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 23, k + 2, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 23, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 23, k + 2, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 23, k + 2, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 23, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
@@ -791,7 +790,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 23, k + 2, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 23, k + 2, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 23, k + 2, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 23, k + 3, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 23, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 23, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 23, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 23, k + 3, Blocks.air, 0, 2);
@@ -799,7 +798,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 23, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 23, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 23, k + 3, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 23, k + 4, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 23, k + 4, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 23, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 23, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 23, k + 4, Blocks.air, 0, 2);
@@ -807,7 +806,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 23, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 23, k + 4, Blocks.web, 0, 2);
         world.setBlock(i + 7, j + 23, k + 4, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 23, k + 5, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 23, k + 5, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 23, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 23, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 23, k + 5, Blocks.air, 0, 2);
@@ -815,7 +814,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 23, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 23, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 23, k + 5, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 23, k + 6, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 23, k + 6, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 23, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 23, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 23, k + 6, Blocks.air, 0, 2);
@@ -823,7 +822,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 23, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 23, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 23, k + 6, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 23, k + 7, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 23, k + 7, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 23, k + 7, Blocks.web, 0, 2);
         world.setBlock(i + 2, j + 23, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 23, k + 7, Blocks.air, 0, 2);
@@ -831,7 +830,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 23, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 23, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 23, k + 7, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 23, k + 8, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 23, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 23, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 23, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 23, k + 8, Blocks.air, 0, 2);
@@ -839,7 +838,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 23, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 23, k + 8, Blocks.web, 0, 2);
         world.setBlock(i + 7, j + 23, k + 8, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 23, k + 9, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 23, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 23, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 23, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 23, k + 9, placeSandstone(random), 0, 2);
@@ -847,7 +846,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 23, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 23, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 23, k + 9, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 24, k + 2, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 24, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 24, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
         world.setBlock(i + 2, j + 24, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
         world.setBlock(i + 3, j + 24, k + 2, placeSandstone(random), 0, 2);
@@ -855,7 +854,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 24, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
         world.setBlock(i + 6, j + 24, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
         world.setBlock(i + 7, j + 24, k + 2, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 24, k + 3, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 24, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 24, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 24, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 24, k + 3, Blocks.air, 0, 2);
@@ -863,7 +862,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 24, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 24, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 24, k + 3, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 24, k + 4, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 24, k + 4, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 24, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 24, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 24, k + 4, Blocks.air, 0, 2);
@@ -871,7 +870,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 24, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 24, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 24, k + 4, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 24, k + 5, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 24, k + 5, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 24, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 24, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 24, k + 5, Blocks.air, 0, 2);
@@ -879,7 +878,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 24, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 24, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 24, k + 5, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 24, k + 6, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 24, k + 6, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 24, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 24, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 24, k + 6, Blocks.air, 0, 2);
@@ -887,7 +886,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 24, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 24, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 24, k + 6, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 24, k + 7, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 24, k + 7, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 24, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 24, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 24, k + 7, Blocks.air, 0, 2);
@@ -895,7 +894,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 24, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 24, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 24, k + 7, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 24, k + 8, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 24, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 24, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 24, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 24, k + 8, Blocks.air, 0, 2);
@@ -903,7 +902,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 24, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 24, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 24, k + 8, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 24, k + 9, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 24, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 24, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 24, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 24, k + 9, placeSandstone(random), 0, 2);
@@ -911,7 +910,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 24, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 24, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 24, k + 9, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 25, k + 2, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 25, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 25, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
         world.setBlock(i + 2, j + 25, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
         world.setBlock(i + 3, j + 25, k + 2, placeSandstone(random), 0, 2);
@@ -919,7 +918,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 25, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
         world.setBlock(i + 6, j + 25, k + 2, NovaCraftBlocks.cobbled_nullstone, 0, 2);
         world.setBlock(i + 7, j + 25, k + 2, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 25, k + 3, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 25, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 25, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 25, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 25, k + 3, Blocks.air, 0, 2);
@@ -927,7 +926,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 25, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 25, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 25, k + 3, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 25, k + 4, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 25, k + 4, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 25, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 25, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 25, k + 4, Blocks.air, 0, 2);
@@ -935,7 +934,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 25, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 25, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 25, k + 4, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 25, k + 5, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 25, k + 5, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 25, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 25, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 25, k + 5, Blocks.air, 0, 2);
@@ -943,7 +942,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 25, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 25, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 25, k + 5, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 25, k + 6, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 25, k + 6, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 25, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 25, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 25, k + 6, Blocks.air, 0, 2);
@@ -951,7 +950,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 25, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 25, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 25, k + 6, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 25, k + 7, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 25, k + 7, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 25, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 25, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 25, k + 7, Blocks.air, 0, 2);
@@ -959,7 +958,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 25, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 25, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 25, k + 7, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 25, k + 8, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 25, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 25, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 25, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 25, k + 8, Blocks.air, 0, 2);
@@ -967,7 +966,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 25, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 25, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 25, k + 8, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 25, k + 9, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 25, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 25, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 25, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 25, k + 9, placeSandstone(random), 0, 2);
@@ -975,7 +974,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 25, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 25, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 25, k + 9, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 26, k + 2, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 26, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 26, k + 2, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 26, k + 2, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 26, k + 2, placeSandstone(random), 0, 2);
@@ -983,7 +982,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 26, k + 2, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 26, k + 2, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 26, k + 2, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 26, k + 3, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 26, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 26, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 26, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 26, k + 3, Blocks.web, 0, 2);
@@ -991,7 +990,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 26, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 26, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 26, k + 3, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 26, k + 4, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 26, k + 4, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 26, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 26, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 26, k + 4, Blocks.air, 0, 2);
@@ -999,7 +998,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 26, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 26, k + 4, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 26, k + 4, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 26, k + 5, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 26, k + 5, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 26, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 26, k + 5, Blocks.web, 0, 2);
         world.setBlock(i + 3, j + 26, k + 5, Blocks.air, 0, 2);
@@ -1007,7 +1006,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 26, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 26, k + 5, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 26, k + 5, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 26, k + 6, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 26, k + 6, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 26, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 26, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 26, k + 6, Blocks.air, 0, 2);
@@ -1015,7 +1014,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 26, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 26, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 26, k + 6, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 26, k + 7, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 26, k + 7, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 26, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 26, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 26, k + 7, Blocks.web, 0, 2);
@@ -1023,7 +1022,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 26, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 26, k + 7, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 26, k + 7, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 26, k + 8, placeSandstone(random), 0, 2);
+        world.setBlock(i, j + 26, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 1, j + 26, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 26, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 3, j + 26, k + 8, Blocks.air, 0, 2);
@@ -1031,7 +1030,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 26, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 6, j + 26, k + 8, Blocks.air, 0, 2);
         world.setBlock(i + 7, j + 26, k + 8, placeSandstone(random), 0, 2);
-        world.setBlock(i + 0, j + 26, k + 9, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 26, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 26, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 26, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 26, k + 9, placeSandstone(random), 0, 2);
@@ -1039,7 +1038,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 26, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 26, k + 9, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 26, k + 9, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 27, k + 2, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 27, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 27, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 2, j + 27, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 3, j + 27, k + 2, placeSandstone(random), 2, 2);
@@ -1047,7 +1046,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 27, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 6, j + 27, k + 2, placeSandstone(random), 2, 2);
         world.setBlock(i + 7, j + 27, k + 2, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 27, k + 3, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 27, k + 3, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 27, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 27, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 27, k + 3, placeSandstone(random), 0, 2);
@@ -1055,7 +1054,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 27, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 27, k + 3, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 27, k + 3, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 27, k + 4, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 27, k + 4, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 27, k + 4, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 27, k + 4, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 27, k + 4, placeSandstone(random), 0, 2);
@@ -1063,7 +1062,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 27, k + 4, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 27, k + 4, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 27, k + 4, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 27, k + 5, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 27, k + 5, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 27, k + 5, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 27, k + 5, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 27, k + 5, placeSandstone(random), 0, 2);
@@ -1071,7 +1070,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 27, k + 5, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 27, k + 5, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 27, k + 5, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 27, k + 6, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 27, k + 6, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 27, k + 6, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 27, k + 6, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 27, k + 6, placeSandstone(random), 0, 2);
@@ -1079,7 +1078,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 27, k + 6, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 27, k + 6, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 27, k + 6, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 27, k + 7, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 27, k + 7, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 27, k + 7, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 27, k + 7, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 27, k + 7, placeSandstone(random), 0, 2);
@@ -1087,7 +1086,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 27, k + 7, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 27, k + 7, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 27, k + 7, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 27, k + 8, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 27, k + 8, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 27, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 2, j + 27, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 3, j + 27, k + 8, placeSandstone(random), 0, 2);
@@ -1095,7 +1094,7 @@ public class DesertCreeperStructureGen extends WorldGenerator {
         world.setBlock(i + 5, j + 27, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 6, j + 27, k + 8, placeSandstone(random), 0, 2);
         world.setBlock(i + 7, j + 27, k + 8, placeSandstone(random), 2, 2);
-        world.setBlock(i + 0, j + 27, k + 9, placeSandstone(random), 2, 2);
+        world.setBlock(i, j + 27, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 1, j + 27, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 2, j + 27, k + 9, placeSandstone(random), 2, 2);
         world.setBlock(i + 3, j + 27, k + 9, placeSandstone(random), 2, 2);
@@ -1201,11 +1200,11 @@ public class DesertCreeperStructureGen extends WorldGenerator {
                     return new ItemStack(Items.iron_sword, 1);
                 } else if (chance == 6) {
                     return new ItemStack(NovaCraftBlocks.torchflower, 1);
-                } else if (chance >= 7 && chance <= 10) {
+                } else if (chance <= 10) {
                     return new ItemStack(NovaCraftBlocks.calvatia_mushroom, 1);
-                } else if (chance >= 10 && chance <= 13) {
+                } else if (chance <= 13) {
                     return new ItemStack(NovaCraftBlocks.hydnum_mushroom, 1);
-                } else if (chance >= 14 && chance <= 17) {
+                } else if (chance <= 17) {
                     return new ItemStack(NovaCraftBlocks.pleurotus_mushroom, 1);
                 }
             default: {

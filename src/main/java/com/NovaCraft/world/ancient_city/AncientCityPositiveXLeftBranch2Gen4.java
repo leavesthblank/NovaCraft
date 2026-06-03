@@ -9,16 +9,13 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
-import net.minecraft.item.ItemEnchantedBook;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityMobSpawner;
@@ -311,9 +308,9 @@ public class AncientCityPositiveXLeftBranch2Gen4 extends WorldGenerator
     	
     	PlaceDeepslateBricks = determineIfDeepslateBricksExists(world, i + 10, j + 3, k + 41);
     	PlaceCrackedDeepslateBricks = determineIfCrackedDeepslateBricksExists(world, i + 36, j + 4, k + 13);
-    	PlaceDeepslateTiles = determineIfDeepslateTilesExist(world, i + 21, j + 4, k + 0);
-    	PlaceCrackedDeepslateTiles = determineIfCrackedDeepslateTilesExist(world, i + 23, j + 4, k + 0);
-    	PlaceChiseledDeepslate = determineIfChiseledDeepslateExist(world, i + 10, j + 4, k + 0);
+    	PlaceDeepslateTiles = determineIfDeepslateTilesExist(world, i + 21, j + 4, k);
+    	PlaceCrackedDeepslateTiles = determineIfCrackedDeepslateTilesExist(world, i + 23, j + 4, k);
+    	PlaceChiseledDeepslate = determineIfChiseledDeepslateExist(world, i + 10, j + 4, k);
     	PlacePolishedDeepslate = determineIfPolishedDeepslateExists(world, i + 7, j + 3, k + 41);
     	
     	PlaceDeepslateBrickStairs = determineIfDeepslateBrickStairsExists(world, i + 25, j + 4, k + 5);

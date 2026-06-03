@@ -1,11 +1,6 @@
 package com.NovaCraft.entity;
 
 import java.util.Random;
-
-import com.NovaCraft.Hardmode;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -13,22 +8,19 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.entity.EntityLivingBase;
 
 public class EntityDeathStalker extends EntityMob
 {
 
-    public EntityDeathStalker(World p_i1743_1_)
+    public EntityDeathStalker(World world)
     {
-        super(p_i1743_1_);
+        super(world);
         setSize(0.6F, 1.2F);
     }
 
@@ -108,7 +100,7 @@ public class EntityDeathStalker extends EntityMob
         return super.getSoundPitch() * 0.55f;
     }
 
-    protected void attackEntity(Entity p_70785_1_, float p_70785_2_)
+    protected void attackEntity(Entity entity, float p_70785_2_)
     {
         float f1 = this.getBrightness(1.0F);
 
@@ -122,8 +114,8 @@ public class EntityDeathStalker extends EntityMob
             {
                 if (this.onGround)
                 {
-                    double d0 = p_70785_1_.posX - this.posX;
-                    double d1 = p_70785_1_.posZ - this.posZ;
+                    double d0 = entity.posX - this.posX;
+                    double d1 = entity.posZ - this.posZ;
                     float f2 = MathHelper.sqrt_double(d0 * d0 + d1 * d1);
                     this.motionX = d0 / (double)f2 * 0.5D * 0.800000011920929D + this.motionX * 0.20000000298023224D;
                     this.motionZ = d1 / (double)f2 * 0.5D * 0.800000011920929D + this.motionZ * 0.20000000298023224D;
@@ -132,7 +124,7 @@ public class EntityDeathStalker extends EntityMob
             }
             else
             {
-                super.attackEntity(p_70785_1_, p_70785_2_);
+                super.attackEntity(entity, p_70785_2_);
             }
         }
     }
@@ -156,7 +148,7 @@ public class EntityDeathStalker extends EntityMob
 
     public boolean isPotionApplicable(PotionEffect p_70687_1_)
     {
-        return p_70687_1_.getPotionID() == Potion.poison.id ? false : super.isPotionApplicable(p_70687_1_);
+        return p_70687_1_.getPotionID() != Potion.poison.id && super.isPotionApplicable(p_70687_1_);
     }
 
     public boolean isBesideClimbableBlock()

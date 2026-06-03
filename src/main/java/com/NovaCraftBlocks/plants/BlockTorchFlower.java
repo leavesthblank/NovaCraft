@@ -33,7 +33,7 @@ public class BlockTorchFlower extends BlockBush {
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
 		Block soil = world.getBlock(x, y - 1, z);
-		return soil == Blocks.grass || soil == Blocks.dirt || soil == Blocks.mycelium;
+		return soil == Blocks.grass || soil == Blocks.dirt || soil == Blocks.mycelium || soil == NovaCraftBlocks.moss_block;
 	}
 
 	@Override

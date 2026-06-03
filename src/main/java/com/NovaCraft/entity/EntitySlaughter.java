@@ -1,52 +1,34 @@
 package com.NovaCraft.entity;
 
-
 import java.util.Calendar;
-
 import com.NovaCraft.Items.NovaCraftItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIArrowAttack;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySkeleton;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderHell;
 
-public class EntitySlaughter extends EntitySkeleton
-{
-	//private EntityAIArrowAttack aiArrowAttack = new EntityAIArrowAttack(this, 1.0D, 20, 60, 15.0F);
-	//private EntityAIAttackOnCollide aiAttackOnCollide = new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.2D, false);
-	/*
-	 * We set this to true to force the brightness to be 0 in onLivingUpdate so the husk does not burn.
-	 * It is set back to false after onLivingUpdate, which is nested in onUpdate, so it will not affect
-	 * what other code sees when it gets the entity brightness.
-	 */
+public class EntitySlaughter extends EntitySkeleton {
 	private boolean ignoreSunlight;
 	
-	public EntitySlaughter(final World p_i1745_1_) {
-		super(p_i1745_1_);
+	public EntitySlaughter(final World world) {
+		super(world);
 		getNavigator().setBreakDoors(true);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
@@ -107,14 +89,12 @@ public class EntitySlaughter extends EntitySkeleton
 
         if (this.worldObj.provider instanceof WorldProviderHell)
         {
-            //this.tasks.addTask(4, this.aiAttackOnCollide); //
             this.setSkeletonType(1);
             this.setCurrentItemOrArmor(0, new ItemStack(NovaCraftItems.scythe));
             this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(2.0D);
         }
         else
         {
-            //this.tasks.addTask(4, this.aiArrowAttack);
             this.addRandomArmor();
             this.enchantEquipment();
         }
@@ -134,28 +114,17 @@ public class EntitySlaughter extends EntitySkeleton
 
         return p_110161_1_;
     }
-	
-	
-	
-	 /**
-     * Returns the sound this mob makes while it's alive.
-     */
+
     protected String getLivingSound()
     {
         return "mob.skeleton.say";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
     protected String getHurtSound()
     {
         return "mob.skeleton.hurt";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
     protected String getDeathSound()
     {
         return "mob.skeleton.death";

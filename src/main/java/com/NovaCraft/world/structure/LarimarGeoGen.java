@@ -1,31 +1,23 @@
 package com.NovaCraft.world.structure;
 
 import java.util.Random;
-
-import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.EntityCrystalGolem;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.DungeonHooks;
 
 public class LarimarGeoGen extends WorldGenerator {
 	//Credit Goes to Roadhog360
     
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z) {
-		final float size = (random.nextInt(2) + 6) + random.nextFloat(); //6
+		final float size = (random.nextInt(2) + 6) + random.nextFloat();
 	    final float DISTANCE_COBBLESTONE_SQ = (size * size);
 	    final float DISTANCE_GRIMSTONE_SQ = ((size - 1) * (size - 1));
 	    final float DISTANCE_AMETHYST_SQ = ((size - 2) * (size - 2));

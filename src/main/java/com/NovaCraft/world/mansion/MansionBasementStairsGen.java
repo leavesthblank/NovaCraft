@@ -1,6 +1,5 @@
 package com.NovaCraft.world.mansion;
 
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import net.minecraft.block.Block;
@@ -11,7 +10,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
 import java.util.Random;
 
 public class MansionBasementStairsGen extends WorldGenerator {

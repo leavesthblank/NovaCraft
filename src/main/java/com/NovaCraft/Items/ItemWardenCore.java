@@ -5,7 +5,6 @@ import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.entity.EntityPrisoner;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.resources.I18n;

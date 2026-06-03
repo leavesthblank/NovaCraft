@@ -1,15 +1,8 @@
 package com.NovaCraft.Items;
 
-import java.util.Random;
-
-import com.NovaCraft.Items.Staffs.ItemDiamondFirechargeLauncher;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
-import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

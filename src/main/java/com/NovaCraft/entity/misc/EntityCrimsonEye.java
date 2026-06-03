@@ -177,9 +177,9 @@ public class EntityCrimsonEye extends Entity {
         }
     }
 
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_) {}
+    public void writeEntityToNBT(NBTTagCompound compound) {}
 
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_) {}
+    public void readEntityFromNBT(NBTTagCompound compound) {}
 
     @SideOnly(Side.CLIENT)
     public float getShadowSize() {

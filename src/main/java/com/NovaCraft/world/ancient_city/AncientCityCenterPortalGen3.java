@@ -6,11 +6,8 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
 import net.minecraft.tileentity.TileEntityMobSpawner;
@@ -20,11 +17,6 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 	public AncientCityCenterPortalGen3() {
 
 	}
-	//0 -> deepslate bricks
-	//1 -> cracked deepslate bricks
-	//2 -> deepslate tiles
-	//3 -> cracked deepslate bricks
-	//4 -> chiseled deepslate bricks
 	private static final Block soul_sand = Blocks.soul_sand;
 	private Block PlaceDeepslate;
 	private Block PlaceDeepslateBricks;
@@ -306,7 +298,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 30, j + 8, k + 28, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 31, j + 8, k + 28, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 45, j + 8, k + 28, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 0, j + 8, k + 29, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 29, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 29, PlaceDeepslateTileStairs, 2, 2);
 		world.setBlock(i + 14, j + 8, k + 29, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 15, j + 8, k + 29, PlaceCrackedDeepslateBricks, 1, 2);
@@ -326,7 +318,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 29, j + 8, k + 29, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 30, j + 8, k + 29, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 31, j + 8, k + 29, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 30, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 30, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 30, PlaceDeepslateTileStairs, 3, 2);
 		world.setBlock(i + 14, j + 8, k + 30, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 15, j + 8, k + 30, PlaceDeepslateBricks, 0, 2);
@@ -348,7 +340,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 31, j + 8, k + 30, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 33, j + 8, k + 30, PlacePolishedDeepslate, 0, 2);
 		world.setBlock(i + 42, j + 8, k + 30, PlaceDeepslateTileStairs, 2, 2);
-		world.setBlock(i + 0, j + 8, k + 31, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 31, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 14, j + 8, k + 31, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 15, j + 8, k + 31, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 16, j + 8, k + 31, PlaceDeepslateBricks, 0, 2);
@@ -380,7 +372,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 26, j + 8, k + 32, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 27, j + 8, k + 32, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 28, j + 8, k + 32, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 33, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 33, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 14, j + 8, k + 33, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 15, j + 8, k + 33, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 16, j + 8, k + 33, PlaceCrackedDeepslateBricks, 1, 2);
@@ -397,7 +389,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 27, j + 8, k + 33, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 28, j + 8, k + 33, PlacePolishedDeepslateStairs, 1, 2);
 		world.setBlock(i + 35, j + 8, k + 33, Blocks.planks, 5, 2);
-		world.setBlock(i + 0, j + 8, k + 34, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 34, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 14, j + 8, k + 34, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 15, j + 8, k + 34, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 16, j + 8, k + 34, PlaceDeepslateBricks, 0, 2);
@@ -431,7 +423,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 28, j + 8, k + 35, PlacePolishedDeepslateStairs, 1, 2);
 		world.setBlock(i + 38, j + 8, k + 35, Blocks.planks, 5, 2);
 		world.setBlock(i + 41, j + 8, k + 35, Blocks.planks, 5, 2);
-		world.setBlock(i + 0, j + 8, k + 36, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 36, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 36, PlaceDeepslateTileStairs, 3, 2);
 		world.setBlock(i + 14, j + 8, k + 36, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 15, j + 8, k + 36, PlaceDeepslateBricks, 0, 2);
@@ -448,7 +440,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 26, j + 8, k + 36, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 27, j + 8, k + 36, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 28, j + 8, k + 36, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 37, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 37, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 14, j + 8, k + 37, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 15, j + 8, k + 37, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 16, j + 8, k + 37, PlaceDeepslateBricks, 0, 2);
@@ -465,7 +457,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 27, j + 8, k + 37, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 28, j + 8, k + 37, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 42, j + 8, k + 37, PlaceDeepslateTileStairs, 2, 2);
-		world.setBlock(i + 0, j + 8, k + 38, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 38, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 14, j + 8, k + 38, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 15, j + 8, k + 38, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 16, j + 8, k + 38, PlaceDeepslateBricks, 0, 2);
@@ -486,7 +478,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 31, j + 8, k + 38, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 33, j + 8, k + 38, PlacePolishedDeepslate, 0, 2);
 		world.setBlock(i + 42, j + 8, k + 38, PlaceDeepslateTileStairs, 3, 2);
-		world.setBlock(i + 0, j + 8, k + 39, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 39, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 14, j + 8, k + 39, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 15, j + 8, k + 39, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 16, j + 8, k + 39, PlaceCrackedDeepslateBricks, 1, 2);
@@ -524,7 +516,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 30, j + 8, k + 40, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 31, j + 8, k + 40, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 45, j + 8, k + 40, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 0, j + 8, k + 41, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 41, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 41, PlaceDeepslateTileStairs, 2, 2);
 		world.setBlock(i + 14, j + 8, k + 41, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 15, j + 8, k + 41, PlaceDeepslateBricks, 0, 2);
@@ -545,7 +537,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 30, j + 8, k + 41, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 31, j + 8, k + 41, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 45, j + 8, k + 41, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 0, j + 8, k + 42, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 42, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 42, PlaceDeepslateTileStairs, 3, 2);
 		world.setBlock(i + 14, j + 8, k + 42, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 15, j + 8, k + 42, PlaceDeepslateBricks, 0, 2);
@@ -583,7 +575,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 29, j + 8, k + 43, PlaceDeepslateBrickSlab, 0, 2);
 		world.setBlock(i + 30, j + 8, k + 43, PlaceDeepslateBrickSlab, 0, 2);
 		world.setBlock(i + 31, j + 8, k + 43, PlaceDeepslateBrickSlab, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 44, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 44, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 14, j + 8, k + 44, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 15, j + 8, k + 44, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 16, j + 8, k + 44, PlaceCrackedDeepslateBricks, 1, 2);
@@ -599,7 +591,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 26, j + 8, k + 44, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 27, j + 8, k + 44, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 42, j + 8, k + 44, PlaceDeepslateTileStairs, 2, 2);
-		world.setBlock(i + 0, j + 8, k + 45, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 45, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 14, j + 8, k + 45, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 15, j + 8, k + 45, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 16, j + 8, k + 45, PlaceDeepslateBricks, 0, 2);
@@ -615,7 +607,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 26, j + 8, k + 45, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 27, j + 8, k + 45, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 42, j + 8, k + 45, PlaceDeepslateTileStairs, 3, 2);
-		world.setBlock(i + 0, j + 8, k + 46, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 46, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 14, j + 8, k + 46, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 15, j + 8, k + 46, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 16, j + 8, k + 46, PlaceDeepslateBricks, 0, 2);
@@ -631,7 +623,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 26, j + 8, k + 46, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 27, j + 8, k + 46, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 45, j + 8, k + 46, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 0, j + 8, k + 47, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 47, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 47, PlaceDeepslateTileStairs, 2, 2);
 		world.setBlock(i + 14, j + 8, k + 47, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 15, j + 8, k + 47, PlaceDeepslateBricks, 0, 2);
@@ -663,7 +655,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 25, j + 8, k + 48, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 26, j + 8, k + 48, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 27, j + 8, k + 48, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 49, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 49, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 14, j + 8, k + 49, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 15, j + 8, k + 49, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 16, j + 8, k + 49, PlaceDeepslateBricks, 0, 2);
@@ -678,7 +670,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 25, j + 8, k + 49, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 26, j + 8, k + 49, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 27, j + 8, k + 49, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 50, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 50, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 14, j + 8, k + 50, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 15, j + 8, k + 50, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 16, j + 8, k + 50, PlaceDeepslateBricks, 0, 2);
@@ -709,7 +701,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 26, j + 8, k + 51, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 27, j + 8, k + 51, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 42, j + 8, k + 51, PlaceDeepslateTileStairs, 3, 2);
-		world.setBlock(i + 0, j + 8, k + 52, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 52, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 14, j + 8, k + 52, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 15, j + 8, k + 52, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 16, j + 8, k + 52, PlaceDeepslateBricks, 0, 2);
@@ -725,7 +717,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 26, j + 8, k + 52, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 27, j + 8, k + 52, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 45, j + 8, k + 52, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 0, j + 8, k + 53, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 53, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 53, PlaceDeepslateTileStairs, 2, 2);
 		world.setBlock(i + 14, j + 8, k + 53, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 15, j + 8, k + 53, PlaceDeepslateBricks, 0, 2);
@@ -742,7 +734,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 26, j + 8, k + 53, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 27, j + 8, k + 53, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 45, j + 8, k + 53, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 0, j + 8, k + 54, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 54, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 54, PlaceDeepslateTileStairs, 3, 2);
 		world.setBlock(i + 14, j + 8, k + 54, PlaceDeepslateBricks, 0, 2);
 		world.setBlock(i + 15, j + 8, k + 54, PlaceCrackedDeepslateBricks, 1, 2);
@@ -762,16 +754,16 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 3, j + 8, k + 56, PlaceDeepslateTileStairs, 2, 2);
 		world.setBlock(i + 45, j + 8, k + 56, PlaceDeepslateTileStairs, 1, 2);
 		world.setBlock(i + 3, j + 8, k + 57, PlaceDeepslateTileStairs, 3, 2);
-		world.setBlock(i + 0, j + 8, k + 58, PlaceDeepslateTileStairs, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 59, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 58, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 59, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 42, j + 8, k + 59, PlaceDeepslateTileStairs, 2, 2);
 		world.setBlock(i + 42, j + 8, k + 60, PlaceDeepslateTileStairs, 3, 2);
 		world.setBlock(i + 45, j + 8, k + 61, PlaceDeepslateTileStairs, 1, 2);
 		world.setBlock(i + 3, j + 8, k + 62, PlaceDeepslateTileStairs, 2, 2);
 		world.setBlock(i + 45, j + 8, k + 62, PlaceDeepslateTileStairs, 1, 2);
 		world.setBlock(i + 3, j + 8, k + 63, PlaceDeepslateTileStairs, 3, 2);
-		world.setBlock(i + 0, j + 8, k + 64, PlaceDeepslateTileStairs, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 65, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 64, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i, j + 8, k + 65, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 5, j + 8, k + 65, PlaceDeepslateTileStairs, 0, 2);
 		world.setBlock(i + 6, j + 8, k + 65, PlaceDeepslateTileStairs, 1, 2);
 		world.setBlock(i + 11, j + 8, k + 65, PlaceDeepslateTileStairs, 0, 2);

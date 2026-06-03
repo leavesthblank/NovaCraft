@@ -20,23 +20,23 @@ public class TileEntityLegendaryEnchantmentTable extends TileEntity
     private static Random field_145923_r = new Random();
     private String field_145922_s;
 
-    public void writeToNBT(NBTTagCompound p_145841_1_)
+    public void writeToNBT(NBTTagCompound compound)
     {
-        super.writeToNBT(p_145841_1_);
+        super.writeToNBT(compound);
 
         if (this.func_145921_b())
         {
-            p_145841_1_.setString("CustomName", this.field_145922_s);
+            compound.setString("CustomName", this.field_145922_s);
         }
     }
 
-    public void readFromNBT(NBTTagCompound p_145839_1_)
+    public void readFromNBT(NBTTagCompound compound)
     {
-        super.readFromNBT(p_145839_1_);
+        super.readFromNBT(compound);
 
-        if (p_145839_1_.hasKey("CustomName", 8))
+        if (compound.hasKey("CustomName", 8))
         {
-            this.field_145922_s = p_145839_1_.getString("CustomName");
+            this.field_145922_s = compound.getString("CustomName");
         }
     }
 

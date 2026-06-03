@@ -1,61 +1,31 @@
 package com.NovaCraft.entity;
 
-import java.util.Iterator;
 import java.util.List;
-
 import com.NovaCraft.Hardmode;
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.ServerMessage;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.entity.misc.EntityRayfireball;
-import com.NovaCraft.entity.misc.EntitySculkHornProjectile;
 import com.NovaCraft.entity.misc.EntityWardenProjectile;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.boss.IBossDisplayData;
-import net.minecraft.entity.item.EntityXPOrb;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.entity.projectile.EntityWitherSkull;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -63,16 +33,13 @@ import net.minecraft.world.World;
 public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 {		
 	boolean angry = false;
-	EntityPlayer player;
 	public EntityPrisoner warden;
 	public int shootTime;
-	private boolean projectile;
 	private int field_82222_j;
 	private int[] field_82224_i = new int[2];
-	public int deathTicks;
 	
-	public EntityPrisoner(final World p_i1745_1_) {
-		super(p_i1745_1_);
+	public EntityPrisoner(final World world) {
+		super(world);
 		this.isImmuneToFire = true;
 		setSize(1F, 8F);
 		this.experienceValue = 500;
@@ -100,7 +67,6 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 
 	@Override
 	public void addVelocity(double x, double y, double z) {
-
 	}
 	
 	@Override
@@ -208,8 +174,8 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 		Entity entity2 = source.getEntity();
 		if (entity2 instanceof EntityPlayer)
         {
-		int random1 = (int)(1 + Math.random() * 150);
-       	 if(random1 <= 25 ) {
+		int summon_chance = (int)(1 + Math.random() * 150);
+       	 if(summon_chance <= 25 ) {
        		this.playSound("nova_craft:sculk.break", 0.5f, 1.0f);
        		EntityNulk nulk = new EntityNulk(this.worldObj);
     		nulk.setLocationAndAngles(this.posX + 3, this.posY, this.posZ, this.rotationYaw, 0.0F);
@@ -228,7 +194,7 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
                 }
                
        		}
-       	if(random1 > 25 && random1 <= 50) {
+       	if(summon_chance > 25 && summon_chance <= 50) {
        		this.playSound("nova_craft:sculk.break", 1.0f, 1.0f);
        		EntityNuxx nuxx = new EntityNuxx(this.worldObj);
        		nuxx.setLocationAndAngles(this.posX + 3, this.posY, this.posZ, this.rotationYaw, 0.0F);
@@ -256,7 +222,7 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
                
        		}
        	
-       	if(random1 > 50 && random1 <= 100) {
+       	if(summon_chance > 50 && summon_chance <= 100) {
        		this.playSound("nova_craft:sculk.break", 1.0f, 1.0f);
        		EntityOutsiderEye outsider = new EntityOutsiderEye(this.worldObj);
        		outsider.setLocationAndAngles(this.posX + 30, this.posY, this.posZ, this.rotationYaw, 0.0F);
@@ -281,10 +247,6 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
                if (!this.worldObj.isRemote) {
                    this.worldObj.spawnEntityInWorld(outsider2);
                }
-       		}
-       	
-       	if(random1 > 100 && random1 <= 150) {
-       		
        		}
         }
 		
@@ -378,7 +340,7 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 
             	World world = MinecraftServer.getServer().worldServers[0];
                 Hardmode data = Hardmode.get(world);
-                if (data.getHardmode() == true) {
+                if (data.getHardmode()) {
                 	target.attackEntityFrom(DamageSource.causeMobDamage(this), 48.0F);
                 	target.attackEntityFrom(DamageSource.magic, 12.0F);
                 } 
@@ -391,7 +353,7 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
             else {
             	World world = MinecraftServer.getServer().worldServers[0];
                 Hardmode data = Hardmode.get(world);
-                if (data.getHardmode() == true) {
+                if (data.getHardmode()) {
                 	target.attackEntityFrom(DamageSource.causeMobDamage(this), 84.0F);
                 	target.attackEntityFrom(DamageSource.magic, 14.0F);
                 	target.attackEntityFrom(DamageSource.wither, 3.0F);
@@ -467,21 +429,14 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	    }
 	}
 	
-	private void createloot(int p_70975_1_, int p_70975_2_, int p_70975_3_)
+	private boolean shouldAttackPlayer(EntityPlayer entityPlayer)
     {
-		this.worldObj.setBlock(p_70975_1_, p_70975_2_, p_70975_3_, NovaCraftBlocks.sculk_chest);
-		this.worldObj.setBlock(p_70975_1_, p_70975_2_ + 1, p_70975_3_, NovaCraftBlocks.sculk_chest);
-    }
-	
-	private boolean shouldAttackPlayer(EntityPlayer p_70821_1_)
-    {
-        
-            Vec3 vec3 = p_70821_1_.getLook(1.0F).normalize();
-            Vec3 vec31 = Vec3.createVectorHelper(this.posX - p_70821_1_.posX, this.boundingBox.minY + (double)(this.height / 2.0F) - (p_70821_1_.posY + (double)p_70821_1_.getEyeHeight()), this.posZ - p_70821_1_.posZ);
+            Vec3 vec3 = entityPlayer.getLook(1.0F).normalize();
+            Vec3 vec31 = Vec3.createVectorHelper(this.posX - entityPlayer.posX, this.boundingBox.minY + (double)(this.height / 2.0F) - (entityPlayer.posY + (double)entityPlayer.getEyeHeight()), this.posZ - entityPlayer.posZ);
             double d0 = vec31.lengthVector();
             vec31 = vec31.normalize();
             double d1 = vec3.dotProduct(vec31);
-            return d1 > 1.0D - 0.025D / d0 && p_70821_1_.canEntityBeSeen(this);
+            return d1 > 1.0D - 0.025D / d0 && entityPlayer.canEntityBeSeen(this);
         
     }
 
@@ -490,8 +445,6 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 		if (this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) return;
 
 		EntityWardenProjectile projectile = new EntityWardenProjectile(this.worldObj, this);
-
-		// Spawn slightly in front of the Warden so it doesn’t hit itself
 		projectile.posX += projectile.motionX * 1.5D;
 		projectile.posY += projectile.motionY * 1.5D;
 		projectile.posZ += projectile.motionZ * 1.5D;
@@ -501,7 +454,7 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 		this.playSound("nova_craft:sculk_horn.vibration", 2.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
 	}
 	
-	 protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+	 protected void dropFewItems(boolean p_70628_1_, int chance)
 	    {
 		 	int j;
 		 	int k;
@@ -509,11 +462,11 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	        this.entityDropItem(new ItemStack(NovaCraftItems.prisoner_eye), 0.5F);
 	        this.entityDropItem(new ItemStack(NovaCraftItems.unknown_star), 0.5F);	       
 	        
-	        j = this.rand.nextInt(3 + p_70628_2_);
+	        j = this.rand.nextInt(3 + chance);
 
 	        for (k = 0; k < j; ++k)
 	        {
-	        	this.dropItem(NovaCraftItems.outsider_essence, 12 + p_70628_2_);
+	        	this.dropItem(NovaCraftItems.outsider_essence, 12 + chance);
 	        }
 	    }
 	
@@ -522,7 +475,7 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
         return EnumCreatureAttribute.UNDEFINED;
     }
 	
-	protected void dropRareDrop(int p_70600_1_)
+	protected void dropRareDrop(int chance)
     {    
        this.dropItem(NovaCraftItems.warden_tentacle, 2);
        this.dropItem(NovaCraftItems.warden_heart, 1);

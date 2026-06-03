@@ -3,10 +3,8 @@ package com.NovaCraft.world.end;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-
 import com.NovaCraft.config.ConfigsStructures;
 import com.NovaCraft.config.ConfigsWorld;
-import com.NovaCraft.world.structure.YttrlinsiteGeoGen;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.plants.end.BlockLacunaFruit;
 import cpw.mods.fml.common.IWorldGenerator;

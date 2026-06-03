@@ -1,16 +1,13 @@
 package com.NovaCraft.world.structure;
 
 import java.lang.reflect.Field;
-
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.ChunkProviderGenerate;
-import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.ChunkProviderServer;
 import net.minecraft.world.gen.MapGenRavine;
 import net.minecraftforge.event.world.WorldEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import com.NovaCraft.world.structure.NCRavineWorldGen;
 
 public class WorldGenRavineInjector {
 
